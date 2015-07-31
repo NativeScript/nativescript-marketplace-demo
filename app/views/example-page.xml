@@ -1,0 +1,8 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
+  <Page.actionBar>
+    <ActionBar title="{{ title }}">
+      <NavigationButton tap="navigateBack"/>
+    </ActionBar>
+  </Page.actionBar>
+  <Image src="~/images/empty.png" stretch="fill" margin="10"/>
+</Page>

@@ -1,0 +1,37 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+  <Page.actionBar>
+    <ActionBar title="NativeScript Demos" />
+  </Page.actionBar>
+  
+  <GridLayout rows="auto, 160, auto, *">
+    <Label text="Featured Examples" cssClass="title" />
+    <ScrollView orientation="horizontal" row="1">
+      <Repeater items="{{ featuredExamples }}">
+        <Repeater.itemsLayout>
+          <StackLayout orientation="horizontal" />
+        </Repeater.itemsLayout>
+        <Repeater.itemTemplate>
+          <GridLayout rows="auto, auto" tap="navigateToExample">
+            <Image src="{{ image }}" cssClass="example-image-big" />
+            <Label text="{{ title }}" cssClass="example-title" row="1" />
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </ScrollView>
+    
+    <Label text="All Controls" cssClass="title" row="2" />
+    <ScrollView orientation="vertical" row="3">
+      <Repeater items="{{ exampleGroups }}" row="3">
+        <Repeater.itemsLayout>
+          <StackLayout />
+        </Repeater.itemsLayout>
+        <Repeater.itemTemplate>
+          <GridLayout rows="auto, auto" tap="navigateToExampleGroup">
+            <Image src="{{ image }}" cssClass="example-image-small" />
+            <Label text="{{ title }}" cssClass="example-title" row="1" />
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </ScrollView>
+  </GridLayout>
+</Page>
