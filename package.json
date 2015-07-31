@@ -1,0 +1,8 @@
+{
+	"nativescript": {
+		"id": "org.nativescript.nativescriptmarketplacedemo",
+		"tns-android": {
+			"version": "1.2.0"
+		}
+	}
+}

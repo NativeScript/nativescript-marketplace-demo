@@ -1,0 +1,6 @@
+.DS_Store
+/platforms/
+/lib/
+
+/app/**/*.js
+!/app/tns_modules/*.js
