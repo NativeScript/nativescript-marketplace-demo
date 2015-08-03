@@ -3,6 +3,11 @@
     margin: 10;
 }
 
+.info {
+    font-size: 16;
+    margin: 10;
+    background-color: white;
+}
 
 .example-image-big {
     width: 100;
@@ -28,4 +33,12 @@
 
 .drawerItem {
     margin: 10;
+}
+
+.selected-example {
+    background-color: lightgray;
+}
+
+.unselected-example {
+    background-color: white;
 }
