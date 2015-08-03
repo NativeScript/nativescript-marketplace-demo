@@ -5,7 +5,7 @@
     </ActionBar>
   </Page.actionBar>
   <GridLayout>
-    <GridLayout id="example-group-container" opacity="0" rows="auto,auto,auto,auto,*">
+    <GridLayout id="info-view" opacity="0" visibility="collapsed" rows="auto,auto,auto,auto,*">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
       <TextView text="{{ currentExample, currentExample.info }}" row="1" editable="false" cssClass="info" />
       <Button text="View code" row="2" />
@@ -24,8 +24,10 @@
         </Repeater>
       </ScrollView>
     </GridLayout>
-    <GridLayout id="sigle-example-container">
-      <Image src="~/images/empty.png" stretch="fill" margin="10" />
+    <GridLayout id="example-view">
+      <GridLayout id="example-container">
+        <!-- example will be loaded here -->
+      </GridLayout>
       <Button verticalAlignment="bottom" horizontalAlignment="center" text="^" tap="toggleInfo" />
     </GridLayout>
   </GridLayout>

@@ -22,6 +22,10 @@ class ExampleViewModel extends observable.Observable implements examplesVM.Examp
 	get isFeatured(): boolean {
 		return this._example.isFeatured;
 	}
+
+	get path(): string {
+		return this._example.path;
+	}
 }
 
 export class ExamplePageViewModel extends observable.Observable {

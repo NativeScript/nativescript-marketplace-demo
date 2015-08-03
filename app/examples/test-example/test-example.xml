@@ -1,0 +1,3 @@
+<GridLayout xmlns:customControls="xml-declaration/mymodule" loaded="exampleLoaded">
+  <Button text="EXAMPLEEEE!" tap="exampleTap" margin="20 20 60 20" /> 
+</GridLayout>

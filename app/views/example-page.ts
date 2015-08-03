@@ -1,14 +1,18 @@
 import pages = require("ui/page");
 import view = require("ui/core/view");
+import label = require("ui/label");
 import gestures = require("ui/gestures");
+import grid = require("ui/layouts/grid-layout");
 import observable = require("data/observable");
-import navigator = require("../common/navigator");
 import animations = require("ui/animation");
+import builder = require("ui/builder");
+import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-view-model")
 import examplePageVM = require("../view-models/example-page-view-model")
 
-var singleContainerID = "sigle-example-container";
-var groupContainerID = "example-group-container";
+var exampleContainerID = "example-container";
+var exampleViewID = "example-view";
+var infoViewID = "info-view";
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatedTo(args: pages.NavigatedData) {
@@ -48,8 +52,8 @@ export function selectExample(args: gestures.GestureEventData) {
 }
 
 function switchViews(page: pages.Page, switchToInfo: boolean) {
-    var singleConainer = page.getViewById(singleContainerID);
-    var groupContainer = page.getViewById(groupContainerID);
+    var singleConainer = page.getViewById(exampleViewID);
+    var groupContainer = page.getViewById(infoViewID);
 
     var duaration = 150;
     var anim: Array<animations.AnimationDefinition>;
@@ -65,9 +69,37 @@ function switchViews(page: pages.Page, switchToInfo: boolean) {
             { target: singleConainer, opacity: 1, duration: duaration },
         ];
     }
-    new animations.Animation(anim, true).play();
+
+    groupContainer.visibility = "visible";
+    singleConainer.visibility = "visible";
+    new animations.Animation(anim, true).play().finished.then(() => {
+        groupContainer.visibility = switchToInfo ? "visible" : "collapsed";
+        singleConainer.visibility = switchToInfo ? "collapsed" : "visible";
+    });
 }
 
 function loadExample(page: pages.Page, example: examplesVM.Example) {
-    console.log("loading example: " + example.title);
+    console.log("Loading example: " + example.title);
+    var container = <grid.GridLayout>page.getViewById(exampleContainerID);
+    var currentExample = container.getChildAt(0);
+    if (currentExample) {
+        console.log("Removing previous example from container");
+
+        container.removeChild(currentExample)
+    }
+
+    if (example.path) {
+        var newExample = builder.load({
+            path: example.path,
+            name: ""
+        });
+        container.addChild(newExample);
+    }
+    else {
+        var msg = "Example '" + example.title + "' has no path defined.";
+        console.log(msg);
+        var lbl = new label.Label();
+        lbl.text = msg;
+        container.addChild(lbl);
+    }
 }

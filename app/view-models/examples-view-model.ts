@@ -1,5 +1,6 @@
 export interface Example {
 	title: string;
+	path?: string;
 	isFeatured?: boolean;
 	info?: string;
 	image?: string;
@@ -13,7 +14,10 @@ export var exampleGroups: Array<ExampleGroup> = [
 		title: "example group 1",
 		image: "~/images/empty.png",
 		examples: [
-			{ title: "example 1", image: "~/images/empty.png", isFeatured: true, info: "Few sentences of example information. Few sentences of example information. Few sentences of example information." },
+			{ title: "example 1",
+				image: "~/images/empty.png", 
+				path:"~/examples/test-example/test-example",
+				isFeatured: true, info: "Few sentences of example information. Few sentences of example information. Few sentences of example information." },
 			{ title: "example 2.1", image: "~/images/empty.png" },
 			{ title: "example 2.2", image: "~/images/empty.png" },
 			{ title: "example 2.3", image: "~/images/empty.png" },
