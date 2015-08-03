@@ -20,3 +20,12 @@
 .example-title {
     margin-left: 10;
 }
+
+.drawerContent {
+    background-color: white;
+    vertical-align: top;
+}
+
+.drawerItem {
+    margin: 10;
+}

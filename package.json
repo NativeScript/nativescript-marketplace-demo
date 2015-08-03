@@ -1,8 +1,11 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.nativescriptmarketplacedemo",
-		"tns-android": {
-			"version": "1.2.0"
-		}
-	}
+  "nativescript": {
+    "id": "org.nativescript.nativescriptmarketplacedemo",
+    "tns-android": {
+      "version": "1.2.0"
+    }
+  },
+  "dependencies": {
+    "nativescript-telerik-ui": "0.0.4"
+  }
 }
