@@ -2,8 +2,10 @@ export interface Example {
 	title: string;
 	path?: string;
 	isFeatured?: boolean;
+	isNew?: boolean;
 	info?: string;
 	image?: string;
+	controls?: Array<string>;
 }
 export interface ExampleGroup extends Example {
 	examples: Array<Example>;
@@ -13,15 +15,17 @@ export var exampleGroups: Array<ExampleGroup> = [
 	{
 		title: "example group 1",
 		image: "~/images/empty.png",
+		isNew: true,
 		examples: [
 			{ title: "example 1",
 				image: "~/images/empty.png", 
 				path:"~/examples/test-example/test-example",
-				isFeatured: true, info: "Few sentences of example information. Few sentences of example information. Few sentences of example information." },
-			{ title: "example 2.1", image: "~/images/empty.png" },
-			{ title: "example 2.2", image: "~/images/empty.png" },
-			{ title: "example 2.3", image: "~/images/empty.png" },
-			{ title: "example 2.4", image: "~/images/empty.png" }
+				controls: ["button", "label", "switch"],
+				isFeatured: true, info: "Few sentences of example information. Few sentences of example information." },
+			{ title: "example 2.1", image: "~/images/empty.png", controls: ["button", "label"] },
+			{ title: "example 2.2", image: "~/images/empty.png", controls: ["button", "label", "switch"] },
+			{ title: "example 2.3", image: "~/images/empty.png", controls: ["button"] },
+			{ title: "example 2.4", image: "~/images/empty.png", controls: ["button"] }
 		]
 	},
 
@@ -30,7 +34,7 @@ export var exampleGroups: Array<ExampleGroup> = [
 		image: "~/images/empty.png",
 		examples: [
 			{ title: "example 3", image: "~/images/empty.png" },
-			{ title: "example 4", image: "~/images/empty.png", isFeatured: true }
+			{ title: "example 4", image: "~/images/empty.png", isFeatured: true, controls: ["button"], isNew: true}
 		]
 	},
 

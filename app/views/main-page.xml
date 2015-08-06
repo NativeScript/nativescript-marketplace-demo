@@ -3,38 +3,6 @@
     <ActionBar title="NativeScript Demos" />
   </Page.actionBar>
   <drawer:SideDrawer drawerLocation="Bottom">
-    <drawer:SideDrawer.mainContent>
-      <GridLayout rows="auto, 160, auto, *">
-        <Label text="Featured Examples" cssClass="title" />
-        <ScrollView orientation="horizontal" row="1">
-          <Repeater items="{{ featuredExamples }}">
-            <Repeater.itemsLayout>
-              <StackLayout orientation="horizontal" />
-            </Repeater.itemsLayout>
-            <Repeater.itemTemplate>
-              <GridLayout rows="auto, auto" tap="navigateToExample">
-                <Image src="{{ image }}" cssClass="example-image-big" />
-                <Label text="{{ title }}" cssClass="example-title" row="1" />
-              </GridLayout>
-            </Repeater.itemTemplate>
-          </Repeater>
-        </ScrollView>
-        <Label text="All Controls" cssClass="title" row="2" />
-        <ScrollView orientation="vertical" row="3">
-          <Repeater items="{{ exampleGroups }}" row="3">
-            <Repeater.itemsLayout>
-              <StackLayout />
-            </Repeater.itemsLayout>
-            <Repeater.itemTemplate>
-              <GridLayout rows="auto, auto" tap="navigateToExampleGroup">
-                <Image src="{{ image }}" cssClass="example-image-small" />
-                <Label text="{{ title }}" cssClass="example-title" row="1" />
-              </GridLayout>
-            </Repeater.itemTemplate>
-          </Repeater>
-        </ScrollView>
-      </GridLayout>
-    </drawer:SideDrawer.mainContent>
     <drawer:SideDrawer.drawerContent>
       <StackLayout cssClass="drawerContent">
         <Label cssClass="drawerItem" text="About" />
@@ -44,5 +12,47 @@
         <Label cssClass="drawerItem" text="Send Feedback" />
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
+    <drawer:SideDrawer.mainContent>
+      <GridLayout rows="auto, auto, *" columns="*">
+        <!-- Segmented bar navigation -->
+        <SegmentedBar selectedIndex="{{ selectedScreen }}">
+          <SegmentedBar.items>
+            <SegmentedBarItem title="Featured examples" />
+            <SegmentedBarItem title="All controls" />
+          </SegmentedBar.items>
+        </SegmentedBar>
+        <!-- Show New filter -->
+        <StackLayout orientation="horizontal" horizontalAlignment="right" row="1">
+          <Label text="Show only new" />
+          <Switch checked="{{ showOnlyNew }}" />
+        </StackLayout>
+        <!-- Featured examples -->
+        <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
+          <ScrollView>
+            <Repeater items="{{ featuredExamples }}">
+              <Repeater.itemTemplate>
+                <GridLayout rows="auto, auto, *" columns="auto, *" tap="navigateToExample" margin="10" height="120">
+                  <Image rowSpan="3" src="{{ image }}" cssClass="example-image-big" />
+                  <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
+                  <Label col="1" horizontalAlignment="right" text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+                  <TextView col="1" row="1" text="{{ info }}" editable="false" cssClass="info" />
+                </GridLayout>
+              </Repeater.itemTemplate>
+            </Repeater>
+          </ScrollView>
+        </GridLayout>
+        <!-- All examples -->
+        <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
+          <Repeater items="{{ exampleGroups }}">
+            <Repeater.itemTemplate>
+              <StackLayout tap="navigateToExampleGroup" orientation="horizontal" margin="10">
+                <Label text="{{ title }}" cssClass="example-title" />
+                <Label text="new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+              </StackLayout>
+            </Repeater.itemTemplate>
+          </Repeater>
+        </GridLayout>
+      </GridLayout>
+    </drawer:SideDrawer.mainContent>
   </drawer:SideDrawer>
 </Page>

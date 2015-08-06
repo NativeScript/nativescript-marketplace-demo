@@ -1,12 +1,5 @@
 ﻿.title {
     font-size: 24;
-    margin: 10;
-}
-
-.info {
-    font-size: 16;
-    margin: 10;
-    background-color: white;
 }
 
 .example-image-big {
@@ -23,7 +16,12 @@
 }
 
 .example-title {
-    margin-left: 10;
+    font-size: 20;
+}
+
+.info {
+    font-size: 12;
+    background-color: white;
 }
 
 .drawerContent {
@@ -41,4 +39,10 @@
 
 .unselected-example {
     background-color: white;
+}
+
+.new {
+    font-weight: bold;
+    margin-left: 10;
+    vertical-align: center;
 }
