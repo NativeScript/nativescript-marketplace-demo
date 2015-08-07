@@ -1,5 +1,5 @@
 import observable = require("data/observable");
-import examplesVM = require("./examples-view-model");
+import examplesVM = require("./examples-model");
 
 class ExampleViewModel extends observable.Observable implements examplesVM.Example {
 	isSelected: boolean;
@@ -22,34 +22,30 @@ class ExampleViewModel extends observable.Observable implements examplesVM.Examp
 	get isFeatured(): boolean {
 		return this._example.isFeatured;
 	}
-	
+
 	get isNew(): boolean {
 		return this._example.isNew;
 	}
-	
+
 	get path(): string {
 		return this._example.path;
+	}
+
+	get controls(): Array<string> {
+		return this._example.controls;
 	}
 }
 
 export class ExamplePageViewModel extends observable.Observable {
 
-	constructor(example: examplesVM.Example) {
+	constructor(example: examplesVM.Example, controls: Array<string>) {
 		super();
 
 		if (!example) {
 			throw new Error("Cannot create view model with no example");
 		}
 
-		var group = examplesVM.exampleGroups.filter((g) => {
-			return g.examples.indexOf(example) >= 0;
-		})[0];
-
-		if (!group) {
-			throw new Error("Could not find example group");
-		}
-
-		this._examples = group.examples.map<ExampleViewModel>((e) => {
+		this._examples = examplesVM.filterExamples(controls).map<ExampleViewModel>((e) => {
 			var exVM = new ExampleViewModel(e);
 			if (e === example) {
 				exVM.isSelected = true;

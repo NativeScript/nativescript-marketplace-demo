@@ -16,8 +16,8 @@
             <StackLayout orientation="horizontal" />
           </Repeater.itemsLayout>
           <Repeater.itemTemplate>
-            <GridLayout rows="auto, auto" tap="selectExample" cssClass="{{ isSelected ? 'selected-example' : 'unselected-example' }}">
-              <Image src="{{ image }}" cssClass="example-image-big" />
+            <GridLayout rows="auto, auto" tap="exampleTap" cssClass="{{ isSelected ? 'selected-example' : 'unselected-example' }}">
+              <Image src="{{ image }}" cssClass="example-image"/>
               <Label text="{{ title }}" cssClass="example-title" row="1" />
             </GridLayout>
           </Repeater.itemTemplate>

@@ -1,6 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded">
   <Page.actionBar>
-    <ActionBar title="NativeScript Demos" />
+    <ActionBar title="NativeScript Examples" />
   </Page.actionBar>
   <drawer:SideDrawer drawerLocation="Bottom">
     <drawer:SideDrawer.drawerContent>
@@ -22,26 +22,27 @@
           </SegmentedBar.items>
         </SegmentedBar>
         <!-- Show New filter -->
-        <StackLayout orientation="horizontal" horizontalAlignment="right" row="1">
-          <Label text="Show only new" />
-          <Switch checked="{{ showOnlyNew }}" />
+        <StackLayout orientation="horizontal" horizontalAlignment="right" row="1" margin="4 0 0 0">
+          <Label text="Show only new" verticalAlignment="center"/>
+          <Switch checked="{{ showOnlyNew }}" verticalAlignment="center"/>
         </StackLayout>
         <!-- Featured examples -->
         <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <ScrollView>
             <Repeater items="{{ featuredExamples }}">
               <Repeater.itemTemplate>
-                <GridLayout rows="auto, auto, *" columns="auto, *" tap="navigateToExample" margin="10">
-                  <Image rowSpan="3" src="{{ image }}" cssClass="example-image-big"  verticalAlignment="top" horizontalAlignment="left"/>
+                <GridLayout rows="auto, auto, *" columns="auto, *" tap="navigateToExample" cssClass="example-item" 
+                  visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+                  <Image rowSpan="3" src="{{ image }}" cssClass="list-example-image" />
                   <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
                   <Label col="1" horizontalAlignment="right" text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
-                  <TextView col="1" row="1" text="{{ info }}" editable="false" cssClass="info" />
+                  <TextView col="1" row="1" text="{{ info }}" editable="false" cssClass="info" tap="navigateToExample"/>
                   <Repeater col="1" row="2" verticalAlignment="bottom" items="{{ controls }}">
                     <Repeater.itemsLayout>
                       <WrapLayout />
                     </Repeater.itemsLayout>
                     <Repeater.itemTemplate>
-                        <Label text="{{ $value }}" cssClass="control" />
+                      <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
                     </Repeater.itemTemplate>
                   </Repeater>
                 </GridLayout>
@@ -53,7 +54,8 @@
         <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <Repeater items="{{ exampleGroups }}">
             <Repeater.itemTemplate>
-              <StackLayout tap="navigateToExampleGroup" orientation="horizontal" margin="10">
+              <StackLayout tap="navigateToExampleGroup" orientation="horizontal" margin="10"
+                visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
                 <Label text="{{ title }}" cssClass="example-title" />
                 <Label text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
               </StackLayout>

@@ -1,18 +1,20 @@
-import examplesVM = require("../view-models/examples-view-model")
+import examplesVM = require("../view-models/examples-model")
+import groupVM = require("../view-models/group-page-view-model")
+import examplePageVM = require("../view-models/example-page-view-model");
 import frame = require("ui/frame");
 
-export function navigateToExampleGroup(exampleGroup: examplesVM.ExampleGroup) {
+export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
     frame.topmost().navigate({
         animated: true,
-        context: exampleGroup,
-        moduleName: "views/example-group-page",
+        context: context,
+        moduleName: "views/group-page",
     })
 }
 
-export function navigateToExample(example: examplesVM.Example) {
+export function navigateToExample(context: examplePageVM.ExamplePageViewModel) {
     frame.topmost().navigate({
         animated: true,
-        context: example,
+        context: context,
         moduleName: "views/example-page",
     })
 }
