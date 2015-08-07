@@ -149,7 +149,7 @@ var Repeater = (function (_super) {
         }
     };
     Repeater.prototype.onLayout = function (left, top, right, bottom) {
-        viewModule.View.layoutChild(this, this.itemsLayout, 0, 0, right, bottom);
+        viewModule.View.layoutChild(this, this.itemsLayout, 0, 0, right - left, bottom - top);
     };
     Repeater.prototype.onMeasure = function (widthMeasureSpec, heightMeasureSpec) {
         var result = viewModule.View.measureChild(this, this.itemsLayout, widthMeasureSpec, heightMeasureSpec);
