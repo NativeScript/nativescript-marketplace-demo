@@ -21,7 +21,7 @@ export var exampleGroups: Array<ExampleGroup> = [
 				image: "~/images/empty.png", 
 				path:"~/examples/test-example/test-example",
 				controls: ["button", "label", "switch"],
-				// isFeatured: true, 
+				isFeatured: true, 
 				info: "Few sentences of example information. Few sentences of example information." },
 			{ title: "example 2.1", image: "~/images/empty.png", controls: ["button", "label"] },
 			{ title: "example 2.2", image: "~/images/empty.png", controls: ["button", "label", "switch"] },

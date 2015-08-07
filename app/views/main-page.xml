@@ -32,7 +32,7 @@
             <Repeater items="{{ featuredExamples }}">
               <Repeater.itemTemplate>
                 <GridLayout rows="auto, auto, *" columns="auto, *" tap="navigateToExample" margin="10">
-                  <Image rowSpan="3" src="{{ image }}" cssClass="example-image-big" />
+                  <Image rowSpan="3" src="{{ image }}" cssClass="example-image-big"  verticalAlignment="top" horizontalAlignment="left"/>
                   <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
                   <Label col="1" horizontalAlignment="right" text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
                   <TextView col="1" row="1" text="{{ info }}" editable="false" cssClass="info" />
