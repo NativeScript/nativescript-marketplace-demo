@@ -21,7 +21,8 @@ export var exampleGroups: Array<ExampleGroup> = [
 				image: "~/images/empty.png", 
 				path:"~/examples/test-example/test-example",
 				controls: ["button", "label", "switch"],
-				isFeatured: true, info: "Few sentences of example information. Few sentences of example information." },
+				// isFeatured: true, 
+				info: "Few sentences of example information. Few sentences of example information." },
 			{ title: "example 2.1", image: "~/images/empty.png", controls: ["button", "label"] },
 			{ title: "example 2.2", image: "~/images/empty.png", controls: ["button", "label", "switch"] },
 			{ title: "example 2.3", image: "~/images/empty.png", controls: ["button"] },
@@ -33,7 +34,7 @@ export var exampleGroups: Array<ExampleGroup> = [
 		title: "example group 2",
 		image: "~/images/empty.png",
 		examples: [
-			{ title: "example 3", image: "~/images/empty.png" },
+			{ title: "example 3", image: "~/images/empty.png", isFeatured: true, controls: ["button", "control 1", "control 2", "control 3", "control 4", "control 5", "control 6"] },
 			{ title: "example 4", image: "~/images/empty.png", isFeatured: true, controls: ["button"], isNew: true}
 		]
 	},

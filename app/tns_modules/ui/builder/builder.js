@@ -58,16 +58,14 @@ function parseInternal(value, context) {
         if (templateBuilder) {
             if (args.eventType === xml.ParserEventType.StartElement) {
                 templateBuilder.addStartElement(args.prefix, args.namespace, args.elementName, args.attributes);
-            }
-            else if (args.eventType === xml.ParserEventType.EndElement) {
-                if (templateBuilder.elementName !== args.elementName) {
-                    templateBuilder.addEndElement(args.prefix, args.elementName);
-                }
-                else {
+            } else if (args.eventType === xml.ParserEventType.EndElement) {
+                templateBuilder.addEndElement(args.prefix, args.elementName);
+                if (templateBuilder.hasFinished()) {
                     templateBuilder.build();
                     templateBuilder = undefined;
                 }
             }
+            return;
         }
         var parent = parents[parents.length - 1];
         var complexProperty = complexProperties[complexProperties.length - 1];

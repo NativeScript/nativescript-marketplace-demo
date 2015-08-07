@@ -5,7 +5,7 @@
 .example-image-big {
     width: 100;
     height: 100;
-    margin: 10;
+    margin-right: 10;
 }
 
 .example-image-small {
@@ -45,4 +45,11 @@
     font-weight: bold;
     margin-left: 10;
     vertical-align: center;
+}
+
+.control {
+    margin: 0 4;
+    font-size: 12;
+    font-weight: bold;
+    color: steelblue;
 }
