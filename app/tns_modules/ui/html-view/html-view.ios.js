@@ -24,7 +24,7 @@ var HtmlView = (function (_super) {
     function HtmlView(options) {
         _super.call(this, options);
         this._ios = new UILabel();
-        _super.prototype._prepareNativeView.call(this, this._ios);
+        this._ios.userInteractionEnabled = true;
     }
     Object.defineProperty(HtmlView.prototype, "ios", {
         get: function () {

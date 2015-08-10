@@ -49,7 +49,7 @@ var PropertyMetadata = (function () {
     function PropertyMetadata(defaultValue, options, onChanged, onValidateValue, equalityComparer) {
         this._defaultValue = defaultValue;
         this._options = options;
-        if (types.isUndefined(this._options)) {
+        if (types.isNullOrUndefined(this._options)) {
             this._options = PropertyMetadataSettings.None;
         }
         this._onChanged = onChanged;

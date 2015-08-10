@@ -1,4 +1,3 @@
-var viewModule = require("ui/core/view");
 var constants = require("ui/styling/visual-state-constants");
 var observable = require("ui/core/dependency-observable");
 var styleProperty = require("ui/styling/style-property");
@@ -17,7 +16,7 @@ var VisualState = (function () {
 })();
 exports.VisualState = VisualState;
 function goToState(view, state) {
-    var root = viewModule.getAncestor(view, "Page");
+    var root = view.page;
     if (!root) {
         return undefined;
     }

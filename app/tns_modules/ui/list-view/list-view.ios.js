@@ -44,8 +44,7 @@ var DataSource = (function (_super) {
         this._owner._prepareCell(cell, indexPath);
         var cellView = cell.view;
         if (cellView) {
-            var specs = this._owner._getCurrentMeasureSpecs();
-            var width = utils.layout.getMeasureSpecSize(specs.widthMeasureSpec);
+            var width = utils.layout.getMeasureSpecSize(this._owner.widthMeasureSpec);
             var cellHeight = this._owner.getHeight(indexPath.row);
             view.View.layoutChild(this._owner, cellView, 0, 0, width, cellHeight);
         }
@@ -111,6 +110,7 @@ var ListView = (function (_super) {
         _super.call(this);
         this._preparingCell = false;
         this._isDataDirty = false;
+        this.widthMeasureSpec = 0;
         this._ios = new UITableView();
         this._ios.registerClassForCellReuseIdentifier(ListViewCell.class(), CELLIDENTIFIER);
         this._ios.autoresizesSubviews = false;
@@ -162,6 +162,7 @@ var ListView = (function (_super) {
         }
     };
     ListView.prototype.measure = function (widthMeasureSpec, heightMeasureSpec) {
+        this.widthMeasureSpec = widthMeasureSpec;
         var changed = this._setCurrentMeasureSpecs(widthMeasureSpec, heightMeasureSpec);
         _super.prototype.measure.call(this, widthMeasureSpec, heightMeasureSpec);
         if (changed) {
@@ -170,8 +171,7 @@ var ListView = (function (_super) {
     };
     ListView.prototype._layoutCell = function (cellView, indexPath) {
         if (cellView) {
-            var widthMeasureSpecs = this._getCurrentMeasureSpecs().widthMeasureSpec;
-            var measuredSize = view.View.measureChild(this, cellView, widthMeasureSpecs, infinity);
+            var measuredSize = view.View.measureChild(this, cellView, this.widthMeasureSpec, infinity);
             var height = measuredSize.measuredHeight;
             this.setHeight(indexPath.row, height);
             return height;

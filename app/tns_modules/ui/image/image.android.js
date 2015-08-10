@@ -44,7 +44,7 @@ var Image = (function (_super) {
         configurable: true
     });
     Image.prototype._createUI = function () {
-        this._android = new android.widget.ImageView(this._context);
+        this._android = new org.nativescript.widgets.ImageView(this._context);
     };
     Image.prototype._setNativeImage = function (nativeImage) {
         this.android.setImageBitmap(nativeImage);

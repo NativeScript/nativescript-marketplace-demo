@@ -1,5 +1,4 @@
 var common = require("ui/tab-view/tab-view-common");
-var view = require("ui/core/view");
 var trace = require("trace");
 var imageSource = require("image-source");
 var types = require("utils/types");
@@ -257,7 +256,7 @@ var TabView = (function (_super) {
         }
     };
     TabView.prototype._addTabs = function (newItems) {
-        var parentPage = view.getAncestor(this, "Page");
+        var parentPage = this.page;
         if (parentPage && parentPage.actionBarHidden) {
             return;
         }
@@ -317,7 +316,7 @@ var TabView = (function (_super) {
         }
     };
     TabView.prototype._removeTabs = function (oldItems) {
-        var parentPage = view.getAncestor(this, "Page");
+        var parentPage = this.page;
         if (parentPage && parentPage.actionBarHidden) {
             return;
         }

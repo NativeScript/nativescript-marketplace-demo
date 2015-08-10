@@ -53,49 +53,77 @@ var FileSystemEntity = (function () {
     FileSystemEntity.prototype.remove = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var fileAccess = getFileAccess();
-            var localSucces = function () {
-                resolve();
-            };
+            var hasError = false;
             var localError = function (error) {
+                hasError = true;
                 reject(error);
             };
-            if (_this instanceof File) {
-                fileAccess.deleteFile(_this.path, localSucces, localError);
-            }
-            else if (_this instanceof Folder) {
-                fileAccess.deleteFolder(_this.path, _this[isKnownProperty], localSucces, localError);
+            _this.removeSync(localError);
+            if (!hasError) {
+                resolve();
             }
         });
+    };
+    FileSystemEntity.prototype.removeSync = function (onError) {
+        if (this[isKnownProperty]) {
+            if (onError) {
+                onError({ message: "Cannot delete known folder." });
+            }
+            return;
+        }
+        var fileAccess = getFileAccess();
+        if (this instanceof File) {
+            fileAccess.deleteFile(this.path, onError);
+        }
+        else if (this instanceof Folder) {
+            fileAccess.deleteFolder(this.path, onError);
+        }
     };
     FileSystemEntity.prototype.rename = function (newName) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            if (_this instanceof Folder) {
-                if (_this[isKnownProperty]) {
-                    reject(new Error("Cannot rename known folder."));
-                }
-            }
-            var parentFolder = _this.parent;
-            if (!parentFolder) {
-                reject(new Error("No parent folder."));
-            }
-            var fileAccess = getFileAccess();
-            var path = parentFolder.path;
-            var newPath = fileAccess.joinPath(path, newName);
-            var localSucceess = function () {
-                _this[pathProperty] = newPath;
-                _this[nameProperty] = newName;
-                if (_this instanceof File) {
-                    _this[extensionProperty] = fileAccess.getFileExtension(newPath);
-                }
-                resolve();
-            };
+            var hasError = false;
             var localError = function (error) {
+                hasError = true;
                 reject(error);
             };
-            fileAccess.rename(_this.path, newPath, localSucceess, localError);
+            _this.renameSync(newName, localError);
+            if (!hasError) {
+                resolve();
+            }
         });
+    };
+    FileSystemEntity.prototype.renameSync = function (newName, onError) {
+        if (this[isKnownProperty]) {
+            if (onError) {
+                onError(new Error("Cannot rename known folder."));
+            }
+            return;
+        }
+        var parentFolder = this.parent;
+        if (!parentFolder) {
+            if (onError) {
+                onError(new Error("No parent folder."));
+            }
+            return;
+        }
+        var fileAccess = getFileAccess();
+        var path = parentFolder.path;
+        var newPath = fileAccess.joinPath(path, newName);
+        var hasError = false;
+        var localError = function (error) {
+            hasError = true;
+            if (onError) {
+                onError(error);
+            }
+            return null;
+        };
+        fileAccess.rename(this.path, newPath, localError);
+        this[pathProperty] = newPath;
+        this[nameProperty] = newName;
+        if (this instanceof File) {
+            this[extensionProperty] = fileAccess.getFileExtension(newPath);
+        }
     };
     Object.defineProperty(FileSystemEntity.prototype, "name", {
         get: function () {
@@ -159,36 +187,57 @@ var File = (function (_super) {
     });
     File.prototype.readText = function (encoding) {
         var _this = this;
-        this.checkAccess();
         return new Promise(function (resolve, reject) {
-            _this[fileLockedProperty] = true;
-            var localSuccess = function (content) {
-                _this[fileLockedProperty] = false;
-                resolve(content);
-            };
+            var hasError = false;
             var localError = function (error) {
-                _this[fileLockedProperty] = false;
+                hasError = true;
                 reject(error);
             };
-            getFileAccess().readText(_this.path, localSuccess, localError, encoding);
+            var content = _this.readTextSync(localError, encoding);
+            if (!hasError) {
+                resolve(content);
+            }
         });
+    };
+    File.prototype.readTextSync = function (onError, encoding) {
+        this.checkAccess();
+        this[fileLockedProperty] = true;
+        var that = this;
+        var localError = function (error) {
+            that[fileLockedProperty] = false;
+            if (onError) {
+                onError(error);
+            }
+        };
+        var content = getFileAccess().readText(this.path, localError, encoding);
+        this[fileLockedProperty] = false;
+        return content;
     };
     File.prototype.writeText = function (content, encoding) {
         var _this = this;
-        this.checkAccess();
         return new Promise(function (resolve, reject) {
-            _this[fileLockedProperty] = true;
-            var that = _this;
-            var localSuccess = function () {
-                that[fileLockedProperty] = false;
-                resolve();
-            };
+            var hasError = false;
             var localError = function (error) {
-                that[fileLockedProperty] = false;
+                hasError = true;
                 reject(error);
             };
-            getFileAccess().writeText(_this.path, content, localSuccess, localError, encoding);
+            _this.writeTextSync(content, localError, encoding);
+            if (!hasError) {
+                resolve();
+            }
         });
+    };
+    File.prototype.writeTextSync = function (content, onError, encoding) {
+        this.checkAccess();
+        this[fileLockedProperty] = true;
+        var that = this;
+        var localError = function (error) {
+            that[fileLockedProperty] = false;
+            if (onError) {
+                onError(error);
+            }
+        };
+        getFileAccess().writeText(this.path, content, localError, encoding);
     };
     File.prototype.checkAccess = function () {
         if (this.isLocked) {
@@ -227,14 +276,19 @@ var Folder = (function (_super) {
     Folder.prototype.clear = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var onSuccess = function () {
-                resolve();
-            };
+            var hasError = false;
             var onError = function (error) {
+                hasError = true;
                 reject(error);
             };
-            getFileAccess().emptyFolder(_this.path, onSuccess, onError);
+            _this.clearSync(onError);
+            if (!hasError) {
+                resolve();
+            }
         });
+    };
+    Folder.prototype.clearSync = function (onError) {
+        getFileAccess().emptyFolder(this.path, onError);
     };
     Object.defineProperty(Folder.prototype, "isKnown", {
         get: function () {
@@ -270,24 +324,33 @@ var Folder = (function (_super) {
     Folder.prototype.getEntities = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var onSuccess = function (fileInfos) {
-                var entities = new Array();
-                var i;
-                for (i = 0; i < fileInfos.length; i++) {
-                    if (fileInfos[i].extension) {
-                        entities.push(createFile(fileInfos[i]));
-                    }
-                    else {
-                        entities.push(createFolder(fileInfos[i]));
-                    }
-                }
+            var hasError = false;
+            var localError = function (error) {
+                hasError = true;
+                reject(error);
+            };
+            var entities = _this.getEntitiesSync(localError);
+            if (!hasError) {
                 resolve(entities);
-            };
-            var onError = function (error) {
-                throw error;
-            };
-            getFileAccess().getEntities(_this.path, onSuccess, onError);
+            }
         });
+    };
+    Folder.prototype.getEntitiesSync = function (onError) {
+        var fileInfos = getFileAccess().getEntities(this.path, onError);
+        if (!fileInfos) {
+            return null;
+        }
+        var entities = new Array();
+        var i;
+        for (i = 0; i < fileInfos.length; i++) {
+            if (fileInfos[i].extension) {
+                entities.push(createFile(fileInfos[i]));
+            }
+            else {
+                entities.push(createFolder(fileInfos[i]));
+            }
+        }
+        return entities;
     };
     Folder.prototype.eachEntity = function (onEntity) {
         if (!onEntity) {

@@ -54,11 +54,37 @@ var UITextFieldDelegateImpl = (function (_super) {
     UITextFieldDelegateImpl.ObjCProtocols = [UITextFieldDelegate];
     return UITextFieldDelegateImpl;
 })(NSObject);
+var UITextFieldImpl = (function (_super) {
+    __extends(UITextFieldImpl, _super);
+    function UITextFieldImpl() {
+        _super.apply(this, arguments);
+    }
+    UITextFieldImpl.new = function () {
+        return _super.new.call(this);
+    };
+    UITextFieldImpl.prototype.initWithOwner = function (owner) {
+        this._owner = owner;
+        return this;
+    };
+    UITextFieldImpl.prototype._getTextRectForBounds = function (bounds) {
+        if (!this._owner) {
+            return bounds;
+        }
+        return CGRectMake(this._owner.borderWidth + this._owner.style.paddingLeft, this._owner.borderWidth + this._owner.style.paddingTop, bounds.size.width - (this._owner.borderWidth + this._owner.style.paddingLeft + this._owner.style.paddingRight + this._owner.borderWidth), bounds.size.height - (this._owner.borderWidth + this._owner.style.paddingTop + this._owner.style.paddingBottom + this._owner.borderWidth));
+    };
+    UITextFieldImpl.prototype.textRectForBounds = function (bounds) {
+        return this._getTextRectForBounds(bounds);
+    };
+    UITextFieldImpl.prototype.editingRectForBounds = function (bounds) {
+        return this._getTextRectForBounds(bounds);
+    };
+    return UITextFieldImpl;
+})(UITextField);
 var TextField = (function (_super) {
     __extends(TextField, _super);
     function TextField() {
         _super.call(this);
-        this._ios = new UITextField();
+        this._ios = UITextFieldImpl.new().initWithOwner(this);
         this._delegate = UITextFieldDelegateImpl.new().initWithOwner(this);
     }
     TextField.prototype.onLoaded = function () {

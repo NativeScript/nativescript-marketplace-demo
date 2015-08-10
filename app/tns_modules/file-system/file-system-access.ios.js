@@ -95,10 +95,7 @@ var FileSystemAccess = (function () {
         }
         this.enumEntities(path, onEntity, onError);
     };
-    FileSystemAccess.prototype.getEntities = function (path, onSuccess, onError) {
-        if (!onSuccess) {
-            return;
-        }
+    FileSystemAccess.prototype.getEntities = function (path, onError) {
         var fileInfos = new Array();
         var onEntity = function (entity) {
             fileInfos.push(entity);
@@ -113,8 +110,9 @@ var FileSystemAccess = (function () {
         };
         this.enumEntities(path, onEntity, localError);
         if (!errorOccurred) {
-            onSuccess(fileInfos);
+            return fileInfos;
         }
+        return null;
     };
     FileSystemAccess.prototype.fileExists = function (path) {
         var fileManager = NSFileManager.defaultManager();
@@ -131,40 +129,32 @@ var FileSystemAccess = (function () {
         var nsString = NSString.pathWithComponents(nsArray);
         return nsString.toString();
     };
-    FileSystemAccess.prototype.deleteFile = function (path, onSuccess, onError) {
-        this.deleteEntity(path, onSuccess, onError);
+    FileSystemAccess.prototype.deleteFile = function (path, onError) {
+        this.deleteEntity(path, onError);
     };
-    FileSystemAccess.prototype.deleteFolder = function (path, isKnown, onSuccess, onError) {
-        if (isKnown) {
-            if (onError) {
-                onError({ message: "Cannot delete known folder." });
-            }
+    FileSystemAccess.prototype.deleteFolder = function (path, onError) {
+        this.deleteEntity(path, onError);
+    };
+    FileSystemAccess.prototype.emptyFolder = function (path, onError) {
+        var fileManager = NSFileManager.defaultManager();
+        var entities = this.getEntities(path, onError);
+        if (!entities) {
             return;
         }
-        this.deleteEntity(path, onSuccess, onError);
-    };
-    FileSystemAccess.prototype.emptyFolder = function (path, onSuccess, onError) {
-        var fileManager = NSFileManager.defaultManager();
-        var filesEnum = function (files) {
-            var i;
-            for (i = 0; i < files.length; i++) {
-                try {
-                    fileManager.removeItemAtPathError(files[i].path);
-                }
-                catch (ex) {
-                    if (onError) {
-                        onError(new Error("Failed to empty folder '" + path + "': " + ex));
-                    }
-                    return;
-                }
+        var i;
+        for (i = 0; i < entities.length; i++) {
+            try {
+                fileManager.removeItemAtPathError(entities[i].path);
             }
-            if (onSuccess) {
-                onSuccess();
+            catch (ex) {
+                if (onError) {
+                    onError(new Error("Failed to empty folder '" + path + "': " + ex));
+                }
+                return;
             }
-        };
-        this.getEntities(path, filesEnum, onError);
+        }
     };
-    FileSystemAccess.prototype.rename = function (path, newPath, onSuccess, onError) {
+    FileSystemAccess.prototype.rename = function (path, newPath, onError) {
         var fileManager = NSFileManager.defaultManager();
         try {
             fileManager.moveItemAtPathToPathError(path, newPath);
@@ -173,10 +163,6 @@ var FileSystemAccess = (function () {
             if (onError) {
                 onError(new Error("Failed to rename '" + path + "' to '" + newPath + "': " + ex));
             }
-            return;
-        }
-        if (onSuccess) {
-            onSuccess();
         }
     };
     FileSystemAccess.prototype.getDocumentsFolderPath = function () {
@@ -185,25 +171,22 @@ var FileSystemAccess = (function () {
     FileSystemAccess.prototype.getTempFolderPath = function () {
         return this.getKnownPath(this.cachesDir);
     };
-    FileSystemAccess.prototype.readText = function (path, onSuccess, onError, encoding) {
+    FileSystemAccess.prototype.readText = function (path, onError, encoding) {
         var actualEncoding = encoding;
         if (!actualEncoding) {
             actualEncoding = textModule.encoding.UTF_8;
         }
         try {
             var nsString = NSString.stringWithContentsOfFileEncodingError(path, actualEncoding);
+            return nsString.toString();
         }
         catch (ex) {
             if (onError) {
                 onError(new Error("Failed to read file at path '" + path + "': " + ex));
             }
-            return;
-        }
-        if (onSuccess) {
-            onSuccess(nsString.toString());
         }
     };
-    FileSystemAccess.prototype.writeText = function (path, content, onSuccess, onError, encoding) {
+    FileSystemAccess.prototype.writeText = function (path, content, onError, encoding) {
         var nsString = NSString.alloc().initWithString(content);
         var actualEncoding = encoding;
         if (!actualEncoding) {
@@ -216,10 +199,6 @@ var FileSystemAccess = (function () {
             if (onError) {
                 onError(new Error("Failed to write to file '" + path + "': " + ex));
             }
-            return;
-        }
-        if (onSuccess) {
-            onSuccess();
         }
     };
     FileSystemAccess.prototype.getKnownPath = function (folderType) {
@@ -238,7 +217,7 @@ var FileSystemAccess = (function () {
         }
         return "";
     };
-    FileSystemAccess.prototype.deleteEntity = function (path, onSuccess, onError) {
+    FileSystemAccess.prototype.deleteEntity = function (path, onError) {
         var fileManager = NSFileManager.defaultManager();
         try {
             fileManager.removeItemAtPathError(path);
@@ -247,9 +226,6 @@ var FileSystemAccess = (function () {
             if (onError) {
                 onError(new Error("Failed to delete file at path '" + path + "': " + ex));
             }
-        }
-        if (onSuccess) {
-            onSuccess();
         }
     };
     FileSystemAccess.prototype.enumEntities = function (path, callback, onError) {

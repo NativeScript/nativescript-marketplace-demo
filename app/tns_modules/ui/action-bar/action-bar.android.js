@@ -165,8 +165,12 @@ var ActionBar = (function (_super) {
                 actionBar.setTitle(title);
             }
             else {
-                var defaultLabel = application.android.nativeApp.getApplicationInfo().labelRes;
-                actionBar.setTitle(defaultLabel);
+                var appContext = application.android.context;
+                var appInfo = appContext.getApplicationInfo();
+                var appLabel = appContext.getPackageManager().getApplicationLabel(appInfo);
+                if (appLabel) {
+                    actionBar.setTitle(appLabel);
+                }
             }
         }
     };

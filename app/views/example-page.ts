@@ -24,7 +24,7 @@ export function navigateBack(args: gestures.GestureEventData) {
 }
 
 export function exampleTap(args: gestures.GestureEventData) {
-    var page = <pages.Page>view.getAncestor(args.view, "Page");
+    var page = args.view.page;
 
     var tappedExample = <examplesVM.Example> args.view.bindingContext;
     var vm = <examplePageVM.ExamplePageViewModel>page.bindingContext;

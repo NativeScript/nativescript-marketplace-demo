@@ -1,7 +1,6 @@
 var view = require("ui/core/view");
 var fs = require("file-system");
 var xml = require("xml");
-var file_access_module = require("file-system/file-system-access");
 var types = require("utils/types");
 var componentBuilder = require("ui/builder/component-builder");
 var templateBuilderDef = require("ui/builder/template-builder");
@@ -58,7 +57,8 @@ function parseInternal(value, context) {
         if (templateBuilder) {
             if (args.eventType === xml.ParserEventType.StartElement) {
                 templateBuilder.addStartElement(args.prefix, args.namespace, args.elementName, args.attributes);
-            } else if (args.eventType === xml.ParserEventType.EndElement) {
+            }
+            else if (args.eventType === xml.ParserEventType.EndElement) {
                 templateBuilder.addEndElement(args.prefix, args.elementName);
                 if (templateBuilder.hasFinished()) {
                     templateBuilder.build();
@@ -203,12 +203,12 @@ exports.load = load;
 function loadInternal(fileName, context) {
     var componentModule;
     if (fs.File.exists(fileName)) {
-        var fileAccess = new file_access_module.FileSystemAccess();
-        fileAccess.readText(fileName, function (result) {
-            componentModule = parseInternal(result, context);
-        }, function (e) {
-            throw new Error("Error loading file " + fileName + " :" + e.message);
-        });
+        var file = fs.File.fromPath(fileName);
+        var onError = function (error) {
+            throw new Error("Error loading file " + fileName + " :" + error.message);
+        };
+        var text = file.readTextSync(onError);
+        componentModule = parseInternal(text, context);
     }
     if (componentModule && componentModule.component) {
         componentModule.component.exports = context;

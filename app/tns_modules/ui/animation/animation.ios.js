@@ -1,6 +1,6 @@
 var common = require("ui/animation/animation-common");
 var trace = require("trace");
-require("utils/module-merge").merge(common, exports);
+global.moduleMerge(common, exports);
 var _transform = "_transform";
 var _skip = "_skip";
 var FLT_MAX = 340282346638528859811704183484516925440.000000;

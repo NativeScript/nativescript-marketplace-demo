@@ -3,7 +3,7 @@ var utils = require("utils/utils");
 var color = require("color");
 var trace = require("trace");
 var types = require("utils/types");
-require("utils/module-merge").merge(common, exports);
+global.moduleMerge(common, exports);
 var floatType = java.lang.Float.class.getField("TYPE").get(null);
 var argbEvaluator = new android.animation.ArgbEvaluator();
 var Animation = (function (_super) {

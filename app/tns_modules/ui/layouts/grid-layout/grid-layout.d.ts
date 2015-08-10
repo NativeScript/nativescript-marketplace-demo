@@ -1,5 +1,5 @@
 declare module "ui/layouts/grid-layout" {
-    import layout = require("ui/layouts/layout");
+    import layout = require("ui/layouts/layout-base");
     import view = require("ui/core/view");
 
     /**
@@ -68,7 +68,7 @@ declare module "ui/layouts/grid-layout" {
     /**
      * Defines a rectangular layout area that consists of columns and rows.
      */
-    export class GridLayout extends layout.Layout {
+    export class GridLayout extends layout.LayoutBase {
 
         ///**
         // * Initializes a new instance of GridLayout.

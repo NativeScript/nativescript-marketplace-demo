@@ -6,6 +6,13 @@ var definition = require("application");
 var enums = require("ui/enums");
 global.moduleMerge(appModule, exports);
 exports.mainModule;
+var Responder = (function (_super) {
+    __extends(Responder, _super);
+    function Responder() {
+        _super.apply(this, arguments);
+    }
+    return Responder;
+})(UIResponder);
 var Window = (function (_super) {
     __extends(Window, _super);
     function Window() {
@@ -33,74 +40,6 @@ var Window = (function (_super) {
     };
     return Window;
 })(UIWindow);
-var TNSAppDelegate = (function (_super) {
-    __extends(TNSAppDelegate, _super);
-    function TNSAppDelegate() {
-        _super.apply(this, arguments);
-    }
-    TNSAppDelegate.prototype.applicationDidFinishLaunchingWithOptions = function (application, launchOptions) {
-        this.window = Window.alloc().initWithFrame(UIScreen.mainScreen().bounds);
-        this.window.backgroundColor = UIColor.whiteColor();
-        if (exports.onLaunch) {
-            exports.onLaunch();
-        }
-        exports.notify({ eventName: definition.launchEvent, object: this, ios: launchOptions });
-        var topFrame = frame.topmost();
-        if (!topFrame) {
-            if (exports.mainModule) {
-                topFrame = new frame.Frame();
-                topFrame.navigate(exports.mainModule);
-            }
-            else {
-                return;
-            }
-        }
-        var app = exports.ios;
-        setupOrientationListener(app);
-        this.window.content = topFrame;
-        this.window.rootViewController = topFrame.ios.controller;
-        app.rootController = this.window.rootViewController;
-        this.window.makeKeyAndVisible();
-        return true;
-    };
-    TNSAppDelegate.prototype.applicationDidBecomeActive = function (application) {
-        if (exports.onResume) {
-            exports.onResume();
-        }
-        exports.notify({ eventName: definition.resumeEvent, object: this, ios: application });
-    };
-    TNSAppDelegate.prototype.applicationWillResignActive = function (application) {
-    };
-    TNSAppDelegate.prototype.applicationDidEnterBackground = function (application) {
-        if (exports.onSuspend) {
-            exports.onSuspend();
-        }
-        exports.notify({ eventName: definition.suspendEvent, object: this, ios: application });
-    };
-    TNSAppDelegate.prototype.applicationWillEnterForeground = function (application) {
-    };
-    TNSAppDelegate.prototype.applicationWillTerminate = function (application) {
-        if (exports.onExit) {
-            exports.onExit();
-        }
-        exports.notify({ eventName: definition.exitEvent, object: this, ios: application });
-    };
-    TNSAppDelegate.prototype.applicationDidReceiveMemoryWarning = function (application) {
-        if (exports.onLowMemory) {
-            exports.onLowMemory();
-        }
-        exports.notify({ eventName: definition.lowMemoryEvent, object: this, android: undefined, ios: application });
-    };
-    TNSAppDelegate.prototype.applicationOpenURLSourceApplicationAnnotation = function (application, url, sourceApplication, annotation) {
-        var dictionary = new NSMutableDictionary();
-        dictionary.setObjectForKey(url, "TLKApplicationOpenURL");
-        dictionary.setObjectForKey(application, "TLKApplication");
-        NSNotificationCenter.defaultCenter().postNotificationNameObjectUserInfo("com.telerik.TLKApplicationOpenURL", null, dictionary);
-        return true;
-    };
-    TNSAppDelegate.ObjCProtocols = [UIApplicationDelegate];
-    return TNSAppDelegate;
-})(UIResponder);
 var NotificationReceiver = (function (_super) {
     __extends(NotificationReceiver, _super);
     function NotificationReceiver() {
@@ -124,8 +63,33 @@ var NotificationReceiver = (function (_super) {
 var IOSApplication = (function () {
     function IOSApplication() {
         this._registeredObservers = {};
-        this.nativeApp = UIApplication.sharedApplication();
+        this._currentOrientation = UIDevice.currentDevice().orientation;
+        this.addNotificationObserver(UIApplicationDidFinishLaunchingNotification, this.didFinishLaunchingWithOptions.bind(this));
+        this.addNotificationObserver(UIApplicationDidBecomeActiveNotification, this.didBecomeActive.bind(this));
+        this.addNotificationObserver(UIApplicationDidEnterBackgroundNotification, this.didEnterBackground.bind(this));
+        this.addNotificationObserver(UIApplicationWillTerminateNotification, this.willTerminate.bind(this));
+        this.addNotificationObserver(UIApplicationDidReceiveMemoryWarningNotification, this.didReceiveMemoryWarning.bind(this));
+        this.addNotificationObserver(UIDeviceOrientationDidChangeNotification, this.orientationDidChange.bind(this));
     }
+    Object.defineProperty(IOSApplication.prototype, "nativeApp", {
+        get: function () {
+            return UIApplication.sharedApplication();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(IOSApplication.prototype, "delegate", {
+        get: function () {
+            return this._delegate;
+        },
+        set: function (value) {
+            if (this._delegate !== value) {
+                this._delegate = value;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     IOSApplication.prototype.addNotificationObserver = function (notificationName, onReceiveCallback) {
         var observer = NotificationReceiver.new().initWithCallback(onReceiveCallback);
         NSNotificationCenter.defaultCenter().addObserverSelectorNameObject(observer, "onReceive", notificationName, null);
@@ -137,14 +101,89 @@ var IOSApplication = (function () {
             NSNotificationCenter.defaultCenter().removeObserverNameObject(observer, notificationName, null);
         }
     };
+    IOSApplication.prototype.didFinishLaunchingWithOptions = function (notification) {
+        this._window = Window.alloc().initWithFrame(UIScreen.mainScreen().bounds);
+        this._window.backgroundColor = UIColor.whiteColor();
+        if (exports.onLaunch) {
+            exports.onLaunch();
+        }
+        exports.notify({
+            eventName: definition.launchEvent,
+            object: this,
+            ios: notification.userInfo && notification.userInfo.objectForKey("UIApplicationLaunchOptionsLocalNotificationKey") || null
+        });
+        var topFrame = frame.topmost();
+        if (!topFrame) {
+            if (exports.mainModule) {
+                topFrame = new frame.Frame();
+                topFrame.navigate(exports.mainModule);
+            }
+            else {
+                return;
+            }
+        }
+        this._window.content = topFrame;
+        this.rootController = this._window.rootViewController = topFrame.ios.controller;
+        this._window.makeKeyAndVisible();
+    };
+    IOSApplication.prototype.didBecomeActive = function (notification) {
+        if (exports.onResume) {
+            exports.onResume();
+        }
+        exports.notify({ eventName: definition.resumeEvent, object: this, ios: UIApplication.sharedApplication() });
+    };
+    IOSApplication.prototype.didEnterBackground = function (notification) {
+        if (exports.onSuspend) {
+            exports.onSuspend();
+        }
+        exports.notify({ eventName: definition.suspendEvent, object: this, ios: UIApplication.sharedApplication() });
+    };
+    IOSApplication.prototype.willTerminate = function (notification) {
+        if (exports.onExit) {
+            exports.onExit();
+        }
+        exports.notify({ eventName: definition.exitEvent, object: this, ios: UIApplication.sharedApplication() });
+    };
+    IOSApplication.prototype.didReceiveMemoryWarning = function (notification) {
+        if (exports.onLowMemory) {
+            exports.onLowMemory();
+        }
+        exports.notify({ eventName: definition.lowMemoryEvent, object: this, android: undefined, ios: UIApplication.sharedApplication() });
+    };
+    IOSApplication.prototype.orientationDidChange = function (notification) {
+        var orientation = UIDevice.currentDevice().orientation;
+        if (this._currentOrientation !== orientation) {
+            this._currentOrientation = orientation;
+            var newValue;
+            switch (orientation) {
+                case UIDeviceOrientation.UIDeviceOrientationLandscapeRight:
+                case UIDeviceOrientation.UIDeviceOrientationLandscapeLeft:
+                    newValue = enums.DeviceOrientation.landscape;
+                    break;
+                case UIDeviceOrientation.UIDeviceOrientationPortrait:
+                case UIDeviceOrientation.UIDeviceOrientationPortraitUpsideDown:
+                    newValue = enums.DeviceOrientation.portrait;
+                    break;
+                default:
+                    newValue = enums.DeviceOrientation.unknown;
+                    break;
+            }
+            exports.notify({
+                eventName: definition.orientationChangedEvent,
+                ios: this,
+                newValue: newValue,
+                object: this
+            });
+        }
+    };
     return IOSApplication;
 })();
-var app = new IOSApplication();
-exports.ios = app;
+var iosApp = new IOSApplication();
+exports.ios = iosApp;
 exports.start = function () {
     appModule.loadCss();
     try {
-        UIApplicationMain(0, null, null, "TNSAppDelegate");
+        UIApplicationMain(0, null, null, exports.ios && exports.ios.delegate ? NSStringFromClass(exports.ios.delegate) : NSStringFromClass(Responder));
     }
     catch (error) {
         if (!types.isFunction(exports.onUncaughtError)) {
@@ -154,34 +193,3 @@ exports.start = function () {
         definition.notify({ eventName: definition.uncaughtErrorEvent, object: definition.ios, ios: error });
     }
 };
-var currentOrientation;
-function setupOrientationListener(iosApp) {
-    iosApp.addNotificationObserver(UIDeviceOrientationDidChangeNotification, onOreintationDidChange);
-    currentOrientation = UIDevice.currentDevice().orientation;
-}
-function onOreintationDidChange(notification) {
-    var orientation = UIDevice.currentDevice().orientation;
-    if (currentOrientation !== orientation) {
-        currentOrientation = orientation;
-        var newValue;
-        switch (orientation) {
-            case UIDeviceOrientation.UIDeviceOrientationLandscapeRight:
-            case UIDeviceOrientation.UIDeviceOrientationLandscapeLeft:
-                newValue = enums.DeviceOrientation.landscape;
-                break;
-            case UIDeviceOrientation.UIDeviceOrientationPortrait:
-            case UIDeviceOrientation.UIDeviceOrientationPortraitUpsideDown:
-                newValue = enums.DeviceOrientation.portrait;
-                break;
-            default:
-                newValue = enums.DeviceOrientation.unknown;
-                break;
-        }
-        exports.notify({
-            eventName: definition.orientationChangedEvent,
-            ios: exports.ios,
-            newValue: newValue,
-            object: exports.ios,
-        });
-    }
-}

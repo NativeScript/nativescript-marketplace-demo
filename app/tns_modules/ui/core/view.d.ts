@@ -25,10 +25,10 @@ declare module "ui/core/view" {
     /**
      * Gets an ancestor from a given type.
      * @param view - Starting view (child view).
-     * @param typeName - The type name of the parent container which is looking for.
+     * @param criterion - The type of ancestor view we are looking for. Could be a string containing a class name or an actual type.
      * Returns an instance of a view (if found), otherwise undefined.
      */
-    export function getAncestor(view: View, typeName: string): View;
+    export function getAncestor(view: View, criterion: string | Function): View;
 
     /**
      * Defines interface for an optional parameter used to create a view.
@@ -206,31 +206,6 @@ declare module "ui/core/view" {
         marginBottom: number;
 
         /**
-         * Gets or sets padding style property.
-         */
-        padding: string;
-
-        /**
-         * Specify the left padding of this view.
-         */
-        paddingLeft: number;
-
-        /**
-         * Specify the top padding of this view.
-         */
-        paddingTop: number;
-
-        /**
-         * Specify the right padding of this view.
-         */
-        paddingRight: number;
-
-        /**
-         * Specify the bottom padding of this view.
-         */
-        paddingBottom: number;
-
-        /**
          * Gets or sets the alignment of this view within its parent along the Horizontal axis.
          */
         horizontalAlignment: string;
@@ -283,13 +258,18 @@ declare module "ui/core/view" {
         parent: View;
 
         /**
-         * Gets is layout is valid. This is read-only property.
+         * Gets is layout is valid. This is a read-only property.
          */
         isLayoutValid: boolean;
 
         cssType: string;
 
         visualState: string;
+
+        /**
+         * Gets owner page. This is a read-only property.
+         */
+        page: View;
 
         /**
          * This is called to find out how big a view should be. The parent supplies constraint information in the width and height parameters.
@@ -412,7 +392,7 @@ declare module "ui/core/view" {
         onUnloaded(): void;
         isLoaded: boolean;
 
-        _addView(view: View);
+        _addView(view: View, atIndex?: number);
         _propagateInheritableProperties(view: View)
         _inheritProperties(parentView: View)
         _removeView(view: View);

@@ -32,11 +32,13 @@ function request(options) {
                 }
                 else {
                     var headers = {};
-                    var headerFields = response.allHeaderFields;
-                    var keys = headerFields.allKeys;
-                    for (var i = 0, l = keys.count; i < l; i++) {
-                        var key = keys.objectAtIndex(i);
-                        headers[key] = headerFields.valueForKey(key);
+                    if (response && response.allHeaderFields) {
+                        var headerFields = response.allHeaderFields;
+                        var keys = headerFields.allKeys;
+                        for (var i = 0, l = keys.count; i < l; i++) {
+                            var key = keys.objectAtIndex(i);
+                            headers[key] = headerFields.valueForKey(key);
+                        }
                     }
                     resolve({
                         content: {

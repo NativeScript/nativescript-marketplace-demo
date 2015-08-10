@@ -2,7 +2,6 @@ var frameCommon = require("ui/frame/frame-common");
 var trace = require("trace");
 var observable = require("data/observable");
 var utils = require("utils/utils");
-var view = require("ui/core/view");
 var application = require("application");
 global.moduleMerge(frameCommon, exports);
 var TAG = "_fragmentTag";
@@ -288,8 +287,7 @@ var NativeActivity = {
         }
         this.super.onCreate(savedInstanceState);
         this.androidFrame.setActivity(this);
-        var root = new view.NativeViewGroup(this);
-        root[OWNER] = this.frame;
+        var root = new org.nativescript.widgets.ContentLayout(this);
         this.androidFrame.rootViewGroup = root;
         this.androidFrame.rootViewGroup.setId(this.frame.containerViewId);
         this.setContentView(this.androidFrame.rootViewGroup);

@@ -1,0 +1,29 @@
+﻿.fav-icon-on {
+    width: 24;
+    height: 24;
+    margin-right: 10;  
+    background-color: lightgreen; 
+}
+
+.fav-icon-off {
+    width: 24;
+    height: 24;
+    margin-right: 10;  
+    background-color: lightgray; 
+}
+
+.session-title {
+    font-size: 22;
+}
+
+.session-time {
+    
+}
+
+.session-room {
+    font-weight: bold;
+}
+
+.session-container {
+    padding: 10;
+}

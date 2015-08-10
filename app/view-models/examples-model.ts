@@ -35,27 +35,25 @@ export var examples: Array<Example> = [
 		isFeatured: true,
 		isNew: true
 	},	
-	
-	{ 
-		title: "Test Example", 
+    
+    {
+		title: "Conference Agenda",
 		image: "~/images/empty.png",
-		path:"examples/test-example/test-example",
-		controls: ["button", "label", "switch"], 
-		isFeatured: true, 
-		isNew: true,
-		info: "Few sentences of example information. Few sentences of example information." },
-
-	{ title: "CoreUI 3", image: "~/images/empty.png", controls: ["button", "label", "switch"] },
-	{ title: "CoreUI 5", image: "~/images/empty.png", controls: ["button"] },
-
+		controls: ["list-view", "segmented-bar", "search-bar", "action-bar", "label" ],
+		path: "examples/conference-agenda/conference-agenda-example",
+		info: "Few sentences of example information. Few sentences of example information.",
+		isFeatured: true,
+		isNew: true
+	},     
+	
 	{ title: "Chart Example 1", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: true },
 	{ title: "Chart Example 2", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: true },
 
 	{ title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },
 	{ title: "Side Drawer 2", image: "~/images/empty.png", controls: ["side-drawer"]},
 
-	{ title: "List View 1", image: "~/images/empty.png", controls: ["list-view"], isFeatured: true, isNew: true },
-	{ title: "List View 2", image: "~/images/empty.png", controls: ["list-view"] },
+	{ title: "List View 1", image: "~/images/empty.png", controls: ["list-view-ui"], isFeatured: true, isNew: true },
+	{ title: "List View 2", image: "~/images/empty.png", controls: ["list-view-ui"] },
 ];
 
 export var exampleGroups: Array<ExampleGroup> = [
@@ -91,7 +89,7 @@ export function filterExamples(filterControls: Array<string>) {
 // Just a validation
 var knownControls = [
 	//core
-	"button",
+    "button",
 	"label",
 	"switch",
 	"stack-layout",
@@ -100,15 +98,18 @@ var knownControls = [
 	"dock-layout",
 	"absolute-layout",
 	"scroll-view",
-	 "text-field", 
-	 "text-view", 
-	 "image",
-	 "action-bar",
-	// Telerik UI
-	"chart",
-	"side-drawer",
-	"list-view",
-	"calendar"];
+    "text-field", 
+    "text-view", 
+    "image",
+    "action-bar",
+    "segmented-bar",
+    "search-bar",
+    "list-view",
+    // Telerik UI
+    "chart",
+    "side-drawer",
+    "list-view-ui",
+    "calendar"];
 
 examples.forEach((ex) => ex.controls.forEach((c) => {
 	if (knownControls.indexOf(c) < 0) {

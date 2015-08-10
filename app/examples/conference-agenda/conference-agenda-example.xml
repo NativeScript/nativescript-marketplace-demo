@@ -1,0 +1,28 @@
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
+    <Page.actionBar>
+        <ActionBar title="All Sessions" />
+    </Page.actionBar>
+    <GridLayout rows="auto, auto, *" columns="*">
+        <!-- Segmented Bar -->
+        <SegmentedBar selectedIndex="{{ selectedDay }}">
+            <SegmentedBar.items>
+                <SegmentedBarItem title="MAY 3" />
+                <SegmentedBarItem title="MAY 4" />
+                <SegmentedBarItem title="MAY 5" />
+            </SegmentedBar.items>
+        </SegmentedBar>
+        <!-- Search -->
+        <SearchBar row="1" text="{{ search }}" hint="Search" />
+        <!-- List -->
+        <ListView row="2" items="{{ sessions }}" id="sessions-list">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" rows="auto, auto, auto" cssClass="session-container">
+                    <GridLayout row="1" col="1" cssClass="{{ isFavourite ? 'fav-icon-on' : 'fav-icon-off' }}" tap="toggleFavourite" />
+                    <Label row="0" text="{{ range }}" cssClass="session-time" />
+                    <Label row="1" text="{{ title }}" textWrap="true" cssClass="session-title" />
+                    <Label row="2" text="{{ room }}" cssClass="session-room" />                    
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</examples:ExamplePage>

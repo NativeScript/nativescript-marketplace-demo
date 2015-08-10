@@ -15,7 +15,7 @@ export function pageNavigatedTo(args: pages.NavigatedData) {
 
 export function navigateToExample(args: gestures.GestureEventData) {
     var example = <examplesVM.Example>args.view.bindingContext;
-    var vm = <groupVM.GroupPageViewModel>view.getAncestor(args.view, "Page").bindingContext;
+    var vm = <groupVM.GroupPageViewModel>args.view.page.bindingContext;
 
     var context = new examplePageVM.ExamplePageViewModel(example, vm.group.controls);
     navigator.navigateToExample(context);
@@ -27,7 +27,7 @@ export function navigateBack(args: gestures.GestureEventData) {
 
 export function controlTap(args: gestures.GestureEventData) {
     var control = <string>args.view.bindingContext;
-    var page = <pages.Page>view.getAncestor(args.view, "Page");
+    var page = args.view.page;
     
     var currentContext = <groupVM.GroupPageViewModel> page.bindingContext;
     var newContext =  groupVM.getGroupForControl(control);

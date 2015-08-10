@@ -39,10 +39,7 @@ var FileSystemAccess = (function () {
         }
         this.enumEntities(path, onEntity, onError);
     };
-    FileSystemAccess.prototype.getEntities = function (path, onSuccess, onError) {
-        if (!onSuccess) {
-            return;
-        }
+    FileSystemAccess.prototype.getEntities = function (path, onError) {
         var fileInfos = new Array();
         var onEntity = function (entity) {
             fileInfos.push(entity);
@@ -57,8 +54,9 @@ var FileSystemAccess = (function () {
         };
         this.enumEntities(path, onEntity, localError);
         if (!errorOccurred) {
-            onSuccess(fileInfos);
+            return fileInfos;
         }
+        return null;
     };
     FileSystemAccess.prototype.fileExists = function (path) {
         var file = new java.io.File(path);
@@ -70,7 +68,7 @@ var FileSystemAccess = (function () {
         var dir = file.isDirectory();
         return exists && dir;
     };
-    FileSystemAccess.prototype.deleteFile = function (path, onSuccess, onError) {
+    FileSystemAccess.prototype.deleteFile = function (path, onError) {
         try {
             var javaFile = new java.io.File(path);
             if (!javaFile.isFile()) {
@@ -84,9 +82,6 @@ var FileSystemAccess = (function () {
                     onError({ message: "File deletion failed" });
                 }
             }
-            else if (onSuccess) {
-                onSuccess();
-            }
         }
         catch (exception) {
             if (onError) {
@@ -94,7 +89,7 @@ var FileSystemAccess = (function () {
             }
         }
     };
-    FileSystemAccess.prototype.deleteFolder = function (path, isKnown, onSuccess, onError) {
+    FileSystemAccess.prototype.deleteFolder = function (path, onError) {
         try {
             var javaFile = new java.io.File(path);
             if (!javaFile.getCanonicalFile().isDirectory()) {
@@ -103,19 +98,8 @@ var FileSystemAccess = (function () {
                 }
                 return;
             }
-            if (isKnown) {
-                if (onError) {
-                    onError({ message: "Cannot delete known folder." });
-                }
-                return;
-            }
             this.deleteFolderContent(javaFile);
-            if (javaFile.delete()) {
-                if (onSuccess) {
-                    onSuccess();
-                }
-            }
-            else {
+            if (!javaFile.delete()) {
                 if (onError) {
                     onError({ message: "Folder deletion failed." });
                 }
@@ -127,7 +111,7 @@ var FileSystemAccess = (function () {
             }
         }
     };
-    FileSystemAccess.prototype.emptyFolder = function (path, onSuccess, onError) {
+    FileSystemAccess.prototype.emptyFolder = function (path, onError) {
         try {
             var javaFile = new java.io.File(path);
             if (!javaFile.getCanonicalFile().isDirectory()) {
@@ -137,9 +121,6 @@ var FileSystemAccess = (function () {
                 return;
             }
             this.deleteFolderContent(javaFile);
-            if (onSuccess) {
-                onSuccess();
-            }
         }
         catch (exception) {
             if (onError) {
@@ -147,7 +128,7 @@ var FileSystemAccess = (function () {
             }
         }
     };
-    FileSystemAccess.prototype.rename = function (path, newPath, onSuccess, onError) {
+    FileSystemAccess.prototype.rename = function (path, newPath, onError) {
         var javaFile = new java.io.File(path);
         if (!javaFile.exists()) {
             if (onError) {
@@ -166,10 +147,6 @@ var FileSystemAccess = (function () {
             if (onError) {
                 onError(new Error("Failed to rename file '" + path + "' to '" + newPath + "'"));
             }
-            return;
-        }
-        if (onSuccess) {
-            onSuccess();
         }
     };
     FileSystemAccess.prototype.getDocumentsFolderPath = function () {
@@ -180,7 +157,7 @@ var FileSystemAccess = (function () {
         var dir = utils.ad.getApplicationContext().getCacheDir();
         return dir.getAbsolutePath();
     };
-    FileSystemAccess.prototype.readText = function (path, onSuccess, onError, encoding) {
+    FileSystemAccess.prototype.readText = function (path, onError, encoding) {
         try {
             var javaFile = new java.io.File(path);
             var stream = new java.io.FileInputStream(javaFile);
@@ -206,9 +183,7 @@ var FileSystemAccess = (function () {
                 result = FileSystemAccess._removeUtf8Bom(result);
             }
             bufferedReader.close();
-            if (onSuccess) {
-                onSuccess(result);
-            }
+            return result;
         }
         catch (exception) {
             if (onError) {
@@ -222,7 +197,7 @@ var FileSystemAccess = (function () {
         }
         return s;
     };
-    FileSystemAccess.prototype.writeText = function (path, content, onSuccess, onError, encoding) {
+    FileSystemAccess.prototype.writeText = function (path, content, onError, encoding) {
         try {
             var javaFile = new java.io.File(path);
             var stream = new java.io.FileOutputStream(javaFile);
@@ -233,9 +208,6 @@ var FileSystemAccess = (function () {
             var writer = new java.io.OutputStreamWriter(stream, actualEncoding);
             writer.write(content);
             writer.close();
-            if (onSuccess) {
-                onSuccess();
-            }
         }
         catch (exception) {
             if (onError) {

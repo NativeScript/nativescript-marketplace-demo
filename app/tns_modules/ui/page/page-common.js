@@ -3,7 +3,6 @@ var view = require("ui/core/view");
 var styleModule = require("ui/styling/style");
 var styleScope = require("ui/styling/style-scope");
 var fs = require("file-system");
-var fileSystemAccess = require("file-system/file-system-access");
 var frameCommon = require("ui/frame/frame-common");
 var actionBar = require("ui/action-bar");
 var dependencyObservable = require("ui/core/dependency-observable");
@@ -86,6 +85,13 @@ var Page = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Page.prototype, "page", {
+        get: function () {
+            return this;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Page.prototype._refreshCss = function () {
         if (this._cssApplied) {
             this._resetCssValues();
@@ -103,16 +109,17 @@ var Page = (function (_super) {
         this._refreshCss();
     };
     Page.prototype.addCssFile = function (cssFileName) {
-        var _this = this;
         if (cssFileName.indexOf("~/") === 0) {
             cssFileName = fs.path.join(fs.knownFolders.currentApp().path, cssFileName.replace("~/", ""));
         }
         if (!this._cssFiles[cssFileName]) {
             if (fs.File.exists(cssFileName)) {
-                new fileSystemAccess.FileSystemAccess().readText(cssFileName, function (r) {
-                    _this._addCssInternal(r, cssFileName);
-                    _this._cssFiles[cssFileName] = true;
-                });
+                var file = fs.File.fromPath(cssFileName);
+                var text = file.readTextSync();
+                if (text) {
+                    this._addCssInternal(text, cssFileName);
+                    this._cssFiles[cssFileName] = true;
+                }
             }
         }
     };

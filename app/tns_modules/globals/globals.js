@@ -6,7 +6,7 @@ global.moduleMerge = function (sourceExports, destExports) {
 var types = require("utils/types");
 var timer = require("timer");
 var consoleModule = require("console");
-// var xhr = require("xhr/xhr");
+var xhr = require("xhr/xhr");
 var dialogs = require("ui/dialogs");
 global.setTimeout = timer.setTimeout;
 global.clearTimeout = timer.clearTimeout;
@@ -28,11 +28,11 @@ if (typeof global.__decorate !== "function") {
 if (types.isUndefined(global.NSObject)) {
     global.console = new consoleModule.Console();
 }
-// global.XMLHttpRequest = xhr.XMLHttpRequest;
-// global.FormData = xhr.FormData;
+global.XMLHttpRequest = xhr.XMLHttpRequest;
+global.FormData = xhr.FormData;
 global.alert = dialogs.alert;
-// var fetchModule = require("fetch");
-// global.moduleMerge(fetchModule, global);
+var fetchModule = require("fetch");
+global.moduleMerge(fetchModule, global);
 function Deprecated(target, key, descriptor) {
     if (descriptor) {
         var originalMethod = descriptor.value;

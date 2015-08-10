@@ -15,12 +15,35 @@ function onTextWrapPropertyChanged(data) {
 }
 common.Label.textWrapProperty.metadata.onSetNativeValue = onTextWrapPropertyChanged;
 global.moduleMerge(common, exports);
+var UILabelImpl = (function (_super) {
+    __extends(UILabelImpl, _super);
+    function UILabelImpl() {
+        _super.apply(this, arguments);
+    }
+    UILabelImpl.new = function () {
+        return _super.new.call(this);
+    };
+    UILabelImpl.prototype.initWithOwner = function (owner) {
+        this._owner = owner;
+        return this;
+    };
+    UILabelImpl.prototype.textRectForBoundsLimitedToNumberOfLines = function (bounds, numberOfLines) {
+        var rect = _super.prototype.textRectForBoundsLimitedToNumberOfLines.call(this, bounds, numberOfLines);
+        var textRect = CGRectMake(-(this._owner.borderWidth + this._owner.style.paddingLeft), -(this._owner.borderWidth + this._owner.style.paddingTop), rect.size.width + (this._owner.borderWidth + this._owner.style.paddingLeft + this._owner.style.paddingRight + this._owner.borderWidth), rect.size.height + (this._owner.borderWidth + this._owner.style.paddingTop + this._owner.style.paddingBottom + this._owner.borderWidth));
+        return textRect;
+    };
+    UILabelImpl.prototype.drawTextInRect = function (rect) {
+        var textRect = CGRectMake((this._owner.borderWidth + this._owner.style.paddingLeft), (this._owner.borderWidth + this._owner.style.paddingTop), rect.size.width - (this._owner.borderWidth + this._owner.style.paddingLeft + this._owner.style.paddingRight + this._owner.borderWidth), rect.size.height - (this._owner.borderWidth + this._owner.style.paddingTop + this._owner.style.paddingBottom + this._owner.borderWidth));
+        _super.prototype.drawTextInRect.call(this, textRect);
+    };
+    return UILabelImpl;
+})(UILabel);
 var Label = (function (_super) {
     __extends(Label, _super);
     function Label(options) {
         _super.call(this, options);
-        this._ios = new UILabel();
-        _super.prototype._prepareNativeView.call(this, this._ios);
+        this._ios = UILabelImpl.new().initWithOwner(this);
+        this._ios.userInteractionEnabled = true;
     }
     Object.defineProperty(Label.prototype, "ios", {
         get: function () {

@@ -62,28 +62,3 @@
     margin: 5;
     background-color: lightgray;
 }
-
-.btn-red {
-    background-color: red;
-    margin: 5;    
-}
-
-.btn-lightblue {
-    background-color: lightblue;
-    margin: 5;   
-}
-
-.btn-lightgreen {
-    background-color: lightgreen;
-    margin: 5;   
-}
-
-.btn-lightpink {
-    background-color: lightpink;
-    margin: 5;   
-}
-
-.btn-wheat {
-    background-color: wheat;
-    margin: 5;   
-}

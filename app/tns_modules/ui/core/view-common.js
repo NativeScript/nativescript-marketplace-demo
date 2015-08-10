@@ -45,12 +45,20 @@ function eachDescendant(view, callback) {
     view._eachChildView(localCallback);
 }
 exports.eachDescendant = eachDescendant;
-function getAncestor(view, typeName) {
-    var parent = view.parent;
-    while (parent && parent.typeName !== typeName) {
-        parent = parent.parent;
+function getAncestor(view, criterion) {
+    var matcher = null;
+    if (typeof criterion === "string") {
+        matcher = function (view) { return view.typeName === criterion; };
     }
-    return parent;
+    else {
+        matcher = function (view) { return view instanceof criterion; };
+    }
+    for (var parent_1 = view.parent; parent_1 != null; parent_1 = parent_1.parent) {
+        if (matcher(parent_1)) {
+            return parent_1;
+        }
+    }
+    return null;
 }
 exports.getAncestor = getAncestor;
 var viewIdCounter = 0;
@@ -271,56 +279,6 @@ var View = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(View.prototype, "padding", {
-        get: function () {
-            return this.style.padding;
-        },
-        set: function (value) {
-            this.style.padding = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(View.prototype, "paddingLeft", {
-        get: function () {
-            return this.style.paddingLeft;
-        },
-        set: function (value) {
-            this.style.paddingLeft = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(View.prototype, "paddingTop", {
-        get: function () {
-            return this.style.paddingTop;
-        },
-        set: function (value) {
-            this.style.paddingTop = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(View.prototype, "paddingRight", {
-        get: function () {
-            return this.style.paddingRight;
-        },
-        set: function (value) {
-            this.style.paddingRight = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(View.prototype, "paddingBottom", {
-        get: function () {
-            return this.style.paddingBottom;
-        },
-        set: function (value) {
-            this.style.paddingBottom = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(View.prototype, "horizontalAlignment", {
         get: function () {
             return this.style.horizontalAlignment;
@@ -367,6 +325,16 @@ var View = (function (_super) {
         },
         set: function (value) {
             this._setValue(View.isEnabledProperty, value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(View.prototype, "page", {
+        get: function () {
+            if (this.parent) {
+                return this.parent.page;
+            }
+            return null;
         },
         enumerable: true,
         configurable: true
@@ -526,10 +494,10 @@ var View = (function (_super) {
         this._setCurrentLayoutBounds(left, top, right, bottom);
     };
     View.prototype.getMeasuredWidth = function () {
-        return this._measuredWidth;
+        return this._measuredWidth & utils.layout.MEASURED_SIZE_MASK;
     };
     View.prototype.getMeasuredHeight = function () {
-        return this._measuredHeight;
+        return this._measuredHeight & utils.layout.MEASURED_SIZE_MASK;
     };
     View.prototype.setMeasuredDimension = function (measuredWidth, measuredHeight) {
         this._measuredWidth = measuredWidth;
@@ -680,12 +648,6 @@ var View = (function (_super) {
         }
         return utils.layout.makeMeasureSpec(resultSize, resultMode);
     };
-    View.prototype._getCurrentMeasureSpecs = function () {
-        return {
-            widthMeasureSpec: this._oldWidthMeasureSpec,
-            heightMeasureSpec: this._oldHeightMeasureSpec
-        };
-    };
     View.prototype._setCurrentMeasureSpecs = function (widthMeasureSpec, heightMeasureSpec) {
         var changed = this._oldWidthMeasureSpec !== widthMeasureSpec || this._oldHeightMeasureSpec !== heightMeasureSpec;
         this._oldWidthMeasureSpec = widthMeasureSpec;
@@ -705,7 +667,7 @@ var View = (function (_super) {
         return changed;
     };
     View.prototype._applyStyleFromScope = function () {
-        var rootPage = getAncestor(this, "Page");
+        var rootPage = this.page;
         if (!rootPage || !rootPage.isLoaded) {
             return;
         }
@@ -731,8 +693,6 @@ var View = (function (_super) {
     };
     View.prototype._onContextChanged = function () {
     };
-    View.prototype._prepareNativeView = function (view) {
-    };
     Object.defineProperty(View.prototype, "_childrenCount", {
         get: function () {
             return 0;
@@ -742,7 +702,7 @@ var View = (function (_super) {
     });
     View.prototype._eachChildView = function (callback) {
     };
-    View.prototype._addView = function (view) {
+    View.prototype._addView = function (view, atIndex) {
         if (!view) {
             throw new Error("Expecting a valid View instance.");
         }
@@ -750,14 +710,14 @@ var View = (function (_super) {
             throw new Error("View already has a parent.");
         }
         view._parent = this;
-        this._addViewCore(view);
+        this._addViewCore(view, atIndex);
         trace.write("called _addView on view " + this._domId + " for a child " + view._domId, trace.categories.ViewHierarchy);
     };
-    View.prototype._addViewCore = function (view) {
+    View.prototype._addViewCore = function (view, atIndex) {
         this._propagateInheritableProperties(view);
         view.style._inheritStyleProperties();
         if (!view._isAddedToNativeVisualTree) {
-            view._isAddedToNativeVisualTree = this._addViewToNativeVisualTree(view);
+            view._isAddedToNativeVisualTree = this._addViewToNativeVisualTree(view, atIndex);
         }
         if (this._isLoaded) {
             view.onLoaded();
@@ -807,7 +767,7 @@ var View = (function (_super) {
         };
         view._eachSetProperty(inheritablePropertiesSetCallback);
     };
-    View.prototype._addViewToNativeVisualTree = function (view) {
+    View.prototype._addViewToNativeVisualTree = function (view, atIndex) {
         if (view._isAddedToNativeVisualTree) {
             throw new Error("Child already added to the native visual tree.");
         }
