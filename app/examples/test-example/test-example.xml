@@ -1,5 +1,5 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
   <GridLayout loaded="exampleLoaded">
     <Button text="EXAMPLEEEE!" tap="exampleTap" margin="20 20 60 20" />
   </GridLayout>
-</Page>
+</examples:ExamplePage>

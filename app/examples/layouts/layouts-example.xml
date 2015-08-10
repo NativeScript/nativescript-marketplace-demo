@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
   <Page.actionBar>
     <ActionBar title="Layouts" />
   </Page.actionBar>
@@ -59,4 +59,4 @@
       </TabView.items>
     </TabView>
   </GridLayout>
-</Page>
+</examples:ExamplePage>

@@ -1,41 +1,38 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-	<Page.actionBar>
-		<ActionBar title="User Profile">
-			<ActionBar.actionItems>
-				<ActionItem text="Cancel" ios.position="left" tap="cancelTapped"/>
-				<ActionItem text="Done" ios.position="right" tap="doneTapped"/>
-			</ActionBar.actionItems>
-		</ActionBar>
-	</Page.actionBar>
-	<ScrollView>
-		<StackLayout margin="20">
-			<!-- Picture -->
-			<StackLayout orientation="horizontal">
-				<Image src="~/images/empty.png" cssClass="profile-image" />
-				<Button text="Change image" />
-			</StackLayout>
-			
-			<!-- Username -->
-			<Label text="Username" cssClass="field-title" />
-			<TextField text="{{ username }}" cssClass="field" />
-			
-			<!-- Email -->
-			<Label text="Email" cssClass="field-title" />
-			<TextField text="{{ email }}" cssClass="field" />
-			
-			<!-- Password -->
-			<Label text="Password" cssClass="field-title" />
-			<TextField text="{{ password }}" secure="true" cssClass="field" />
-			
-			<!-- Bio -->
-			<Label text="Bio" cssClass="field-title" />
-			<TextView text="{{ bio }}" cssClass="field-multiline" />
-			
-			<!-- Public -->
-			<GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
-				<Label text="Public profile" cssClass="field-title" />
-				<Switch checked="{{ isPublic }}" cssClass="field-switch" />
-			</GridLayout>
-		</StackLayout>
-	</ScrollView>
-</Page>
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
+    <Page.actionBar>
+        <ActionBar title="User Profile">
+            <ActionBar.actionItems>
+                <ActionItem text="Cancel" ios.position="left" tap="cancelTapped" />
+                <ActionItem text="Done" ios.position="right" tap="doneTapped" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout>
+        <ScrollView>
+            <StackLayout margin="20">
+                <!-- Picture -->
+                <StackLayout orientation="horizontal">
+                    <Image src="~/images/empty.png" cssClass="profile-image" />
+                    <Button text="Change image" />
+                </StackLayout>
+                <!-- Username -->
+                <Label text="Username" cssClass="field-title" />
+                <TextField text="{{ username }}" cssClass="field" />
+                <!-- Email -->
+                <Label text="Email" cssClass="field-title" />
+                <TextField text="{{ email }}" cssClass="field" />
+                <!-- Password -->
+                <Label text="Password" cssClass="field-title" />
+                <TextField text="{{ password }}" secure="true" cssClass="field" />
+                <!-- Bio -->
+                <Label text="Bio" cssClass="field-title" />
+                <TextView text="{{ bio }}" cssClass="field-multiline" />
+                <!-- Public -->
+                <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
+                    <Label text="Public profile" cssClass="field-title" />
+                    <Switch checked="{{ isPublic }}" cssClass="field-switch" />
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+</examples:ExamplePage>
