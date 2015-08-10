@@ -1,6 +1,6 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo" actionBarHidden="true">
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
   <Page.actionBar>
-    <ActionBar title="{{ title }}">
+    <ActionBar title="{{ currentExample, currentExample.title }}">
       <NavigationButton tap="navigateBack" />
     </ActionBar>
   </Page.actionBar>

@@ -48,7 +48,7 @@ export function exampleTap(args: gestures.GestureEventData) {
 }
 
 function switchViews(page: pages.Page, switchToInfo: boolean) {
-    page.actionBarHidden = !switchToInfo;
+    //page.actionBarHidden = !switchToInfo;
     
     var singleConainer = page.getViewById(exampleViewID);
     var groupContainer = page.getViewById(infoViewID);
