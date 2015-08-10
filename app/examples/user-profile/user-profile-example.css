@@ -1,0 +1,24 @@
+﻿.field-title {
+  margin-top: 10;
+  horizontal-align: left;
+  font-size: 16;
+}
+
+.field {
+  horizontal-align: stretch;
+}
+
+.field-multiline {
+  height: 150;
+}
+
+.field-switch{
+  vertical-align: center;
+  horizontal-align: right;
+}
+
+.profile-image {
+  width: 50;
+  height: 50;
+  margin-right: 10;
+}

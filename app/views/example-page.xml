@@ -4,31 +4,23 @@
       <NavigationButton tap="navigateBack" />
     </ActionBar>
   </Page.actionBar>
-  <GridLayout>
-    <GridLayout id="info-view" opacity="0" visibility="collapsed" rows="auto,auto,auto,auto,*">
-      <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
-      <TextView text="{{ currentExample, currentExample.info }}" row="1" editable="false" cssClass="info" />
-      <Button text="View code" row="2" />
-      <Button text="Documentation" row="3" />
-      <ScrollView orientation="horizontal" row="4">
-        <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10">
-          <Repeater.itemsLayout>
-            <StackLayout orientation="horizontal" />
-          </Repeater.itemsLayout>
-          <Repeater.itemTemplate>
-            <GridLayout rows="auto, auto" tap="exampleTap" cssClass="{{ isSelected ? 'selected-example' : 'unselected-example' }}">
-              <Image src="{{ image }}" cssClass="example-image"/>
-              <Label text="{{ title }}" cssClass="example-title" row="1" />
-            </GridLayout>
-          </Repeater.itemTemplate>
-        </Repeater>
-      </ScrollView>
-    </GridLayout>
-    <GridLayout id="example-view">
-      <GridLayout id="example-container">
-        <!-- example will be loaded here -->
-      </GridLayout>
-      <Button verticalAlignment="bottom" horizontalAlignment="center" text="^" tap="toggleInfo" />
-    </GridLayout>
+  <GridLayout rows="auto, auto, auto, auto, *">
+    <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
+    <TextView row="1" text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
+    <Button row="2" text="View code" />
+    <Button row="3" text="Documentation" />
+    <ScrollView row="4" orientation="horizontal">
+      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10">
+        <Repeater.itemsLayout>
+          <StackLayout orientation="horizontal" />
+        </Repeater.itemsLayout>
+        <Repeater.itemTemplate>
+          <GridLayout rows="auto, auto" tap="exampleTap" cssClass="{{ isSelected ? 'selected-example' : 'unselected-example' }}">
+            <Image src="{{ image }}" cssClass="example-image" />
+            <Label text="{{ title }}" cssClass="example-title" row="1" />
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </ScrollView>
   </GridLayout>
 </Page>

@@ -16,36 +16,65 @@ export interface ExampleGroup {
 }
 
 export var examples: Array<Example> = [
-	// { title: "CoreUI 1", image: "~/images/empty.png", path:"~/examples/test-example/test-example", controls: ["button", "label", "switch"], 
-	// 	isFeatured: true, info: "Few sentences of example information. Few sentences of example information.", isNew: true },
 	{
 		title: "Layouts",
 		image: "~/images/empty.png",
 		controls: ["stack-layout", "grid-layout", "wrap-layout", "dock-layout", "absolute-layout"],
-		path: "~/examples/layouts/layouts-example",
+		path: "examples/layouts/layouts-example",
 		info: "Few sentences of example information. Few sentences of example information.",
 		isFeatured: true,
 		isNew: true
 	},
+	
+	{
+		title: "User Profile",
+		image: "~/images/empty.png",
+		controls: ["scroll-view", "stack-layout", "label", "text-field", "text-view", "image", "button", "switch", "action-bar"],
+		path: "examples/user-profile/user-profile-example",
+		info: "Few sentences of example information. Few sentences of example information.",
+		isFeatured: true,
+		isNew: true
+	},	
+	
+	{ 
+		title: "Test Example", 
+		image: "~/images/empty.png",
+		path:"examples/test-example/test-example",
+		controls: ["button", "label", "switch"], 
+		isFeatured: true, 
+		isNew: true,
+		info: "Few sentences of example information. Few sentences of example information." },
 
 	{ title: "CoreUI 3", image: "~/images/empty.png", controls: ["button", "label", "switch"] },
-	{ title: "CoreUI 4", image: "~/images/empty.png", controls: ["button"] },
 	{ title: "CoreUI 5", image: "~/images/empty.png", controls: ["button"] },
 
-	{ title: "Chart 1", image: "~/images/empty.png", controls: ["chart", "control 1", "control 2", "control 3", "control 4", "control 5", "control 6"], isFeatured: true },
-	{ title: "Chart 2", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: true },
+	{ title: "Chart Example 1", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: true },
+	{ title: "Chart Example 2", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: true },
 
-	{ title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"] },
-	{ title: "Side Drawer 2", image: "~/images/empty.png", controls: ["button"], isFeatured: true },
+	{ title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },
+	{ title: "Side Drawer 2", image: "~/images/empty.png", controls: ["side-drawer"]},
 
-	{ title: "List View 1", image: "~/images/empty.png", controls: ["list-view"] },
+	{ title: "List View 1", image: "~/images/empty.png", controls: ["list-view"], isFeatured: true, isNew: true },
 	{ title: "List View 2", image: "~/images/empty.png", controls: ["list-view"] },
-	{ title: "List View 3", image: "~/images/empty.png", controls: ["list-view"] },
-	{ title: "List View 4", image: "~/images/empty.png", controls: ["list-view"], isFeatured: true }
 ];
 
 export var exampleGroups: Array<ExampleGroup> = [
-	{ title: "CoreUI", isNew: true, controls: ["stack-layout", "grid-layout", "wrap-layout", "dock-layout", "absolute-layout","button", "label", "switch"] },
+	{ title: "CoreUI", isNew: true,
+		 controls: [
+			"button",
+			"label",
+			"switch",
+			"stack-layout",
+			"grid-layout",
+			"wrap-layout",
+			"dock-layout",
+			"absolute-layout",
+			"scroll-view",
+			"text-field", 
+			"text-view", 
+			"image",
+			"action-bar"] },
+	
 	{ title: "Chart", isNew: true, controls: ["chart"] },
 	{ title: "Side Drawer", isNew: true, controls: ["side-drawer"] },
 	{ title: "Calendar", isNew: false, controls: ["calendar"] },
@@ -58,3 +87,37 @@ export function filterExamples(filterControls: Array<string>) {
 	var result = examples.filter((example) => example.controls.some((ctrl) => (filterControls.indexOf(ctrl) >= 0)));
 	return result;
 }
+
+// Just a validation
+var knownControls = [
+	//core
+	"button",
+	"label",
+	"switch",
+	"stack-layout",
+	"grid-layout",
+	"wrap-layout",
+	"dock-layout",
+	"absolute-layout",
+	"scroll-view",
+	 "text-field", 
+	 "text-view", 
+	 "image",
+	 "action-bar",
+	// Telerik UI
+	"chart",
+	"side-drawer",
+	"list-view",
+	"calendar"];
+
+examples.forEach((ex) => ex.controls.forEach((c) => {
+	if (knownControls.indexOf(c) < 0) {
+		console.log(`Unknown control: '${ c }' in example '${ ex.title }'`);
+	}
+}));
+
+exampleGroups.forEach((g) => g.controls.forEach((c) => {
+	if (knownControls.indexOf(c) < 0) {
+		console.log(`Unknown control: '${ c }' in group '${ g.title }'`);
+	}
+}));

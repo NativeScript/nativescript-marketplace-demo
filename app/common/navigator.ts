@@ -17,6 +17,11 @@ export function navigateToExample(context: examplePageVM.ExamplePageViewModel) {
         context: context,
         moduleName: "views/example-page",
     })
+    
+    frame.topmost().navigate({
+        animated: true,
+        moduleName: context.currentExample.path,
+    })
 }
 
 export function navigateBack() {
