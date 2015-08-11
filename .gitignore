@@ -3,5 +3,5 @@
 /lib/
 
 /app/**/*.js
-!/app/tns_modules/*.js
+!/app/tns_modules/**/*.js
 /node_modules/
