@@ -59,24 +59,27 @@ export var examples: Array<Example> = [
 export var exampleGroups: Array<ExampleGroup> = [
 	{ title: "CoreUI", isNew: true,
 		 controls: [
-			"button",
-			"label",
-			"switch",
-			"stack-layout",
-			"grid-layout",
-			"wrap-layout",
-			"dock-layout",
-			"absolute-layout",
-			"scroll-view",
-			"text-field", 
-			"text-view", 
-			"image",
-			"action-bar"] },
+            "button",
+        	"label",
+        	"switch",
+        	"stack-layout",
+        	"grid-layout",
+        	"wrap-layout",
+        	"dock-layout",
+        	"absolute-layout",
+        	"scroll-view",
+            "text-field", 
+            "text-view", 
+            "image",
+            "action-bar",
+            "segmented-bar",
+            "search-bar",
+            "list-view"] },
 	
 	{ title: "Chart", isNew: true, controls: ["chart"] },
 	{ title: "Side Drawer", isNew: true, controls: ["side-drawer"] },
 	{ title: "Calendar", isNew: false, controls: ["calendar"] },
-	{ title: "List View", isNew: false, controls: ["list-view"] },
+	{ title: "List View", isNew: false, controls: ["list-view-ui"] },
 ];
 
 export var featuredExamples = examples.filter((e) => e.isFeatured);
@@ -86,39 +89,13 @@ export function filterExamples(filterControls: Array<string>) {
 	return result;
 }
 
-// Just a validation
-var knownControls = [
-	//core
-    "button",
-	"label",
-	"switch",
-	"stack-layout",
-	"grid-layout",
-	"wrap-layout",
-	"dock-layout",
-	"absolute-layout",
-	"scroll-view",
-    "text-field", 
-    "text-view", 
-    "image",
-    "action-bar",
-    "segmented-bar",
-    "search-bar",
-    "list-view",
-    // Telerik UI
-    "chart",
-    "side-drawer",
-    "list-view-ui",
-    "calendar"];
+
+// Validate that each example control is a group
+var knownControls = new Array<string>();
+exampleGroups.forEach((g) => knownControls.push.apply(knownControls, g.controls))
 
 examples.forEach((ex) => ex.controls.forEach((c) => {
 	if (knownControls.indexOf(c) < 0) {
 		console.log(`Unknown control: '${ c }' in example '${ ex.title }'`);
-	}
-}));
-
-exampleGroups.forEach((g) => g.controls.forEach((c) => {
-	if (knownControls.indexOf(c) < 0) {
-		console.log(`Unknown control: '${ c }' in group '${ g.title }'`);
 	}
 }));
