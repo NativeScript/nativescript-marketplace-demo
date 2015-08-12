@@ -13,7 +13,7 @@ export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
 
 export function navigateToExample(context: examplePageVM.ExamplePageViewModel) {
     frame.topmost().navigate({
-        animated: true,
+        animated: false,
         context: context,
         moduleName: "views/example-page",
     })

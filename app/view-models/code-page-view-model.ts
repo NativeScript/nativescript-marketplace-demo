@@ -8,15 +8,15 @@ hljs.configure({
     useBR: true
 });
 
+var cssPath = "styles/code-highlight.css"
+var style: string;
 var extensionToLanguage = {
     ".js": "javascript",
     ".ts": "typescript",
     ".css": "css",
-    ".xml": "xml"
-}
-
-var cssPath = "styles/code-highlight.css"
-var style: string;
+    ".xml": "xml",
+    ".json": "json"
+};
 
 function loadStyles() {
     var path = fs.path.join(fs.knownFolders.currentApp().path, cssPath);
@@ -37,17 +37,32 @@ export class CodePageViewModel extends observable.Observable {
     constructor(example: examplesVM.Example) {
         super();
 
-        var path = example.path.substring(0, example.path.lastIndexOf("/"));
+        var lastSlashIndex = example.path.lastIndexOf("/");
+        var initialSelectedFile = example.path.substr(lastSlashIndex + 1) + ".xml";
+        var path = example.path.substring(0, lastSlashIndex);
         path = fs.path.join(fs.knownFolders.currentApp().path, path.replace("~/", ""));
         console.log("Showing code for " + path);
 
         var folder = fs.Folder.fromPath(path);
         folder.getEntities().then((entities) => {
             this.set("files", entities);
+            this.selectFile(initialSelectedFile);
         });
     }
 
-    public selectFile(entity: fs.FileSystemEntity) {
+    public selectFile(fileName: string) {
+        for (var i = 0; i < this.files.length; i++) {
+            if (this.files[i].name === fileName) {
+                this.selectFileEntity(this.files[i]);
+                break;
+            }
+        }
+    }
+
+    private selectFileEntity(entity: fs.FileSystemEntity) {
+        this.set("isLoading", true);
+        this.set("selectedFileName", entity.name);
+
         var codeFile = fs.File.fromPath(entity.path);
         var lang = extensionToLanguage[codeFile.extension];
 
@@ -59,8 +74,10 @@ export class CodePageViewModel extends observable.Observable {
             console.log("FORMATTED CODE:");
             console.log(formattedCode);
 
+            this.set("isLoading", false);
             this.set("formattedCode", formattedCode);
         }, (error) => {
+            this.set("isLoading", false);
             console.log("readText() error: " + error);
         })
     }

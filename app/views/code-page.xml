@@ -1,20 +1,10 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
-  <!--<Page.actionBar>
-    <ActionBar title="{{ currentExample, currentExample.title }}">
-      <NavigationButton tap="navigateBack" />
-    </ActionBar>
-  </Page.actionBar>-->
+  <Page.actionBar>
+    <ActionBar title="View Code" />
+  </Page.actionBar>
   <GridLayout rows="auto, *" columns="*">
-    <Repeater items="{{ files }}">
-      <Repeater.itemTemplate>
-        <Label text="{{ name }}" tap="selectFile" />
-      </Repeater.itemTemplate>
-    </Repeater>
-    
-    
+    <Button text="{{ selectedFileName }}" tap="selectFile" />   
+    <ActivityIndicator busy="{{ isLoading }}" />
     <WebView row="1" src="{{ formattedCode }}" />
-
   </GridLayout>
-  
-  
 </Page>
