@@ -2,14 +2,14 @@
   <Page.actionBar>
     <ActionBar title="NativeScript Examples" />
   </Page.actionBar>
-  <drawer:SideDrawer drawerLocation="Bottom">
+  <drawer:SideDrawer>
     <drawer:SideDrawer.drawerContent>
-      <StackLayout cssClass="drawerContent">
-        <Label cssClass="drawerItem" text="About" />
-        <Label cssClass="drawerItem" text="Product Page" />
-        <Label cssClass="drawerItem" text="Documentation" />
-        <Label cssClass="drawerItem" text="SDK examples" />
-        <Label cssClass="drawerItem" text="Send Feedback" />
+      <StackLayout cssClass="drawer-content">
+        <Label cssClass="drawer-item" text="About" />
+        <Label cssClass="drawer-item" text="Product Page" />
+        <Label cssClass="drawer-item" text="Documentation" />
+        <Label cssClass="drawer-item" text="SDK examples" />
+        <Label cssClass="drawer-item" text="Send Feedback" />
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
     <drawer:SideDrawer.mainContent>

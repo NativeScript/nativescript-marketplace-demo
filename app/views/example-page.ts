@@ -46,7 +46,11 @@ export function exampleTap(args: gestures.GestureEventData) {
     }
 }
 
-export function showCodeTap(args: observable.EventData) {
-    var context = <examplePageVM.ExamplePageViewModel> ((<view.View>args.object).bindingContext);
+export function showCodeTap(args:  gestures.GestureEventData) {
+    var context = <examplePageVM.ExamplePageViewModel>args.view.bindingContext;
     navigator.navigateToCode(context.currentExample);
+}
+
+export function openLink(args:  gestures.GestureEventData) {
+    navigator.openLink(args.view);
 }

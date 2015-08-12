@@ -20,8 +20,7 @@ export class ExamplePage extends pages.Page {
 	private createButton(): buttonModule.Button {
 		var btn = new buttonModule.Button();
 		btn.text = "^";
-		btn.style.verticalAlignment = "bottom";
-		btn.style.horizontalAlignment = "left";
+        btn.cssClass="example-overlay-button";
 		btn.on("tap", (args) => {
 			// TODO: plug animations here
 			navigator.navigateBack();

@@ -4,12 +4,14 @@
       <NavigationButton tap="navigateBack" />
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="auto, auto, auto, auto, *">
-    <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
-    <TextView row="1" text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
-    <Button row="2" text="View code" tap="showCodeTap" />
-    <Button row="3" text="Documentation" />
-    <ScrollView row="4" orientation="horizontal">
+  <GridLayout rows="*, auto">
+    <StackLayout margin="10 10 10 30">
+      <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
+      <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info"/>
+      <Label text="View code" cssClass="link-button" tap="showCodeTap" margin="10 0 0 0"/>
+      <Label text="Documentation" cssClass="link-button" tag="http://docs.nativescript.org/" tap="openLink" margin="10 0 0 0"/>
+    </StackLayout>
+    <ScrollView row="2" orientation="horizontal">
       <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10">
         <Repeater.itemsLayout>
           <StackLayout orientation="horizontal" />
