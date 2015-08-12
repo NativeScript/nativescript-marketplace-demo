@@ -89,7 +89,6 @@ export function filterExamples(filterControls: Array<string>) {
 	return result;
 }
 
-
 // Validate that each example control is a group
 var knownControls = new Array<string>();
 exampleGroups.forEach((g) => knownControls.push.apply(knownControls, g.controls))

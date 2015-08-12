@@ -7,7 +7,7 @@
   <GridLayout rows="auto, auto, auto, auto, *">
     <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
     <TextView row="1" text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
-    <Button row="2" text="View code" />
+    <Button row="2" text="View code" tap="showCodeTap" />
     <Button row="3" text="Documentation" />
     <ScrollView row="4" orientation="horizontal">
       <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10">

@@ -46,3 +46,7 @@ export function exampleTap(args: gestures.GestureEventData) {
     }
 }
 
+export function showCodeTap(args: observable.EventData) {
+    var context = <examplePageVM.ExamplePageViewModel> ((<view.View>args.object).bindingContext);
+    navigator.navigateToCode(context.currentExample);
+}

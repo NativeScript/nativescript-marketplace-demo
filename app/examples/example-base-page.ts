@@ -14,17 +14,7 @@ export class ExamplePage extends pages.Page {
 		}
 
 		var root = <gridModule.GridLayout>this.content;
-		var btn = new buttonModule.Button();
-		btn.text = "^";
-		btn.style.verticalAlignment = "bottom";
-		btn.style.horizontalAlignment = "left";
-		btn.on("tap", (args) => {
-			// TODO: plug animations here
-			navigator.navigateBack();
-		});
-
-		gridModule.GridLayout.setRow(btn, 100);
-		root.addChild(btn);
+		root.addChild(this.createButton());
 	}
 
 	private createButton(): buttonModule.Button {
@@ -36,6 +26,8 @@ export class ExamplePage extends pages.Page {
 			// TODO: plug animations here
 			navigator.navigateBack();
 		});
+        
+		gridModule.GridLayout.setRow(btn, 100);
 		
 		return btn;
 	}

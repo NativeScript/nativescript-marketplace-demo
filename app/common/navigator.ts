@@ -24,6 +24,14 @@ export function navigateToExample(context: examplePageVM.ExamplePageViewModel) {
     })
 }
 
+export function navigateToCode(context: examplesVM.Example) {
+    frame.topmost().navigate({
+        animated: true,
+        context: context,
+        moduleName: "views/code-page",
+    })
+}
+
 export function navigateBack() {
     frame.goBack();
 }
