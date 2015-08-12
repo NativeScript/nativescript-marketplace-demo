@@ -1,0 +1,9 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
+    <Page.actionBar>
+        <ActionBar title="{{ title }}" />
+    </Page.actionBar>
+    <StackLayout margin="10 10 10 30">
+        <TextView text="{{ info }}" editable="false" cssClass="info" />
+        <Label text="Documentation" cssClass="link-button" tag="{{ url }}" tap="openLink" margin="10 0 0 0" />
+    </StackLayout>
+</Page>

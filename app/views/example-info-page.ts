@@ -9,7 +9,7 @@ import frame = require("ui/frame");
 import builder = require("ui/builder");
 import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-model")
-import examplePageVM = require("../view-models/example-page-view-model")
+import examplePageVM = require("../view-models/example-info-page-view-model")
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatedTo(args: pages.NavigatedData) {

@@ -4,7 +4,7 @@ import gestures = require("ui/gestures");
 import examplesVM = require("../view-models/examples-model")
 import mainPageVM = require("../view-models/main-page-view-model");
 import groupPageVM = require("../view-models/group-page-view-model");
-import examplePageVM = require("../view-models/example-page-view-model");
+import examplePageVM = require("../view-models/example-info-page-view-model");
 import navigator = require("../common/navigator");
 
 // Event handler for Page "loaded" event attached in main-page.xml
