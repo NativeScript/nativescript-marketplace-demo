@@ -48,6 +48,12 @@
     background-color: white;
 }
 
+.show-new-btn{
+    horizontal-align: right;
+    background-color: transparent;
+    margin: 0 10;
+}
+
 .new {
     font-weight: bold;
     margin-left: 10;

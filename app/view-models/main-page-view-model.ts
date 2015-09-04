@@ -15,6 +15,10 @@ export class MainPageViewModel extends observable.Observable {
 		this.set("showOnlyNew", false);
 		this.set("selectedScreen", 0);
 	}
+    
+    public toggleShowNew() {
+        this.set("showOnlyNew", !this.get("showOnlyNew"));
+    }
 }
 
 export var instance = new MainPageViewModel();

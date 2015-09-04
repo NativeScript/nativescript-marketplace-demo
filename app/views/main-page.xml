@@ -22,10 +22,9 @@
           </SegmentedBar.items>
         </SegmentedBar>
         <!-- Show New filter -->
-        <StackLayout orientation="horizontal" horizontalAlignment="right" row="1" margin="4 0 0 0">
-          <Label text="Show only new" verticalAlignment="center"/>
-          <Switch checked="{{ showOnlyNew }}" verticalAlignment="center"/>
-        </StackLayout>
+        <Button row="1" text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" 
+          cssClass="show-new-btn" tap="{{ toggleShowNew }}"/>
+        
         <!-- Featured examples -->
         <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <ScrollView>

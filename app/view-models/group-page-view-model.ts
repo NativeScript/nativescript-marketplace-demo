@@ -13,6 +13,10 @@ export class GroupPageViewModel extends observable.Observable {
         this.set("group", group);
         this.set("isSingleControl", isSingleControl);
     }
+    
+    public toggleShowNew() {
+        this.set("showOnlyNew", !this.get("showOnlyNew"));
+    }
 }
 
 export function getGroupForControl(control: string): GroupPageViewModel {
