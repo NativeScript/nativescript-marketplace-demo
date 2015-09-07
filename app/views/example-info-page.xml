@@ -5,21 +5,20 @@
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto">
-    <StackLayout margin="10 10 10 30">
+    <StackLayout margin="10 10 10 72">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
-      <Label text="View code" cssClass="link-button" tap="showCodeTap" margin="10 0 0 0" />
-      <Label text="Documentation" cssClass="link-button" tag="http://docs.nativescript.org/" tap="openLink" margin="10 0 0 0" />
+      <Button text="View code" cssClass="link-button" tap="showCodeTap"/>
+      <Button text="Documentation" cssClass="link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
     </StackLayout>
     <ScrollView row="2" orientation="horizontal">
-      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10">
+      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10" id="examples-container">
         <Repeater.itemsLayout>
           <StackLayout orientation="horizontal" />
         </Repeater.itemsLayout>
         <Repeater.itemTemplate>
-          <GridLayout rows="auto, auto" tap="exampleTap" cssClass="{{ isSelected ? 'selected-example' : 'unselected-example' }}">
+          <GridLayout rows="auto" tap="exampleTap" cssClass="{{ isSelected ? 'selected-example' : 'unselected-example' }}">
             <Image src="{{ image }}" cssClass="example-image" />
-            <Label text="{{ title }}" cssClass="example-title" row="1" />
           </GridLayout>
         </Repeater.itemTemplate>
       </Repeater>

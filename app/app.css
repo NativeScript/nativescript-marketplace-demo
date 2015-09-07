@@ -1,6 +1,11 @@
-﻿.title {
+﻿Page{
+    background-color: #E5E5E8;
+}
+
+.title {
     font-size: 30;
     margin-bottom: 10;
+    color: black;
 }
 
 .list-example-image {
@@ -12,7 +17,10 @@
 }
 
 .link-button {
-    color:steelblue;
+    text-align: left;
+    padding: 0;
+    background-color: transparent;
+    color: #018F88;
     font-size: 18;
 }
 
@@ -23,6 +31,7 @@
 
 .example-title {
     font-size: 20;
+    color: black;
 }
 
 .info {
@@ -40,45 +49,45 @@
 
 .selected-example {
     padding: 5;
-    background-color: lightgray;
+    margin: 10 5;
 }
 
 .unselected-example {
     padding: 5;
-    background-color: white;
+    margin: 10 5;
 }
 
 .show-new-btn{
     horizontal-align: right;
     background-color: transparent;
     margin: 0 10;
+    color: #3D5AFE;
 }
 
 .new {
     font-weight: bold;
-    margin-left: 10;
-    vertical-align: center;
+    vertical-align: bottom;
+    horizontal-align: left;
 }
 
 .control {
     margin: 0 8 0 0;
     font-size: 12;
     font-weight: bold;
-    color: steelblue;
+    color: #3D5AFE;
 }
 
 .example-item {
     padding: 5;
-    margin: 5;
-    background-color: lightgray;
+    margin: 1 0;
+    background-color: white;
 }
 
 .example-overlay-button {
     vertical-align: bottom;
     horizontal-align: left;
-    background-color: pink;
-    margin: 10;
-    border-radius: 20;
+    background-color: #BB000000;
     width: 40;
     height: 40;
+    color: white;
 }

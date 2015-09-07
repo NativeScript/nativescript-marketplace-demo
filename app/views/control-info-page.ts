@@ -15,6 +15,6 @@ export function navigateBack(args: gestures.GestureEventData) {
     navigator.navigateBack();
 }
 
-export function openLink(args:  gestures.GestureEventData) {
-    navigator.openLink(args.view);
+export function openLink(args:  observable.EventData) {
+    navigator.openLink(args.object);
 }
