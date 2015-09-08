@@ -2,7 +2,7 @@
   <Page.actionBar>
     <ActionBar title="NativeScript Examples" />
   </Page.actionBar>
-  <drawer:SideDrawer>
+  <!--<drawer:SideDrawer>
     <drawer:SideDrawer.drawerContent>
       <StackLayout cssClass="drawer-content">
         <Label cssClass="drawer-item" text="About" />
@@ -12,7 +12,8 @@
         <Label cssClass="drawer-item" text="Send Feedback" />
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
-    <drawer:SideDrawer.mainContent>
+    <drawer:SideDrawer.mainContent>-->
+    <GridLayout>
       <GridLayout rows="auto, auto, *" columns="*">
         <!-- Segmented bar navigation -->
         <SegmentedBar selectedIndex="{{ selectedScreen }}">
@@ -63,6 +64,7 @@
           </Repeater>
         </GridLayout>
       </GridLayout>
-    </drawer:SideDrawer.mainContent>
-  </drawer:SideDrawer>
+    </GridLayout>
+    <!--</drawer:SideDrawer.mainContent>
+  </drawer:SideDrawer>-->
 </Page>

@@ -86,8 +86,6 @@
 .example-overlay-button {
     vertical-align: bottom;
     horizontal-align: left;
-    background-color: #BB000000;
     width: 40;
     height: 40;
-    color: white;
 }

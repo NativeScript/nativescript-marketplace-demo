@@ -2,7 +2,7 @@
   <Page.actionBar>
     <ActionBar title="Layouts" />
   </Page.actionBar>
-  <GridLayout loaded="exampleLoaded">
+  <GridLayout loaded="rootGridLoaded">
     <TabView>
       <TabView.items>
         <TabViewItem title="Stack">

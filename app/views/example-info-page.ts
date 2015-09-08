@@ -89,14 +89,16 @@ export function openLink(args: observable.EventData) {
 
 function selectExample(exampleView: view.View) {
     exampleView.animate({
-        scale: { x: 1.1, y: 1.1 },
-        curve: new android.view.animation.BounceInterpolator(),
+        duration: 300,
+        scale: { x: 1.2, y: 1.2 },
+        curve: exampleView.android ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn
     });
 }
 
 function unselectExample(exampleView: view.View) {
     exampleView.animate({
+        duration: 300,
         scale: { x: 1, y: 1 },
-        curve: new android.view.animation.BounceInterpolator()
+        curve: exampleView ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn
     });
 }
