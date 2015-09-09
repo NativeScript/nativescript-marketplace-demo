@@ -18,8 +18,8 @@
           <Repeater.itemTemplate>
             <GridLayout rows="auto, *" columns="auto, *" tap="navigateToExample" cssClass="example-item" 
               visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-              <Image rowSpan="2" src="{{ image }}" cssClass="example-image-big" cssClass="list-example-image" />
-              <Label row="1" text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+              <Image rowSpan="2" src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" />
+              <Image row="1" src="~/images/new.png" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
               
               <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
               <Repeater col="1" row="1" verticalAlignment="top" items="{{ controls }}">

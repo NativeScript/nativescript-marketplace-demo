@@ -1,5 +1,14 @@
 ﻿Page{
-    background-color: #E5E5E8;
+    
+    background-image: url("~/images/background.png");
+}
+
+ActionBar{
+    background-image: url("~/images/background-top.png");
+}
+
+SegmentedBar{
+    background-image: url("~/images/background-top.png");
 }
 
 .title {
@@ -14,6 +23,18 @@
     horizontal-align: left;
     vertical-align: top;
     margin-right: 10;
+    border-radius: 20;
+}
+
+.list-example-image-new{
+    width: 100;
+    height: 100;
+    horizontal-align: left;
+    vertical-align: top;
+    margin-right: 10;
+    border-radius: 20;
+    border-color: #3D5AFE;
+    border-width: 2;
 }
 
 .link-button {
@@ -27,6 +48,15 @@
 .example-image {
     width: 100;
     height: 100;
+    border-radius: 20;    
+}
+
+.selected-example-border {
+    width: 100;
+    height: 100;
+    border-radius: 20;    
+    border-color: #018F88;
+    border-width: 2;
 }
 
 .example-title {
@@ -50,6 +80,10 @@
 .selected-example {
     padding: 5;
     margin: 10 5;
+}
+
+.select-element {
+    opacity: 0;
 }
 
 .unselected-example {
@@ -79,6 +113,11 @@
 
 .example-item {
     padding: 5;
+    margin: 1 0;
+    background-color: white;
+}
+
+.no-image-example-item {
     margin: 1 0;
     background-color: white;
 }

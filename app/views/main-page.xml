@@ -26,6 +26,8 @@
         <Button row="1" text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" 
           cssClass="show-new-btn" tap="{{ toggleShowNew }}"/>
         
+        
+        
         <!-- Featured examples -->
         <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <ScrollView>
@@ -33,8 +35,8 @@
               <Repeater.itemTemplate>
                 <GridLayout rows="auto, *" columns="auto, *" tap="navigateToExample" cssClass="example-item" 
                   visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-                  <Image rowSpan="2" src="{{ image }}" cssClass="list-example-image" />
-                  <Label row="1" text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+                  <Image rowSpan="2" src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" />
+                  <Image row="1" src="~/images/new.png" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
                   
                   <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
                   <Repeater col="1" row="1" verticalAlignment="top" items="{{ controls }}">
@@ -54,16 +56,21 @@
         <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <Repeater items="{{ exampleGroups }}">
             <Repeater.itemTemplate>
-              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="example-item" 
-                 columns="72, *" rows="42"
+              <GridLayout tap="navigateToExampleGroup" 
+                orientation="horizontal" cssClass="no-image-example-item" 
+                columns="72, *" rows="42"
                 visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+                
                 <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
-                <Label text="NEW" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+                <Image src="~/images/new.png" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
               </GridLayout>
             </Repeater.itemTemplate>
           </Repeater>
         </GridLayout>
       </GridLayout>
+      
+      
+      
     </GridLayout>
     <!--</drawer:SideDrawer.mainContent>
   </drawer:SideDrawer>-->

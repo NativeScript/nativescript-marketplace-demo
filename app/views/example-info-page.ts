@@ -11,6 +11,7 @@ import builder = require("ui/builder");
 import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-model")
 import examplePageVM = require("../view-models/example-info-page-view-model")
+import platfrom = require("platform")
 
 var exampleContainerID = "examples-container";
 
@@ -87,18 +88,37 @@ export function openLink(args: observable.EventData) {
     navigator.openLink(args.object);
 }
 
+var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
+var BIG_SCALED = { x: 1.2, y: 1.2 };
+var NORMAL_SCALE = { x: 1, y: 1 };
+var DURATION = 150;
+
 function selectExample(exampleView: view.View) {
-    exampleView.animate({
-        duration: 300,
-        scale: { x: 1.2, y: 1.2 },
-        curve: exampleView.android ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn
-    });
+    var anims = new Array<animations.AnimationDefinition>();
+    anims.push({ target: exampleView, scale: BIG_SCALED, curve: CURVE, duration: DURATION });
+
+    // view.eachDescendant(exampleView, (v) => {
+    //     if (v.cssClass.indexOf("select-element") >= 0) {
+    //         anims.push({ target: v, opacity: 1, curve: CURVE })
+    //     }
+    //     return true;
+    // })
+
+    var animation = new animations.Animation(anims);
+    animation.play();
 }
 
 function unselectExample(exampleView: view.View) {
-    exampleView.animate({
-        duration: 300,
-        scale: { x: 1, y: 1 },
-        curve: exampleView ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn
-    });
+    var anims = new Array<animations.AnimationDefinition>();
+    anims.push({ target: exampleView, scale: NORMAL_SCALE, curve: CURVE, duration: DURATION });
+
+    // view.eachDescendant(exampleView, (v) => {
+    //     if (v.cssClass.indexOf("select-element") >= 0) {
+    //         anims.push({ target: v, opacity: 0, curve: CURVE })
+    //     }
+    //     return true;
+    // })
+
+    var animation = new animations.Animation(anims);
+    animation.play();
 }

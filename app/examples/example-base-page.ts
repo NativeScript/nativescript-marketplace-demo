@@ -28,7 +28,7 @@ export class ExamplePage extends pages.Page {
         root.addChild(overaly);
         
         gridModule.GridLayout.setRow(overaly, 100);
-        overaly.imageSource = imageSourceModule.fromFileOrResource("~/images/empty.png");
+        overaly.imageSource = imageSourceModule.fromFileOrResource("~/images/shrink.png");
         overaly.cssClass = "example-overlay-button";
         overaly.on("tap", (args) => {
             // TODO: plug animations here
