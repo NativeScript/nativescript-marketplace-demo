@@ -77,18 +77,13 @@ SegmentedBar{
     margin: 10;
 }
 
-.selected-example {
+.example-preview {
     padding: 5;
     margin: 10 5;
 }
 
 .select-element {
     opacity: 0;
-}
-
-.unselected-example {
-    padding: 5;
-    margin: 10 5;
 }
 
 .show-new-btn{

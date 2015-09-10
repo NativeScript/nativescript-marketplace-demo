@@ -14,68 +14,30 @@ import examplePageVM = require("../view-models/example-info-page-view-model")
 import platfrom = require("platform")
 
 var exampleContainerID = "examples-container";
+var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
+var BIG_SCALED = { x: 1.2, y: 1.2 };
+var NORMAL_SCALE = { x: 1, y: 1 };
+var DURATION = 150;
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatedTo(args: pages.NavigatedData) {
     // Get the event sender
     var page = <pages.Page>args.object;
-    var context = <examplePageVM.ExamplePageViewModel>args.context;
-    page.bindingContext = context;
+    var vm = <examplePageVM.ExamplePageViewModel>args.context;
+    page.bindingContext = vm;
 
     var exampleRepeater = page.getViewById(exampleContainerID);
     var currentExampleView: view.View;
     view.eachDescendant(exampleRepeater, (v) => {
-        if (v.cssClass === "selected-example") {
+        if (v.bindingContext === vm.currentExample) {
             currentExampleView = v;
             return false;
         }
         return true;
     })
+
     if (currentExampleView) {
-        selectExample(currentExampleView);
-    }
-}
-
-export function navigateBack(args: gestures.GestureEventData) {
-    navigator.navigateBack();
-}
-
-export function exampleTap(args: gestures.GestureEventData) {
-    var exampleView = args.view;
-    var exampleRepeater = <repeater.Repeater>exampleView.parent;
-    var page = exampleView.page;
-
-    var tappedExample = <examplesVM.Example> args.view.bindingContext;
-    var vm = <examplePageVM.ExamplePageViewModel>page.bindingContext;
-
-    if (vm.currentExample !== tappedExample) {
-        var currentExampleView: view.View;
-        view.eachDescendant(exampleRepeater, (v) => {
-            if (v.cssClass === "selected-example") {
-                currentExampleView = v;
-                return false;
-            }
-            return true;
-        })
-
-        if (currentExampleView) {
-            unselectExample(currentExampleView);
-        }
-
-        vm.set("currentExample", tappedExample);
-        selectExample(exampleView);
-    }
-    else {
-        // TODO: plug in animations here.
-        if (!vm.currentExample.path) {
-            alert("No path for this example")
-        }
-        else {
-            frame.topmost().navigate({
-                animated: true,
-                moduleName: vm.currentExample.path,
-            });
-        }
+        selectNewExample(currentExampleView, vm.currentExample, vm);
     }
 }
 
@@ -88,37 +50,68 @@ export function openLink(args: observable.EventData) {
     navigator.openLink(args.object);
 }
 
-var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
-var BIG_SCALED = { x: 1.2, y: 1.2 };
-var NORMAL_SCALE = { x: 1, y: 1 };
-var DURATION = 150;
+export function navigateBack(args: gestures.GestureEventData) {
+    navigator.navigateBack();
+}
 
-function selectExample(exampleView: view.View) {
+export function exampleTap(args: gestures.GestureEventData) {
+    var exampleView = args.view;
+    var vm = <examplePageVM.ExamplePageViewModel>exampleView.page.bindingContext;
+    var exampleVM = <examplePageVM.ExampleViewModel> exampleView.bindingContext;
+
+    if (vm.currentExample !== exampleVM) {
+        selectNewExample(exampleView, exampleVM, vm);
+    }
+    else {
+        showExamplePage(vm.currentExample);
+    }
+}
+
+function showExamplePage(example: examplePageVM.ExampleViewModel) {
+    // TODO: plug in animations here.
+    if (!example.path) {
+        alert("No path for this example")
+    }
+    else {
+        frame.topmost().navigate({
+            animated: true,
+            moduleName: example.path,
+        });
+    }
+}
+
+function selectNewExample(exampleView: view.View, exampleVM: examplePageVM.ExampleViewModel, vm: examplePageVM.ExamplePageViewModel) {
+    if (vm.currentExampleView) {
+        unselectExample(vm.currentExampleView, vm);
+    }
+
+    selectExample(exampleView, exampleVM, vm);
+}
+
+function unselectExample(exampleView: view.View, vm: examplePageVM.ExamplePageViewModel) {
+    if (vm.currentExample) {
+        vm.currentExample.set("isSelected", false);
+    }
+    vm.set("currentExample", null);
+    vm.currentExampleView = null;
+
     var anims = new Array<animations.AnimationDefinition>();
-    anims.push({ target: exampleView, scale: BIG_SCALED, curve: CURVE, duration: DURATION });
-
-    // view.eachDescendant(exampleView, (v) => {
-    //     if (v.cssClass.indexOf("select-element") >= 0) {
-    //         anims.push({ target: v, opacity: 1, curve: CURVE })
-    //     }
-    //     return true;
-    // })
-
+    anims.push({ target: exampleView, scale: NORMAL_SCALE, curve: CURVE, duration: DURATION });
     var animation = new animations.Animation(anims);
+
     animation.play();
 }
 
-function unselectExample(exampleView: view.View) {
+
+function selectExample(exampleView: view.View, exampleVM: examplePageVM.ExampleViewModel, vm: examplePageVM.ExamplePageViewModel) {
+    vm.currentExampleView = exampleView;
+    vm.set("currentExample", exampleVM);
+
     var anims = new Array<animations.AnimationDefinition>();
-    anims.push({ target: exampleView, scale: NORMAL_SCALE, curve: CURVE, duration: DURATION });
-
-    // view.eachDescendant(exampleView, (v) => {
-    //     if (v.cssClass.indexOf("select-element") >= 0) {
-    //         anims.push({ target: v, opacity: 0, curve: CURVE })
-    //     }
-    //     return true;
-    // })
-
+    anims.push({ target: exampleView, scale: BIG_SCALED, curve: CURVE, duration: DURATION });
     var animation = new animations.Animation(anims);
-    animation.play();
+
+    animation.play().finished.then(() => {
+        exampleVM.set("isSelected", true)
+    });
 }
