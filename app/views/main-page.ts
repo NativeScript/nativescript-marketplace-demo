@@ -27,7 +27,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
     var controlToSearch = example.controls[0];
     var group: examplesVM.ExampleGroup;
     for (var index = 0; index < examplesVM.exampleGroups.length; index++) {
-        var group = examplesVM.exampleGroups[index];
+        group = examplesVM.exampleGroups[index];
         if (group.controls.indexOf(controlToSearch) >= 0) {
             break;
         }
@@ -41,4 +41,8 @@ export function controlTap(args: gestures.GestureEventData) {
     var control = <string>args.view.bindingContext;
     var context = groupPageVM.getGroupForControl(control);
     navigator.navigateToExampleGroup(context);
+}
+
+export function showSlideout(args){
+    console.log("TODO: Show slideout ...");
 }

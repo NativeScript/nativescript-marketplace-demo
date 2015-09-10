@@ -15,12 +15,12 @@ import platfrom = require("platform")
 
 var exampleContainerID = "examples-container";
 var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
-var BIG_SCALED = { x: 1.2, y: 1.2 };
-var NORMAL_SCALE = { x: 1, y: 1 };
+var BIG_SCALED = { x: 1, y: 1 };
+var NORMAL_SCALE = { x: 0.80, y: 0.80 };
 var DURATION = 150;
 
-// Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatedTo(args: pages.NavigatedData) {
+    console.log("PageInfo pageNavigatedTo");
     // Get the event sender
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExamplePageViewModel>args.context;
@@ -37,7 +37,7 @@ export function pageNavigatedTo(args: pages.NavigatedData) {
     })
 
     if (currentExampleView) {
-        selectNewExample(currentExampleView, vm.currentExample, vm);
+        selectExample(currentExampleView, vm.currentExample, vm);
     }
 }
 

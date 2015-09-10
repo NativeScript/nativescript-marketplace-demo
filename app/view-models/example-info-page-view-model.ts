@@ -48,7 +48,6 @@ export class ExamplePageViewModel extends observable.Observable {
         this._examples = examplesVM.filterExamples(controls).map<ExampleViewModel>((e) => {
             var exVM = new ExampleViewModel(e);
             if (e === example) {
-                exVM.isSelected = true;
                 this._currentExample = exVM;
             }
             return exVM;

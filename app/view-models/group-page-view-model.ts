@@ -12,10 +12,15 @@ export class GroupPageViewModel extends observable.Observable {
         this.set("examples", examplesVM.filterExamples(group.controls));
         this.set("group", group);
         this.set("isSingleControl", isSingleControl);
+        this.set("useWrapLayout", false);
     }
     
     public toggleShowNew() {
         this.set("showOnlyNew", !this.get("showOnlyNew"));
+    }
+    
+    public toggleWrapLayout(){
+        this.set("useWrapLayout", !this.get("useWrapLayout"));
     }
 }
 

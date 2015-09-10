@@ -1,7 +1,7 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo" loaded="pageLoaded">
   <Page.actionBar>
-    <ActionBar title="{{ currentExample, currentExample.title }}">
-      <NavigationButton tap="navigateBack" />
+    <ActionBar title="Back to all" cssClass="transparent">
+      <NavigationButton tap="navigateBack" icon="res://ic_arrow_back_chart" />
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto">
@@ -17,10 +17,10 @@
           <StackLayout orientation="horizontal" />
         </Repeater.itemsLayout>
         <Repeater.itemTemplate>
-          <GridLayout rows="auto" tap="exampleTap" cssClass="example-preview">
+          <GridLayout rows="auto" tap="exampleTap" scaleX="0.85" scaleY="0.85">
             <Image src="{{ image }}" cssClass="example-image" />
             <GridLayout cssClass="selected-example-border" visibility="{{ isSelected ? 'visible' : 'collapsed' }}"/>             
-            <Image src="~/images/expand.png" visibility="{{ isSelected ? 'visible' : 'collapsed' }}"
+            <Image src="res://ic_fullscreen" visibility="{{ isSelected ? 'visible' : 'collapsed' }}"
               verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
           </GridLayout>
         </Repeater.itemTemplate>

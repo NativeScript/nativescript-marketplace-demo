@@ -1,6 +1,11 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded">
   <Page.actionBar>
-    <ActionBar title="NativeScript Examples" />
+    <ActionBar title="NativeScript Examples">
+      <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout"/>
+      <ActionBar.actionItems>
+        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="{{ toggleWrapLayout }}"/>
+      </ActionBar.actionItems>
+    </ActionBar>
   </Page.actionBar>
   <!--<drawer:SideDrawer>
     <drawer:SideDrawer.drawerContent>
@@ -13,65 +18,53 @@
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
     <drawer:SideDrawer.mainContent>-->
-    <GridLayout>
-      <GridLayout rows="auto, auto, *" columns="*">
-        <!-- Segmented bar navigation -->
-        <SegmentedBar selectedIndex="{{ selectedScreen }}">
-          <SegmentedBar.items>
-            <SegmentedBarItem title="Featured examples" />
-            <SegmentedBarItem title="All controls" />
-          </SegmentedBar.items>
-        </SegmentedBar>
-        <!-- Show New filter -->
-        <Button row="1" text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" 
-          cssClass="show-new-btn" tap="{{ toggleShowNew }}"/>
-        
-        
-        
-        <!-- Featured examples -->
-        <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
-          <ScrollView>
-            <Repeater items="{{ featuredExamples }}">
-              <Repeater.itemTemplate>
-                <GridLayout rows="auto, *" columns="auto, *" tap="navigateToExample" cssClass="example-item" 
-                  visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-                  <Image rowSpan="2" src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" />
-                  <Image row="1" src="~/images/new.png" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
-                  
-                  <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
-                  <Repeater col="1" row="1" verticalAlignment="top" items="{{ controls }}">
-                    <Repeater.itemsLayout>
-                      <WrapLayout />
-                    </Repeater.itemsLayout>
-                    <Repeater.itemTemplate>
-                      <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
-                    </Repeater.itemTemplate>
-                  </Repeater>
-                </GridLayout>
-              </Repeater.itemTemplate>
-            </Repeater>
-          </ScrollView>
-        </GridLayout>
-        <!-- All examples -->
-        <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
-          <Repeater items="{{ exampleGroups }}">
-            <Repeater.itemTemplate>
-              <GridLayout tap="navigateToExampleGroup" 
-                orientation="horizontal" cssClass="no-image-example-item" 
-                columns="72, *" rows="42"
-                visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-                
-                <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
-                <Image src="~/images/new.png" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
-              </GridLayout>
-            </Repeater.itemTemplate>
-          </Repeater>
-        </GridLayout>
-      </GridLayout>
-      
-      
-      
+  <GridLayout rows="auto, auto, *" columns="*">
+    <!-- Segmented bar navigation -->
+    <SegmentedBar selectedIndex="{{ selectedScreen }}">
+      <SegmentedBar.items>
+        <SegmentedBarItem title="Featured examples" />
+        <SegmentedBarItem title="All controls" />
+      </SegmentedBar.items>
+    </SegmentedBar>
+    <!-- Show New filter -->
+    <Button row="1" text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
+
+    <!-- Featured examples -->
+    <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
+      <ScrollView>
+        <Repeater items="{{ featuredExamples }}">
+          <Repeater.itemTemplate>
+            <GridLayout rows="auto, *" columns="auto, *" tap="navigateToExample" cssClass="example-item" visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+              <Image rowSpan="2" src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" />
+              <Image row="1" src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+
+              <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
+              <Repeater col="1" row="1" verticalAlignment="top" items="{{ controls }}">
+                <Repeater.itemsLayout>
+                  <WrapLayout />
+                </Repeater.itemsLayout>
+                <Repeater.itemTemplate>
+                  <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
+                </Repeater.itemTemplate>
+              </Repeater>
+            </GridLayout>
+          </Repeater.itemTemplate>
+        </Repeater>
+      </ScrollView>
     </GridLayout>
-    <!--</drawer:SideDrawer.mainContent>
+    <!-- All examples -->
+    <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
+      <Repeater items="{{ exampleGroups }}">
+        <Repeater.itemTemplate>
+          <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" columns="72, *" rows="42" visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+
+            <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
+            <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
+          </GridLayout>
+        </Repeater.itemTemplate>
+      </Repeater>
+    </GridLayout>
+  </GridLayout>
+  <!--</drawer:SideDrawer.mainContent>
   </drawer:SideDrawer>-->
 </Page>
