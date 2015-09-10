@@ -71,9 +71,6 @@ export class CodePageViewModel extends observable.Observable {
             formattedCode = hljs.fixMarkup(formattedCode);
             formattedCode = "<style>" + style + "</style><pre><code>" + formattedCode + "</pre></code>"
 
-            console.log("FORMATTED CODE:");
-            console.log(formattedCode);
-
             this.set("isLoading", false);
             this.set("formattedCode", formattedCode);
         }, (error) => {
