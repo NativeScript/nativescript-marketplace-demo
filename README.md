@@ -1,8 +1,8 @@
 # nativescript-marketplace-demo
 Repository used for the NativeScript demo app 
 
-#To Build
-Install npm dependencies (currently highlight.js an tns-modules-core):
+##To Build
+Install npm dependencies (currently `highlight.js` and `tns-modules-core`):
 ```
 npm install
 ```
@@ -11,23 +11,17 @@ Run typescript compiler(`npm i -g typescript`) inside the `app` folder:
 ```
 tsc -p .
 ```
+Use the TNS CLI to run the project.
 
-#To Run
-Use the tns CLI
+## Examples Model
 
+All examples are defined in the `view-models\examples-model.ts`. The main model is defined in 3 arrays:
+ - `controlInfos` - information about each compnent - name, description, link to docs, etc.
+ - `examples` - the actual definitions of each example. 
+ - `exampleGroups` - defines the grouping of examples - visible in the "All Controls" section in the main page. Navigating to example group should show all examples that contain controls defined in that group.
 
-## To Add Example
+*Note:* Each control in the controls list should be defined in the `controlInfos` list in the examples-modules. There is a runtime check that checks the integrity of the model.
 
-Add examples are defined in the `view-models\examples-model.ts` file in the exmaples array. For example
-```
-title: "Layouts",  
-image: "~/images/empty.png",
-controls: ["stack-layout", "grid-layout", "wrap-layout", "dock-layout", "absolute-layout"],
-path: "examples/layouts/layouts-example", 
-info: "Few sentences of example information. Few sentences of example information.",
-isFeatured: true,
-isNew: true
-```
-Note: Each control in the controls list should be defined in the `controlInfos` list in the examples-modules.
+Its recommended that all files related to the example are placed in a subfolder inside `app\examples`. All files in the example folder will be availabe for vewing in the code view.
 
 Design resources: `R:\xPlatCore\Design\Demo` 
