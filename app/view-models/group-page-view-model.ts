@@ -1,5 +1,6 @@
 import examplesVM = require("./examples-model");
 import observable = require("data/observable");
+import paltfrom = require("platform");
 
 export class GroupPageViewModel extends observable.Observable {
     public group: examplesVM.ExampleGroup;
@@ -14,13 +15,17 @@ export class GroupPageViewModel extends observable.Observable {
         this.set("isSingleControl", isSingleControl);
         this.set("useWrapLayout", false);
     }
-    
+
     public toggleShowNew() {
         this.set("showOnlyNew", !this.get("showOnlyNew"));
     }
-    
-    public toggleWrapLayout(){
+
+    public toggleWrapLayout() {
         this.set("useWrapLayout", !this.get("useWrapLayout"));
+    }
+
+    get screenWidth(): number {
+        return paltfrom.screen.mainScreen.widthDIPs;
     }
 }
 

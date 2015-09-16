@@ -1,5 +1,6 @@
 ﻿Page {
-    background-image: url("~/images/background.png");
+    background-image: url("res://bg_main");
+    background-color: #E5E5E8;
 }
 
 SegmentedBar {
@@ -9,7 +10,7 @@ SegmentedBar {
 
 ActionBar {
     background-color: #3D5AFE;
-    /*background-image: url("~/images/background-top.png");*/
+    background-image: url("res://bg_app_bar");
 }
 
 .transparent {
@@ -23,21 +24,35 @@ ActionBar {
     color: black;
 }
 
-.list-example-image {
+.example-img-grid-wrap {
     width: 100;
     height: 100;
-    horizontal-align: left;
-    vertical-align: top;
-    margin-right: 10;
+}
+
+.example-img-grid {
+    width: 72;
+    height: 72;
+    margin-right: 12;
+}
+
+.example-title {
+    font-size: 17;
+    color: black;
+    horizontal-align: left; 
+}
+
+.example-title-wrap {
+    font-size: 20;
+    color: black;
+    horizontal-align: center;
+}
+
+.list-example-image {
+    horzontal-align: left;
     border-radius: 20;
 }
 
 .list-example-image-new{
-    width: 100;
-    height: 100;
-    horizontal-align: left;
-    vertical-align: top;
-    margin-right: 10;
     border-radius: 20;
     border-color: #3D5AFE;
     border-width: 2;
@@ -63,11 +78,6 @@ ActionBar {
     border-radius: 20;    
     border-color: #018F88;
     border-width: 1;
-}
-
-.example-title {
-    font-size: 20;
-    color: black;
 }
 
 .info {
@@ -108,13 +118,13 @@ ActionBar {
 }
 
 .example-item {
-    padding: 5;
-    margin: 1 0;
+    padding: 12;
+    margin: 1;
     background-color: white;
 }
 
 .no-image-example-item {
-    margin: 1 0;
+    margin: 1;
     background-color: white;
 }
 
