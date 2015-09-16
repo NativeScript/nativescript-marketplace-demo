@@ -6,7 +6,8 @@
 		}
 	},
 	"dependencies": {
-		"highlight.js": "^8.7.0"
+		"highlight.js": "^8.7.0",
+		"nativescript-telerik-ui": "0.0.10"
 	},
 	"devDependencies": {
 		"grunt": "0.4.5",
