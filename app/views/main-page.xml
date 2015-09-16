@@ -1,9 +1,9 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded">
   <Page.actionBar>
     <ActionBar title="NativeScript Examples">
-      <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout"/>
+      <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
-        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="{{ toggleWrapLayout }}"/>
+        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="{{ toggleWrapLayout }}" />
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
@@ -33,21 +33,32 @@
     <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
       <ScrollView>
         <Repeater items="{{ featuredExamples }}">
+          <Repeater.itemsLayout>
+            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 : screenWidth }}" />
+          </Repeater.itemsLayout>
           <Repeater.itemTemplate>
-            <GridLayout rows="auto, *" columns="auto, *" tap="navigateToExample" cssClass="example-item" visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-              <Image rowSpan="2" src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" />
-              <Image row="1" src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" />
+            <StackLayout tap="navigateToExample" cssClass="example-item" 
+              orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}"
+              visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+              
+              <GridLayout horizontalAlignment="center" columns="*" rows="*"
+                cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
+                <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit"/>
+                <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
+              </GridLayout>
 
-              <Label col="1" horizontalAlignment="left" text="{{ title }}" cssClass="example-title" />
-              <Repeater col="1" row="1" verticalAlignment="top" items="{{ controls }}">
-                <Repeater.itemsLayout>
-                  <WrapLayout />
-                </Repeater.itemsLayout>
-                <Repeater.itemTemplate>
-                  <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
-                </Repeater.itemTemplate>
-              </Repeater>
-            </GridLayout>
+              <StackLayout>
+                <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title' }}" />
+                <Repeater verticalAlignment="top" items="{{ controls }}">
+                  <Repeater.itemsLayout>
+                    <WrapLayout />
+                  </Repeater.itemsLayout>
+                  <Repeater.itemTemplate>
+                    <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
+                  </Repeater.itemTemplate>
+                </Repeater>
+              </StackLayout>
+            </StackLayout>
           </Repeater.itemTemplate>
         </Repeater>
       </ScrollView>
@@ -55,9 +66,12 @@
     <!-- All examples -->
     <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
       <Repeater items="{{ exampleGroups }}">
+        <Repeater.itemsLayout>
+          <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 : screenWidth }}" />
+        </Repeater.itemsLayout>
         <Repeater.itemTemplate>
-          <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" columns="72, *" rows="42" visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-
+          <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" columns="72, *" rows="42" 
+            visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
             <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
             <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
           </GridLayout>
