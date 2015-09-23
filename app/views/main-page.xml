@@ -3,7 +3,7 @@
     <ActionBar title="NativeScript Examples">
       <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
-        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="{{ toggleWrapLayout }}" />
+        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
@@ -34,7 +34,12 @@
       <ScrollView>
         <Repeater items="{{ featuredExamples }}">
           <Repeater.itemsLayout>
-            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 : screenWidth }}" />
+            <!-- TODO: The WrapLayout can handle better the multy-column request.
+              In the best scenario we will set minimum-width of an item
+              and have the panel accomodate as much equal sized columns as possible. -->
+            <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
+            <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
           </Repeater.itemsLayout>
           <Repeater.itemTemplate>
             <StackLayout tap="navigateToExample" cssClass="example-item" 
@@ -67,7 +72,12 @@
     <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
       <Repeater items="{{ exampleGroups }}">
         <Repeater.itemsLayout>
-          <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 : screenWidth }}" />
+          <!-- TODO: The WrapLayout can handle better the multy-column request.
+              In the best scenario we will set minimum-width of an item
+              and have the panel accomodate as much equal sized columns as possible. -->
+          <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
+          <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+          <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
         </Repeater.itemsLayout>
         <Repeater.itemTemplate>
           <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" columns="72, *" rows="42" 

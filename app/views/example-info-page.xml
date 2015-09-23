@@ -5,6 +5,7 @@
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto">
+    <Image rowSpan="2" src="res://bg_slash_ctl.png" stretch="fill" />
     <StackLayout margin="10 10 10 72">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
@@ -14,14 +15,14 @@
     <ScrollView row="2" orientation="horizontal">
       <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10" id="examples-container">
         <Repeater.itemsLayout>
-          <StackLayout orientation="horizontal" />
+          <StackLayout id="thumbs-layout" orientation="horizontal" />
         </Repeater.itemsLayout>
         <Repeater.itemTemplate>
-          <GridLayout rows="auto" tap="exampleTap" scaleX="0.85" scaleY="0.85">
+          <GridLayout rows="auto" tap="exampleTap">
             <Image src="{{ image }}" cssClass="example-image" />
-            <GridLayout cssClass="selected-example-border" visibility="{{ isSelected ? 'visible' : 'collapsed' }}"/>             
-            <Image src="res://ic_fullscreen" visibility="{{ isSelected ? 'visible' : 'collapsed' }}"
-              verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
+            <GridLayout id="selected-example-border" cssClass="selected-example-border">
+              <Image src="res://ic_fullscreen" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
+            </GridLayout>
           </GridLayout>
         </Repeater.itemTemplate>
       </Repeater>

@@ -14,6 +14,11 @@ export function pageLoaded(args: observable.EventData) {
     page.bindingContext = mainPageVM.instance;
 }
 
+// TODO: The tap="{{ toggleWrapLayout }}" in the XML doesn't seem to work.
+export function toggleWrapLayout(e: any) {
+    e.object.bindingContext.toggleWrapLayout();
+}
+
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
     var exampleGroup = <examplesVM.ExampleGroup>args.view.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup, false);

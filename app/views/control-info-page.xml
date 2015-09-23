@@ -2,8 +2,12 @@
     <Page.actionBar>
         <ActionBar title="{{ title }}" />
     </Page.actionBar>
-    <StackLayout margin="10 10 10 72">
-        <TextView text="{{ info }}" editable="false" cssClass="info" />
-        <Button text="Documentation" cssClass="link-button" tag="{{ url }}" tap="openLink" />
-    </StackLayout>
+    
+    <GridLayout>
+        <Image src="res://bg_slash_ctl.png" stretch="fill" />
+        <StackLayout margin="10 10 10 72">
+            <TextView text="{{ info }}" editable="false" cssClass="info" />
+            <Button text="Documentation" cssClass="link-button" tag="{{ url }}" tap="openLink" />
+        </StackLayout>
+    </GridLayout>
 </Page>

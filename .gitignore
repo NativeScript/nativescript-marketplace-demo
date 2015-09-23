@@ -3,5 +3,6 @@
 /lib/
 
 /app/**/*.js
+/app/**/*.map
 !/app/tns_modules/**/*.js
 /node_modules/

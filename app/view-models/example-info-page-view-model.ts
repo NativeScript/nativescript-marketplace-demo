@@ -61,6 +61,7 @@ export class ExamplePageViewModel extends observable.Observable {
     set currentExample(value: ExampleViewModel) {
         if (value !== this._currentExample) {
             this._currentExample = value;
+            this.notifyPropertyChange("currentExample", value);
         }
     }
 

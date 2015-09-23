@@ -15,30 +15,51 @@ import platfrom = require("platform")
 
 var exampleContainerID = "examples-container";
 var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
-var BIG_SCALED = { x: 1, y: 1 };
-var NORMAL_SCALE = { x: 0.80, y: 0.80 };
-var DURATION = 150;
-
+ 
 export function pageNavigatedTo(args: pages.NavigatedData) {
-    console.log("PageInfo pageNavigatedTo");
-    // Get the event sender
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExamplePageViewModel>args.context;
     page.bindingContext = vm;
-
-    var exampleRepeater = page.getViewById(exampleContainerID);
+    
+    // NOTE: Views does not belong to the view model, so we will maintain the currentExampleView in the view.
     var currentExampleView: view.View;
-    view.eachDescendant(exampleRepeater, (v) => {
-        if (v.bindingContext === vm.currentExample) {
+    var thumbsContainer = page.getViewById("thumbs-layout");
+    (<any>thumbsContainer)._eachChildView(v => {
+        var isCurrent = v.bindingContext == vm.currentExample;
+        if (isCurrent) {
             currentExampleView = v;
-            return false;
         }
-        return true;
-    })
+        
+        // TODO: If the state animation is applied immediately,
+        // or the properties are set immediately, 
+        // the scale gets into account for the iOS layout.
+        setTimeout(function() {
+            // TODO: Consider moving the initialization in "loaded" of the items.
+            // For now there is a bug that "loaded" is invoked before the bindingContext is set.
+            gotoState(v, isCurrent ? "selected" : "unselected", false);
+        }, 100);
+    });
 
-    if (currentExampleView) {
-        selectExample(currentExampleView, vm.currentExample, vm);
-    }
+    function currentExampleChangedHandler(e: observable.PropertyChangeData) {
+        if (e.propertyName === "currentExample") {
+            gotoState(currentExampleView, "unselected", true);
+            (<any>thumbsContainer)._eachChildView((v: view.View) => {
+                if (v.bindingContext === e.value) {
+                    currentExampleView = v;
+                    gotoState(v, "selected", true);
+                }
+            });
+        }
+    };
+    vm.on("propertyChange", currentExampleChangedHandler);
+    
+    // NOTE: We must unsubscribe from the view model, otherwise the view will leak as long as the view model is alive.
+    function navigatedFromHandler(e: pages.NavigatedData) {
+        vm.off("propertyChange", currentExampleChangedHandler);
+        page.off("navigatedFrom", navigatedFromHandler);
+        console.log("unassigned!");
+    };
+    page.on("navigatedFrom", navigatedFromHandler);
 }
 
 export function showCodeTap(args: observable.EventData) {
@@ -59,59 +80,44 @@ export function exampleTap(args: gestures.GestureEventData) {
     var vm = <examplePageVM.ExamplePageViewModel>exampleView.page.bindingContext;
     var exampleVM = <examplePageVM.ExampleViewModel> exampleView.bindingContext;
 
-    if (vm.currentExample !== exampleVM) {
-        selectNewExample(exampleView, exampleVM, vm);
+    if (vm.currentExample === exampleVM) {
+        showExamplePage(vm.currentExample);
     }
     else {
-        showExamplePage(vm.currentExample);
+        vm.currentExample = exampleVM;
     }
 }
 
 function showExamplePage(example: examplePageVM.ExampleViewModel) {
     // TODO: plug in animations here.
     if (!example.path) {
-        alert("No path for this example")
-    }
-    else {
-        frame.topmost().navigate({
-            animated: true,
-            moduleName: example.path,
-        });
-    }
-}
-
-function selectNewExample(exampleView: view.View, exampleVM: examplePageVM.ExampleViewModel, vm: examplePageVM.ExamplePageViewModel) {
-    if (vm.currentExampleView) {
-        unselectExample(vm.currentExampleView, vm);
+        alert("No path for this example");
+        return;
     }
 
-    selectExample(exampleView, exampleVM, vm);
-}
-
-function unselectExample(exampleView: view.View, vm: examplePageVM.ExamplePageViewModel) {
-    if (vm.currentExample) {
-        vm.currentExample.set("isSelected", false);
-    }
-    vm.set("currentExample", null);
-    vm.currentExampleView = null;
-
-    var anims = new Array<animations.AnimationDefinition>();
-    anims.push({ target: exampleView, scale: NORMAL_SCALE, curve: CURVE, duration: DURATION });
-    var animation = new animations.Animation(anims);
-
-    animation.play();
-}
-
-
-function selectExample(exampleView: view.View, exampleVM: examplePageVM.ExampleViewModel, vm: examplePageVM.ExamplePageViewModel) {
-    vm.currentExampleView = exampleView;
-    vm.set("currentExample", exampleVM);
-
-    var anims = new Array<animations.AnimationDefinition>();
-    anims.push({ target: exampleView, scale: BIG_SCALED, curve: CURVE, duration: DURATION });
-    var animation = new animations.Animation(anims);
-
-    animation.play().finished.then(() => {
-        exampleVM.set("isSelected", true)
+    frame.topmost().navigate({
+        animated: true,
+        moduleName: example.path,
     });
+}
+
+function gotoState(view: view.View, state: string, animated: boolean) {
+    if (!view) {
+        return;
+    }
+    
+    var selectionOverlay = view.getViewById("selected-example-border");
+    var anims = new Array<animations.AnimationDefinition>();
+    switch(state) {
+        case "selected":
+            anims.push({ target: view, scale: { x: 1, y: 1 }, curve: CURVE, duration: animated ? 150 : 0 });
+            anims.push({ target: selectionOverlay, opacity: 1, curve: CURVE, duration: animated ? 150 : 0 });
+            break;
+        case "unselected":
+            anims.push({ target: view, scale: { x: 0.8, y: 0.8 }, curve: CURVE, duration: animated ? 250 : 0 });
+            anims.push({ target: selectionOverlay, opacity: 0, curve: CURVE, duration: animated ? 250 : 0 });
+            break;
+    }
+    var animation = new animations.Animation(anims);
+    animation.play();
 }
