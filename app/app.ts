@@ -5,6 +5,13 @@ import frame = require("ui/frame");
 import exampleBase = require("./examples/example-base-page");
 import application = require("application");
 
+if (application.ios) {
+    application.on("launch", args => {
+        // TODO: It would be nice if this was ios-specific property on the action bar and static property on application.ios.
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.UIStatusBarStyleLightContent;
+    });
+}
+
 application.mainModule = "views/main-page";
 
 application.on("launch", () => {

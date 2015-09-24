@@ -1,5 +1,6 @@
 import observable = require("data/observable");
 import pages = require("ui/page");
+import frame = require("ui/frame");
 import gestures = require("ui/gestures");
 import examplesVM = require("../view-models/examples-model")
 import mainPageVM = require("../view-models/main-page-view-model");
@@ -12,6 +13,15 @@ export function pageLoaded(args: observable.EventData) {
     // Get the event sender
     var page = <pages.Page>args.object;
     page.bindingContext = mainPageVM.instance;
+
+    if (page.ios) {
+        // TODO: Making the navigation bar transparent. It would be nice if this was property on the ActionBar.
+        var bar = frame.topmost().ios.controller.navigationBar;
+        bar.setBackgroundImageForBarMetrics(UIImage.new(), UIBarMetrics.UIBarMetricsDefault);
+        bar.translucent = true;
+        bar.shadowImage = UIImage.new();
+        bar.tintColor = UIColor.whiteColor();
+    }
 }
 
 // TODO: The tap="{{ toggleWrapLayout }}" in the XML doesn't seem to work.
