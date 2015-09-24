@@ -1,10 +1,16 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded">
   <Page.actionBar>
-    <ActionBar title="NativeScript Examples">
+    <ActionBar cssClass="examples-action-bar" title="NativeScript Examples">
       <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
         <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
       </ActionBar.actionItems>
+      <ActionBar.titleView>
+        <!-- TODO: We should be able to center an image horizontally in android without using GridLayout -->
+        <GridLayout> 
+          <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="40 0 0 0" />
+        </GridLayout>
+      </ActionBar.titleView>
     </ActionBar>
   </Page.actionBar>
   <drawer:SideDrawer>
@@ -18,77 +24,94 @@
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
     <drawer:SideDrawer.mainContent>
-  <GridLayout rows="auto, auto, *" columns="*">
-    <!-- Segmented bar navigation -->
-    <SegmentedBar selectedIndex="{{ selectedScreen }}">
-      <SegmentedBar.items>
-        <SegmentedBarItem title="Featured examples" />
-        <SegmentedBarItem title="All controls" />
-      </SegmentedBar.items>
-    </SegmentedBar>
-    <!-- Show New filter -->
-    <Button row="1" text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
+      <GridLayout rows="auto, 42, *" columns="*">
 
-    <!-- Featured examples -->
-    <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
-      <ScrollView>
-        <Repeater items="{{ featuredExamples }}">
-          <Repeater.itemsLayout>
-            <!-- TODO: The WrapLayout can handle better the multy-column request.
-              In the best scenario we will set minimum-width of an item
-              and have the panel accomodate as much equal sized columns as possible. -->
-            <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
-            <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
-            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
-          </Repeater.itemsLayout>
-          <Repeater.itemTemplate>
-            <StackLayout tap="navigateToExample" cssClass="example-item" 
-              orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}"
-              visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+        <GridLayout row="1" rowSpan="2" cssClass="examples-background">
+        </GridLayout>
+        
+        <!-- Segmented bar navigation -->
+        <!-- TODO: I have failed to set the selectedBackgroundColor in CSS --> 
+        <SegmentedBar selectedIndex="{{ selectedScreen }}"
+            android:cssClass="-android-example-types-bar"
+            ios:cssClass="-ios-example-types-bar"
+            ios:selectedBackgroundColor="#F5F5F5"
+            android:selectedBackgroundColor="#00E676">
+          <SegmentedBar.items>
+            <SegmentedBarItem title="Featured examples" />
+            <SegmentedBarItem title="All controls" />
+          </SegmentedBar.items>
+        </SegmentedBar>
+        
+        <!-- Show New filter -->
+        <Button row="1"
+          ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
+          android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
+          android:style.fontSize="11"
+          cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
+    
+        <!-- Featured examples -->
+        <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
+          <ScrollView>
+            <Repeater items="{{ featuredExamples }}">
+              <Repeater.itemsLayout>
+                
+                <!-- TODO: The WrapLayout can handle better the multy-column request.
+                  In the best scenario we will set minimum-width of an item
+                  and have the panel accomodate as much equal sized columns as possible. -->
+                <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
+                <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+                <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
+              </Repeater.itemsLayout>
+              <Repeater.itemTemplate>
+                <StackLayout tap="navigateToExample" cssClass="example-item" 
+                  orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}"
+                  visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+                  
+                  <GridLayout columns="*" rows="*"
+                    cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
+                    <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
+                    <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
+                  </GridLayout>
+    
+                  <StackLayout>
+                    <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title' }}" />
+                    <Repeater verticalAlignment="top" items="{{ controls }}" cssClass="example-used-controls">
+                      <Repeater.itemsLayout>
+                        <WrapLayout />
+                      </Repeater.itemsLayout>
+                      <Repeater.itemTemplate>
+                        <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
+                      </Repeater.itemTemplate>
+                    </Repeater>
+                  </StackLayout>
+                </StackLayout>
+              </Repeater.itemTemplate>
+            </Repeater>
+          </ScrollView>
+        </GridLayout>
+        
+        <!-- All examples -->
+        <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
+          <Repeater items="{{ exampleGroups }}">
+            <Repeater.itemsLayout>
               
-              <GridLayout horizontalAlignment="center" columns="*" rows="*"
-                cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
-                <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit"/>
+              <!-- TODO: The WrapLayout can handle better the multy-column request.
+                  In the best scenario we will set minimum-width of an item
+                  and have the panel accomodate as much equal sized columns as possible. -->
+              <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
+              <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+              <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
+            </Repeater.itemsLayout>
+            <Repeater.itemTemplate>
+              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" ios:columns="42, *" android:columns="72, *" rows="42" 
+                visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+                <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
                 <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
               </GridLayout>
-
-              <StackLayout>
-                <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title' }}" />
-                <Repeater verticalAlignment="top" items="{{ controls }}">
-                  <Repeater.itemsLayout>
-                    <WrapLayout />
-                  </Repeater.itemsLayout>
-                  <Repeater.itemTemplate>
-                    <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
-                  </Repeater.itemTemplate>
-                </Repeater>
-              </StackLayout>
-            </StackLayout>
-          </Repeater.itemTemplate>
-        </Repeater>
-      </ScrollView>
-    </GridLayout>
-    <!-- All examples -->
-    <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
-      <Repeater items="{{ exampleGroups }}">
-        <Repeater.itemsLayout>
-          <!-- TODO: The WrapLayout can handle better the multy-column request.
-              In the best scenario we will set minimum-width of an item
-              and have the panel accomodate as much equal sized columns as possible. -->
-          <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
-          <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
-          <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
-        </Repeater.itemsLayout>
-        <Repeater.itemTemplate>
-          <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" columns="72, *" rows="42" 
-            visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-            <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
-            <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
-          </GridLayout>
-        </Repeater.itemTemplate>
-      </Repeater>
-    </GridLayout>
-  </GridLayout>
-  </drawer:SideDrawer.mainContent>
+            </Repeater.itemTemplate>
+          </Repeater>
+        </GridLayout>
+      </GridLayout>
+    </drawer:SideDrawer.mainContent>
   </drawer:SideDrawer>
 </Page>
