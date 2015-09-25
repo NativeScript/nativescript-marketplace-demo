@@ -4,7 +4,7 @@
     </Page.actionBar>
     
     <GridLayout>
-        <Image src="res://bg_slash_ctl.png" stretch="fill" />
+        <GridLayout cssClass="content-background" />
         <StackLayout margin="10 10 10 72">
             <TextView text="{{ info }}" editable="false" cssClass="info" />
             <Button text="Documentation" cssClass="link-button" tag="{{ url }}" tap="openLink" />

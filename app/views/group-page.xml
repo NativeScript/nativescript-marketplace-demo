@@ -1,23 +1,29 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
   <Page.actionBar>
     <ActionBar title="{{ group.title }}">
       <NavigationButton tap="navigateBack" icon="res://ic_arrow_back" />
       <ActionBar.actionItems>
         <ActionItem icon="res://ic_view_info" ios.position="right" tap="infoTap" />
-        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="{{ toggleWrapLayout }}"/>
+        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout"/>
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="auto, *" columns="*">
+  <GridLayout rows="auto, *" columns="*" cssClass="content-background">
+    
     <!-- Show New filter -->
-    <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" 
-      cssClass="show-new-btn" tap="{{ toggleShowNew }}"/>
+    <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="show-new-btn" tap="{{ toggleShowNew }}"/>
+    
     <!-- Examples list -->
     <GridLayout row="1" columns="*" rows="*">
       <ScrollView>
         <Repeater items="{{ examples }}">
           <Repeater.itemsLayout>
-            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 : screenWidth }}" />
+            <!-- TODO: The WrapLayout can handle better the multy-column request.
+              In the best scenario we will set minimum-width of an item
+              and have the panel accomodate as much equal sized columns as possible. -->
+            <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
+            <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
           </Repeater.itemsLayout>
           <Repeater.itemTemplate>
             <StackLayout tap="navigateToExample" cssClass="example-item" 

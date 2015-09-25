@@ -5,7 +5,7 @@
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto">
-    <Image rowSpan="2" src="res://bg_slash_ctl.png" stretch="fill" />
+    <GridLayout rowSpan="2" cssClass="content-background" />
     <StackLayout margin="10 10 10 72">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />

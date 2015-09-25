@@ -8,9 +8,10 @@ import groupVM = require("../view-models/group-page-view-model");
 import examplePageVM = require("../view-models/example-info-page-view-model");
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
-export function pageNavigatedTo(args: pages.NavigatedData) {
+export function pageNavigatingTo(args: pages.NavigatedData) {
     // Get the event sender
     var page = <pages.Page>args.object;
+    console.log("Group page navigated to!");
     page.bindingContext = args.context;
 }
 
@@ -24,6 +25,11 @@ export function navigateToExample(args: gestures.GestureEventData) {
 
 export function navigateBack(args: gestures.GestureEventData) {
     navigator.navigateBack();
+}
+
+// TODO: The tap="{{ toggleWrapLayout }}" in the XML doesn't seem to work.
+export function toggleWrapLayout(e: any) {
+    e.object.bindingContext.toggleWrapLayout();
 }
 
 export function controlTap(args: gestures.GestureEventData) {
