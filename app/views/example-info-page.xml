@@ -9,7 +9,16 @@
       <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.title }}">
+  <GridLayout rows="*, auto">
+    <GridLayout rowSpan="2" cssClass="content-background">
+      <AbsoluteLayout>
+        <Image id="p1" src="res://particles/particle.01" stretch="none" left="20" top="20" />
+        <Image id="p2" src="res://particles/particle.02" stretch="none" left="50" top="50" />
+        <Image id="p3" src="res://particles/particle.03" stretch="none" left="80" top="80" />
+        <Image id="p4" src="res://particles/particle.04" stretch="none" left="110" top="110" />
+        <Image id="p5" src="res://particles/particle.05" stretch="none" left="140" top="140" />
+      </AbsoluteLayout>
+    </GridLayout>
     <StackLayout margin="0 0 0 16">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
