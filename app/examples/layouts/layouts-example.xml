@@ -1,7 +1,13 @@
 <examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
   <Page.actionBar>
-    <ActionBar title="Layouts" />
-  </Page.actionBar>
+		<ActionBar>
+			<ActionBar.titleView>
+				<StackLayout>
+					<Label text="Layouts" cssClass="title" />
+				</StackLayout>
+			</ActionBar.titleView>
+		</ActionBar>
+    </Page.actionBar>
   <GridLayout loaded="rootGridLoaded">
     <TabView>
       <TabView.items>

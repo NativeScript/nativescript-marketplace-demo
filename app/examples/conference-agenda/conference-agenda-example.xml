@@ -1,6 +1,12 @@
 <examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
     <Page.actionBar>
-        <ActionBar title="All Sessions" />
+		<ActionBar>
+			<ActionBar.titleView>
+				<StackLayout>
+					<Label text="All Sessions" cssClass="title" />
+				</StackLayout>
+			</ActionBar.titleView>
+		</ActionBar>
     </Page.actionBar>
     <GridLayout rows="auto, auto, *" columns="*">
         <!-- Segmented Bar -->
@@ -17,7 +23,8 @@
         <ListView row="2" items="{{ sessions }}" id="sessions-list">
             <ListView.itemTemplate>
                 <GridLayout columns="*, auto" rows="auto, auto, auto" cssClass="session-container">
-                    <GridLayout row="1" col="1" cssClass="{{ isFavourite ? 'fav-icon-on' : 'fav-icon-off' }}" tap="toggleFavourite" />
+                    <!--<GridLayout row="1" col="1" cssClass="{{ isFavourite ? 'fav-icon-on' : 'fav-icon-off' }}" tap="toggleFavourite" />-->
+					<Image row="1" col="1" src="{{ isFavourite ? 'res://add_to_fav' : 'res://add_to_fav_1' }}" tap="toggleFavourite" />
                     <Label row="0" text="{{ range }}" cssClass="session-time" />
                     <Label row="1" text="{{ title }}" textWrap="true" cssClass="session-title" />
                     <Label row="2" text="{{ room }}" cssClass="session-room" />                    
