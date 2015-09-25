@@ -15,7 +15,7 @@ import platfrom = require("platform")
 
 var exampleContainerID = "examples-container";
 var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
- 
+
 export function pageNavigatedTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExamplePageViewModel>args.context;
@@ -36,19 +36,24 @@ export function pageNavigatedTo(args: pages.NavigatedData) {
         setTimeout(function() {
             // TODO: Consider moving the initialization in "loaded" of the items.
             // For now there is a bug that "loaded" is invoked before the bindingContext is set.
-            gotoState(v, isCurrent ? "selected" : "unselected", false);
+            thumbGotoState(v, isCurrent ? "selected" : "unselected", false);
         }, 100);
     });
+    
+    var particles = ["p1", "p2", "p3", "p4", "p5"].map(l => page.getViewById(l));
+    particlesGotoState(particles, vm.examples.indexOf(vm.currentExample), false);
 
     function currentExampleChangedHandler(e: observable.PropertyChangeData) {
         if (e.propertyName === "currentExample") {
-            gotoState(currentExampleView, "unselected", true);
+            thumbGotoState(currentExampleView, "unselected", true);
             (<any>thumbsContainer)._eachChildView((v: view.View) => {
                 if (v.bindingContext === e.value) {
                     currentExampleView = v;
-                    gotoState(v, "selected", true);
+                    thumbGotoState(v, "selected", true);
                 }
             });
+            
+            particlesGotoState(particles, vm.examples.indexOf(vm.currentExample), true);
         }
     };
     vm.on("propertyChange", currentExampleChangedHandler);
@@ -101,7 +106,7 @@ function showExamplePage(example: examplePageVM.ExampleViewModel) {
     });
 }
 
-function gotoState(view: view.View, state: string, animated: boolean) {
+function thumbGotoState(view: view.View, state: string, animated: boolean) {
     if (!view) {
         return;
     }
@@ -118,6 +123,57 @@ function gotoState(view: view.View, state: string, animated: boolean) {
             anims.push({ target: selectionOverlay, opacity: 0, curve: CURVE, duration: animated ? 250 : 0 });
             break;
     }
+    var animation = new animations.Animation(anims);
+    animation.play();
+}
+
+var particleStates = [
+    [
+        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
+        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
+        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
+        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
+        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+    ], [
+        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
+        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
+        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
+        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
+        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+    ], [
+        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
+        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
+        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
+        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
+        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+    ], [
+        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
+        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
+        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
+        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
+        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+    ], [
+        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
+        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
+        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
+        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
+        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+    ]
+];
+
+function particlesGotoState(particles: view.View[], stateIndex: number, animated: boolean) {
+    var anims = particles.map((particle, particleIndex) => {
+        var state = particleStates[particleIndex][stateIndex];
+        return {
+            target: particle,
+            //opacity: state.opacity,
+            //scale: state.scale,
+            translate: state.translate,
+            curve: CURVE,
+            duration: animated ? state.duration : 0
+        };
+    });
+    
     var animation = new animations.Animation(anims);
     animation.play();
 }

@@ -5,7 +5,16 @@
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto">
-    <GridLayout rowSpan="2" cssClass="content-background" />
+    <GridLayout rowSpan="2" cssClass="content-background">
+      <AbsoluteLayout>
+        <Image id="p1" src="res://particles/particle.01" stretch="none" left="20" top="20" />
+        <Image id="p2" src="res://particles/particle.02" stretch="none" left="50" top="50" />
+        <Image id="p3" src="res://particles/particle.03" stretch="none" left="80" top="80" />
+        <Image id="p4" src="res://particles/particle.04" stretch="none" left="110" top="110" />
+        <Image id="p5" src="res://particles/particle.05" stretch="none" left="140" top="140" />
+      </AbsoluteLayout>
+    </GridLayout>
+    <!-- TODO: Particles here... -->
     <StackLayout margin="10 10 10 72">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
