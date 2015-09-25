@@ -1,6 +1,11 @@
 <examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
     <Page.actionBar>
-        <ActionBar title="User Profile">
+        <ActionBar>
+			<ActionBar.titleView>
+				<StackLayout>
+					<Label text="User Profile" cssClass="title" />
+				</StackLayout>
+			</ActionBar.titleView>
             <ActionBar.actionItems>
                 <ActionItem text="Cancel" ios.position="left" tap="cancelTapped" />
                 <ActionItem text="Done" ios.position="right" tap="doneTapped" />
