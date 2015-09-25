@@ -18,12 +18,6 @@
     background-size: cover;
 }
 
-SegmentedBar {
-    background-color: #FF034D8D;
-	color: white;
-    /*background-image: url("~/images/background-top.png");*/
-}
-
 TabView {
 	background-color: #FF034D8D;
 }

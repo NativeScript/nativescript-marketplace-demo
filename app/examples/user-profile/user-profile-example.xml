@@ -17,21 +17,29 @@
             <StackLayout margin="20">
                 <!-- Picture -->
                 <StackLayout orientation="horizontal">
-                    <Image src="~/images/empty.png" cssClass="profile-image" />
-                    <Button text="Change image" />
+                    <Image src="res://user.png" cssClass="profile-image" />
+                    <Button text="Change image" cssClass="button-change-image" />
                 </StackLayout>
                 <!-- Username -->
-                <Label text="Username" cssClass="field-title" />
-                <TextField text="{{ username }}" cssClass="field" />
+                <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
+                    <Label text="Username" cssClass="field-title" />
+                    <TextField text="{{ username }}" cssClass="field" />
+                </GridLayout>
                 <!-- Email -->
-                <Label text="Email" cssClass="field-title" />
-                <TextField text="{{ email }}" cssClass="field" />
+                <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
+                    <Label text="Email" cssClass="field-title" />
+                    <TextField text="{{ email }}" cssClass="field" />
+                </GridLayout>
                 <!-- Password -->
-                <Label text="Password" cssClass="field-title" />
-                <TextField text="{{ password }}" secure="true" cssClass="field" />
+                <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
+                    <Label text="Password" cssClass="field-title" />
+                    <TextField text="{{ password }}" secure="true" cssClass="field" />
+                </GridLayout>
                 <!-- Bio -->
-                <Label text="Bio" cssClass="field-title" />
-                <TextView text="{{ bio }}" cssClass="field-multiline" />
+                <StackLayout>
+                    <Label text="Bio" cssClass="field-title" />
+                    <TextView text="{{ bio }}" cssClass="field-multiline" />
+                </StackLayout>
                 <!-- Public -->
                 <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
                     <Label text="Public profile" cssClass="field-title" />

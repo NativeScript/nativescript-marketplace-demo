@@ -2,14 +2,19 @@
   margin-top: 10;
   horizontal-align: left;
   font-size: 16;
+  color: #FF737373;
 }
 
 .field {
-  horizontal-align: stretch;
+  horizontal-align: right;
+  text-align: right;
+  width: 200;
+  color: #FF034D8D;
 }
 
 .field-multiline {
   height: 150;
+  color: #FF034D8D;
 }
 
 .field-switch{
@@ -21,4 +26,9 @@
   width: 50;
   height: 50;
   margin-right: 10;
+}
+
+.button-change-image {
+    vertical-align: top;
+    color: #FF034D8D;
 }

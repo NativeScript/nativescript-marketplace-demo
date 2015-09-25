@@ -17,3 +17,9 @@
 .session-container {
     padding: 12;
 }
+
+.conf-segmented-bar {
+    background-color: #FF034D8D;
+    color: #FFFBE5AE;
+    margin: 0 12 0 12;
+}

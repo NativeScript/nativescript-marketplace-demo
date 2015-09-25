@@ -11,54 +11,54 @@
   <GridLayout loaded="rootGridLoaded">
     <TabView>
       <TabView.items>
-        <TabViewItem title="Stack">
+          <TabViewItem title="Stack" iconSource="res://stack">
           <TabViewItem.view>
             <StackLayout>
-              <Button text="button 1" cssClass="btn-red" />
-              <Button text="button 2" cssClass="btn-lightblue" />
-              <Button text="button 3" cssClass="btn-lightgreen" />
+              <Button cssClass="btn-red" />
+              <Button cssClass="btn-lightblue" />
+              <Button cssClass="btn-lightgreen" />
             </StackLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <TabViewItem title="Grid">
+        <TabViewItem title="Grid" iconSource="res://grid">
           <TabViewItem.view>
             <GridLayout columns="*,*,*" rows="*,*,*">
-              <Button text="1" cssClass="btn-red" />
-              <Button text="2" col="1" cssClass="btn-lightblue" />
-              <Button text="3" col="2" rowSpan="2" cssClass="btn-lightgreen" />
-              <Button text="4" row="1" rowSpan="2" colSpan="2" cssClass="btn-lightpink" />
-              <Button text="5" row="2" col="2" cssClass="btn-wheat" />
+              <Button cssClass="btn-red" />
+              <Button col="1" cssClass="btn-lightblue" />
+              <Button col="2" rowSpan="2" cssClass="btn-lightgreen" />
+              <Button row="1" rowSpan="2" colSpan="2" cssClass="btn-yellow" />
+              <Button row="2" col="2" cssClass="btn-wheat" />
             </GridLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <TabViewItem title="Wrap">
+        <TabViewItem title="Wrap" iconSource="res://wrap">
           <TabViewItem.view>
             <WrapLayout>
-              <Button text="1" width="150" height="100" cssClass="btn-red" />
-              <Button text="2" width="100" height="150" cssClass="btn-lightblue" />
-              <Button text="3" width="200" height="120" cssClass="btn-lightgreen" />
-              <Button text="4" width="100" height="50" cssClass="btn-lightpink" />
-              <Button text="5" width="250" height="100" cssClass="btn-wheat" />
+              <Button width="150" height="100" cssClass="btn-red" />
+              <Button width="100" height="150" cssClass="btn-lightblue" />
+              <Button width="200" height="120" cssClass="btn-lightgreen" />
+              <Button width="100" height="50" cssClass="btn-yellow" />
+              <Button width="250" height="100" cssClass="btn-wheat" />
             </WrapLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <TabViewItem title="Dock">
+        <TabViewItem title="Dock" iconSource="res://dock">
           <TabViewItem.view>
             <DockLayout stretchLastChild="true">
-              <Button dock="left" text="left" cssClass="btn-red" />/>
-              <Button dock="top" text="top" cssClass="btn-lightblue" />
-              <Button dock="right" text="right" cssClass="btn-lightgreen" />
-              <Button dock="bottom" text="bottom" cssClass="btn-lightpink" />
-              <Button text="fill" cssClass="btn-wheat" />
+              <Button dock="left" cssClass="btn-red" />/>
+              <Button dock="top" cssClass="btn-lightblue" />
+              <Button dock="right" cssClass="btn-lightgreen" />
+              <Button dock="bottom" cssClass="btn-yellow" />
+              <Button cssClass="btn-wheat" />
             </DockLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <TabViewItem title="Absolute">
+        <TabViewItem title="Absolute" iconSource="res://absolute">
           <TabViewItem.view>
             <AbsoluteLayout>
-              <Button text="1" left="50" top="50" width="100" height="100" cssClass="btn-red" />
-              <Button text="2" left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
-              <Button text="3" left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />
+              <Button left="50" top="50" width="100" height="100" cssClass="btn-red" />
+              <Button left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
+              <Button left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />
             </AbsoluteLayout>
           </TabViewItem.view>
         </TabViewItem>

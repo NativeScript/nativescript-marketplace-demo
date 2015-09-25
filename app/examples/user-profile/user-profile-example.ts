@@ -9,7 +9,7 @@ export function pageLoaded(args: observable.EventData) {
     page.bindingContext = new observable.Observable({
 		username: "Joe",
 		email: "joe@telerik.com",
-		password: "",
+		password: "password",
 		bio: "Joe's life started, when he found NativeScript ...",
 		isPublic: true
 	})

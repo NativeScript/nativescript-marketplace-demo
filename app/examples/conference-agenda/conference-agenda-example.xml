@@ -10,7 +10,8 @@
     </Page.actionBar>
     <GridLayout rows="auto, auto, *" columns="*">
         <!-- Segmented Bar -->
-        <SegmentedBar selectedIndex="{{ selectedDay }}">
+        <SegmentedBar selectedIndex="{{ selectedDay }}"
+            ios:selectedBackgroundColor="#FFFBE5AE" cssClass="conf-segmented-bar">
             <SegmentedBar.items>
                 <SegmentedBarItem title="MAY 3" />
                 <SegmentedBarItem title="MAY 4" />
