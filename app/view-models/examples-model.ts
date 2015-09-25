@@ -29,7 +29,7 @@ export var examples: Array<Example> = [
 		isFeatured: true,
 		isNew: true
 	},
-	
+
 	{
 		title: "User Profile",
 		image: "~/images/empty.png",
@@ -38,8 +38,8 @@ export var examples: Array<Example> = [
 		info: "Few sentences of example information. Few sentences of example information.",
 		isFeatured: true,
 		isNew: true
-	},	
-    
+	},
+
     {
 		title: "Conference Agenda",
 		image: "~/images/empty.png",
@@ -48,9 +48,24 @@ export var examples: Array<Example> = [
 		info: "Few sentences of example information. Few sentences of example information.",
 		isFeatured: true,
 		isNew: true
-	},     
-	
-	{ title: "Chart Example 1", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: true },
+	},
+
+	{
+		title: "Bar series",
+		image: "~/images/empty.png",
+		path: "examples/chart/bar-series",
+		controls: ["chart"],
+		isFeatured: true,
+		isNew: true
+	},
+	{
+		title: "Line series",
+		image: "~/images/empty.png",
+		path: "examples/chart/line-series",
+		controls: ["chart"],
+		isFeatured: true,
+		isNew: true
+	},
 	{ title: "Chart Example 2", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: false },
 
 	{ title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },
@@ -61,8 +76,8 @@ export var examples: Array<Example> = [
 ];
 
 export var exampleGroups: Array<ExampleGroup> = [
-	{   
-        title: "CoreUI", 
+	{
+        title: "CoreUI",
         isNew: true,
         info: "NativeScript ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native view for each platform while providing a common API for working with it.",
         url:"http://docs.nativescript.org/ui-views",
@@ -76,14 +91,14 @@ export var exampleGroups: Array<ExampleGroup> = [
         	"dock-layout",
         	"absolute-layout",
         	"scroll-view",
-            "text-field", 
-            "text-view", 
+            "text-field",
+            "text-view",
             "image",
             "action-bar",
             "segmented-bar",
             "search-bar",
             "list-view"] },
-	
+
 	{ title: "Chart", isNew: true, controls: ["chart"] },
 	{ title: "Side Drawer", isNew: true, controls: ["side-drawer"] },
 	{ title: "Calendar", isNew: false, controls: ["calendar"] },
