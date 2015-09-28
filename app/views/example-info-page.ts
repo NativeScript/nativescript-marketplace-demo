@@ -167,7 +167,7 @@ function particlesGotoState(particles: view.View[], stateIndex: number, animated
         return {
             target: particle,
             //opacity: state.opacity,
-            //scale: state.scale,
+            scale: state.scale,
             translate: state.translate,
             curve: CURVE,
             duration: animated ? state.duration : 0
