@@ -66,6 +66,22 @@ export var examples: Array<Example> = [
 		isFeatured: true,
 		isNew: true
 	},
+	{
+		title: "Area series",
+		image: "~/images/empty.png",
+		path: "examples/chart/area-series",
+		controls: ["chart"],
+		isFeatured: true,
+		isNew: true
+	},
+	{
+		title: "Pie series",
+		image: "~/images/empty.png",
+		path: "examples/chart/pie-series",
+		controls: ["chart"],
+		isFeatured: true,
+		isNew: true
+	},
 	{ title: "Chart Example 2", image: "~/images/empty.png", controls: ["chart"], isFeatured: true, isNew: false },
 
 	{ title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },

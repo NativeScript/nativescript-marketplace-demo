@@ -19,8 +19,3 @@ export function onPageLoaded(args: observable.EventData){
     var page = args.object;
     page.bindingContext = new models.CategoricalDataModel();
 }
-
-export function onTabViewLoaded(args: observable.EventData){
-    var tabView = args.object;
-    tabView.bindingContext = models.CategoricalDataModel();
-}

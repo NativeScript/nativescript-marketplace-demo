@@ -1,6 +1,6 @@
 <examples:ExamplePage loaded="onPageLoaded" xmlns:chart="nativescript-telerik-ui/chart" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
     <Page.actionBar>
-        <ActionBar title="Bar series"/>
+        <ActionBar title="Area series"/>
     </Page.actionBar>
     <GridLayout loaded="rootGridLoaded">
         <TabView loaded="onTabViewLoaded">
@@ -8,17 +8,17 @@
                 <TabViewItem title="First look">
                     <TabViewItem.view>
                         <StackLayout>
-                            <Label text="Performance summary, 2014"/>
+                            <Label text="Monthly sales revenue, 2014"/>
                             <chart:CartesianChart >
                                 <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount">
-                                        <chart:BarSeries.horizontalAxis>
+                                    <chart:AreaSeries categoryProperty="Category" items="{{ areaSource }}" valueProperty="Amount">
+                                        <chart:AreaSeries.horizontalAxis>
                                             <chart:CategoricalAxis/>
-                                        </chart:BarSeries.horizontalAxis>
-                                        <chart:BarSeries.verticalAxis>
+                                        </chart:AreaSeries.horizontalAxis>
+                                        <chart:AreaSeries.verticalAxis>
                                             <chart:LinearAxis/>
-                                        </chart:BarSeries.verticalAxis>
-                                    </chart:BarSeries>
+                                        </chart:AreaSeries.verticalAxis>
+                                    </chart:AreaSeries>
                                 </chart:CartesianChart.series>
                                 <chart:CartesianChart.grid>
                                     <chart:CartersianChartGrid/>
@@ -27,10 +27,10 @@
                         </StackLayout>
                     </TabViewItem.view>
                 </TabViewItem>
-                <TabViewItem title="Stack bar">
+                <TabViewItem title="Stack area">
                     <TabViewItem.view>
                         <StackLayout>
-                            <Label text="Performance summary, 2014"/>
+                            <Label text="Monthly sales revenue, 2014"/>
                             <chart:CartesianChart>
                                 <chart:CartesianChart.horizontalAxis>
                                     <chart:CategoricalAxis/>
@@ -39,8 +39,8 @@
                                     <chart:LinearAxis/>
                                 </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
+                                    <chart:AreaSeries categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack" valueProperty="Amount"/>
+                                    <chart:AreaSeries categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack" valueProperty="Amount"/>
                                 </chart:CartesianChart.series>
                                 <chart:CartesianChart.grid>
                                     <chart:CartersianChartGrid/>
@@ -49,10 +49,10 @@
                         </StackLayout>
                     </TabViewItem.view>
                 </TabViewItem>
-                <TabViewItem title="Stack 100 bar">
+                <TabViewItem title="Stack 100 area">
                     <TabViewItem.view>
                         <StackLayout>
-                            <Label text="Performance summary, 2014"/>
+                            <Label text="Monthly sales revenue, 2014"/>
                             <chart:CartesianChart>
                                 <chart:CartesianChart.horizontalAxis>
                                     <chart:CategoricalAxis/>
@@ -61,8 +61,8 @@
                                     <chart:LinearAxis/>
                                 </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
+                                    <chart:AreaSeries categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack100" valueProperty="Amount"/>
+                                    <chart:AreaSeries categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack100" valueProperty="Amount"/>
                                 </chart:CartesianChart.series>
                                 <chart:CartesianChart.grid>
                                     <chart:CartersianChartGrid/>
@@ -71,19 +71,20 @@
                         </StackLayout>
                     </TabViewItem.view>
                 </TabViewItem>
-                <TabViewItem title="Horizontal bar">
+                <TabViewItem title="Spline area">
                     <TabViewItem.view>
                         <StackLayout>
-                            <Label text="Performance summary, 2014"/>
+                            <Label text="Monthly sales revenue, 2014"/>
                             <chart:CartesianChart>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount"></chart:BarSeries>
+                                    <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource }}" valueProperty="Amount">
+                                        <chart:AreaSeries.horizontalAxis>
+                                            <chart:CategoricalAxis/>
+                                        </chart:AreaSeries.horizontalAxis>
+                                        <chart:AreaSeries.verticalAxis>
+                                            <chart:LinearAxis/>
+                                        </chart:AreaSeries.verticalAxis>
+                                    </chart:SplineAreaSeries>
                                 </chart:CartesianChart.series>
                                 <chart:CartesianChart.grid>
                                     <chart:CartersianChartGrid/>
@@ -92,20 +93,20 @@
                         </StackLayout>
                     </TabViewItem.view>
                 </TabViewItem>
-                <TabViewItem title="Horizontal Stack bar">
+                <TabViewItem title="Stack spline area">
                     <TabViewItem.view>
                         <StackLayout>
-                            <Label text="Performance summary, 2014"/>
+                            <Label text="Monthly sales revenue, 2014"/>
                             <chart:CartesianChart>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
+                                    <chart:CategoricalAxis/>
                                 </chart:CartesianChart.horizontalAxis>
+                                <chart:CartesianChart.verticalAxis>
+                                    <chart:LinearAxis/>
+                                </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
+                                    <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack" valueProperty="Amount"/>
+                                    <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack" valueProperty="Amount"/>
                                 </chart:CartesianChart.series>
                                 <chart:CartesianChart.grid>
                                     <chart:CartersianChartGrid/>
@@ -114,20 +115,20 @@
                         </StackLayout>
                     </TabViewItem.view>
                 </TabViewItem>
-                <TabViewItem title="Horizontal Stack 100 bar">
+                <TabViewItem title="Stack 100 spline area">
                     <TabViewItem.view>
                         <StackLayout>
-                            <Label text="Performance summary, 2014"/>
+                            <Label text="Monthly sales revenue, 2014"/>
                             <chart:CartesianChart>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
+                                    <chart:CategoricalAxis/>
                                 </chart:CartesianChart.horizontalAxis>
+                                <chart:CartesianChart.verticalAxis>
+                                    <chart:LinearAxis/>
+                                </chart:CartesianChart.verticalAxis>
                                 <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
+                                    <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack100" valueProperty="Amount"/>
+                                    <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack100" valueProperty="Amount"/>
                                 </chart:CartesianChart.series>
                                 <chart:CartesianChart.grid>
                                     <chart:CartersianChartGrid/>

@@ -1,0 +1,59 @@
+<examples:ExamplePage loaded="onPageLoaded" xmlns:chart="nativescript-telerik-ui/chart" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
+    <Page.actionBar>
+        <ActionBar title="Pie series"/>
+    </Page.actionBar>
+    <GridLayout loaded="rootGridLoaded">
+        <TabView>
+            <TabView.items>
+                <TabViewItem title="Pie">
+                    <TabViewItem.view>
+                        <StackLayout >
+                            <Label text="International sales by country, 2014"/>
+                            <chart:PieChart>
+                                <chart:PieChart.series>
+                                    <chart:PieSeries showLabels="true" items="{{ pieSource }}" valueProperty="Amount"/>
+                                </chart:PieChart.series>
+                            </chart:PieChart>
+                        </StackLayout>
+                    </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="Pie 2">
+                    <TabViewItem.view>
+                        <StackLayout>
+                            <Label text="International sales by country, 2014"/>
+                            <chart:PieChart>
+                                <chart:PieChart.series>
+                                    <chart:PieSeries showLabels="true" items="{{ pieSource2 }}" valueProperty="Amount"/>
+                                </chart:PieChart.series>
+                            </chart:PieChart>
+                        </StackLayout>
+                    </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="Donut">
+                    <TabViewItem.view>
+                        <StackLayout >
+                            <Label text="International sales by country, 2014"/>
+                            <chart:PieChart>
+                                <chart:PieChart.series>
+                                    <chart:DonutSeries showLabels="true" items="{{ pieSource }}" valueProperty="Amount"/>
+                                </chart:PieChart.series>
+                            </chart:PieChart>
+                        </StackLayout>
+                    </TabViewItem.view>
+                </TabViewItem>
+                <TabViewItem title="Donut 2">
+                    <TabViewItem.view>
+                        <StackLayout>
+                            <Label text="International sales by country, 2014"/>
+                            <chart:PieChart>
+                                <chart:PieChart.series>
+                                    <chart:DonutSeries showLabels="true" items="{{ pieSource2 }}" valueProperty="Amount"/>
+                                </chart:PieChart.series>
+                            </chart:PieChart>
+                        </StackLayout>
+                    </TabViewItem.view>
+                </TabViewItem>
+            </TabView.items>
+        </TabView>
+    </GridLayout>
+</examples:ExamplePage>
