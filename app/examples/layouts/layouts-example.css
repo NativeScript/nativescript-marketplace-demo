@@ -1,20 +1,20 @@
 .btn-red {
-    background-color: red;
+    background-color: #FF9A1813;
     margin: 5;    
 }
 
 .btn-lightblue {
-    background-color: lightblue;
+    background-color: #FF4695D9;
     margin: 5;   
 }
 
 .btn-lightgreen {
-    background-color: lightgreen;
+    background-color: #FF049A90;
     margin: 5;   
 }
 
-.btn-lightpink {
-    background-color: lightpink;
+.btn-yellow {
+    background-color: #FFCED910;
     margin: 5;   
 }
 

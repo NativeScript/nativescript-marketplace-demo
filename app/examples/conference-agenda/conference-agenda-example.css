@@ -1,29 +1,25 @@
-﻿.fav-icon-on {
-    width: 24;
-    height: 24;
-    margin-right: 10;  
-    background-color: lightgreen; 
-}
-
-.fav-icon-off {
-    width: 24;
-    height: 24;
-    margin-right: 10;  
-    background-color: lightgray; 
-}
-
-.session-title {
-    font-size: 22;
+﻿.session-title {
+    font-size: 17;
+	color: #FF555555;
 }
 
 .session-time {
-    
+	font-size: 12;
+	font-weight: bold;
+    color: #FF034D8D;
 }
 
 .session-room {
-    font-weight: bold;
+    font-size: 12;
+	color: #FFAAD7FF;
 }
 
 .session-container {
-    padding: 10;
+    padding: 12;
+}
+
+.conf-segmented-bar {
+    background-color: #FF034D8D;
+    color: #FFFBE5AE;
+    margin: 0 12 0 12;
 }

@@ -18,14 +18,23 @@
     background-size: cover;
 }
 
+TabView {
+	background-color: #FF034D8D;
+}
+
+ActionBar {
+    background-color: #FF034D8D;
+    /*background-image: url("res://bg_app_bar");*/
+}
+
 .examples-action-bar {
     background-color: transparent;
 }
 
 .title {
-    font-size: 30;
+    font-size: 20;
     margin-bottom: 10;
-    color: black;
+    color: white;
 }
 
 .-android-example-types-bar {
