@@ -1,100 +1,22 @@
-<examples:ExamplePage loaded="onPageLoaded" xmlns:chart="nativescript-telerik-ui/chart" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
+<examples:ExamplePage loaded="onPageLoaded"  xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
     <Page.actionBar>
         <ActionBar title="Line series"/>
     </Page.actionBar>
-    <GridLayout loaded="rootGridLoaded">
-        <TabView>
-            <TabView.items>
-                <TabViewItem title="First look">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Monthly sales revenue, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.series>
-                                    <chart:LineSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount">
-                                        <chart:LineSeries.horizontalAxis>
-                                            <chart:CategoricalAxis/>
-                                        </chart:LineSeries.horizontalAxis>
-                                        <chart:LineSeries.verticalAxis>
-                                            <chart:LinearAxis/>
-                                        </chart:LineSeries.verticalAxis>
-                                    </chart:LineSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Multiple line">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Monthly sales revenue, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:LineSeries categoryProperty="Category" items="{{ categoricalSource }}"  valueProperty="Amount"></chart:LineSeries>
-                                    <chart:LineSeries categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount"></chart:LineSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Spline">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Monthly sales revenue, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:SplineSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount"></chart:SplineSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Multiple spline">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Monthly sales revenue, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:SplineSeries categoryProperty="Category" items="{{ categoricalSource }}"  valueProperty="Amount"></chart:SplineSeries>
-                                    <chart:SplineSeries categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount"></chart:SplineSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-            </TabView.items>
-        </TabView>
+    <GridLayout loaded="rootGridLoaded" rows="auto, *">
+        <ScrollView orientation="horizontal">
+            <Repeater items="{{ lineTypes }}">
+                <Repeater.itemsLayout>
+                    <StackLayout orientation="horizontal"/>
+                </Repeater.itemsLayout>
+                <Repeater.itemTemplate>
+                    <GridLayout tap="repeaterItemTap">
+                        <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
+                    </GridLayout>
+                </Repeater.itemTemplate>
+            </Repeater>
+        </ScrollView>
+        <GridLayout id="exampleHolder" rows="*" row="1">
+
+        </GridLayout>
     </GridLayout>
 </examples:ExamplePage>

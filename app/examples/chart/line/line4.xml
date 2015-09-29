@@ -1,0 +1,19 @@
+<GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
+    <Label text="Monthly sales revenue, 2014"/>
+    <chart:CartesianChart row="1">
+        <chart:CartesianChart.verticalAxis>
+            <chart:LinearAxis/>
+        </chart:CartesianChart.verticalAxis>
+        <chart:CartesianChart.horizontalAxis>
+            <chart:LinearAxis/>
+            <chart:CategoricalAxis/>
+        </chart:CartesianChart.horizontalAxis>
+        <chart:CartesianChart.series>
+            <chart:SplineSeries categoryProperty="Category" items="{{ categoricalSource }}"  valueProperty="Amount"></chart:SplineSeries>
+            <chart:SplineSeries categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount"></chart:SplineSeries>
+        </chart:CartesianChart.series>
+        <chart:CartesianChart.grid>
+            <chart:CartesianChartGrid/>
+        </chart:CartesianChart.grid>
+    </chart:CartesianChart>
+</GridLayout>

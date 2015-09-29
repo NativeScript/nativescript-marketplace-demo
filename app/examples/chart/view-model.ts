@@ -111,18 +111,16 @@ export class CategoricalDataModel {
             new ChartTypeItem(true, "res://chart/line/line1", "line1"),
             new ChartTypeItem(false, "res://chart/line/line2", "line2"),
             new ChartTypeItem(false, "res://chart/line/line3", "line3"),
-            new ChartTypeItem(false, "res://chart/line/line4", "line4"),
-            new ChartTypeItem(false, "res://chart/line/line5", "line5"),
-            new ChartTypeItem(false, "res://chart/line/line6", "line6")
+            new ChartTypeItem(false, "res://chart/line/line4", "line4")
         ];
     }
 
     get pieTypes(){
         return [
-            new ChartTypeItem(true, "res://chart/line/pie1", "pie1"),
-            new ChartTypeItem(false, "res://chart/line/pie2", "pie2"),
-            new ChartTypeItem(false, "res://chart/line/pie3", "pie3"),
-            new ChartTypeItem(false, "res://chart/line/pie4", "pie4")
+            new ChartTypeItem(true, "res://chart/pie/pie1", "pie1"),
+            new ChartTypeItem(false, "res://chart/pie/pie2", "pie2"),
+            new ChartTypeItem(false, "res://chart/pie/pie3", "pie3"),
+            new ChartTypeItem(false, "res://chart/pie/pie4", "pie4")
         ];
     }
 }
