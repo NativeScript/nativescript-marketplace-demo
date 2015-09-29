@@ -21,6 +21,7 @@ export function pageLoaded(args: observable.EventData) {
         bar.translucent = true;
         bar.shadowImage = UIImage.new();
         bar.tintColor = UIColor.whiteColor();
+        (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
     }
 }
 

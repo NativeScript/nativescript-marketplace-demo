@@ -12,7 +12,7 @@
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
-    <GridLayout>
+    <GridLayout cssClass="example-background">
         <ScrollView>
             <StackLayout margin="20">
                 <!-- Picture -->

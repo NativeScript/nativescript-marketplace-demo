@@ -1,4 +1,6 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+    cssClass="qsf-page"
+    navigatingTo="pageNavigatingTo">
   <Page.actionBar>
     <ActionBar title="{{ group.title }}">
       <NavigationButton tap="navigateBack" icon="res://ic_arrow_back" />

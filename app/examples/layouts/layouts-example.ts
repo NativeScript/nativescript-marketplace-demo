@@ -21,5 +21,6 @@ export function pageLoaded(args: observable.EventData) {
     var tabView = page.getViewById("tabView");
     if (tabView.ios) {
         tabView.ios.tabBar.barTintColor = new Color("#FF034D8D").ios;
+        tabView.ios.tabBar.tintColor = UIColor.whiteColor();
     }
 }

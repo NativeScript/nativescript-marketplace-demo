@@ -1,4 +1,8 @@
-﻿.field-title {
+﻿.example-background {
+  background-color: white;
+}
+
+.field-title {
   horizontal-align: left;
   font-size: 16;
   color: #FF737373;
