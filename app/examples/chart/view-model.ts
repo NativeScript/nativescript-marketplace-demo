@@ -73,6 +73,7 @@ export class CategoricalDataModel {
         return [
             { Country: "Germany", Amount: 40.0 },
             { Country: "France", Amount: 60.0 },
+            { Country: "France", Amount: 80.0 }
         ];
     }
 
@@ -80,7 +81,8 @@ export class CategoricalDataModel {
         return [
             { Country: "Bulgaria", Amount: 40.0 },
             { Country: "Spain", Amount: 30.0 },
-            { Country: "USA", Amount: 30.0 }
+            { Country: "USA", Amount: 30.0 },
+            { Country: "USA", Amount: 70.0 }
         ];
     }
 
@@ -88,30 +90,30 @@ export class CategoricalDataModel {
         return [
             new ChartTypeItem(true, "res://chart/area/area1", "area1"),
             new ChartTypeItem(false, "res://chart/area/area2", "area2"),
-            new ChartTypeItem(false, "res://chart/area/area3", "area3"),
-            new ChartTypeItem(false, "res://chart/area/area4", "area4"),
-            new ChartTypeItem(false, "res://chart/area/area5", "area5"),
+            new ChartTypeItem(false, "res://chart/area/area5", "area3"),
+            new ChartTypeItem(false, "res://chart/area/area3", "area4"),
+            new ChartTypeItem(false, "res://chart/area/area4", "area5"),
             new ChartTypeItem(false, "res://chart/area/area6", "area6")
         ];
     }
 
     get barTypes(){
         return [
-            new ChartTypeItem(true, "res://chart/bar/bar1", "bar1"),
-            new ChartTypeItem(false, "res://chart/bar/bar2", "bar2"),
-            new ChartTypeItem(false, "res://chart/bar/bar3", "bar3"),
-            new ChartTypeItem(false, "res://chart/bar/bar4", "bar4"),
-            new ChartTypeItem(false, "res://chart/bar/bar5", "bar5"),
-            new ChartTypeItem(false, "res://chart/bar/bar6", "bar6")
+            new ChartTypeItem(true, "res://chart/bar/bar5", "bar1"),
+            new ChartTypeItem(false, "res://chart/bar/bar7", "bar2"),
+            new ChartTypeItem(false, "res://chart/bar/bar8", "bar3"),
+            new ChartTypeItem(false, "res://chart/bar/bar1", "bar4"),
+            new ChartTypeItem(false, "res://chart/bar/bar3", "bar5"),
+            new ChartTypeItem(false, "res://chart/bar/bar4", "bar6")
         ];
     }
 
     get lineTypes(){
         return [
-            new ChartTypeItem(true, "res://chart/line/line1", "line1"),
-            new ChartTypeItem(false, "res://chart/line/line2", "line2"),
-            new ChartTypeItem(false, "res://chart/line/line3", "line3"),
-            new ChartTypeItem(false, "res://chart/line/line4", "line4")
+            new ChartTypeItem(true, "res://chart/line/line2", "line1"),
+            new ChartTypeItem(false, "res://chart/line/line4", "line2"),
+            new ChartTypeItem(false, "res://chart/line/spline1", "line3"),
+            new ChartTypeItem(false, "res://chart/line/spline3", "line4")
         ];
     }
 
@@ -119,8 +121,7 @@ export class CategoricalDataModel {
         return [
             new ChartTypeItem(true, "res://chart/pie/pie1", "pie1"),
             new ChartTypeItem(false, "res://chart/pie/pie2", "pie2"),
-            new ChartTypeItem(false, "res://chart/pie/pie3", "pie3"),
-            new ChartTypeItem(false, "res://chart/pie/pie4", "pie4")
+            new ChartTypeItem(false, "res://chart/pie/doughnut1", "pie3"),
         ];
     }
 }
