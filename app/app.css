@@ -1,9 +1,13 @@
-Page {
+
+.qsf-page {
     background-color: #3D5AFE;
-    background-image: url("res://bg_nav_bar");
+    background-image: url("res://bg_main");
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: 800 400;
+}
+
+Page, ExamplePage {
+    background-color: #034D8D;
 }
 .transparent {
     background-color: transparent;
@@ -13,14 +17,12 @@ Page {
     background-image: url("res://bg_main");
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: cover;
 }
 TabView {
     background-color: #FF034D8D;
 }
 ActionBar {
     background-color: #FF034D8D;
-    /*background-image: url("res://bg_app_bar");*/
 }
 .examples-action-bar {
     background-color: transparent;

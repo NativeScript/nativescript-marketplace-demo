@@ -12,7 +12,7 @@
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
-    <GridLayout>
+    <GridLayout cssClass="example-background">
         <ScrollView>
             <StackLayout margin="20">
                 <!-- Picture -->
@@ -20,31 +20,42 @@
                     <Image src="res://user.png" cssClass="profile-image" />
                     <Button text="Change image" cssClass="button-change-image" />
                 </StackLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
                 <!-- Username -->
                 <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
                     <Label text="Username" cssClass="field-title" />
                     <TextField text="{{ username }}" cssClass="field" />
                 </GridLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
                 <!-- Email -->
                 <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
                     <Label text="Email" cssClass="field-title" />
                     <TextField text="{{ email }}" cssClass="field" />
                 </GridLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
                 <!-- Password -->
                 <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
                     <Label text="Password" cssClass="field-title" />
-                    <TextField text="{{ password }}" secure="true" cssClass="field" />
+                    <TextField col="1" text="{{ password }}" secure="{{ showPassword, !showPassword }}" cssClass="field" />
                 </GridLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
+                <StackLayout orientation="horizontal">
+                    <Image src="{{ showPassword ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" tap="toggleShowPassword" />
+                    <Label text="Show password" cssClass="field-title" />
+                </StackLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
                 <!-- Bio -->
                 <StackLayout>
                     <Label text="Bio" cssClass="field-title" />
                     <TextView text="{{ bio }}" cssClass="field-multiline" />
                 </StackLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
                 <!-- Public -->
                 <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
                     <Label text="Public profile" cssClass="field-title" />
                     <Switch checked="{{ isPublic }}" cssClass="field-switch" />
                 </GridLayout>
+                <StackLayout orientation="horizontal" cssClass="line"/>
             </StackLayout>
         </ScrollView>
     </GridLayout>

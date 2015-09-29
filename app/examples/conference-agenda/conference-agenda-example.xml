@@ -24,7 +24,6 @@
         <ListView row="2" items="{{ sessions }}" id="sessions-list">
             <ListView.itemTemplate>
                 <GridLayout columns="*, auto" rows="auto, auto, auto" cssClass="session-container">
-                    <!--<GridLayout row="1" col="1" cssClass="{{ isFavourite ? 'fav-icon-on' : 'fav-icon-off' }}" tap="toggleFavourite" />-->
 					<Image row="1" col="1" src="{{ isFavourite ? 'res://add_to_fav' : 'res://add_to_fav_1' }}" tap="toggleFavourite" />
                     <Label row="0" text="{{ range }}" cssClass="session-time" />
                     <Label row="1" text="{{ title }}" textWrap="true" cssClass="session-title" />

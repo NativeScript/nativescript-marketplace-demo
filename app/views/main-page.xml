@@ -1,4 +1,7 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+    xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+    cssClass="qsf-page"
+    loaded="pageLoaded">
   <Page.actionBar>
     <ActionBar cssClass="examples-action-bar" title="NativeScript Examples">
       <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />

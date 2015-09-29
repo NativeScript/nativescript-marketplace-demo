@@ -1,4 +1,7 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo" loaded="pageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+    cssClass="qsf-page"
+    navigatedTo="pageNavigatedTo"
+    loaded="pageLoaded">
   <Page.actionBar>
     <ActionBar title="Back to all" cssClass="transparent">
       <NavigationButton tap="navigateBack" icon="res://ic_arrow_back_chart" />

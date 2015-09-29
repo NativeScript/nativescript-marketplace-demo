@@ -1,4 +1,7 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
+<Page
+    xmlns="http://www.nativescript.org/tns.xsd"
+    cssClass="qsf-page"
+    navigatedTo="pageNavigatedTo">
   <Page.actionBar>
     <ActionBar title="View Code" />
   </Page.actionBar>
