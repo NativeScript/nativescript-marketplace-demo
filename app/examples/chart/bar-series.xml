@@ -2,141 +2,21 @@
     <Page.actionBar>
         <ActionBar title="Bar series"/>
     </Page.actionBar>
-    <GridLayout loaded="rootGridLoaded">
-        <TabView loaded="onTabViewLoaded">
-            <TabView.items>
-                <TabViewItem title="First look">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Performance summary, 2014"/>
-                            <chart:CartesianChart >
-                                <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount">
-                                        <chart:BarSeries.horizontalAxis>
-                                            <chart:CategoricalAxis/>
-                                        </chart:BarSeries.horizontalAxis>
-                                        <chart:BarSeries.verticalAxis>
-                                            <chart:LinearAxis/>
-                                        </chart:BarSeries.verticalAxis>
-                                    </chart:BarSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Stack bar">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Performance summary, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Stack 100 bar">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Performance summary, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Horizontal bar">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Performance summary, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount"></chart:BarSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Horizontal Stack bar">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Performance summary, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount"></chart:BarSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-                <TabViewItem title="Horizontal Stack 100 bar">
-                    <TabViewItem.view>
-                        <StackLayout>
-                            <Label text="Performance summary, 2014"/>
-                            <chart:CartesianChart>
-                                <chart:CartesianChart.verticalAxis>
-                                    <chart:CategoricalAxis/>
-                                </chart:CartesianChart.verticalAxis>
-                                <chart:CartesianChart.horizontalAxis>
-                                    <chart:LinearAxis/>
-                                </chart:CartesianChart.horizontalAxis>
-                                <chart:CartesianChart.series>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-                                    <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-                                </chart:CartesianChart.series>
-                                <chart:CartesianChart.grid>
-                                    <chart:CartersianChartGrid/>
-                                </chart:CartesianChart.grid>
-                            </chart:CartesianChart>
-                        </StackLayout>
-                    </TabViewItem.view>
-                </TabViewItem>
-            </TabView.items>
-        </TabView>
+    <GridLayout loaded="rootGridLoaded" rows="auto, *">
+        <ScrollView orientation="horizontal">
+            <Repeater items="{{ barTypes }}">
+                <Repeater.itemsLayout>
+                    <StackLayout orientation="horizontal"/>
+                </Repeater.itemsLayout>
+                <Repeater.itemTemplate>
+                    <GridLayout tap="repeaterItemTap">
+                        <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
+                    </GridLayout>
+                </Repeater.itemTemplate>
+            </Repeater>
+        </ScrollView>
+        <GridLayout id="exampleHolder" rows="*" row="1">
+
+        </GridLayout>
     </GridLayout>
 </examples:ExamplePage>
