@@ -9,7 +9,7 @@
 		</ActionBar>
     </Page.actionBar>
   <GridLayout loaded="rootGridLoaded">
-    <TabView>
+    <TabView cssClass="tabView-layouts-example" id="tabView">
       <TabView.items>
           <TabViewItem title="Stack" iconSource="res://stack">
           <TabViewItem.view>
@@ -27,7 +27,7 @@
               <Button col="1" cssClass="btn-lightblue" />
               <Button col="2" rowSpan="2" cssClass="btn-lightgreen" />
               <Button row="1" rowSpan="2" colSpan="2" cssClass="btn-yellow" />
-              <Button row="2" col="2" cssClass="btn-wheat" />
+              <Button row="2" col="2" cssClass="btn-blue" />
             </GridLayout>
           </TabViewItem.view>
         </TabViewItem>
@@ -38,7 +38,7 @@
               <Button width="100" height="150" cssClass="btn-lightblue" />
               <Button width="200" height="120" cssClass="btn-lightgreen" />
               <Button width="100" height="50" cssClass="btn-yellow" />
-              <Button width="250" height="100" cssClass="btn-wheat" />
+              <Button width="250" height="100" cssClass="btn-blue" />
             </WrapLayout>
           </TabViewItem.view>
         </TabViewItem>
@@ -49,7 +49,7 @@
               <Button dock="top" cssClass="btn-lightblue" />
               <Button dock="right" cssClass="btn-lightgreen" />
               <Button dock="bottom" cssClass="btn-yellow" />
-              <Button cssClass="btn-wheat" />
+              <Button cssClass="btn-blue" />
             </DockLayout>
           </TabViewItem.view>
         </TabViewItem>
