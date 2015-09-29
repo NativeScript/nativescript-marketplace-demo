@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                 }
             },
             localInstallModules: {
-                command: "npm install \"" + nsDistPath + "/tns-core-modules-1.3.0.tgz\""
+                command: "npm install \"" + nsDistPath + "/tns-core-modules-1.4.0.tgz\""
             },
             emulateGeny: {
                 command: "tns emulate android --geny '" + genyDevice +"'"
