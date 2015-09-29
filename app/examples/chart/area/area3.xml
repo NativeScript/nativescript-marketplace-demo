@@ -1,4 +1,4 @@
-<GridLayout xmlns:chart="nativescript-telerik-ui/chart"  cssClass="exampleStyle" rows="auto, *">
+<GridLayout xmlns:chart="nativescript-telerik-ui/chart"  rows="auto, *">
     <Label text="Monthly sales revenue, 2014"/>
     <chart:CartesianChart row="1">
         <chart:CartesianChart.horizontalAxis>

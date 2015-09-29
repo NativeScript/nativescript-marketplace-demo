@@ -1,16 +1,52 @@
 
 import bindable = require("ui/core/bindable");
 import observable = require("data/observable");
+import builder = require("ui/builder");
 
 
-export class CategoricalDataModel {
+export class ChartExamplesDataModel {
+    private _categoricalSource;
+    private _categoricalSource2;
+    private _categoricalSource3;
+    private _areaSource;
+    private _areaSource2;
+    private _bubbleCategoricalSource;
+    private _pieSource;
+    private _pieSource2;
+    private _areaTypes;
+    private _pieTypes;
+    private _lineTypes;
+    private _barTypes;
+    private selectedItem: ChartTypeItem;
+
     constructor() {
-        console.log("Creating model");
+    }
+
+    public loadGalleryFragment(item: ChartTypeItem, viewHolder, pathToModuleXML: string, exampleXmlName: string) {
+
+        if (this.selectedItem) {
+            this.selectedItem.isSelected = false;
+        }
+        item.isSelected = true;
+        this.selectedItem = item;
+
+        var exampleView = builder.load({
+            path: pathToModuleXML,
+            name: exampleXmlName
+        });
+
+        if (viewHolder.getChildrenCount() > 0) {
+            viewHolder.removeChild(viewHolder.getChildAt(0));
+        }
+
+        viewHolder.addChild(exampleView);
     }
 
     get categoricalSource() {
-        console.log("Getting categorical source");
-        return [
+        if (this._categoricalSource) {
+            return this._categoricalSource;
+        }
+        return this._categoricalSource = [
             { Category: "Greenings", Amount: 65.0 },
             { Category: "Perfecto", Amount: 62.0 },
             { Category: "FamilyStore", Amount: 55.0 },
@@ -20,7 +56,10 @@ export class CategoricalDataModel {
     }
 
     get categoricalSource2() {
-        return [
+        if (this._categoricalSource2) {
+            return this._categoricalSource2;
+        }
+        return this._categoricalSource2 = [
             { Category: "Greenings", Amount: 5 },
             { Category: "Perfecto", Amount: 15 },
             { Category: "FamilyStore", Amount: 3 },
@@ -30,7 +69,10 @@ export class CategoricalDataModel {
     }
 
     get categoricalSource3() {
-        return [
+        if (this._categoricalSource3) {
+            return this._categoricalSource3;
+        }
+        return this._categoricalSource3 = [
             { Category: "Greenings", Amount: 65 },
             { Category: "Perfecto", Amount: 56 },
             { Category: "FamilyStore", Amount: 89 },
@@ -40,7 +82,10 @@ export class CategoricalDataModel {
     }
 
     get areaSource() {
-        return [
+        if (this._areaSource) {
+            return this._areaSource;
+        }
+        return this._areaSource = [
             { Category: "Greenings", Amount: 51 },
             { Category: "Perfecto", Amount: 81 },
             { Category: "FamilyStore", Amount: 89 },
@@ -50,7 +95,10 @@ export class CategoricalDataModel {
     }
 
     get areaSource2() {
-        return [
+        if (this._areaSource2) {
+            return this._areaSource2;
+        }
+        return this._areaSource2 = [
             { Category: "Greenings", Amount: 60 },
             { Category: "Perfecto", Amount: 87 },
             { Category: "FamilyStore", Amount: 91 },
@@ -60,7 +108,10 @@ export class CategoricalDataModel {
     }
 
     get bubbleCategoricalSource() {
-        return [
+        if (this._bubbleCategoricalSource) {
+            return this._bubbleCategoricalSource;
+        }
+        return this._bubbleCategoricalSource = [
             { Country: "Germany", Amount: Math.random() * 10, Impact: 1 },
             { Country: "France", Amount: Math.random() * 10, Impact: 7 },
             { Country: "Bulgaria", Amount: Math.random() * 10, Impact: 10 },
@@ -70,7 +121,10 @@ export class CategoricalDataModel {
     }
 
     get pieSource() {
-        return [
+        if (this._pieSource) {
+            return this._pieSource;
+        }
+        return this.pieSource = [
             { Country: "Germany", Amount: 40.0 },
             { Country: "France", Amount: 60.0 },
             { Country: "France", Amount: 80.0 }
@@ -78,7 +132,10 @@ export class CategoricalDataModel {
     }
 
     get pieSource2() {
-        return [
+        if (this._pieSource2) {
+            return this._pieSource2;
+        }
+        return this._pieSource2 = [
             { Country: "Bulgaria", Amount: 40.0 },
             { Country: "Spain", Amount: 30.0 },
             { Country: "USA", Amount: 30.0 },
@@ -87,7 +144,10 @@ export class CategoricalDataModel {
     }
 
     get areaTypes() {
-        return [
+        if (this._areaTypes) {
+            return this._areaTypes;
+        }
+        return this._areaTypes = [
             new ChartTypeItem(true, "res://chart/area/area1", "area1"),
             new ChartTypeItem(false, "res://chart/area/area2", "area2"),
             new ChartTypeItem(false, "res://chart/area/area5", "area3"),
@@ -97,8 +157,11 @@ export class CategoricalDataModel {
         ];
     }
 
-    get barTypes(){
-        return [
+    get barTypes() {
+        if (this._barTypes) {
+            return this._barTypes;
+        }
+        return this._barTypes = [
             new ChartTypeItem(true, "res://chart/bar/bar5", "bar1"),
             new ChartTypeItem(false, "res://chart/bar/bar7", "bar2"),
             new ChartTypeItem(false, "res://chart/bar/bar8", "bar3"),
@@ -108,8 +171,11 @@ export class CategoricalDataModel {
         ];
     }
 
-    get lineTypes(){
-        return [
+    get lineTypes() {
+        if (this._lineTypes) {
+            return this._lineTypes;
+        }
+        return this._lineTypes = [
             new ChartTypeItem(true, "res://chart/line/line2", "line1"),
             new ChartTypeItem(false, "res://chart/line/line4", "line2"),
             new ChartTypeItem(false, "res://chart/line/spline1", "line3"),
@@ -117,8 +183,11 @@ export class CategoricalDataModel {
         ];
     }
 
-    get pieTypes(){
-        return [
+    get pieTypes() {
+        if (this._pieTypes) {
+            return this._pieTypes;
+        }
+        return this._pieTypes = [
             new ChartTypeItem(true, "res://chart/pie/pie1", "pie1"),
             new ChartTypeItem(false, "res://chart/pie/pie2", "pie2"),
             new ChartTypeItem(false, "res://chart/pie/doughnut1", "pie3"),
@@ -128,7 +197,7 @@ export class CategoricalDataModel {
 
 export class ChartTypeItem extends observable.Observable {
 
-    constructor(selected, imageResource, xmlResource){
+    constructor(selected, imageResource, xmlResource) {
         super();
         this.isSelected = selected;
         this.imageRes = imageResource;
@@ -143,23 +212,23 @@ export class ChartTypeItem extends observable.Observable {
         this.set("selected", value);
     }
 
-    get imageRes(){
+    get imageRes() {
         return this.get("imgRes") + ".png";
     }
 
-    set imageRes(value){
+    set imageRes(value) {
         this.set("imgRes", value);
     }
 
-    get selectedImageRes(){
+    get selectedImageRes() {
         return this.get("imgRes") + "s.png";
     }
 
-    get exampleXml(){
+    get exampleXml() {
         return this.get("exXml");
     }
 
-    set exampleXml(value){
+    set exampleXml(value) {
         this.set("exXml", value);
     }
 }

@@ -1,22 +1,26 @@
-<examples:ExamplePage loaded="onPageLoaded" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
+<examples:ExamplePage loaded="onPageLoaded" xmlns:chart="nativescript-telerik-ui/chart" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
     <Page.actionBar>
-        <ActionBar title="Pie series"/>
+        <ActionBar title="Area series"/>
     </Page.actionBar>
     <GridLayout loaded="rootGridLoaded" rows="auto, *">
-        <ScrollView orientation="horizontal">
-            <Repeater items="{{ pieTypes }}">
-                <Repeater.itemsLayout>
-                    <StackLayout orientation="horizontal"/>
-                </Repeater.itemsLayout>
-                <Repeater.itemTemplate>
-                    <GridLayout tap="repeaterItemTap">
-                        <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
-                    </GridLayout>
-                </Repeater.itemTemplate>
-            </Repeater>
-        </ScrollView>
-        <GridLayout id="exampleHolder" rows="*" row="1">
-
+        <GridLayout cssClass="repeaterItemsScrollerStyle" rows="*, auto">
+            <ScrollView orientation="horizontal" ios.showsHorizontalScrollIndicator="false">
+                <Repeater items="{{ pieTypes }}">
+                    <Repeater.itemsLayout>
+                        <StackLayout orientation="horizontal"/>
+                    </Repeater.itemsLayout>
+                    <Repeater.itemTemplate>
+                        <GridLayout tap="repeaterItemTap">
+                            <GridLayout cssClass="{{ isSelected ? 'chartItemInRepeaterSelectedStyle' : 'chartItemInRepeaterStyle' }}">
+                                <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
+                            </GridLayout>
+                            <Image cssClass="chartItemSelectionIndicatorStyle" src="{{ isSelected ? 'res://chart/common/selected-item-bg' : ''}}" stretch="none"/>
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+            </ScrollView>
+            <GridLayout cssClass="repeaterBottomBorderStyle" row="1"/>
         </GridLayout>
+        <GridLayout cssClass="chartExampleHolderStyle" id="exampleHolder" row="1" rows="*"></GridLayout>
     </GridLayout>
 </examples:ExamplePage>

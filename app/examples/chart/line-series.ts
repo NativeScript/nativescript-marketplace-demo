@@ -2,7 +2,6 @@ import observable = require("data/observable");
 import gridModule = require("ui/layouts/grid-layout");
 import utils = require("utils/utils");
 import models = require("./view-model");
-import builder = require("ui/builder");
 import frame = require("ui/frame");
 
 export function rootGridLoaded(args: observable.EventData) {
@@ -16,30 +15,22 @@ export function rootGridLoaded(args: observable.EventData) {
         }
     }
 }
-var selectedItem;
-export function onPageLoaded(args: observable.EventData){
+
+function loadItem(page, item: models.ChartTypeItem) {
+    var dataModel = page.bindingContext;
+    dataModel.loadGalleryFragment(item, page.getViewById("exampleHolder"), "~/examples/chart/line", item.exampleXml);
+}
+
+export function onPageLoaded(args: observable.EventData) {
     var page = args.object;
-    page.bindingContext = new models.CategoricalDataModel();
+    var dataModel = new models.ChartExamplesDataModel();
+    page.bindingContext = dataModel;
+    var itemToLoad = dataModel.lineTypes[0];
+    loadItem(page, itemToLoad);
 }
 
 export function repeaterItemTap(args: observable.EventData) {
     var item = args.view.bindingContext;
-
-    if (selectedItem){
-        selectedItem.isSelected = false;
-    }
-    item.isSelected = true;
-    selectedItem = item;
-
-    var exampleView = builder.load({
-        path: "~/examples/chart/line",
-        name: selectedItem.exampleXml,
-        exports: exports
-    });
-
-    var exampleHolder = frame.topmost().getViewById("exampleHolder");
-    if (exampleHolder.getChildrenCount() > 0){
-        exampleHolder.removeChild(exampleHolder.getChildAt(0));
-    }
-    exampleHolder.addChild(exampleView);
+    var page = frame.topmost().currentPage;
+    loadItem(page, item);
 }

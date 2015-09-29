@@ -1,15 +1,13 @@
-﻿Page {
+Page {
     background-color: #3D5AFE;
     background-image: url("res://bg_nav_bar");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 800 400;
 }
-
 .transparent {
     background-color: transparent;
 }
-
 .content-background {
     background-color: #E5E5E8;
     background-image: url("res://bg_main");
@@ -17,79 +15,65 @@
     background-position: 0 0;
     background-size: cover;
 }
-
 TabView {
-	background-color: #FF034D8D;
+    background-color: #FF034D8D;
 }
-
 ActionBar {
     background-color: #FF034D8D;
     /*background-image: url("res://bg_app_bar");*/
 }
-
 .examples-action-bar {
     background-color: transparent;
 }
-
 .title {
     font-size: 20;
     margin-bottom: 10;
     color: white;
 }
-
 .-android-example-types-bar {
     background-color: none;
     color: white;
 }
-
 .-ios-example-types-bar {
     color: white;
     margin: 8 12 8 12;
 }
-
 .example-img-grid-wrap {
     width: 100;
     height: 100;
     horizontal-align: center;
     margin: 6;
 }
-
 .example-img-grid {
     width: 72;
     height: 72;
     horizontal-align: left;
     margin: 6;
 }
-
 .example-title {
     font-size: 19;
     color: black;
     horizontal-align: left;
     margin: 3;
 }
-
 .example-title-wrap {
     font-size: 17;
     color: black;
     horizontal-align: center;
     margin: 3;
 }
-
 .example-used-controls {
-    margin: 3;    
+    margin: 3;
 }
-
 .list-example-image {
     horzontal-align: left;
     border-radius: 20;
 }
-
-.list-example-image-new{
+.list-example-image-new {
     border-radius: 20;
     border-color: #3D5AFE;
     border-width: 2;
 }
-
 .link-button {
     text-align: left;
     padding: 0;
@@ -97,72 +81,90 @@ ActionBar {
     color: #018F88;
     font-size: 18;
 }
-
 .example-image {
     width: 120;
     height: 120;
-    border-radius: 20;    
+    border-radius: 20;
 }
-
 .selected-example-border {
     width: 120;
     height: 120;
-    border-radius: 20;    
+    border-radius: 20;
     border-color: #018F88;
     border-width: 1;
 }
-
 .info {
     font-size: 12;
     background-color: transparent;
 }
-
 .drawer-content {
     background-color: white;
 }
-
 .drawer-item {
     margin: 10;
 }
-
 .select-element {
     opacity: 0;
 }
-
-.show-new-btn{
+.show-new-btn {
     horizontal-align: right;
     background-color: transparent;
     margin: 0 10;
     color: #3D5AFE;
 }
-
 .new {
     font-weight: bold;
     vertical-align: bottom;
     horizontal-align: left;
 }
-
 .control {
     margin: 0 8 0 0;
     font-size: 12;
     font-weight: bold;
     color: #3D5AFE;
 }
-
 .example-item {
     padding: 6;
     margin: 1;
     background-color: white;
 }
-
 .no-image-example-item {
     margin: 1;
     background-color: white;
 }
-
 .example-overlay-button {
     vertical-align: bottom;
     horizontal-align: left;
     width: 40;
     height: 40;
+}
+.chartExampleHolderStyle {
+    padding: 16;
+    background-color: white;
+}
+.chartItemInRepeaterStyle {
+    vertical-align: bottom;
+    padding: 8;
+    background-color: #00ffffff;
+    width: 74;
+    height: 66;
+}
+.chartItemInRepeaterSelectedStyle {
+    vertical-align: bottom;
+    padding: 8;
+    background-color: white;
+    width: 74;
+    height: 66;
+}
+.chartItemSelectionIndicatorStyle {
+    vertical-align: bottom;
+    horizontal-align: center;
+    margin-bottom: -1;
+}
+.repeaterItemsScrollerStyle {
+    background-color: #fff1f1f1;
+}
+.repeaterBottomBorderStyle {
+    background-color: #ffb5b5b5;
+    height: 1;
 }

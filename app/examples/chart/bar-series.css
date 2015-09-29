@@ -1,0 +1,14 @@
+.exampleHolderStyle {
+    padding: 16;
+    background-color: white;
+}
+
+.chartItemInRepeaterStyle {
+    vertical-align: bottom;
+    padding: 8;
+    border-left: 1;
+    border-right: 1;
+    border-color: #ffcfcfcf;
+    width: 74;
+    height: 66;
+}
