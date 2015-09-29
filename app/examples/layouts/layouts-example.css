@@ -1,3 +1,7 @@
+.tabView-layouts-example {
+    background-color: white;
+}
+
 .btn-red {
     background-color: #FF9A1813;
     margin: 5;    
@@ -18,7 +22,7 @@
     margin: 5;   
 }
 
-.btn-wheat {
-    background-color: wheat;
+.btn-blue {
+    background-color: #FF1719C0;
     margin: 5;   
 }
