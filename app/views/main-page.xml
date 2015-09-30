@@ -61,7 +61,8 @@
                   In the best scenario we will set minimum-width of an item
                   and have the panel accomodate as much equal sized columns as possible. -->
                 <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
-                <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+                <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->
+                <!-- TODO: When the orientation is changed for a first time this doesn't seem to re-evaluate on iOS. It works on subsequent rotations. -->
                 <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
               </Repeater.itemsLayout>
               <Repeater.itemTemplate>
@@ -70,7 +71,7 @@
                   visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
                   
                   <GridLayout columns="*" rows="*"
-                    cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
+                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
                     <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
                     <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                   </GridLayout>

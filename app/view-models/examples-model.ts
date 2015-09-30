@@ -27,7 +27,7 @@ export interface ExampleGroup {
 export var examples: Array<Example> = [
 	{
 		title: "Layouts",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/layouts",
 		controls: ["stack-layout", "grid-layout", "wrap-layout", "dock-layout", "absolute-layout"],
 		path: "examples/layouts/layouts-example",
 		info: "Few sentences of example information. Few sentences of example information.",
@@ -37,7 +37,7 @@ export var examples: Array<Example> = [
 
 	{
 		title: "User Profile",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/user_profile",
 		controls: ["scroll-view", "stack-layout", "label", "text-field", "text-view", "image", "button", "switch", "action-bar"],
 		path: "examples/user-profile/user-profile-example",
 		info: "Few sentences of example information. Few sentences of example information.",
@@ -47,7 +47,7 @@ export var examples: Array<Example> = [
 
     {
 		title: "Conference Agenda",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/conference_agenda",
 		controls: ["list-view", "segmented-bar", "search-bar", "action-bar", "label" ],
 		path: "examples/conference-agenda/conference-agenda-example",
 		info: "Few sentences of example information. Few sentences of example information.",
