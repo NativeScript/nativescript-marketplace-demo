@@ -86,7 +86,7 @@ export var examples: Array<Example> = [
 		controls: ["chart"],
 		isFeatured: true,
 		isNew: true
-	},
+	}
 
 	// { title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },
 	// { title: "Side Drawer 2", image: "~/images/empty.png", controls: ["side-drawer"]},
