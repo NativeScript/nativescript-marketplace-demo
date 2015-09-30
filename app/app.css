@@ -184,8 +184,36 @@ ActionBar {
 }
 .repeaterItemsScrollerStyle {
     background-color: #fff1f1f1;
+    margin-bottom: -1;
 }
 .repeaterBottomBorderStyle {
-    background-color: #ffb5b5b5;
+    background-color: #ffd6d5d5;
     height: 1;
+}
+
+.galleryRepeaterItemRightBorder{
+    background-color: #ffd6d5d5;
+    width: 1;
+    horizontal-align: right;
+}
+
+.galleryRepeaterItemLeftBorder{
+    background-color: #ffd6d5d5;
+    width: 1;
+    margin-left: -1;
+    horizontal-align: left;
+}
+
+.galleryRepeaterItemBottomBorder{
+    background-color: #ffd6d5d5;
+    height: 1;
+    vertical-align: bottom;
+    margin-left: -1;
+    margin-right: -1;
+}
+
+.galleryRepeaterItemBottomSelectedBorder{
+    background-color: white;
+    height: 1;
+    vertical-align: bottom;
 }

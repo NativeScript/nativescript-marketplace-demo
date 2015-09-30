@@ -14,7 +14,9 @@
                             <GridLayout cssClass="{{ isSelected ? 'chartItemInRepeaterSelectedStyle' : 'chartItemInRepeaterStyle' }}">
                                 <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
                             </GridLayout>
-                            <Image cssClass="chartItemSelectionIndicatorStyle" src="{{ isSelected ? 'res://chart/common/selected-item-bg' : ''}}" stretch="none"/>
+                            <GridLayout cssClass="galleryRepeaterItemRightBorder"/>
+                            <GridLayout cssClass="galleryRepeaterItemLeftBorder"/>
+                            <GridLayout cssClass="{{isSelected ? 'galleryRepeaterItemBottomSelectedBorder' : 'galleryRepeaterItemBottomBorder'}}"/>
                         </GridLayout>
                     </Repeater.itemTemplate>
                 </Repeater>
