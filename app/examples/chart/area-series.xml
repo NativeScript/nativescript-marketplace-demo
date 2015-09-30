@@ -3,9 +3,10 @@
         <ActionBar title="Area series"/>
     </Page.actionBar>
     <GridLayout loaded="rootGridLoaded" rows="auto, *">
-        <GridLayout cssClass="repeaterItemsScrollerStyle" rows="*, auto">
-            <ScrollView orientation="horizontal" ios.showsHorizontalScrollIndicator="false">
-                <Repeater items="{{ areaTypes }}">
+        <GridLayout cssClass="repeaterItemsScrollerStyle" rows="*">
+            <GridLayout cssClass="repeaterBottomBorderStyle" row="1"/>
+            <ScrollView orientation="horizontal" ios.showsHorizontalScrollIndicator="false" cssClass="galleryRepeaterStyle">
+                <Repeater items="{{ areaTypes }}" >
                     <Repeater.itemsLayout>
                         <StackLayout orientation="horizontal"/>
                     </Repeater.itemsLayout>
@@ -14,14 +15,13 @@
                             <GridLayout cssClass="{{ isSelected ? 'chartItemInRepeaterSelectedStyle' : 'chartItemInRepeaterStyle' }}">
                                 <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
                             </GridLayout>
+                            <GridLayout cssClass="{{isSelected ? 'galleryRepeaterItemBottomSelectedBorder' : 'galleryRepeaterItemBottomBorder'}}"/>
                             <GridLayout cssClass="galleryRepeaterItemRightBorder"/>
                             <GridLayout cssClass="galleryRepeaterItemLeftBorder"/>
-                            <GridLayout cssClass="{{isSelected ? 'galleryRepeaterItemBottomSelectedBorder' : 'galleryRepeaterItemBottomBorder'}}"/>
                         </GridLayout>
                     </Repeater.itemTemplate>
                 </Repeater>
             </ScrollView>
-            <GridLayout cssClass="repeaterBottomBorderStyle" row="1"/>
         </GridLayout>
         <GridLayout cssClass="chartExampleHolderStyle" id="exampleHolder" row="1" rows="*"></GridLayout>
     </GridLayout>

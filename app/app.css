@@ -177,30 +177,32 @@ ActionBar {
     width: 74;
     height: 66;
 }
-.chartItemSelectionIndicatorStyle {
-    vertical-align: bottom;
-    horizontal-align: center;
-    margin-bottom: -1;
-}
+
 .repeaterItemsScrollerStyle {
     background-color: #fff1f1f1;
-    margin-bottom: -1;
 }
 .repeaterBottomBorderStyle {
     background-color: #ffd6d5d5;
     height: 1;
+    vertical-align: bottom;
 }
 
 .galleryRepeaterItemRightBorder{
     background-color: #ffd6d5d5;
     width: 1;
+    margin-bottom: -1;
     horizontal-align: right;
+}
+
+.galleryRepeaterStyle {
+    margin-bottom: 0;
 }
 
 .galleryRepeaterItemLeftBorder{
     background-color: #ffd6d5d5;
     width: 1;
     margin-left: -1;
+    margin-bottom: -1;
     horizontal-align: left;
 }
 
@@ -208,8 +210,7 @@ ActionBar {
     background-color: #ffd6d5d5;
     height: 1;
     vertical-align: bottom;
-    margin-left: -1;
-    margin-right: -1;
+
 }
 
 .galleryRepeaterItemBottomSelectedBorder{
