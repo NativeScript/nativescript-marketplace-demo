@@ -1,19 +1,19 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     cssClass="qsf-page"
-    navigatedTo="pageNavigatedTo"
+    navigatingTo="pageNavigatingTo"
     loaded="pageLoaded">
   <Page.actionBar>
-    <ActionBar title="Back to all" cssClass="transparent">
-      <NavigationButton tap="navigateBack" icon="res://ic_arrow_back_chart" />
+    <ActionBar>
+      <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto">
     <GridLayout rowSpan="2" cssClass="content-background" />
-    <StackLayout margin="10 10 10 72">
-      <Label text="{{ currentExample, currentExample.title }}" cssClass="title" />
-      <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info" />
-      <Button text="View code" cssClass="link-button" tap="showCodeTap"/>
-      <Button text="Documentation" cssClass="link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
+    <StackLayout margin="0 0 0 30">
+      <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
+      <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
+      <Button text="View code" cssClass="info-link-button" tap="showCodeTap"/>
+      <Button text="Documentation" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
     </StackLayout>
     <ScrollView row="2" orientation="horizontal">
       <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10" id="examples-container">

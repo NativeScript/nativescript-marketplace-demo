@@ -15,7 +15,7 @@ export class MainPageViewModel extends observable.Observable {
 		super();
 		this.set("showOnlyNew", false);
 		this.set("selectedScreen", 0);
-        this.set("useWrapLayout", false);
+        this.set("useWrapLayout", true);
 	}
 
     public toggleShowNew() {
