@@ -12,7 +12,7 @@
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="auto, *" columns="*" cssClass="content-background">
+  <GridLayout rows="44, *" columns="*" cssClass="content-background">
     
     <!-- Show New filter -->
     <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="group-show-new-btn" tap="{{ toggleShowNew }}"/>

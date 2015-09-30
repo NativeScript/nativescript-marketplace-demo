@@ -25,7 +25,7 @@
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
     <drawer:SideDrawer.mainContent>
-      <GridLayout rows="auto, 42, *" columns="*">
+      <GridLayout rows="auto, 44, *" columns="*">
 
         <GridLayout row="1" rowSpan="2" cssClass="content-background" />
         
