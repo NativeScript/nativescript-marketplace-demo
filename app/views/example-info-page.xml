@@ -9,7 +9,7 @@
   </Page.actionBar>
   <GridLayout rows="*, auto">
     <GridLayout rowSpan="2" cssClass="content-background" />
-    <StackLayout margin="0 0 0 30">
+    <StackLayout margin="0 0 0 16">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
       <Button text="View code" cssClass="info-link-button" tap="showCodeTap"/>
