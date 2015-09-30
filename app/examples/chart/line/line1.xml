@@ -1,5 +1,5 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
-    <Label text="Monthly sales revenue, 2014"/>
+    <Label text="Monthly sales revenue, 2014" cssClass="chart-example-tytle-style"/>
     <chart:CartesianChart row="1">
         <chart:CartesianChart.series>
             <chart:LineSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount">

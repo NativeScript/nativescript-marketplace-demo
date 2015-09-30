@@ -160,7 +160,7 @@ ActionBar {
     height: 40;
 }
 .chartExampleHolderStyle {
-    padding: 16;
+    padding: 12;
     background-color: white;
 }
 .chartItemInRepeaterStyle {
@@ -217,4 +217,8 @@ ActionBar {
     background-color: white;
     height: 1;
     vertical-align: bottom;
+}
+
+.chart-example-tytle-style {
+    horizontal-align: center;
 }

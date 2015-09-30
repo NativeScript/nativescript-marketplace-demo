@@ -1,7 +1,4 @@
 <examples:ExamplePage loaded="onPageLoaded" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd">
-    <Page.actionBar>
-        <ActionBar title="Area series"/>
-    </Page.actionBar>
     <GridLayout loaded="rootGridLoaded" rows="auto, *">
         <GridLayout cssClass="repeaterItemsScrollerStyle" rows="*">
             <GridLayout cssClass="repeaterBottomBorderStyle" row="1"/>
