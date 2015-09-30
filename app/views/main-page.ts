@@ -21,6 +21,7 @@ export function pageLoaded(args: observable.EventData) {
         bar.translucent = true;
         bar.shadowImage = UIImage.new();
         bar.tintColor = UIColor.whiteColor();
+        // TODO: Is it possible to style the title color of the action bar?
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
     }
 }
@@ -38,12 +39,12 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
 
 export function navigateToExample(args: gestures.GestureEventData) {
     var example = <examplesVM.Example>args.view.bindingContext;
-    
+
     // Find the group of the example based on the fist control
     var controlToSearch = example.controls[0];
     var group: examplesVM.ExampleGroup;
-    for (var index = 0; index < examplesVM.exampleGroups.length; index++) {
-        group = examplesVM.exampleGroups[index];
+    for (var index = 0; index < examplesVM.groups.length; index++) {
+        group = examplesVM.groups[index];
         if (group.controls.indexOf(controlToSearch) >= 0) {
             break;
         }

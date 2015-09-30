@@ -19,7 +19,6 @@
         "./common/navigator.ts",
         "./examples/chart/area-series.ts",
         "./examples/chart/bar-series.ts",
-        "./examples/chart/examples-loader.ts",
         "./examples/chart/line-series.ts",
         "./examples/chart/pie-series.ts",
         "./examples/chart/view-model.ts",

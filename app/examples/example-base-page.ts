@@ -21,7 +21,15 @@ export class ExamplePage extends pages.Page {
         var root = <gridModule.GridLayout>this.content;
         
         this.addOverlayButton(root);
-     }
+    }
+    
+    public onNavigatingTo(context: any) {
+        if (this.ios) {
+            // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
+            var viewController = <UIViewController>this.ios;
+            viewController.navigationItem.hidesBackButton = true;
+        }
+    }
 
     private addOverlayButton(root:gridModule.GridLayout) {
         var overaly = new imageModule.Image();

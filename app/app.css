@@ -3,6 +3,13 @@
     background-color: #3D5AFE;
     background-image: url("res://bg_main");
     background-repeat: no-repeat;
+    background-position: 60 0;
+}
+
+.content-background {
+    background-color: #E5E5E8;
+    background-image: url("res://bg_main");
+    background-repeat: no-repeat;
     background-position: 0 0;
 }
 
@@ -12,12 +19,14 @@ Page, ExamplePage {
 .transparent {
     background-color: transparent;
 }
+
 .content-background {
     background-color: #E5E5E8;
     background-image: url("res://bg_main");
     background-repeat: no-repeat;
     background-position: 0 0;
 }
+
 TabView {
     background-color: #FF034D8D;
 }
@@ -108,10 +117,15 @@ ActionBar {
 .select-element {
     opacity: 0;
 }
-.show-new-btn {
+
+.show-new-btn,
+.group-show-new-btn {
+
     horizontal-align: right;
     background-color: transparent;
     margin: 0 10;
+}
+.show-new-btn {
     color: #3D5AFE;
 }
 .new {
@@ -119,10 +133,15 @@ ActionBar {
     vertical-align: bottom;
     horizontal-align: left;
 }
-.control {
+
+.control,
+.group-control {
+
     margin: 0 8 0 0;
     font-size: 12;
     font-weight: bold;
+}
+.control {
     color: #3D5AFE;
 }
 .example-item {

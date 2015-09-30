@@ -1,5 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     cssClass="qsf-page"
+    backgroundColor="{{ group.tint }}"
+    color="{{ group.tint }}"
     navigatingTo="pageNavigatingTo">
   <Page.actionBar>
     <ActionBar title="{{ group.title }}">
@@ -13,7 +15,7 @@
   <GridLayout rows="auto, *" columns="*" cssClass="content-background">
     
     <!-- Show New filter -->
-    <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="show-new-btn" tap="{{ toggleShowNew }}"/>
+    <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="group-show-new-btn" tap="{{ toggleShowNew }}"/>
     
     <!-- Examples list -->
     <GridLayout row="1" columns="*" rows="*">
@@ -28,7 +30,7 @@
             <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
           </Repeater.itemsLayout>
           <Repeater.itemTemplate>
-            <StackLayout tap="navigateToExample" cssClass="example-item" 
+            <StackLayout tap="navigateToExample" cssClass="example-item"
               orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}"
               visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
               
@@ -40,12 +42,12 @@
 
               <StackLayout>
                 <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title' }}" />
-                <Repeater verticalAlignment="top" items="{{ controls }}">
+                <Repeater verticalAlignment="top" items="{{ controls }}" cssClass="example-used-controls">
                   <Repeater.itemsLayout>
                     <WrapLayout />
                   </Repeater.itemsLayout>
                   <Repeater.itemTemplate>
-                    <Label text="{{ $value }}" cssClass="control" tap="controlTap" />
+                    <Label text="{{ $value }}" cssClass="group-control" tap="controlTap" />
                   </Repeater.itemTemplate>
                 </Repeater>
               </StackLayout>

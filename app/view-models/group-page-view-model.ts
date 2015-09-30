@@ -30,7 +30,9 @@ export class GroupPageViewModel extends observable.Observable {
 }
 
 export function getGroupForControl(control: string): GroupPageViewModel {
-    var exampleGroup = <examplesVM.ExampleGroup>{ title: capitalize(control), isNew: false, controls: [control] };
+    // TODO: tint: this.group.tint ...
+    var group = examplesVM.controlInfos.get(control).group;
+    var exampleGroup = <examplesVM.ExampleGroup>{ title: capitalize(control), isNew: false, controls: [control], tint: group.tint };
     return new GroupPageViewModel(exampleGroup, true);
 }
 

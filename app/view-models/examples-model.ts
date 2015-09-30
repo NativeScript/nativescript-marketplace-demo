@@ -12,11 +12,16 @@ export interface ControlInfo {
 	title: string;
 	info?: string;
 	url?: string;
+	group?: ExampleGroup;
 }
 
-export interface ExampleGroup extends ControlInfo {
+export interface ExampleGroup {
+	title: string;
+	info?: string;
+	url?: string;
 	isNew?: boolean;
 	controls: Array<string>;
+	tint?: string;
 }
 
 export var examples: Array<Example> = [
@@ -83,19 +88,21 @@ export var examples: Array<Example> = [
 		isNew: true
 	},
 
-	{ title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },
-	{ title: "Side Drawer 2", image: "~/images/empty.png", controls: ["side-drawer"]},
+	// { title: "Side Drawer 1", image: "~/images/empty.png", controls: ["side-drawer"], isFeatured: true, isNew: true },
+	// { title: "Side Drawer 2", image: "~/images/empty.png", controls: ["side-drawer"]},
 
-	{ title: "List View 1", image: "~/images/empty.png", controls: ["list-view-ui"], isFeatured: true, isNew: true },
-	{ title: "List View 2", image: "~/images/empty.png", controls: ["list-view-ui"] },
+	// { title: "List View 1", image: "~/images/empty.png", controls: ["list-view-ui"], isFeatured: true, isNew: true },
+	// { title: "List View 2", image: "~/images/empty.png", controls: ["list-view-ui"] },
 ];
 
-export var exampleGroups: Array<ExampleGroup> = [
+
+export var groups: Array<ExampleGroup> = [
 	{
         title: "CoreUI",
         isNew: true,
         info: "NativeScript ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native view for each platform while providing a common API for working with it.",
         url:"http://docs.nativescript.org/ui-views",
+		tint: "orange",
 		controls: [
             "button",
         	"label",
@@ -114,10 +121,11 @@ export var exampleGroups: Array<ExampleGroup> = [
             "search-bar",
             "list-view"] },
 
-	{ title: "Chart", isNew: true, controls: ["chart"] },
-	{ title: "Side Drawer", isNew: true, controls: ["side-drawer"] },
-	{ title: "Calendar", isNew: false, controls: ["calendar"] },
-	{ title: "List View", isNew: false, controls: ["list-view-ui"] },
+	{ title: "Chart", isNew: true, controls: ["chart"], tint: "green" },
+	// { title: "Side Drawer", isNew: true, controls: ["side-drawer"], tint: "teal" }
+	// { title: "Calendar", isNew: false, controls: ["calendar"], tint: "purple" },
+	// { title: "List View", isNew: false, controls: ["list-view-ui"], tint: "magenta" },
+
 ];
 
 export var controlInfos = new Map<string, ControlInfo>();
@@ -151,14 +159,22 @@ export function filterExamples(filterControls: Array<string>) {
 }
 
 // Validate that each example control is a group
+// Add groups for examples
 var knownControls = new Array<string>();
-exampleGroups.forEach((g) => knownControls.push.apply(knownControls, g.controls))
-
-knownControls.forEach((c) => {
-    	if (!controlInfos.get(c)) {
-		console.log(`No info for control: '${ c }'`);
-	}
-})
+groups.forEach(group => {
+	knownControls.push.apply(knownControls, group.controls)
+	group.controls.forEach(control => {
+		var info = controlInfos.get(control);
+		if (info) {
+			if (info.group) {
+				console.log(`Control ${info.title} allready in groups ${info.group.title} while adding to ${group.title}.`);
+			}
+			info.group = group;
+		} else {
+			console.log(`No info for control: '${control}'`);
+		}
+	});
+});
 
 examples.forEach((ex) => ex.controls.forEach((c) => {
 	if (knownControls.indexOf(c) < 0) {

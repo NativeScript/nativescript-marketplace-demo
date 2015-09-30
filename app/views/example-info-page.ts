@@ -15,12 +15,12 @@ import platfrom = require("platform")
 
 var exampleContainerID = "examples-container";
 var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
- 
+
 export function pageNavigatedTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExamplePageViewModel>args.context;
     page.bindingContext = vm;
-    
+
     // NOTE: Views does not belong to the view model, so we will maintain the currentExampleView in the view.
     var currentExampleView: view.View;
     var thumbsContainer = page.getViewById("thumbs-layout");
@@ -29,9 +29,9 @@ export function pageNavigatedTo(args: pages.NavigatedData) {
         if (isCurrent) {
             currentExampleView = v;
         }
-        
+
         // TODO: If the state animation is applied immediately,
-        // or the properties are set immediately, 
+        // or the properties are set immediately,
         // the scale gets into account for the iOS layout.
         setTimeout(function() {
             // TODO: Consider moving the initialization in "loaded" of the items.
@@ -52,7 +52,7 @@ export function pageNavigatedTo(args: pages.NavigatedData) {
         }
     };
     vm.on("propertyChange", currentExampleChangedHandler);
-    
+
     // NOTE: We must unsubscribe from the view model, otherwise the view will leak as long as the view model is alive.
     function navigatedFromHandler(e: pages.NavigatedData) {
         vm.off("propertyChange", currentExampleChangedHandler);
@@ -105,7 +105,7 @@ function gotoState(view: view.View, state: string, animated: boolean) {
     if (!view) {
         return;
     }
-    
+
     var selectionOverlay = view.getViewById("selected-example-border");
     var anims = new Array<animations.AnimationDefinition>();
     switch(state) {
