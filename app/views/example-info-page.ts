@@ -16,7 +16,7 @@ import platfrom = require("platform")
 var exampleContainerID = "examples-container";
 var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
 
-export function pageNavigatedTo(args: pages.NavigatedData) {
+export function pageNavigatingTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExamplePageViewModel>args.context;
     page.bindingContext = vm;

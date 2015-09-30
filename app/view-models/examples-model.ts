@@ -102,7 +102,7 @@ export var groups: Array<ExampleGroup> = [
         isNew: true,
         info: "NativeScript ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native view for each platform while providing a common API for working with it.",
         url:"http://docs.nativescript.org/ui-views",
-		tint: "orange",
+		tint: "#034d8d",
 		controls: [
             "button",
         	"label",
@@ -121,7 +121,7 @@ export var groups: Array<ExampleGroup> = [
             "search-bar",
             "list-view"] },
 
-	{ title: "Chart", isNew: true, controls: ["chart"], tint: "green" },
+	{ title: "Chart", isNew: true, controls: ["chart"], tint: "#018f88" },
 	// { title: "Side Drawer", isNew: true, controls: ["side-drawer"], tint: "teal" }
 	// { title: "Calendar", isNew: false, controls: ["calendar"], tint: "purple" },
 	// { title: "List View", isNew: false, controls: ["list-view-ui"], tint: "magenta" },

@@ -5,7 +5,7 @@ import observable = require("data/observable");
 import navigator = require("../common/navigator");
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
-export function pageNavigatedTo(args: pages.NavigatedData) {
+export function pageNavigatingTo(args: pages.NavigatedData) {
     // Get the event sender
     var page = <pages.Page>args.object;
     page.bindingContext = args.context;
