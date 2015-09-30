@@ -11,18 +11,20 @@
   <GridLayout loaded="rootGridLoaded">
     <TabView cssClass="tabView-layouts-example" id="tabView">
       <TabView.items>
-          <TabViewItem title="Stack" iconSource="res://stack">
+        <!-- TODO: When selected should use stack-1 -->
+        <TabViewItem title="Stack" iconSource="res://stack">
           <TabViewItem.view>
-            <StackLayout>
+            <StackLayout cssClass="layout-container">
               <Button cssClass="btn-red" />
               <Button cssClass="btn-lightblue" />
               <Button cssClass="btn-lightgreen" />
             </StackLayout>
           </TabViewItem.view>
         </TabViewItem>
+        <!-- TODO: When selected should use grid-1 -->
         <TabViewItem title="Grid" iconSource="res://grid">
           <TabViewItem.view>
-            <GridLayout columns="*,*,*" rows="*,*,*">
+            <GridLayout columns="*,*,*" rows="*,*,*" cssClass="layout-container">
               <Button cssClass="btn-red" />
               <Button col="1" cssClass="btn-lightblue" />
               <Button col="2" rowSpan="2" cssClass="btn-lightgreen" />
@@ -31,9 +33,10 @@
             </GridLayout>
           </TabViewItem.view>
         </TabViewItem>
+        <!-- TODO: When selected should use wrap-1 -->
         <TabViewItem title="Wrap" iconSource="res://wrap">
           <TabViewItem.view>
-            <WrapLayout>
+            <WrapLayout cssClass="layout-container">
               <Button width="150" height="100" cssClass="btn-red" />
               <Button width="100" height="150" cssClass="btn-lightblue" />
               <Button width="200" height="120" cssClass="btn-lightgreen" />
@@ -42,9 +45,10 @@
             </WrapLayout>
           </TabViewItem.view>
         </TabViewItem>
+        <!-- TODO: When selected should use dock-1 -->
         <TabViewItem title="Dock" iconSource="res://dock">
           <TabViewItem.view>
-            <DockLayout stretchLastChild="true">
+            <DockLayout stretchLastChild="true" cssClass="layout-container">
               <Button dock="left" cssClass="btn-red" />/>
               <Button dock="top" cssClass="btn-lightblue" />
               <Button dock="right" cssClass="btn-lightgreen" />
@@ -53,9 +57,10 @@
             </DockLayout>
           </TabViewItem.view>
         </TabViewItem>
+        <!-- TODO: When selected should use absolute-1 -->
         <TabViewItem title="Absolute" iconSource="res://absolute">
           <TabViewItem.view>
-            <AbsoluteLayout>
+            <AbsoluteLayout cssClass="layout-container">
               <Button left="50" top="50" width="100" height="100" cssClass="btn-red" />
               <Button left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
               <Button left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />

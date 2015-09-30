@@ -4,7 +4,7 @@ import paltfrom = require("platform");
 
 export class MainPageViewModel extends observable.Observable {
 	get exampleGroups(): Array<examplesVM.ExampleGroup> {
-		return examplesVM.exampleGroups;
+		return examplesVM.groups;
 	}
 
 	get featuredExamples(): Array<examplesVM.Example> {
