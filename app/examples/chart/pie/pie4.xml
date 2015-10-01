@@ -2,7 +2,7 @@
     <Label text="International sales by country, 2014" cssClass="chart-example-tytle-style"/>
     <chart:PieChart row="1">
         <chart:PieChart.series>
-            <chart:DonutSeries showLabels="true" items="{{ pieSource2 }}" valueProperty="Amount"/>
+            <chart:DonutSeries items="{{ pieSource2 }}" valueProperty="Amount"/>
         </chart:PieChart.series>
     </chart:PieChart>
 </GridLayout>
