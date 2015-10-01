@@ -3,6 +3,8 @@ import gridModule = require("ui/layouts/grid-layout");
 import utils = require("utils/utils");
 import models = require("./view-model");
 import frame = require("ui/frame");
+import pages = require("ui/page");
+import gestures = require("ui/gestures");
 
 export function rootGridLoaded(args: observable.EventData) {
     var grid = <gridModule.GridLayout>args.object;
@@ -22,14 +24,14 @@ function loadItem(page, item: models.ChartTypeItem) {
 }
 
 export function onPageLoaded(args: observable.EventData) {
-    var page = args.object;
+    var page = <pages.Page>args.object;
     var dataModel = new models.ChartExamplesDataModel();
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.barTypes[0];
     loadItem(page, itemToLoad);
 }
 
-export function repeaterItemTap(args: observable.EventData) {
+export function repeaterItemTap(args: gestures.GestureEventData) {
     var item = args.view.bindingContext;
     var page = frame.topmost().currentPage;
     loadItem(page, item);
