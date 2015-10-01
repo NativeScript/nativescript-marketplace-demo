@@ -27,7 +27,7 @@
               and have the panel accomodate as much equal sized columns as possible. -->
             <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
             <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
-            <WrapLayout horizontalAlignment="center" itemWidth="{{ useWrapLayout ? screenWidth / 2 - 1 : screenWidth }}" />
+            <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
           </Repeater.itemsLayout>
           <Repeater.itemTemplate>
             <StackLayout tap="navigateToExample" cssClass="example-item"

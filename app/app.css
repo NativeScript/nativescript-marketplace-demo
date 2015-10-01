@@ -147,11 +147,11 @@ ActionBar {
 
 .example-item {
     padding: 6;
-    margin: 1;
+    margin: 0 0 1 1;
     background-color: white;
 }
 .no-image-example-item {
-    margin: 1;
+    margin: 0 0 1 1;
     background-color: white;
 }
 .example-overlay-button {
