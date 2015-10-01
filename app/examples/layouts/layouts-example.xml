@@ -1,12 +1,15 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd"
+    xmlns:examples="examples/example-base-page"
+    loaded="pageLoaded"
+    navigatedTo="pageNavigatedTo">
   <Page.actionBar>
 		<ActionBar title="Layouts" />
   </Page.actionBar>
   <GridLayout loaded="rootGridLoaded">
-    <TabView cssClass="tabView-layouts-example" id="tabView">
+
+    <TabView cssClass="tabView-layouts-example" id="tabView" selectedIndex="{{ selectedIndex }}">
       <TabView.items>
-        <!-- TODO: When selected should use stack-1 -->
-        <TabViewItem title="Stack" iconSource="res://stack">
+        <TabViewItem title="Stack" iconSource="{{ selectedIndex == 0 ? 'res://stack-1' : 'res://stack' }}">
           <TabViewItem.view>
             <StackLayout cssClass="layout-container">
               <Button cssClass="btn-red" />
@@ -15,8 +18,7 @@
             </StackLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <!-- TODO: When selected should use grid-1 -->
-        <TabViewItem title="Grid" iconSource="res://grid">
+        <TabViewItem title="Grid" iconSource="{{ selectedIndex == 1 ? 'res://grid-1' : 'res://grid' }}">
           <TabViewItem.view>
             <GridLayout columns="*,*,*" rows="*,*,*" cssClass="layout-container">
               <Button cssClass="btn-red" />
@@ -27,8 +29,7 @@
             </GridLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <!-- TODO: When selected should use wrap-1 -->
-        <TabViewItem title="Wrap" iconSource="res://wrap">
+        <TabViewItem title="Wrap" iconSource="{{ selectedIndex == 2 ? 'res://wrap-1' : 'res://wrap' }}">
           <TabViewItem.view>
             <WrapLayout cssClass="layout-container">
               <Button width="150" height="100" cssClass="btn-red" />
@@ -39,8 +40,7 @@
             </WrapLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <!-- TODO: When selected should use dock-1 -->
-        <TabViewItem title="Dock" iconSource="res://dock">
+        <TabViewItem title="Dock" iconSource="{{ selectedIndex == 3 ? 'res://dock-1' : 'res://dock' }}">
           <TabViewItem.view>
             <DockLayout stretchLastChild="true" cssClass="layout-container">
               <Button dock="left" cssClass="btn-red" />/>
@@ -51,8 +51,7 @@
             </DockLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <!-- TODO: When selected should use absolute-1 -->
-        <TabViewItem title="Absolute" iconSource="res://absolute">
+        <TabViewItem title="Absolute" iconSource="{{ selectedIndex == 4 ? 'res://absolute-1' : 'res://absolute' }}">
           <TabViewItem.view>
             <AbsoluteLayout cssClass="layout-container">
               <Button left="50" top="50" width="100" height="100" cssClass="btn-red" />
