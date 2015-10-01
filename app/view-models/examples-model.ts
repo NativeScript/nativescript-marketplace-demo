@@ -57,7 +57,7 @@ export var examples: Array<Example> = [
 
 	{
 		title: "Bar series",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/bar_chart",
 		path: "examples/chart/bar-series",
 		controls: ["chart"],
 		isFeatured: true,
@@ -65,7 +65,7 @@ export var examples: Array<Example> = [
 	},
 	{
 		title: "Line series",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/line_chart",
 		path: "examples/chart/line-series",
 		controls: ["chart"],
 		isFeatured: true,
@@ -73,7 +73,7 @@ export var examples: Array<Example> = [
 	},
 	{
 		title: "Area series",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/area_chart",
 		path: "examples/chart/area-series",
 		controls: ["chart"],
 		isFeatured: true,
@@ -81,7 +81,7 @@ export var examples: Array<Example> = [
 	},
 	{
 		title: "Pie series",
-		image: "~/images/empty.png",
+		image: "res://example-thumbs/pie_chart",
 		path: "examples/chart/pie-series",
 		controls: ["chart"],
 		isFeatured: true,
