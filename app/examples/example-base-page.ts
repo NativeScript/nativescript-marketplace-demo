@@ -9,9 +9,20 @@ import navigator = require("../common/navigator");
 var OVERLAY_ELEVATION = 12;
 
 export class ExamplePage extends pages.Page {
+    public ExamplePage() {
+        super();
+        
+        // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
+        if (this.ios) {
+            this.on("navigatingTo", function(args) {
+                var viewController = <UIViewController>this.ios;
+                viewController.navigationItem.hidesBackButton = true;
+            });
+        }
+        
+    }
     public onLoaded() {
         super.onLoaded();
-        console.log("ExamplePage.onLoaded()");
 
         if (!(this.content instanceof gridModule.GridLayout)) {
             // We can remove this limitation in future if it is a problem.
@@ -21,14 +32,6 @@ export class ExamplePage extends pages.Page {
         var root = <gridModule.GridLayout>this.content;
         
         this.addOverlayButton(root);
-    }
-    
-    public onNavigatingTo(context: any) {
-        if (this.ios) {
-            // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
-            var viewController = <UIViewController>this.ios;
-            viewController.navigationItem.hidesBackButton = true;
-        }
     }
 
     private addOverlayButton(root:gridModule.GridLayout) {

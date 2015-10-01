@@ -57,7 +57,6 @@ export function pageNavigatingTo(args: pages.NavigatedData) {
     function navigatedFromHandler(e: pages.NavigatedData) {
         vm.off("propertyChange", currentExampleChangedHandler);
         page.off("navigatedFrom", navigatedFromHandler);
-        console.log("unassigned!");
     };
     page.on("navigatedFrom", navigatedFromHandler);
 }

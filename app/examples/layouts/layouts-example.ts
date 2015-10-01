@@ -17,7 +17,7 @@ export function rootGridLoaded(args: observable.EventData) {
 }
 
 // TODO: This should be in "pageNavigatingTo" but that method is defined in the Page base class
-export function pageNavigatedTo(args: observable.EventData) {
+export function pageNavigatingTo(args: observable.EventData) {
     var page = <Page>args.object;
     var tabView = page.getViewById("tabView");
     if (tabView.ios) {
