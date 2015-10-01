@@ -5,7 +5,7 @@
   <Page.actionBar>
     <ActionBar title="View Code" />
   </Page.actionBar>
-  <GridLayout rows="auto, *" columns="*">
+  <GridLayout rows="44, *" columns="*" cssClass="content-background">
     <Button text="{{ selectedFileName }}" tap="selectFile" />   
     <ActivityIndicator busy="{{ isLoading }}" />
     <WebView row="1" src="{{ formattedCode }}" />
