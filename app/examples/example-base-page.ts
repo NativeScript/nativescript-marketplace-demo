@@ -9,17 +9,16 @@ import navigator = require("../common/navigator");
 var OVERLAY_ELEVATION = 12;
 
 export class ExamplePage extends pages.Page {
-    public ExamplePage() {
+    public constructor() {
         super();
         
         // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
-        if (this.ios) {
-            this.on("navigatingTo", function(args) {
+        this.on("navigatingTo", args => {
+            if (this.ios) {
                 var viewController = <UIViewController>this.ios;
                 viewController.navigationItem.hidesBackButton = true;
-            });
-        }
-        
+            }
+        });
     }
     public onLoaded() {
         super.onLoaded();
