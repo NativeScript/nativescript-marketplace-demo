@@ -34,11 +34,11 @@ export function navigateToCode(context: examplesVM.Example) {
     })
 }
 
-export function navigateToControlInfo(context: examplesVM.ControlInfo) {
+export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
     frame.topmost().navigate({
         animated: true,
         context: context,
-        moduleName: "views/control-info-page",
+        moduleName: "views/group-info-page",
     })
 }
 
