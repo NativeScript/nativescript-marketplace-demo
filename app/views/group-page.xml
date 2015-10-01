@@ -47,7 +47,7 @@
                     <WrapLayout />
                   </Repeater.itemsLayout>
                   <Repeater.itemTemplate>
-                    <Label text="{{ $value }}" cssClass="group-control" tap="controlTap" />
+                    <Label text="{{ $value }}" cssClass="group-control" />
                   </Repeater.itemTemplate>
                 </Repeater>
               </StackLayout>

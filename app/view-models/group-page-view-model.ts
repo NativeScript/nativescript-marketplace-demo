@@ -5,14 +5,12 @@ import paltfrom = require("platform");
 export class GroupPageViewModel extends observable.Observable {
     public group: examplesVM.ExampleGroup;
     public examples: Array<examplesVM.Example>;
-    public isSingleControl: boolean;
 
     constructor(group: examplesVM.ExampleGroup, isSingleControl: boolean) {
         super();
 
-        this.set("examples", examplesVM.filterExamples(group.controls));
+        this.set("examples", group.examples);
         this.set("group", group);
-        this.set("isSingleControl", isSingleControl);
         this.set("useWrapLayout", true);
     }
 
@@ -27,13 +25,6 @@ export class GroupPageViewModel extends observable.Observable {
     get screenWidth(): number {
         return paltfrom.screen.mainScreen.widthDIPs;
     }
-}
-
-export function getGroupForControl(control: string): GroupPageViewModel {
-    // TODO: tint: this.group.tint ...
-    var group = examplesVM.controlInfos.get(control).group;
-    var exampleGroup = <examplesVM.ExampleGroup>{ title: capitalize(control), isNew: false, controls: [control], tint: group.tint };
-    return new GroupPageViewModel(exampleGroup, true);
 }
 
 function capitalize(str: string) {

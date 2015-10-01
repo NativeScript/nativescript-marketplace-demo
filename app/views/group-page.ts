@@ -19,7 +19,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
     var example = <examplesVM.Example>args.view.bindingContext;
     var vm = <groupVM.GroupPageViewModel>args.view.page.bindingContext;
 
-    var context = new examplePageVM.ExamplePageViewModel(example, vm.group.controls);
+    var context = new examplePageVM.ExamplePageViewModel(example);
     navigator.navigateToExample(context);
 }
 
@@ -32,31 +32,7 @@ export function toggleWrapLayout(e: any) {
     e.object.bindingContext.toggleWrapLayout();
 }
 
-export function controlTap(args: gestures.GestureEventData) {
-    var control = <string>args.view.bindingContext;
-    var page = args.view.page;
-
-    var currentContext = <groupVM.GroupPageViewModel> page.bindingContext;
-    var newContext = groupVM.getGroupForControl(control);
-
-    if (currentContext.isSingleControl) {
-        page.bindingContext = newContext;
-    }
-    else {
-        navigator.navigateToExampleGroup(newContext);
-    }
-}
-
 export function infoTap(args: observable.EventData) {
     var currentContext = <groupVM.GroupPageViewModel>(<view.View>args.object).bindingContext;
-
-    var infoContext: examplesVM.ControlInfo;
-    if (currentContext.isSingleControl) {
-        infoContext = examplesVM.controlInfos.get(currentContext.group.controls[0]);
-    }
-    else {
-        infoContext = currentContext.group;
-    }
-
-    navigator.navigateToControlInfo(infoContext);
+    navigator.navigateToGroupInfo(currentContext.group);
 }

@@ -38,14 +38,14 @@ export class ExampleViewModel extends observable.Observable implements examplesV
 
 export class ExamplePageViewModel extends observable.Observable {
 
-    constructor(example: examplesVM.Example, controls: Array<string>) {
+    constructor(example: examplesVM.Example) {
         super();
 
         if (!example) {
             throw new Error("Cannot create view model with no example");
         }
 
-        this._examples = examplesVM.filterExamples(controls).map<ExampleViewModel>((e) => {
+        this._examples = example.group.examples.map<ExampleViewModel>((e) => {
             var exVM = new ExampleViewModel(e);
             if (e === example) {
                 this._currentExample = exVM;
