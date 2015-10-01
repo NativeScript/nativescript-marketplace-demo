@@ -9,8 +9,7 @@
       <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="*, auto">
-    <GridLayout rowSpan="2" cssClass="content-background" />
+  <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.title }}">
     <StackLayout margin="0 0 0 16">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
