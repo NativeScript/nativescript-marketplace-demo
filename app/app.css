@@ -86,11 +86,13 @@ ActionBar {
     border-width: 1;
 }
 .info-title {
+    color: black;
     font-size: 32;
     margin: 20 10 10 10;
     padding: 0;
 }
 .info-text {
+    color: #555555;
     font-size: 12;
     margin: 5;
     padding: 0;
@@ -101,7 +103,6 @@ ActionBar {
     padding: 0;
     margin: 10;
     background-color: transparent;
-    color: #018F88;
     font-size: 18;
 }
 .drawer-content {

@@ -1,5 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     cssClass="qsf-page"
+    backgroundColor="{{ group.tint }}"
+    color="{{ group.tint }}"
     navigatingTo="pageNavigatingTo"
     loaded="pageLoaded">
   <Page.actionBar>

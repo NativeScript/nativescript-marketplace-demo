@@ -8,7 +8,7 @@ import dialogs = require("ui/dialogs");
 import observable = require("data/observable");
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
-export function pageNavigatedTo(args: pages.NavigatedData) {
+export function pageNavigatingTo(args: pages.NavigatedData) {
     // Get the event sender
     var page = <pages.Page>args.object;
     page.bindingContext = new codePageVM.CodePageViewModel(args.context);

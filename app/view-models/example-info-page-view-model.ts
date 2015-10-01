@@ -31,6 +31,10 @@ export class ExampleViewModel extends observable.Observable implements examplesV
         return this._example.path;
     }
 
+    get group(): examplesVM.ExampleGroup {
+        return this._example.group;
+    }
+
     get controls(): Array<string> {
         return this._example.controls;
     }
@@ -45,13 +49,16 @@ export class ExamplePageViewModel extends observable.Observable {
             throw new Error("Cannot create view model with no example");
         }
 
-        this._examples = example.group.examples.map<ExampleViewModel>((e) => {
+        var examplesWrappers = example.group.examples.map<ExampleViewModel>((e) => {
             var exVM = new ExampleViewModel(e);
             if (e === example) {
                 this._currentExample = exVM;
             }
             return exVM;
         })
+        
+        this.set("examples", examplesWrappers);
+        this.set("group", example.group);
     }
 
     private _currentExample: ExampleViewModel;
@@ -63,11 +70,6 @@ export class ExamplePageViewModel extends observable.Observable {
             this._currentExample = value;
             this.notifyPropertyChange("currentExample", value);
         }
-    }
-
-    private _examples: Array<ExampleViewModel>;
-    get examples(): Array<ExampleViewModel> {
-        return this._examples;
     }
 
     public currentExampleView:any;    

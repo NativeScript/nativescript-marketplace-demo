@@ -1,7 +1,9 @@
 <Page
     xmlns="http://www.nativescript.org/tns.xsd"
     cssClass="qsf-page"
-    navigatedTo="pageNavigatedTo">
+    backgroundColor="{{ group.tint }}"
+    color="{{ group.tint }}"
+    navigatingTo="pageNavigatingTo">
   <Page.actionBar>
     <ActionBar title="View Code" />
   </Page.actionBar>

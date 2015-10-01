@@ -20,7 +20,7 @@ export function pageNavigatingTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExamplePageViewModel>args.context;
     page.bindingContext = vm;
-
+    
     // NOTE: Views does not belong to the view model, so we will maintain the currentExampleView in the view.
     var currentExampleView: view.View;
     var thumbsContainer = page.getViewById("thumbs-layout");

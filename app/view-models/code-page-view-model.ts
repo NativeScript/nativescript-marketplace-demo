@@ -33,6 +33,7 @@ loadStyles();
 
 export class CodePageViewModel extends observable.Observable {
     public files: Array<fs.FileSystemEntity>;
+    public group: examplesVM.ExampleGroup;
 
     constructor(example: examplesVM.Example) {
         super();
@@ -48,6 +49,8 @@ export class CodePageViewModel extends observable.Observable {
             this.set("files", entities);
             this.selectFile(initialSelectedFile);
         });
+        
+        this.set("group", example.group);
     }
 
     public selectFile(fileName: string) {
