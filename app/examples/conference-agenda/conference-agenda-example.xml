@@ -1,12 +1,6 @@
 <examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
     <Page.actionBar>
-		<ActionBar>
-			<ActionBar.titleView>
-				<StackLayout>
-					<Label text="All Sessions" cssClass="title" />
-				</StackLayout>
-			</ActionBar.titleView>
-		</ActionBar>
+		<ActionBar title="All Sessions" />
     </Page.actionBar>
     <GridLayout rows="auto, auto, *" columns="*">
         <!-- Segmented Bar -->

@@ -36,11 +36,6 @@ ActionBar {
 .examples-action-bar {
     background-color: transparent;
 }
-.title {
-    font-size: 20;
-    margin-bottom: 10;
-    color: white;
-}
 .-android-example-types-bar {
     background-color: none;
     color: white;
