@@ -151,9 +151,6 @@ var particleStates = [
 ];
 
 function particlesGotoState(particles: view.View[], stateIndex: number, animated: boolean) {
-    
-    console.log("Particles goto state: " + stateIndex);
-    
     setTimeout(() => {
         var anims = particles.map((particle, particleIndex) => {
             var states = particleStates[particleIndex]; 
@@ -172,7 +169,6 @@ function particlesGotoState(particles: view.View[], stateIndex: number, animated
                 curve: CURVE,
                 duration: animated ? state.duration : 0
             };
-            console.log("Translate: " + animation.translate.x + " " + animation.translate.y);
             return animation;
         });
         

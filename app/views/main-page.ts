@@ -60,11 +60,11 @@ export function tapGettingStarted(args) {
 }
 
 export function tapDocumentation(args) {
-    console.log("Tab: Docum!");
+    console.log("Tab: Documentation!");
 }
 
 export function tapSDKExamples(args) {
-    console.log("Tab: Home!");
+    console.log("Tab: SDK Examples!");
 }
 
 export function tapProductPage(args) {
