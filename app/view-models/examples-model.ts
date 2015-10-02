@@ -24,7 +24,7 @@ export var groups: Array<ExampleGroup> = [
     {
         title: "CoreUI",
         isNew: true,
-        info: "NativeScript ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native view for each platform while providing a common API for working with it.",
+        info: "NativeScript enables developers to build native apps for iOS, Android and Windows Universal while sharing the application code across the platforms. It ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native platform views while providing a common API to work with.",
         url: "http://docs.nativescript.org/ui-views",
         tint: "#034d8d",
         examples: [
@@ -33,7 +33,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://example-thumbs/layouts",
                 controls: ["stack-layout", "grid-layout", "wrap-layout", "dock-layout", "absolute-layout"],
                 path: "examples/layouts/layouts-example",
-                info: "Few sentences of example information. Few sentences of example information.",
+                info: "NativeScript provides a recursive layout system which sizes and positions views on the screen. The supported layouts are stack, grid, wrap, dock and absolute.",
                 isFeatured: true,
                 isNew: true
             },
@@ -43,7 +43,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://example-thumbs/user_profile",
                 controls: ["scroll-view", "stack-layout", "label", "text-field", "text-view", "image", "button", "switch", "action-bar"],
                 path: "examples/user-profile/user-profile-example",
-                info: "Few sentences of example information. Few sentences of example information.",
+                info: "This example demonstrates how you can use the different NativeScript layouts together to achieve a data input form behavior.",
                 isFeatured: true,
                 isNew: true
             },
@@ -53,7 +53,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://example-thumbs/conference_agenda",
                 controls: ["list-view", "segmented-bar", "search-bar", "action-bar", "label"],
                 path: "examples/conference-agenda/conference-agenda-example",
-                info: "Few sentences of example information. Few sentences of example information.",
+                info: "This example demonstrates how you can create a ListView item template using the GridLayout.",
                 isFeatured: true,
                 isNew: false
             }]
@@ -63,7 +63,7 @@ export var groups: Array<ExampleGroup> = [
         title: "Chart",
         isNew: true,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/Chart/chart-overview",
-        info: "info...",
+        info: "Chart for NativeScript supports chart type series essential for visualizing your application data. You can customize its look and feel to match those of your application.",
         controls: ["chart"],
         tint: "#018f88",
         examples: [
@@ -71,6 +71,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Bar series",
                 image: "res://example-thumbs/bar_chart",
                 path: "examples/chart/bar-series",
+                info: "Bar charts are one of the most common types of graph used to display data. They are mostly used to show amounts or the number of times a value occurs.",
                 controls: ["chart"],
                 isFeatured: true,
                 isNew: true
@@ -79,6 +80,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Line series",
                 image: "res://example-thumbs/line_chart",
                 path: "examples/chart/line-series",
+                info: "Line charts are often used to plot changes in data over time, such as monthly temperature changes or daily changes in stock market prices.",
                 controls: ["chart"],
                 isFeatured: true,
                 isNew: true
@@ -87,6 +89,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Area series",
                 image: "res://example-thumbs/area_chart",
                 path: "examples/chart/area-series",
+                info: "Area charts are much like line charts, but they display different colors in the areas below the lines. This colorful and visual display distinguishes the data more clearly.",
                 controls: ["chart"],
                 isFeatured: true,
                 isNew: true
@@ -95,6 +98,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Pie series",
                 image: "res://example-thumbs/pie_chart",
                 path: "examples/chart/pie-series",
+                info: "Pie charts are used to display the contribution of franctional parts to a whole. Each data point is a pie slice with arc size proportional to the magnitude of the point's value.",
                 controls: ["chart"],
                 isFeatured: true,
                 isNew: true
