@@ -1,7 +1,8 @@
 <examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd"
     xmlns:examples="examples/example-base-page"
     loaded="pageLoaded"
-    navigatingTo="pageNavigatingTo">
+    navigatingTo="pageNavigatingTo"
+    bottomOffset="49">
   <Page.actionBar>
 		<ActionBar title="Layouts" />
   </Page.actionBar>

@@ -39,6 +39,7 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
+    console.log("Navigate to example...");
     var example = <examplesVM.Example>args.view.bindingContext;
     var context = new examplePageVM.ExamplePageViewModel(example);
     navigator.navigateToExample(context);
