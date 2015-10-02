@@ -113,7 +113,24 @@ ActionBar {
     text-align: left;
     margin: 0 10;
     color: #3F3F3F;
+    font-size: 17;
 }
+
+.drawer-line {
+    height: 1;
+    background-color: #c8c8c8;
+}
+
+.drawer-controls{
+    background-color: #F0F0F0;
+}
+
+.drawer-controls-title{
+    color:#919191;
+    margin: 8 10 0 10;
+    font-size: 14;
+}
+
 .select-element {
     opacity: 0;
 }

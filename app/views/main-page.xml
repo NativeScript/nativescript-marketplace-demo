@@ -22,9 +22,22 @@
         <Button text="About" cssClass="drawer-item" tap="tapAbout" />
         <!-- <Button text="Send feedback" /> -->
         <Button text="Getting started" cssClass="drawer-item" tap="tapGettingStarted" />
+
+        <StackLayout cssClass="drawer-controls">
+          <StackLayout cssClass="drawer-line" />
+          <Label text="Controls"  cssClass="drawer-controls-title" />
+          <Repeater items="{{ exampleGroups }}">
+            <Repeater.itemTemplate>
+              <Label text="{{ title }}" tap="navigateToExampleGroup" cssClass="drawer-item" />
+            </Repeater.itemTemplate>
+          </Repeater>
+          <StackLayout cssClass="drawer-line" />
+        </StackLayout>
+        
         <Button text="Documentation" cssClass="drawer-item" tap="tapDocumentation" />
         <Button text="SDK Examples" cssClass="drawer-item" tap="tapSDKExamples" />
         <Button text="Product page" cssClass="drawer-item" tap="tapProductPage" />
+        
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
     <drawer:SideDrawer.mainContent>
