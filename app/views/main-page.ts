@@ -10,7 +10,7 @@ import navigator = require("../common/navigator");
 
 var page;
 
-export function pageNavigatingTo(args: observable.EventData) {
+export function onPageLoaded(args: observable.EventData) {
     // Get the event sender
     page = <pages.Page>args.object;
     page.bindingContext = mainPageVM.instance;
