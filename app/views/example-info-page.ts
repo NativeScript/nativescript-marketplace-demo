@@ -11,10 +11,10 @@ import builder = require("ui/builder");
 import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-model")
 import examplePageVM = require("../view-models/example-info-page-view-model")
-import platfrom = require("platform")
+import platform = require("platform")
 
 var exampleContainerID = "examples-container";
-var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
+var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
 
 export function pageNavigatingTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
@@ -36,19 +36,24 @@ export function pageNavigatingTo(args: pages.NavigatedData) {
         setTimeout(function() {
             // TODO: Consider moving the initialization in "loaded" of the items.
             // For now there is a bug that "loaded" is invoked before the bindingContext is set.
-            gotoState(v, isCurrent ? "selected" : "unselected", false);
+            thumbGotoState(v, isCurrent ? "selected" : "unselected", false);
         }, 100);
     });
+    
+    var particles = ["p1", "p2", "p3", "p4", "p5"].map(l => page.getViewById(l));
+    particlesGotoState(particles, vm.examples.indexOf(vm.currentExample), false);
 
     function currentExampleChangedHandler(e: observable.PropertyChangeData) {
         if (e.propertyName === "currentExample") {
-            gotoState(currentExampleView, "unselected", true);
+            thumbGotoState(currentExampleView, "unselected", true);
             (<any>thumbsContainer)._eachChildView((v: view.View) => {
                 if (v.bindingContext === e.value) {
                     currentExampleView = v;
-                    gotoState(v, "selected", true);
+                    thumbGotoState(v, "selected", true);
                 }
             });
+            
+            particlesGotoState(particles, vm.examples.indexOf(vm.currentExample), true);
         }
     };
     vm.on("propertyChange", currentExampleChangedHandler);
@@ -100,7 +105,7 @@ function showExamplePage(example: examplePageVM.ExampleViewModel) {
     });
 }
 
-function gotoState(view: view.View, state: string, animated: boolean) {
+function thumbGotoState(view: view.View, state: string, animated: boolean) {
     if (!view) {
         return;
     }
@@ -119,4 +124,59 @@ function gotoState(view: view.View, state: string, animated: boolean) {
     }
     var animation = new animations.Animation(anims);
     animation.play();
+}
+
+var particleStates = [
+    [
+        { opacity: 0.5, translate: { x: 0.05, y: 0.50 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.10, y: 0.50 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.15, y: 0.50 }, duration: 1400 }
+    ], [
+        { opacity: 0.5, translate: { x: 0.10, y: 0.80 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.15, y: 0.75 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.20, y: 0.70 }, duration: 1400 }
+    ], [
+        { opacity: 0.5, translate: { x: 0.22, y: 0.70 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.32, y: 0.70 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.42, y: 0.70 }, duration: 1400 }
+    ], [
+        { opacity: 0.5, translate: { x: 0.70, y: 0.60 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.80, y: 0.65 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.90, y: 0.70 }, duration: 1400 }
+    ], [
+        { opacity: 0.5, translate: { x: 0.80, y: 0.45 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.85, y: 0.40 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.90, y: 0.35 }, duration: 1400 }
+    ]
+];
+
+function particlesGotoState(particles: view.View[], stateIndex: number, animated: boolean) {
+    
+    console.log("Particles goto state: " + stateIndex);
+    
+    setTimeout(() => {
+        var anims = particles.map((particle, particleIndex) => {
+            var states = particleStates[particleIndex]; 
+            var state = states[stateIndex % states.length];
+            
+            var screenWidth = platform.screen.mainScreen.widthDIPs;
+            var screenHeight = platform.screen.mainScreen.heightDIPs;
+            
+            var animation = {
+                target: particle,
+                // opacity: state.opacity,
+                translate: {
+                    x: state.translate.x * screenWidth,
+                    y: state.translate.y * (screenHeight - 180) // TODO: Take the action bar and the thumbs at the bottom into account
+                },
+                curve: CURVE,
+                duration: animated ? state.duration : 0
+            };
+            console.log("Translate: " + animation.translate.x + " " + animation.translate.y);
+            return animation;
+        });
+        
+        var animation = new animations.Animation(anims);
+        animation.play();
+    }, 1);
 }

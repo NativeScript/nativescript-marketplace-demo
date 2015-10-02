@@ -42,6 +42,9 @@ export class ExampleViewModel extends observable.Observable implements examplesV
 
 export class ExamplePageViewModel extends observable.Observable {
 
+    private _examples: ExampleViewModel[];
+    private _group: examplesVM.ExampleGroup;
+    
     constructor(example: examplesVM.Example) {
         super();
 
@@ -57,8 +60,16 @@ export class ExamplePageViewModel extends observable.Observable {
             return exVM;
         })
         
-        this.set("examples", examplesWrappers);
-        this.set("group", example.group);
+        this._examples = examplesWrappers;
+        this._group = example.group;
+    }
+    
+    get examples(): ExampleViewModel[] {
+        return this._examples;   
+    }
+    
+    get group(): examplesVM.ExampleGroup {
+        return this._group;
     }
 
     private _currentExample: ExampleViewModel;

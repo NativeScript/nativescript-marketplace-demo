@@ -10,6 +10,13 @@
     </ActionBar>
   </Page.actionBar>
   <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.title }}">
+    <GridLayout rowSpan="2">
+      <Image id="p1" src="res://particles/particle.01" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p2" src="res://particles/particle.02" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p3" src="res://particles/particle.03" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p4" src="res://particles/particle.04" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p5" src="res://particles/particle.05" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+    </GridLayout>
     <StackLayout margin="0 0 0 16">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
