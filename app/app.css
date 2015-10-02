@@ -112,6 +112,7 @@ ActionBar {
     height: 44;
     text-align: left;
     margin: 0 10;
+    color: #3F3F3F;
 }
 .select-element {
     opacity: 0;
