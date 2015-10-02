@@ -1,11 +1,12 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     xmlns:drawer="nativescript-telerik-ui/sidedrawer"
     cssClass="qsf-page"
-    loaded="pageLoaded">
+    navigatingTo="pageNavigatingTo">
   <Page.actionBar>
     <ActionBar cssClass="examples-action-bar" title="NativeScript Examples">
       <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
+        <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
         <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
       </ActionBar.actionItems>
       <ActionBar.titleView>
@@ -14,7 +15,7 @@
       </ActionBar.titleView>
     </ActionBar>
   </Page.actionBar>
-  <drawer:SideDrawer>
+  <drawer:SideDrawer id="side-drawer">
     <drawer:SideDrawer.drawerContent>
       <StackLayout cssClass="drawer-content">
         <Button text="Home" cssClass="drawer-item" tap="tapHome" />

@@ -8,10 +8,11 @@ import groupPageVM = require("../view-models/group-page-view-model");
 import examplePageVM = require("../view-models/example-info-page-view-model");
 import navigator = require("../common/navigator");
 
-// Event handler for Page "loaded" event attached in main-page.xml
-export function pageLoaded(args: observable.EventData) {
+var page;
+
+export function pageNavigatingTo(args: observable.EventData) {
     // Get the event sender
-    var page = <pages.Page>args.object;
+    page = <pages.Page>args.object;
     page.bindingContext = mainPageVM.instance;
 
     if (page.ios) {
@@ -43,8 +44,8 @@ export function navigateToExample(args: gestures.GestureEventData) {
     navigator.navigateToExample(context);
 }
 
-export function showSlideout(args){
-    console.log("TODO: Show slideout ...");
+export function showSlideout(args) {
+    page.getViewById("side-drawer").showDrawer();
 }
 
 export function tapHome(args) {
