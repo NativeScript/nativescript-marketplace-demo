@@ -11,10 +11,10 @@ import builder = require("ui/builder");
 import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-model")
 import examplePageVM = require("../view-models/example-info-page-view-model")
-import platfrom = require("platform")
+import platform = require("platform")
 
 var exampleContainerID = "examples-container";
-var CURVE = (platfrom.device.os === platfrom.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
+var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
 
 export function pageNavigatingTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
@@ -128,51 +128,55 @@ function thumbGotoState(view: view.View, state: string, animated: boolean) {
 
 var particleStates = [
     [
-        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
-        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
-        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
-        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
-        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+        { opacity: 0.5, translate: { x: 0.05, y: 0.50 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.10, y: 0.50 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.15, y: 0.50 }, duration: 1400 }
     ], [
-        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
-        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
-        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
-        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
-        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+        { opacity: 0.5, translate: { x: 0.10, y: 0.80 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.15, y: 0.75 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.20, y: 0.70 }, duration: 1400 }
     ], [
-        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
-        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
-        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
-        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
-        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+        { opacity: 0.5, translate: { x: 0.22, y: 0.70 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.32, y: 0.70 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.42, y: 0.70 }, duration: 1400 }
     ], [
-        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
-        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
-        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
-        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
-        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+        { opacity: 0.5, translate: { x: 0.70, y: 0.60 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.80, y: 0.65 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.90, y: 0.70 }, duration: 1400 }
     ], [
-        { opacity: 0.5, scale: { x: 0.8, y: 0.8 }, translate: { x: 50, y: 20 }, duration: 1000 },
-        { opacity: 0.6, scale: { x: 0.7, y: 0.7 }, translate: { x: 60, y: 40 }, duration: 800 },
-        { opacity: 0.8, scale: { x: 0.9, y: 0.9 }, translate: { x: 40, y: 30 }, duration: 1400 },
-        { opacity: 0.4, scale: { x: 0.6, y: 0.6 }, translate: { x: 70, y: 50 }, duration: 1800 },
-        { opacity: 0.7, scale: { x: 1.0, y: 1.0 }, translate: { x: 80, y: 60 }, duration: 2000 }
+        { opacity: 0.5, translate: { x: 0.80, y: 0.45 }, duration: 1000 },
+        { opacity: 0.6, translate: { x: 0.85, y: 0.40 }, duration: 800 },
+        { opacity: 0.8, translate: { x: 0.90, y: 0.35 }, duration: 1400 }
     ]
 ];
 
 function particlesGotoState(particles: view.View[], stateIndex: number, animated: boolean) {
-    var anims = particles.map((particle, particleIndex) => {
-        var state = particleStates[particleIndex][stateIndex];
-        return {
-            target: particle,
-            //opacity: state.opacity,
-            scale: state.scale,
-            translate: state.translate,
-            curve: CURVE,
-            duration: animated ? state.duration : 0
-        };
-    });
     
-    var animation = new animations.Animation(anims);
-    animation.play();
+    console.log("Particles goto state: " + stateIndex);
+    
+    setTimeout(() => {
+        var anims = particles.map((particle, particleIndex) => {
+            var states = particleStates[particleIndex]; 
+            var state = states[stateIndex % states.length];
+            
+            var screenWidth = platform.screen.mainScreen.widthDIPs;
+            var screenHeight = platform.screen.mainScreen.heightDIPs;
+            
+            var animation = {
+                target: particle,
+                // opacity: state.opacity,
+                translate: {
+                    x: state.translate.x * screenWidth,
+                    y: state.translate.y * (screenHeight - 180) // TODO: Take the action bar and the thumbs at the bottom into account
+                },
+                curve: CURVE,
+                duration: animated ? state.duration : 0
+            };
+            console.log("Translate: " + animation.translate.x + " " + animation.translate.y);
+            return animation;
+        });
+        
+        var animation = new animations.Animation(anims);
+        animation.play();
+    }, 1);
 }

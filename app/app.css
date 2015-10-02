@@ -66,22 +66,22 @@ ActionBar {
 }
 .list-example-image {
     horzontal-align: left;
-    border-radius: 20;
+    border-radius: 16;
 }
 .list-example-image-new {
-    border-radius: 20;
+    border-radius: 16;
     border-color: #3D5AFE;
-    border-width: 2;
+    border-width: 1;
 }
 .example-image {
     width: 120;
     height: 120;
-    border-radius: 20;
+    border-radius: 16;
 }
 .selected-example-border {
     width: 120;
     height: 120;
-    border-radius: 20;
+    border-radius: 16;
     border-color: #018F88;
     border-width: 1;
 }
@@ -93,7 +93,7 @@ ActionBar {
 }
 .info-text {
     color: #555555;
-    font-size: 12;
+    font-size: 16;
     margin: 5;
     padding: 0;
     background-color: transparent;
@@ -103,7 +103,7 @@ ActionBar {
     padding: 0;
     margin: 10;
     background-color: transparent;
-    font-size: 18;
+    font-size: 16;
 }
 .drawer-content {
     background-color: white;
