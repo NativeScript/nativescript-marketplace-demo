@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                 }
             },
             localInstallModules: {
-                command: "npm install \"" + nsDistPath + "/tns-core-modules-1.4.0.tgz\""
+                command: "npm install \"<%= nsPackagePath %>\""
             },
             emulateGeny: {
                 command: "tns emulate android --geny '" + genyDevice +"'"
@@ -82,8 +82,19 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask("updateModules", [
+        "getNSPackage",
         "shell:localInstallModules",
     ]);
+
+    grunt.registerTask("getNSPackage", function() {
+        var packageFiles = grunt.file.expand({
+            cwd: nsDistPath
+        },[
+            'tns-core-modules*.tgz'
+        ]);
+        var nsPackagePath = path.join(nsDistPath, packageFiles[0]);
+        grunt.config('nsPackagePath', nsPackagePath);
+    });
 
     grunt.registerTask("app", [
         "ts:build",
