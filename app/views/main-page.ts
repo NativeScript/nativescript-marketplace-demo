@@ -46,3 +46,27 @@ export function navigateToExample(args: gestures.GestureEventData) {
 export function showSlideout(args){
     console.log("TODO: Show slideout ...");
 }
+
+export function tapHome(args) {
+    console.log("Tab: Home!");
+}
+
+export function tabAbout(args) {
+    console.log("Tab: About!");
+}
+
+export function tapGettingStarted(args) {
+    console.log("Tab: Getting Started!");
+}
+
+export function tapDocumentation(args) {
+    console.log("Tab: Docum!");
+}
+
+export function tapSDKExamples(args) {
+    console.log("Tab: Home!");
+}
+
+export function tapProductPage(args) {
+    console.log("Tab: Product page!");
+}

@@ -31,7 +31,8 @@
         <Repeater.itemTemplate>
           <GridLayout rows="auto" tap="exampleTap">
             <Image src="{{ image }}" cssClass="example-image" />
-            <GridLayout id="selected-example-border" cssClass="selected-example-border">
+            <GridLayout id="selected-example-border">
+              <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.tint }}" />
               <Image src="res://ic_fullscreen" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
             </GridLayout>
           </GridLayout>

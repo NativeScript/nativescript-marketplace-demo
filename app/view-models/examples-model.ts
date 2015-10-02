@@ -55,7 +55,7 @@ export var groups: Array<ExampleGroup> = [
                 path: "examples/conference-agenda/conference-agenda-example",
                 info: "Few sentences of example information. Few sentences of example information.",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             }]
 
     },
