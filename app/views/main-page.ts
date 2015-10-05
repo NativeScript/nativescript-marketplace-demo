@@ -24,6 +24,10 @@ export function onPageLoaded(args: observable.EventData) {
         bar.tintColor = UIColor.whiteColor();
         // TODO: Is it possible to style the title color of the action bar?
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
+        
+        var sideDrawerView = page.getViewById("side-drawer");
+        sideDrawerView.ios.sideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
+        sideDrawerView.ios.sideDrawer.style.dimOpacity = 0.5;
     }
 }
 
@@ -46,7 +50,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
 }
 
 export function showSlideout(args) {
-    page.getViewById("side-drawer").showDrawer();
+    page.getViewById("side-drawer").toggleDrawerState();
 }
 
 export function tapHome(args) {

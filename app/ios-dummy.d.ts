@@ -28,3 +28,6 @@ declare type UIStatusBarStyle = any;
 declare var UIStatusBarStyle: any;
 declare type UITableView = any;
 declare type UITableViewCell = any;
+
+// telerik-ui
+declare var TKSideDrawerShadowMode: any;
