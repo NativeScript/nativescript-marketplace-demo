@@ -50,25 +50,25 @@ export function showSlideout(args) {
 }
 
 export function tapHome(args) {
-    console.log("Tab: Home!");
+    console.log("Tap Home!");
 }
 
 export function tabAbout(args) {
-    console.log("Tab: About!");
+    console.log("Tap About!");
 }
 
 export function tapGettingStarted(args) {
-    console.log("Tab: Getting Started!");
+    navigator.openLink(args.object);
 }
 
 export function tapDocumentation(args) {
-    console.log("Tab: Documentation!");
+    navigator.openLink(args.object);
 }
 
 export function tapSDKExamples(args) {
-    console.log("Tab: SDK Examples!");
+    navigator.openLink(args.object);
 }
 
 export function tapProductPage(args) {
-    console.log("Tab: Product page!");
+    navigator.openLink(args.object);
 }
