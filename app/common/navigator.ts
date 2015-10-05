@@ -42,6 +42,10 @@ export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
     })
 }
 
+export function navigateToAbout() {
+    frame.topmost().navigate("views/about");
+}
+
 export function navigateBack() {
     frame.goBack();
 }

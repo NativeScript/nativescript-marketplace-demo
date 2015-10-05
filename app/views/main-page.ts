@@ -37,12 +37,14 @@ export function toggleWrapLayout(e: any) {
 }
 
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
+    page.getViewById("side-drawer").closeDrawer();
     var exampleGroup = <examplesVM.ExampleGroup>args.view.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup, false);
     navigator.navigateToExampleGroup(context);
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
+    page.getViewById("side-drawer").closeDrawer();
     console.log("Navigate to example...");
     var example = <examplesVM.Example>args.view.bindingContext;
     var context = new examplePageVM.ExamplePageViewModel(example);
@@ -54,25 +56,30 @@ export function showSlideout(args) {
 }
 
 export function tapHome(args) {
-    console.log("Tap Home!");
+    page.getViewById("side-drawer").closeDrawer();
 }
 
-export function tabAbout(args) {
-    console.log("Tap About!");
+export function tapAbout(args) {
+    page.getViewById("side-drawer").closeDrawer();
+    navigator.navigateToAbout();
 }
 
 export function tapGettingStarted(args) {
+    page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }
 
 export function tapDocumentation(args) {
+    page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }
 
 export function tapSDKExamples(args) {
+    page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }
 
 export function tapProductPage(args) {
+    page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }

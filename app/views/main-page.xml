@@ -35,7 +35,7 @@
         </StackLayout>
         
         <Button text="Documentation" cssClass="drawer-item" tap="tapDocumentation" tag="http://docs.nativescript.org" />
-        <Button text="SDK Examples" cssClass="drawer-item" tap="tapSDKExamples" tag="" />
+        <!-- <Button text="SDK Examples" cssClass="drawer-item" tap="tapSDKExamples" tag="" /> -->
         <Button text="Product page" cssClass="drawer-item" tap="tapProductPage" tag="http://nativescript.org" />
         
       </StackLayout>
