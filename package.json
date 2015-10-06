@@ -1,6 +1,6 @@
 {
 	"nativescript": {
-		"id": "org.nativescript.nativescriptmarketplacedemo",
+		"id": "org.nativescript.examples",
 		"tns-android": {
 			"version": "1.3.0"
 		},
