@@ -1,4 +1,4 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded">
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded" backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
 		<ActionBar title="All Sessions" />
     </Page.actionBar>

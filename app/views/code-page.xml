@@ -3,7 +3,8 @@
     cssClass="qsf-page"
     backgroundColor="{{ group.tint }}"
     color="{{ group.tint }}"
-    navigatingTo="pageNavigatingTo">
+    navigatingTo="pageNavigatingTo"
+    backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
     <ActionBar title="View Code" />
   </Page.actionBar>

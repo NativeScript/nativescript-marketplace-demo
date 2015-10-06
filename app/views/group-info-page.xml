@@ -2,7 +2,8 @@
         cssClass="qsf-page"
         navigatingTo="pageNavigatingTo"
         color="{{ tint }}"
-        backgroundColor="{{ tint }}">
+        backgroundColor="{{ tint }}"
+        backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
         <ActionBar>
             <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />

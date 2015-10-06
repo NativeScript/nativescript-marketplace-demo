@@ -2,7 +2,8 @@
     xmlns:examples="examples/example-base-page"
     loaded="pageLoaded"
     navigatingTo="pageNavigatingTo"
-    bottomOffset="49">
+    bottomOffset="49"
+    backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
 		<ActionBar title="Layouts" />
   </Page.actionBar>

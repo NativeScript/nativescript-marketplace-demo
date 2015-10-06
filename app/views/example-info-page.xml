@@ -3,7 +3,8 @@
     backgroundColor="{{ group.tint }}"
     color="{{ group.tint }}"
     navigatingTo="pageNavigatingTo"
-    loaded="pageLoaded">
+    loaded="pageLoaded"
+    backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
     <ActionBar>
       <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
