@@ -7,11 +7,9 @@ import navigator = require("../common/navigator");
 import groupVM = require("../view-models/group-page-view-model");
 import examplePageVM = require("../view-models/example-info-page-view-model");
 
-// Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatingTo(args: pages.NavigatedData) {
     // Get the event sender
     var page = <pages.Page>args.object;
-    console.log("Group page navigated to!");
     page.bindingContext = args.context;
 }
 
