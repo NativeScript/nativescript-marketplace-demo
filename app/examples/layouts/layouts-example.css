@@ -7,26 +7,28 @@
 }
 
 .btn-red {
-    background-color: #FF9A1813;
+    background-color: #9A1813;
     margin: 6;    
 }
 
 .btn-lightblue {
-    background-color: #FF4695D9;
+    background-color: #4695D9;
     margin: 6;   
 }
 
 .btn-lightgreen {
-    background-color: #FF049A90;
+    background-color: #049A90;
     margin: 6;   
 }
 
 .btn-yellow {
-    background-color: #FFCED910;
+    background-color: #CED910;
     margin: 6;   
 }
 
 .btn-blue {
-    background-color: #FF1719C0;
+    background-color: #1719C0;
     margin: 6;   
 }
+
+

@@ -1,0 +1,25 @@
+﻿.session-title {
+    font-size: 17;
+	color: #555555;
+}
+
+.session-time {
+	font-size: 12;
+	font-weight: bold;
+    color: #034D8D;
+}
+
+.session-room {
+    font-size: 12;
+	color: #AAD7FF;
+}
+
+.session-container {
+    padding: 12;
+}
+
+.conf-segmented-bar {
+    background-color: #034D8D;
+    color: #FBE5AE;
+    margin: 0 12 12 12;
+}
