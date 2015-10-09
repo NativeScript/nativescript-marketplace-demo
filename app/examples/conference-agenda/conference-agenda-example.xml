@@ -15,7 +15,7 @@
             </SegmentedBar.items>
         </SegmentedBar>
         <!-- Search -->
-        <SearchBar row="1" text="{{ search }}" hint="Search" />
+        <SearchBar row="1" text="{{ search }}" hint="Search" id="search" />
         <!-- List -->
         <ListView row="2" items="{{ sessions }}" id="sessions-list">
             <ListView.itemTemplate>

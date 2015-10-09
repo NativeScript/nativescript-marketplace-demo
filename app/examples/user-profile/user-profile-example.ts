@@ -11,7 +11,7 @@ export function pageLoaded(args: observable.EventData) {
 		    username: "Joe",
 		    email: "joe@telerik.com",
 		    password: "password",
-		    bio: "", //Joe's life started, when he found NativeScript ...",
+		    bio: "Joe's life started, when he found NativeScript ...",
             isPublic: true,
             showPassword: false
     });

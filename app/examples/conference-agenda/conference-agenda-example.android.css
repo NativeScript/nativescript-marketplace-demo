@@ -1,14 +1,14 @@
-﻿.main-content {
-    background-color: #D9D9D9;
-}
-
-SearchBar {
+﻿SearchBar {
     background-color: white;
     margin: 8;
 }
 
 ListView {
     background-color: white;
+}
+
+.main-content {
+    background-color: #D9D9D9;
 }
 
 .session-title {

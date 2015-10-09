@@ -3,6 +3,8 @@ import pages = require("ui/page");
 import gestures = require("ui/gestures");
 import conferenceViewModel = require("./conference-view-model");
 import list = require("ui/list-view");
+import utils = require("utils/utils");
+import {View} from "ui/core/view";
 
 export function pageLoaded(args: observable.EventData) {
     var page = <pages.Page>args.object;
@@ -15,6 +17,16 @@ export function pageLoaded(args: observable.EventData) {
     }
     if (sessionsList.ios) {
         sessionsList.ios.allowsSelection = false;
+    }
+
+    // set elevation for android search-bar
+    var search = <View>page.getViewById("search");
+    if (search && search.android) {
+        var compat = <any>android.support.v4.view.ViewCompat;
+        if (compat.setElevation) {
+            // Fix for the elevation glitch of the tab-view
+            compat.setElevation(search.android, 4 * utils.layout.getDisplayDensity());
+        }
     }
 }
 
