@@ -7,7 +7,9 @@
     <ActionBar cssClass="qsf-actionbar" title="NativeScript Examples !!!">
       <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
-        <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
+        <iOS>
+          <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
+        </iOS>
         <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
       </ActionBar.actionItems>
       <ActionBar.titleView>
