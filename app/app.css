@@ -1,9 +1,12 @@
-
 .qsf-page {
     background-color: #3D5AFE;
     background-image: url("res://bg_nav_bar");
     background-repeat: no-repeat;
     background-position: 60 0;
+}
+
+.qsf-actionbar {
+    background-color: transparent;
 }
 
 .content-background {
@@ -25,9 +28,6 @@ TabView {
 }
 ActionBar {
     background-color: #FF034D8D;
-}
-.examples-action-bar {
-    background-color: transparent;
 }
 .-android-example-types-bar {
     background-color: none;

@@ -6,11 +6,11 @@
     loaded="pageLoaded"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-    <ActionBar>
+    <ActionBar cssClass="qsf-actionbar">
       <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.title }}">
+  <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
     <GridLayout rowSpan="2">
       <Image id="p1" src="{{ 'res://particles/particle.01.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
       <Image id="p2" src="{{ 'res://particles/particle.02.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />

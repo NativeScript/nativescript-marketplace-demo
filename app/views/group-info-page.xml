@@ -5,11 +5,11 @@
         backgroundColor="{{ tint }}"
         backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar>
+        <ActionBar cssClass="qsf-actionbar">
             <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
         </ActionBar>
     </Page.actionBar>
-    <GridLayout cssClass="content-background" backgroundImage="{{ 'res://bg_' + title }}">
+    <GridLayout cssClass="content-background" backgroundImage="{{ 'res://bg_' + id }}">
         <StackLayout margin="12 0 0 16">
             <TextView text="{{ info }}" editable="false" cssClass="info-text" />
             <Button text="Documentation" cssClass="info-link-button" tag="{{ url }}" tap="openLink" />

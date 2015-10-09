@@ -5,7 +5,7 @@
     navigatingTo="pageNavigatingTo"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-    <ActionBar title="{{ group.title }}">
+    <ActionBar title="{{ group.title }}" cssClass="qsf-actionbar">
       <NavigationButton tap="navigateBack" icon="res://ic_arrow_back" />
       <ActionBar.actionItems>
         <ActionItem icon="res://ic_view_info" ios.position="right" tap="infoTap" />
@@ -13,7 +13,7 @@
       </ActionBar.actionItems>
     </ActionBar>
   </Page.actionBar>
-  <GridLayout rows="44, *" columns="*" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.title }}">
+  <GridLayout rows="44, *" columns="*" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
     
     <!-- Show New filter -->
     <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="group-show-new-btn" tap="{{ toggleShowNew }}"/>
