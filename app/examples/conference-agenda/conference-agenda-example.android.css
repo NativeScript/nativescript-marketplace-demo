@@ -1,0 +1,37 @@
+﻿.main-content {
+    background-color: #D9D9D9;
+}
+
+SearchBar {
+    background-color: white;
+    margin: 8;
+}
+
+ListView {
+    background-color: white;
+}
+
+.session-title {
+    font-size: 16;
+	color: #555555;
+}
+
+.session-time {
+	font-size: 12;
+	font-weight: bold;
+    color: #034D8D;
+}
+
+.session-room {
+    font-size: 12;
+	color: #AAD7FF;
+}
+
+.session-container {
+    padding: 16;
+}
+
+.conf-segmented-bar {
+    background-color: #034D8D;
+    color: white;
+}

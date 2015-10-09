@@ -14,17 +14,26 @@ export function rootGridLoaded(args: observable.EventData) {
             compat.setElevation(grid.android, 4 * utils.layout.getDisplayDensity());
         }
     }
+
+    var tabView = grid.getViewById("tabView");
+    var bgColor = new Color("#FF034D8D");
+    
+    if (tabView.ios) {
+        tabView.ios.tabBar.barTintColor = bgColor.ios;
+        tabView.ios.tabBar.tintColor = UIColor.whiteColor();
+    }
+    
+    if (tabView.android) {
+        var tabLayout = (<any>tabView)._tabLayout;
+        var indicatorColor = new Color("#CED910").android;
+        
+        tabLayout.setSelectedIndicatorColors([indicatorColor]);
+        tabLayout.setBackgroundColor(bgColor.android);
+    }
 }
 
 // TODO: This should be in "pageNavigatingTo" but that method is defined in the Page base class
 export function pageNavigatingTo(args: observable.EventData) {
-    var page = <Page>args.object;
-    var tabView = page.getViewById("tabView");
-    if (tabView.ios) {
-        tabView.ios.tabBar.barTintColor = new Color("#FF034D8D").ios;
-        tabView.ios.tabBar.tintColor = UIColor.whiteColor();
-    }
-    
     var page = <Page>args.object;
     page.bindingContext = new observable.Observable({
         selectedIndex: 0

@@ -2,10 +2,12 @@
     <Page.actionBar>
 		<ActionBar title="All Sessions" />
     </Page.actionBar>
-    <GridLayout rows="auto, auto, *" columns="*">
+    <GridLayout rows="auto, auto, *" columns="*" cssClass="main-content">
         <!-- Segmented Bar -->
         <SegmentedBar selectedIndex="{{ selectedDay }}"
-            ios:selectedBackgroundColor="#FFFBE5AE" cssClass="conf-segmented-bar">
+            ios:selectedBackgroundColor="#FBE5AE"
+            android:selectedBackgroundColor="#FAC950" 
+            cssClass="conf-segmented-bar">
             <SegmentedBar.items>
                 <SegmentedBarItem title="MAY 3" />
                 <SegmentedBarItem title="MAY 4" />

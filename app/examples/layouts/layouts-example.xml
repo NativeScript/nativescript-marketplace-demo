@@ -17,6 +17,8 @@
               <Button cssClass="btn-red" />
               <Button cssClass="btn-lightblue" />
               <Button cssClass="btn-lightgreen" />
+              <Button cssClass="btn-yellow" />
+              <Button cssClass="btn-blue" />
             </StackLayout>
           </TabViewItem.view>
         </TabViewItem>
