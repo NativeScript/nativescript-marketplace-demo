@@ -64,7 +64,6 @@ export var groups: Array<ExampleGroup> = [
         isNew: true,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/Chart/chart-overview",
         info: "Chart for NativeScript supports chart type series essential for visualizing your application data. You can customize its look and feel to match those of your application.",
-        controls: ["chart"],
         tint: "#018f88",
         examples: [
             {

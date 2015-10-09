@@ -4,7 +4,7 @@
     loaded="onPageLoaded"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-    <ActionBar cssClass="examples-action-bar" title="NativeScript Examples">
+    <ActionBar cssClass="examples-action-bar" title="NativeScript Examples !!!">
       <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
         <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
