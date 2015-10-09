@@ -12,7 +12,9 @@
       </ActionBar.actionItems>
       <ActionBar.titleView>
         <!-- TODO: We should be able to center an image horizontally in android without using GridLayout -->
-        <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="40 0 0 0" />
+        <GridLayout>
+          <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="40 0 0 0" />
+        </GridLayout>
       </ActionBar.titleView>
     </ActionBar>
   </Page.actionBar>
