@@ -152,6 +152,11 @@ var particleStates = [
 
 function particlesGotoState(particles: view.View[], stateIndex: number, animated: boolean) {
     setTimeout(() => {
+        // Stop animtions for android if there are no native views
+        if((platform.device.os === platform.platformNames.android) && !particles.every((v) => { return !!v.android })){
+            return;
+        }
+        
         var anims = particles.map((particle, particleIndex) => {
             var states = particleStates[particleIndex]; 
             var state = states[stateIndex % states.length];

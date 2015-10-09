@@ -6,13 +6,15 @@ import utils = require("utils/utils");
 import gridModule = require("ui/layouts/grid-layout");
 import navigator = require("../common/navigator");
 import view = require("ui/core/view");
+import platform = require("platform");
 
 var OVERLAY_ELEVATION = 12;
+var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;
 
 export class ExamplePage extends pages.Page {
-    
+
     public bottomOffset: number = 0;
-    
+
     public constructor() {
         super();
         
@@ -33,14 +35,14 @@ export class ExamplePage extends pages.Page {
         }
 
         var root = <gridModule.GridLayout>this.content;
-        
+
         this.addOverlayButton(root);
     }
 
-    private addOverlayButton(root:gridModule.GridLayout) {
+    private addOverlayButton(root: gridModule.GridLayout) {
         var overlay = new imageModule.Image();
         root.addChild(overlay);
-        
+
         gridModule.GridLayout.setRow(overlay, 100);
         overlay.imageSource = imageSourceModule.fromFileOrResource("res://ic_fullscreen_exit");
         overlay.cssClass = "example-overlay-button";
@@ -48,15 +50,21 @@ export class ExamplePage extends pages.Page {
             // TODO: plug animations here
             navigator.navigateBack();
         });
-        
-        console.log(overlay.ios);
+
         overlay.marginBottom = this.bottomOffset;
-        overlay.ios.layer.anchorPoint = { x: 0, y: 1 };
-        
+
+        if (platform.device.os === platform.platformNames.android) {
+            overlay.android.setPivotX(0);
+            overlay.android.setPivotY(100);
+        }
+        else if (platform.device.os === platform.platformNames.ios) {
+            overlay.ios.layer.anchorPoint = { x: 0, y: 1 };
+        }
+
         var scale = (scale, duration: number = 120) => () => overlay.animate({
             scale: { x: scale, y: scale },
             duration: duration,
-            curve: UIViewAnimationCurve.UIViewAnimationCurveEaseInOut
+            curve: CURVE
         });
         scale(0, 1)()
             .then(scale(2))
@@ -65,7 +73,7 @@ export class ExamplePage extends pages.Page {
             .then(scale(0.9))
             .then(scale(1.4))
             .then(scale(1));
-        
+
         if (overlay.android) {
             var compat = <any>android.support.v4.view.ViewCompat;
             if (compat.setElevation) {

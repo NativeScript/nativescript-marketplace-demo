@@ -36,6 +36,9 @@ declare module android {
             export class DecelerateInterpolator {
 				constructor(factor: number);
             }
+            export class AccelerateDecelerateInterpolator {
+				constructor();
+            }
         }
     }
 
