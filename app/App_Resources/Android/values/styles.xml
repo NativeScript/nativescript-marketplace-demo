@@ -6,6 +6,12 @@
 		<item name="colorPrimary">@color/ns_primary</item>
     	<item name="colorPrimaryDark">@color/ns_primaryDark</item>
 		<item name="colorAccent">@color/ns_accent</item>
+        
+        <item name="actionMenuTextColor">#FFFFFF</item>
+        
+        <!--<item name="android:windowActionBarOverlay">true</item>  
+        <item name="windowActionBarOverlay">true</item>    
+        <item name="android:windowTranslucentStatus">true</item>-->
     </style>
     
     <style name="AppTheme" parent="AppThemeBase">

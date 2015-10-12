@@ -1,9 +1,14 @@
 <examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded" backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
         <ActionBar title="User Profile">
+            <android>
+                <NavigationButton tap="cancelTapped" icon="res://ic_close" />
+            </android>
             <ActionBar.actionItems>
-                <ActionItem text="Cancel" ios.position="left" tap="cancelTapped" />
-                <ActionItem text="Done" ios.position="right" tap="doneTapped" />
+                <ios>
+                    <ActionItem text="Cancel" ios.position="left" tap="cancelTapped" />
+                </ios>
+                <ActionItem ios:text="Done" android:text="SAVE" ios.position="right" tap="doneTapped" />
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
@@ -13,7 +18,7 @@
                 <!-- Picture -->
                 <StackLayout orientation="horizontal">
                     <Image src="res://user" cssClass="profile-image" />
-                    <Button text="Change image" cssClass="button-change-image" />
+                    <Button text="Change image" cssClass="button-change-image" tap="changeImageTapped"/>
                 </StackLayout>
                 <StackLayout cssClass="line"/>
                 <!-- Username -->

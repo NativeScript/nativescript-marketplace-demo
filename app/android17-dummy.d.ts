@@ -7,7 +7,7 @@ declare module android {
 
     export module net {
         export class Uri {
-			public static parse(uriString: string): android.net.Uri;
+            public static parse(uriString: string): android.net.Uri;
         }
     }
 
@@ -17,9 +17,9 @@ declare module android {
 
     export module content {
         export class Intent {
-			constructor(action: string, uri: android.net.Uri);
-			static ACTION_VIEW: string;
-			public static createChooser(target: android.content.Intent, title: string): android.content.Intent;
+            constructor(action: string, uri: android.net.Uri);
+            static ACTION_VIEW: string;
+            public static createChooser(target: android.content.Intent, title: string): android.content.Intent;
         }
         export type Context = any;
     }
@@ -31,13 +31,13 @@ declare module android {
 
         export module animation {
             export class AccelerateInterpolator {
-				constructor(factor: number);
+                constructor(factor: number);
             }
             export class DecelerateInterpolator {
-				constructor(factor: number);
+                constructor(factor: number);
             }
             export class AccelerateDecelerateInterpolator {
-				constructor();
+                constructor();
             }
         }
     }
@@ -49,6 +49,7 @@ declare module android {
         export type EditText = any;
         export type ListView = any;
         export type ImageView = any;
+        export type Toast = any;
     }
 
     export module graphics {
