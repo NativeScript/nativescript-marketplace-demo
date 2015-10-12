@@ -6,7 +6,7 @@
     loaded="pageLoaded"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-    <ActionBar cssClass="qsf-actionbar">
+    <ActionBar cssClass="qsf-actionbar" android:title="Back to all">
       <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back_chart" />
     </ActionBar>
   </Page.actionBar>
