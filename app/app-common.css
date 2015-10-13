@@ -25,6 +25,7 @@ TabView {
 }
 
 ActionBar {
+    color: white;
     background-color: #034D8D;
 }
 
