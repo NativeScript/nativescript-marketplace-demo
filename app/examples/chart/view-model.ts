@@ -18,8 +18,10 @@ export class ChartExamplesDataModel {
     private _lineTypes;
     private _barTypes;
     private selectedItem: ChartTypeItem;
+    private _views;
 
     constructor() {
+        this._views = {};
     }
 
     public loadGalleryFragment(item: ChartTypeItem, viewHolder, pathToModuleXML: string, exampleXmlName: string) {
@@ -27,13 +29,19 @@ export class ChartExamplesDataModel {
         if (this.selectedItem) {
             this.selectedItem.isSelected = false;
         }
+
         item.isSelected = true;
         this.selectedItem = item;
 
-        var exampleView = builder.load({
-            path: pathToModuleXML,
-            name: exampleXmlName
-        });
+        var exampleView = this._views[pathToModuleXML + exampleXmlName];
+
+        if (!exampleView) {
+            exampleView = builder.load({
+                path: pathToModuleXML,
+                name: exampleXmlName
+            });
+            this._views[pathToModuleXML + exampleXmlName] = exampleView;
+        }
 
         if (viewHolder.getChildrenCount() > 0) {
             viewHolder.removeChild(viewHolder.getChildAt(0));
