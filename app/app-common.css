@@ -19,24 +19,15 @@
 Page, ExamplePage {
     background-color: #034D8D;
 }
-.transparent {
-    background-color: transparent;
-}
 
 TabView {
-    background-color: #FF034D8D;
+    background-color: #034D8D;
 }
+
 ActionBar {
-    background-color: #FF034D8D;
+    background-color: #034D8D;
 }
-.-android-example-types-bar {
-    background-color: none;
-    color: white;
-}
-.-ios-example-types-bar {
-    color: white;
-    margin: 8 12 8 12;
-}
+
 .example-img-grid-wrap {
     width: 100;
     height: 100;
@@ -105,15 +96,17 @@ ActionBar {
     background-color: transparent;
     font-size: 16;
 }
+
+/* Side Drawer START */
+
 .drawer-content {
     background-color: white;
 }
+
 .drawer-item {
-    height: 44;
+    background-color: transparent;
     text-align: left;
-    margin: 0 10;
     color: #3F3F3F;
-    font-size: 17;
 }
 
 .drawer-line {
@@ -121,15 +114,16 @@ ActionBar {
     background-color: #c8c8c8;
 }
 
-.drawer-controls{
+.drawer-controls {
     background-color: #F0F0F0;
 }
 
 .drawer-controls-title{
     color:#919191;
-    margin: 8 10 0 10;
-    font-size: 14;
 }
+
+
+/* Side Drawer END */
 
 .select-element {
     opacity: 0;
@@ -181,7 +175,7 @@ ActionBar {
 .chartItemInRepeaterStyle {
     vertical-align: bottom;
     padding: 8;
-    background-color: #00ffffff;
+    background-color: transparent;
     width: 74;
     height: 66;
 }
@@ -194,16 +188,16 @@ ActionBar {
 }
 
 .repeaterItemsScrollerStyle {
-    background-color: #fff1f1f1;
+    background-color: #f1f1f1;
 }
 .repeaterBottomBorderStyle {
-    background-color: #ffd6d5d5;
+    background-color: #d6d5d5;
     height: 1;
     vertical-align: bottom;
 }
 
 .galleryRepeaterItemRightBorder{
-    background-color: #ffd6d5d5;
+    background-color: #d6d5d5;
     width: 1;
     margin-bottom: -1;
     horizontal-align: right;
@@ -214,7 +208,7 @@ ActionBar {
 }
 
 .galleryRepeaterItemLeftBorder{
-    background-color: #ffd6d5d5;
+    background-color: #d6d5d5;
     width: 1;
     margin-left: -1;
     margin-bottom: -1;
@@ -222,10 +216,9 @@ ActionBar {
 }
 
 .galleryRepeaterItemBottomBorder{
-    background-color: #ffd6d5d5;
+    background-color: #d6d5d5;
     height: 1;
     vertical-align: bottom;
-
 }
 
 .galleryRepeaterItemBottomSelectedBorder{

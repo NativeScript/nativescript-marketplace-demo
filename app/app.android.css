@@ -1,0 +1,17 @@
+@import { url('~/app-common.css') };
+
+.drawer-item {
+    padding: 16;
+    font-size: 14;
+    
+}
+
+.drawer-controls-title{
+    margin: 8 16;
+    font-size: 14;
+}
+
+.example-types-bar {
+    background-color: none;
+    color: white;
+}

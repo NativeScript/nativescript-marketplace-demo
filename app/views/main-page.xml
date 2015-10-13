@@ -23,10 +23,10 @@
   <drawer:SideDrawer id="side-drawer">
     <drawer:SideDrawer.drawerContent>
       <StackLayout cssClass="drawer-content">
-        <Button text="Home" cssClass="drawer-item" tap="tapHome" />
-        <Button text="About" cssClass="drawer-item" tap="tapAbout" />
-        <!-- <Button text="Send feedback" /> -->
-        <Button text="Getting started" cssClass="drawer-item" tap="tapGettingStarted" tag="http://docs.nativescript.org/getting-started" />
+        <Label text="Home" cssClass="drawer-item" tap="tapHome" />
+        <Label text="About" cssClass="drawer-item" tap="tapAbout" />
+        <!-- <Label text="Send feedback" /> -->
+        <Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" />
 
         <StackLayout cssClass="drawer-controls">
           <StackLayout cssClass="drawer-line" />
@@ -39,9 +39,9 @@
           <StackLayout cssClass="drawer-line" />
         </StackLayout>
         
-        <Button text="Documentation" cssClass="drawer-item" tap="tapDocumentation" tag="http://docs.nativescript.org" />
-        <!-- <Button text="SDK Examples" cssClass="drawer-item" tap="tapSDKExamples" tag="" /> -->
-        <Button text="Product page" cssClass="drawer-item" tap="tapProductPage" tag="http://nativescript.org" />
+        <Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
+        <!-- <Label text="SDK Examples" cssClass="drawer-item" tap="tapDrawerLink" tag="" /> -->
+        <Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://nativescript.org" />
         
       </StackLayout>
     </drawer:SideDrawer.drawerContent>
@@ -53,8 +53,7 @@
         <!-- Segmented bar navigation -->
         <!-- TODO: I have failed to set the selectedBackgroundColor in CSS --> 
         <SegmentedBar selectedIndex="{{ selectedScreen }}"
-            android:cssClass="-android-example-types-bar"
-            ios:cssClass="-ios-example-types-bar"
+            cssClass="example-types-bar"
             ios:selectedBackgroundColor="#F5F5F5"
             android:selectedBackgroundColor="#00E676">
           <SegmentedBar.items>
