@@ -33,8 +33,8 @@
           <GridLayout rows="auto" tap="exampleTap">
             <Image src="{{ image }}" cssClass="example-image" />
             <GridLayout id="selected-example-border">
-              <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.title, $parents['Page'].group.tint }}" />
-              <Image src="{{ $parents['Page'].group.title, 'res://ic_fullscreen_' + $parents['Page'].group.title }}" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
+              <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.tint, $parents['Page'].group.tint }}" />
+              <Image src="{{ $parents['Page'].group.id, 'res://ic_fullscreen_' + $parents['Page'].group.id }}" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
             </GridLayout>
           </GridLayout>
         </Repeater.itemTemplate>
