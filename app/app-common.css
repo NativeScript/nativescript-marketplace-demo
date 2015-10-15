@@ -1,0 +1,233 @@
+.qsf-page {
+    background-color: #3D5AFE;
+    background-image: url("res://bg_nav_bar");
+    background-repeat: no-repeat;
+    background-position: 60 0;
+}
+
+.qsf-actionbar {
+    background-color: transparent;
+}
+
+.content-background {
+    background-color: #E5E5E8;
+    background-image: url("res://bg_main");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+Page, ExamplePage {
+    background-color: #034D8D;
+}
+
+TabView {
+    background-color: #034D8D;
+}
+
+ActionBar {
+    color: white;
+    background-color: #034D8D;
+}
+
+.example-img-grid-wrap {
+    width: 100;
+    height: 100;
+    horizontal-align: center;
+    margin: 6;
+}
+.example-img-grid {
+    width: 72;
+    height: 72;
+    horizontal-align: left;
+    margin: 6;
+}
+.example-title {
+    font-size: 19;
+    color: black;
+    horizontal-align: left;
+    margin: 3;
+}
+.example-title-wrap {
+    font-size: 17;
+    color: black;
+    horizontal-align: center;
+    margin: 3;
+}
+.example-used-controls {
+    margin: 3;
+}
+.list-example-image {
+    horzontal-align: left;
+    border-radius: 16;
+}
+.list-example-image-new {
+    border-radius: 16;
+    border-color: #3D5AFE;
+    border-width: 1;
+}
+.example-image {
+    width: 120;
+    height: 120;
+    border-radius: 16;
+}
+.selected-example-border {
+    width: 120;
+    height: 120;
+    border-radius: 16;
+    border-color: #018F88;
+    border-width: 1;
+}
+.info-title {
+    color: black;
+    font-size: 32;
+    margin: 20 10 10 10;
+    padding: 0;
+}
+.info-text {
+    color: #555555;
+    font-size: 16;
+    margin: 5;
+    padding: 0;
+    background-color: transparent;
+}
+.info-link-button {
+    text-align: left;
+    padding: 0;
+    margin: 0 10 0 10;
+    background-color: transparent;
+    font-size: 16;
+}
+
+/* Side Drawer START */
+
+.drawer-content {
+    background-color: white;
+}
+
+.drawer-item {
+    background-color: transparent;
+    text-align: left;
+    color: #3F3F3F;
+}
+
+.drawer-line {
+    height: 1;
+    background-color: #c8c8c8;
+}
+
+.drawer-controls {
+    background-color: #F0F0F0;
+}
+
+.drawer-controls-title{
+    color:#919191;
+}
+
+
+/* Side Drawer END */
+
+.select-element {
+    opacity: 0;
+}
+
+.show-new-btn,
+.group-show-new-btn {
+
+    horizontal-align: right;
+    background-color: transparent;
+    margin: 0 10;
+}
+.show-new-btn {
+    color: #3D5AFE;
+}
+.new {
+    font-weight: bold;
+    vertical-align: bottom;
+    horizontal-align: left;
+}
+
+.control,
+.group-control {
+    color: #95959E;
+    margin: 0 8 0 0;
+    font-size: 12;
+    font-weight: bold;
+}
+
+.example-item {
+    padding: 6;
+    margin: 0 0 1 1;
+    background-color: white;
+}
+.no-image-example-item {
+    margin: 0 0 1 1;
+    background-color: white;
+}
+.example-overlay-button {
+    vertical-align: bottom;
+    horizontal-align: left;
+    width: 40;
+    height: 40;
+}
+.chartExampleHolderStyle {
+    padding: 6;
+    background-color: white;
+}
+.chartItemInRepeaterStyle {
+    vertical-align: bottom;
+    padding: 8;
+    background-color: transparent;
+    width: 74;
+    height: 66;
+}
+.chartItemInRepeaterSelectedStyle {
+    vertical-align: bottom;
+    padding: 8;
+    background-color: white;
+    width: 74;
+    height: 66;
+}
+
+.repeaterItemsScrollerStyle {
+    background-color: #f1f1f1;
+}
+.repeaterBottomBorderStyle {
+    background-color: #d6d5d5;
+    height: 1;
+    vertical-align: bottom;
+}
+
+.galleryRepeaterItemRightBorder{
+    background-color: #d6d5d5;
+    width: 1;
+    margin-bottom: -1;
+    horizontal-align: right;
+}
+
+.galleryRepeaterStyle {
+    margin-bottom: 0;
+}
+
+.galleryRepeaterItemLeftBorder{
+    background-color: #d6d5d5;
+    width: 1;
+    margin-left: -1;
+    margin-bottom: -1;
+    horizontal-align: left;
+}
+
+.galleryRepeaterItemBottomBorder{
+    background-color: #d6d5d5;
+    height: 1;
+    vertical-align: bottom;
+}
+
+.galleryRepeaterItemBottomSelectedBorder{
+    background-color: white;
+    height: 1;
+    vertical-align: bottom;
+}
+
+.chart-example-tytle-style {
+    horizontal-align: center;
+}

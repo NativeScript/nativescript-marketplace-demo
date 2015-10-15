@@ -12,11 +12,11 @@
   </Page.actionBar>
   <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
     <GridLayout rowSpan="2">
-      <Image id="p1" src="{{ 'res://particles/particle.01.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p2" src="{{ 'res://particles/particle.02.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p3" src="{{ 'res://particles/particle.03.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p4" src="{{ 'res://particles/particle.04.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p5" src="{{ 'res://particles/particle.05.' + group.title }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p1" src="{{ 'res://particle_01_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p2" src="{{ 'res://particle_02_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p3" src="{{ 'res://particle_03_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p4" src="{{ 'res://particle_04_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      <Image id="p5" src="{{ 'res://particle_05_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
     </GridLayout>
     <StackLayout margin="0 0 0 16">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
@@ -33,8 +33,8 @@
           <GridLayout rows="auto" tap="exampleTap">
             <Image src="{{ image }}" cssClass="example-image" />
             <GridLayout id="selected-example-border">
-              <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.title, $parents['Page'].group.tint }}" />
-              <Image src="{{ $parents['Page'].group.title, 'res://ic_fullscreen_' + $parents['Page'].group.title }}" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
+              <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.tint, $parents['Page'].group.tint }}" />
+              <Image src="{{ $parents['Page'].group.id, 'res://ic_fullscreen_' + $parents['Page'].group.id }}" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
             </GridLayout>
           </GridLayout>
         </Repeater.itemTemplate>

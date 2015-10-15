@@ -1,6 +1,7 @@
 var path = require("path");
+var fs = require("fs");
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -10,7 +11,16 @@ module.exports = function(grunt) {
 
     var androidAvd = grunt.option('avd') || "nexus"
     var genyDevice = grunt.option('geny') || "nexus7"
-    var iOSDevice = grunt.option('device') || "nexus"
+    var iOSDevice = grunt.option('device') || "iPhone-6"
+    var androidPlatfrom = "platforms/android/";
+
+    var hasAndroidPlatform = false;
+    try {
+        hasAndroidPlatform = fs.statSync(androidPlatfrom) && fs.statSync(androidPlatfrom).isDirectory();
+    }
+    catch (e) {
+        // ...
+    }
 
     grunt.initConfig({
         ts: {
@@ -33,6 +43,12 @@ module.exports = function(grunt) {
             },
         },
         copy: {
+            widgets: {
+                src: "widgets.jar",
+                dest: path.join(androidPlatfrom, "libs") + "/",
+                cwd: "deps/android-widgets",
+                expand: true
+            }
         },
         clean: {
             app: {
@@ -70,13 +86,19 @@ module.exports = function(grunt) {
                 command: "npm install \"<%= nsPackagePath %>\""
             },
             emulateGeny: {
-                command: "tns emulate android --geny '" + genyDevice +"'"
+                command: "tns emulate android --geny '" + genyDevice + "'"
             },
             emulateAndroid: {
-                command: "tns emulate android --avd '" + androidAvd +"'"
+                command: "tns emulate android --avd '" + androidAvd + "'"
             },
             emulateIOS: {
-                command: "tns emulate ios --device '" + iOSDevice +"'"
+                command: "tns emulate ios --device '" + iOSDevice + "'"
+            },
+            removeAndroid: {
+                command: "tns platform remove android"
+            },
+            addAndroid: {
+                command: "tns platform add android"
             }
         }
     });
@@ -86,12 +108,12 @@ module.exports = function(grunt) {
         "shell:localInstallModules",
     ]);
 
-    grunt.registerTask("getNSPackage", function() {
+    grunt.registerTask("getNSPackage", function () {
         var packageFiles = grunt.file.expand({
             cwd: nsDistPath
-        },[
-            'tns-core-modules*.tgz'
-        ]);
+        }, [
+                'tns-core-modules*.tgz'
+            ]);
         var nsPackagePath = path.join(nsDistPath, packageFiles[0]);
         grunt.config('nsPackagePath', nsPackagePath);
     });
@@ -100,17 +122,21 @@ module.exports = function(grunt) {
         "ts:build",
     ]);
 
+    // Copy custom version of widgets.jar to be up to date
+    grunt.registerTask("fix-android-widgets", hasAndroidPlatform ? ["copy:widgets"] : [])
     grunt.registerTask("prepare", [
         "shell:depNSInit",
         "updateModules",
         "clean:nodeModulesGz",
+        "fix-android-widgets"
     ]);
-
+    
     grunt.registerTask("app-full", [
         "clean:app",
         "app",
     ]);
 
+    grunt.registerTask("refresh-android", ["shell:removeAndroid", "shell:addAndroid", "fix-android-widgets"])
     grunt.registerTask("run-android", ["app", "shell:emulateAndroid"])
     grunt.registerTask("run-ios", ["app", "shell:emulateIOS"])
 }

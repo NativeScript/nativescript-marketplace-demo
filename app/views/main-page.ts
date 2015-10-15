@@ -22,6 +22,8 @@ export function onPageLoaded(args: observable.EventData) {
         bar.translucent = true;
         bar.shadowImage = UIImage.new();
         bar.tintColor = UIColor.whiteColor();
+        
+        
         // TODO: Is it possible to style the title color of the action bar?
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
         
@@ -64,22 +66,7 @@ export function tapAbout(args) {
     navigator.navigateToAbout();
 }
 
-export function tapGettingStarted(args) {
-    page.getViewById("side-drawer").closeDrawer();
-    navigator.openLink(args.object);
-}
-
-export function tapDocumentation(args) {
-    page.getViewById("side-drawer").closeDrawer();
-    navigator.openLink(args.object);
-}
-
-export function tapSDKExamples(args) {
-    page.getViewById("side-drawer").closeDrawer();
-    navigator.openLink(args.object);
-}
-
-export function tapProductPage(args) {
+export function tapDrawerLink(args) {
     page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }

@@ -1,7 +1,3 @@
-.tabView-layouts-example {
-    background-color: white;
-}
-
 .layout-container {
     margin: 6;   
 }
@@ -31,4 +27,14 @@
     margin: 6;   
 }
 
+
+.ios-tab-view {
+    background-color: white;
+    color: #929292;
+}
+
+.android-tab-view {
+    background-color: white;
+    color: white;
+}
 
