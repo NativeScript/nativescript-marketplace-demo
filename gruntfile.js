@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 
     var androidAvd = grunt.option('avd') || "nexus"
     var genyDevice = grunt.option('geny') || "nexus7"
-    var iOSDevice = grunt.option('device') || "nexus"
+    var iOSDevice = grunt.option('device') || "iPhone-6"
     var androidPlatfrom = "platforms/android/";
 
     var hasAndroidPlatform = false;

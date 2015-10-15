@@ -8,9 +8,12 @@
 		<ActionBar title="Layouts" />
   </Page.actionBar>
   <GridLayout loaded="rootGridLoaded">
-    <TabView cssClass="tabView-layouts-example" id="tabView" 
+    <TabView id="tabView" 
       selectedIndex="{{ selectedIndex }}" 
-      android:selectedColor="#CED910">
+      android:cssClass="android-tab-view" 
+      android:selectedColor="#CED910"
+      ios:cssClass="ios-tab-view"
+      ios:selectedColor="white">
       <TabView.items>
         <TabViewItem title="Stack" ios:iconSource="{{ selectedIndex == 0 ? 'res://stack-1' : 'res://stack' }}">
           <TabViewItem.view>

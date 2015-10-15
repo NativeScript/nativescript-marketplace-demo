@@ -20,7 +20,7 @@ export function rootGridLoaded(args: observable.EventData) {
     
     if (tabView.ios) {
         tabView.ios.tabBar.barTintColor = bgColor.ios;
-        // tabView.ios.tabBar.tintColor = UIColor.whiteColor();
+        //tabView.ios.tabBar.tintColor = UIColor.whiteColor();
     }
     
     if (tabView.android) {
