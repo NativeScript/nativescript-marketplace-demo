@@ -6,7 +6,7 @@
             <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back" />
         </ActionBar>
     </Page.actionBar>
-    <GridLayout cssClass="content-background">
+    <GridLayout cssClass="content-background-main">
         <StackLayout margin="0 0 0 16">
             <Label text="About" cssClass="info-title" />
             <TextView text="NativeScript enables developers to build native apps for iOS and Android while sharing the application code across the platforms." editable="false" cssClass="info-text" />

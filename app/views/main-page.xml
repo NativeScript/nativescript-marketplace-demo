@@ -48,7 +48,7 @@
     <drawer:SideDrawer.mainContent>
       <GridLayout rows="auto, 44, *" columns="*">
 
-        <GridLayout row="1" rowSpan="2" cssClass="content-background" />
+        <GridLayout row="1" rowSpan="2" cssClass="content-background-main" />
         
         <!-- Segmented bar navigation -->
         <!-- TODO: I have failed to set the selectedBackgroundColor in CSS --> 
