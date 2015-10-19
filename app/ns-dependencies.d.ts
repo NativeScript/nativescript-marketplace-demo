@@ -49,3 +49,6 @@
 
 /// <reference path="android17-dummy.d.ts" />
 /// <reference path="ios-dummy.d.ts" />
+
+declare function __startCPUProfiler(string): void;
+declare function __stopCPUProfiler(string): void;
