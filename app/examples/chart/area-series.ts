@@ -22,10 +22,9 @@ function loadItem(page, item: models.ChartTypeItem) {
     var dataModel = page.bindingContext;
     dataModel.loadGalleryFragment(item, page.getViewById("exampleHolder"), "~/examples/chart/area", item.exampleXml);
 }
-
+var dataModel = new models.ChartExamplesDataModel();
 export function onPageLoaded(args: observable.EventData) {
     var page = <pages.Page>args.object;
-    var dataModel = new models.ChartExamplesDataModel();
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.areaTypes[0];
     loadItem(page, itemToLoad);

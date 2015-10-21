@@ -23,8 +23,8 @@ export function onPageLoaded(args: observable.EventData) {
         bar.translucent = true;
         bar.shadowImage = UIImage.new();
         bar.tintColor = UIColor.whiteColor();
-        
-        
+
+
         // TODO: Is it possible to style the title color of the action bar?
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
 

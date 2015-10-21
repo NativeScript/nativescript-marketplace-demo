@@ -1,7 +1,7 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
     <Label text="Monthly sales revenue, 2014" cssClass="chart-example-tytle-style"/>
-    <chart:CartesianChart row="1">
-        <chart:CartesianChart.series>
+    <chart:RadCartesianChart row="1">
+        <chart:RadCartesianChart.series>
             <chart:LineSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount">
                 <chart:LineSeries.horizontalAxis>
                     <chart:CategoricalAxis/>
@@ -10,9 +10,9 @@
                     <chart:LinearAxis/>
                 </chart:LineSeries.verticalAxis>
             </chart:LineSeries>
-        </chart:CartesianChart.series>
-        <chart:CartesianChart.grid>
-            <chart:CartesianChartGrid/>
-        </chart:CartesianChart.grid>
-    </chart:CartesianChart>
+        </chart:RadCartesianChart.series>
+        <chart:RadCartesianChart.grid>
+            <chart:RadCartesianChartGrid/>
+        </chart:RadCartesianChart.grid>
+    </chart:RadCartesianChart>
 </GridLayout>

@@ -2,6 +2,7 @@
 import bindable = require("ui/core/bindable");
 import observable = require("data/observable");
 import builder = require("ui/builder");
+import app = require("application");
 
 
 export class ChartExamplesDataModel {
@@ -151,17 +152,25 @@ export class ChartExamplesDataModel {
         ];
     }
 
+    private getPictureResourcePath(groupName: string, exampleName: string) {
+        if (app.ios) {
+            return "res://chart/" + groupName + "/" + exampleName;
+        }
+        var resourcePath = "res://" + exampleName;
+        return resourcePath;
+    }
+
     get areaTypes() {
         if (this._areaTypes) {
             return this._areaTypes;
         }
         return this._areaTypes = [
-            new ChartTypeItem(true, "res://chart/area/area1", "area1"),
-            new ChartTypeItem(false, "res://chart/area/area2", "area2"),
-            new ChartTypeItem(false, "res://chart/area/area5", "area3"),
-            new ChartTypeItem(false, "res://chart/area/area3", "area4"),
-            new ChartTypeItem(false, "res://chart/area/area4", "area5"),
-            new ChartTypeItem(false, "res://chart/area/area6", "area6")
+            new ChartTypeItem(true, this.getPictureResourcePath("area", "area1"), "area1"),
+            new ChartTypeItem(false, this.getPictureResourcePath("area", "area2"), "area2"),
+            new ChartTypeItem(false, this.getPictureResourcePath("area", "area3"), "area3"),
+            new ChartTypeItem(false, this.getPictureResourcePath("area", "area4"), "area4"),
+            new ChartTypeItem(false, this.getPictureResourcePath("area", "area5"), "area5"),
+            new ChartTypeItem(false, this.getPictureResourcePath("area", "area6"), "area6")
         ];
     }
 
@@ -170,12 +179,12 @@ export class ChartExamplesDataModel {
             return this._barTypes;
         }
         return this._barTypes = [
-            new ChartTypeItem(true, "res://chart/bar/bar5", "bar1"),
-            new ChartTypeItem(false, "res://chart/bar/bar7", "bar2"),
-            new ChartTypeItem(false, "res://chart/bar/bar8", "bar3"),
-            new ChartTypeItem(false, "res://chart/bar/bar1", "bar4"),
-            new ChartTypeItem(false, "res://chart/bar/bar3", "bar5"),
-            new ChartTypeItem(false, "res://chart/bar/bar4", "bar6")
+            new ChartTypeItem(true, this.getPictureResourcePath("bar", "bar5"), "bar1"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar7"), "bar2"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar8"), "bar3"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar1"), "bar4"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar3"), "bar5"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar4"), "bar6")
         ];
     }
 
@@ -184,10 +193,10 @@ export class ChartExamplesDataModel {
             return this._lineTypes;
         }
         return this._lineTypes = [
-            new ChartTypeItem(true, "res://chart/line/line2", "line1"),
-            new ChartTypeItem(false, "res://chart/line/line4", "line2"),
-            new ChartTypeItem(false, "res://chart/line/spline1", "line3"),
-            new ChartTypeItem(false, "res://chart/line/spline3", "line4")
+            new ChartTypeItem(true, this.getPictureResourcePath("line", "line2"), "line1"),
+            new ChartTypeItem(false, this.getPictureResourcePath("line", "line4"), "line2"),
+            new ChartTypeItem(false, this.getPictureResourcePath("line", "spline1"), "line3"),
+            new ChartTypeItem(false, this.getPictureResourcePath("line", "spline3"), "line4")
         ];
     }
 
@@ -196,9 +205,9 @@ export class ChartExamplesDataModel {
             return this._pieTypes;
         }
         return this._pieTypes = [
-            new ChartTypeItem(true, "res://chart/pie/pie1", "pie1"),
-            new ChartTypeItem(false, "res://chart/pie/pie2", "pie2"),
-            new ChartTypeItem(false, "res://chart/pie/doughnut1", "pie3"),
+            new ChartTypeItem(true, this.getPictureResourcePath("pie", "pie1"), "pie1"),
+            new ChartTypeItem(false, this.getPictureResourcePath("pie", "pie2"), "pie2"),
+            new ChartTypeItem(false, this.getPictureResourcePath("pie", "doughnut1"), "pie3"),
         ];
     }
 }
@@ -221,7 +230,7 @@ export class ChartTypeItem extends observable.Observable {
     }
 
     get imageRes() {
-        return this.get("imgRes") + ".png";
+        return this.get("imgRes");
     }
 
     set imageRes(value) {
@@ -229,7 +238,8 @@ export class ChartTypeItem extends observable.Observable {
     }
 
     get selectedImageRes() {
-        return this.get("imgRes") + "s.png";
+        var suffix = app.ios ? "s" : "";
+        return this.get("imgRes") + suffix;
     }
 
     get exampleXml() {

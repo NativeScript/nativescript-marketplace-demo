@@ -20,8 +20,8 @@
       </ActionBar.titleView>
     </ActionBar>
   </Page.actionBar>
-  <drawer:SideDrawer id="side-drawer">
-    <drawer:SideDrawer.drawerContent>
+  <drawer:RadSideDrawer id="side-drawer">
+    <drawer:RadSideDrawer.drawerContent>
       <StackLayout cssClass="drawer-content">
         <Label text="Home" cssClass="drawer-item" tap="tapHome" />
         <Label text="About" cssClass="drawer-item" tap="tapAbout" />
@@ -37,19 +37,19 @@
           </Repeater>
           <StackLayout cssClass="drawer-line" />
         </StackLayout>
-        
+
         <Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
         <Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://nativescript.org" />
-        
+
       </StackLayout>
-    </drawer:SideDrawer.drawerContent>
-    <drawer:SideDrawer.mainContent>
+    </drawer:RadSideDrawer.drawerContent>
+    <drawer:RadSideDrawer.mainContent>
       <GridLayout rows="auto, 44, *" columns="*">
 
         <GridLayout row="1" rowSpan="2" cssClass="content-background-main" />
-        
+
         <!-- Segmented bar navigation -->
-        <!-- TODO: I have failed to set the selectedBackgroundColor in CSS --> 
+        <!-- TODO: I have failed to set the selectedBackgroundColor in CSS -->
         <SegmentedBar selectedIndex="{{ selectedScreen }}"
             cssClass="example-types-bar"
             ios:selectedBackgroundColor="#F5F5F5"
@@ -59,20 +59,20 @@
             <SegmentedBarItem title="All controls" />
           </SegmentedBar.items>
         </SegmentedBar>
-        
+
         <!-- Show New filter -->
         <Button row="1"
           ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
           android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
           android:style.fontSize="11"
           cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
-    
+
         <!-- Featured examples -->
         <GridLayout visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <ScrollView>
             <Repeater items="{{ featuredExamples }}">
               <Repeater.itemsLayout>
-                
+
                 <!-- TODO: The WrapLayout can handle better the multy-column request.
                   In the best scenario we will set minimum-width of an item
                   and have the panel accomodate as much equal sized columns as possible. -->
@@ -82,16 +82,16 @@
                 <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
               </Repeater.itemsLayout>
               <Repeater.itemTemplate>
-                <StackLayout tap="navigateToExample" cssClass="example-item" 
+                <StackLayout tap="navigateToExample" cssClass="example-item"
                   orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}"
                   visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-                  
+
                   <GridLayout columns="*" rows="*"
                       cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-wrap' : 'example-img-list' }}">
                     <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
                     <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                   </GridLayout>
-    
+
                   <StackLayout>
                     <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
                     <Label text="{{ controls }}" textWrap="true" color="#3C5AFD"
@@ -102,23 +102,23 @@
             </Repeater>
           </ScrollView>
         </GridLayout>
-        
+
         <!-- All examples -->
         <GridLayout visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*">
           <Repeater items="{{ exampleGroups }}">
             <Repeater.itemsLayout>
-              
+
               <!-- TODO: The WrapLayout can handle better the multy-column request.
                   In the best scenario we will set minimum-width of an item
                   and have the panel accomodate as much equal sized columns as possible. -->
               <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
-              <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->  
+              <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->
               <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
             </Repeater.itemsLayout>
             <Repeater.itemTemplate>
-              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" ios:columns="42, *" android:columns="72, *" rows="42" 
+              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" ios:columns="42, *" android:columns="72, *" rows="42"
                 visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-                <Label col="1" text="{{ title }}" 
+                <Label col="1" text="{{ title }}"
                   cssClass="example-title-list" verticalAlignment="center" />
                 <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
               </GridLayout>
@@ -126,6 +126,6 @@
           </Repeater>
         </GridLayout>
       </GridLayout>
-    </drawer:SideDrawer.mainContent>
-  </drawer:SideDrawer>
+    </drawer:RadSideDrawer.mainContent>
+  </drawer:RadSideDrawer>
 </Page>

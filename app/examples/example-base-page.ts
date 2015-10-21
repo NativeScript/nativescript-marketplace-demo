@@ -18,7 +18,7 @@ export class ExamplePage extends pages.Page {
 
     public constructor() {
         super();
-        
+
         // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
         this.on("navigatingTo", args => {
             if (this.ios) {
@@ -38,10 +38,10 @@ export class ExamplePage extends pages.Page {
         var root = <gridModule.GridLayout>this.content;
 
         this.addOverlayButton(root);
-        
+
         //prof.stopCPUProfile("example");
-        prof.pause("example");
-        
+    //    prof.pause("example");
+
     }
 
     private addOverlayButton(root: gridModule.GridLayout) {
