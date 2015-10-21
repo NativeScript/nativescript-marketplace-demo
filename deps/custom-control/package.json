@@ -1,0 +1,10 @@
+﻿{ "name" : "custom-control",
+  "main" : "custom-control.js",
+  "version": "1.0.0",
+  "nativescript": {
+    "platforms": {
+      "android": "1.3.0", 
+	  "ios": "1.3.0"
+    }
+  }
+}
