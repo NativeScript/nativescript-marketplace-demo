@@ -1,0 +1,8 @@
+<GridLayout xmlns="http://www.nativescript.org/tns.xsd" cssClass="content-background-main">
+    <StackLayout cssClass="marginated-content">
+        <ios>
+            <Label text="About" cssClass="info-title" />
+        </ios>
+        <TextView cssClass="info-text" editable="false" text="NativeScript enables developers to build native apps for iOS and Android while sharing the application code across the platforms." />
+    </StackLayout>
+</GridLayout>

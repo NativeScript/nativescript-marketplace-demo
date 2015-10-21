@@ -9,7 +9,7 @@ export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
     frame.topmost().navigate({
         animated: true,
         context: context,
-        moduleName: "views/group-page",
+        moduleName: "views/group-page/group-page",
     })
 }
 
@@ -56,8 +56,12 @@ export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
     })
 }
 
+export function navigateToHome() {
+    frame.topmost().navigate("views/main-page");
+}
+
 export function navigateToAbout() {
-    frame.topmost().navigate("views/about");
+    frame.topmost().navigate("views/about/about");
 }
 
 export function navigateBack() {
