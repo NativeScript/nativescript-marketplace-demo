@@ -44,7 +44,7 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
 
     page.getViewById("side-drawer").closeDrawer();
     var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
-    var context = new groupPageVM.GroupPageViewModel(exampleGroup, false);
+    var context = new groupPageVM.GroupPageViewModel(exampleGroup);
     navigator.navigateToExampleGroup(context);
 }
 
@@ -54,8 +54,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
 
     page.getViewById("side-drawer").closeDrawer();
     var example = <examplesVM.Example>(<any>args).object.bindingContext;
-    var context = new examplePageVM.ExamplePageViewModel(example);
-    navigator.navigateToExample(context);
+    navigator.navigateToExample(example);
 }
 
 export function showSlideout(args) {

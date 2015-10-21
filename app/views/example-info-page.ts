@@ -16,9 +16,9 @@ import platform = require("platform")
 var exampleContainerID = "examples-container";
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
 
-export function pageNavigatingTo(args: pages.NavigatedData) {
+export function pageLoaded(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
-    var vm = <examplePageVM.ExamplePageViewModel>args.context;
+    var vm = <examplePageVM.ExampleInfoPageViewModel>page.navigationContext;
     page.bindingContext = vm;
     
     // NOTE: Views does not belong to the view model, so we will maintain the currentExampleView in the view.
@@ -67,7 +67,7 @@ export function pageNavigatingTo(args: pages.NavigatedData) {
 }
 
 export function showCodeTap(args: observable.EventData) {
-    var context = <examplePageVM.ExamplePageViewModel>(<view.View>args.object).bindingContext;
+    var context = <examplePageVM.ExampleInfoPageViewModel>(<view.View>args.object).bindingContext;
     navigator.navigateToCode(context.currentExample);
 }
 
@@ -81,7 +81,7 @@ export function navigateBack(args: gestures.GestureEventData) {
 
 export function exampleTap(args: gestures.GestureEventData) {
     var exampleView = args.view;
-    var vm = <examplePageVM.ExamplePageViewModel>exampleView.page.bindingContext;
+    var vm = <examplePageVM.ExampleInfoPageViewModel>exampleView.page.bindingContext;
     var exampleVM = <examplePageVM.ExampleViewModel> exampleView.bindingContext;
 
     if (vm.currentExample === exampleVM) {

@@ -6,7 +6,7 @@ export class GroupPageViewModel extends observable.Observable {
     public group: examplesVM.ExampleGroup;
     public examples: Array<examplesVM.Example>;
 
-    constructor(group: examplesVM.ExampleGroup, isSingleControl: boolean) {
+    constructor(group: examplesVM.ExampleGroup) {
         super();
 
         this.set("examples", group.examples);

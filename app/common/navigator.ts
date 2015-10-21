@@ -1,6 +1,6 @@
 import examplesVM = require("../view-models/examples-model")
 import groupVM = require("../view-models/group-page-view-model")
-import examplePageVM = require("../view-models/example-info-page-view-model");
+import exampleInfoPageVM = require("../view-models/example-info-page-view-model");
 import frame = require("ui/frame");
 import viewModule = require("ui/core/view");
 import platform = require("platform");
@@ -13,17 +13,31 @@ export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
     })
 }
 
-export function navigateToExample(context: examplePageVM.ExamplePageViewModel) {
-    frame.topmost().navigate({
-        animated: false,
-        context: context,
-        moduleName: "views/example-info-page",
-    })
+export function navigateToExample(example: examplesVM.Example) {
+    var navContext: exampleInfoPageVM.ExampleNavigationContext = {
+        shouldNavigateToInfoOnBack: true,
+        example: example
+    }
 
     frame.topmost().navigate({
         animated: true,
-        moduleName: context.currentExample.path,
+        moduleName: example.path,
+        context: navContext
     })
+}
+
+export function navigateBackFromExampe(context: exampleInfoPageVM.ExampleNavigationContext) {
+    frame.goBack();
+    
+    if (context && context.shouldNavigateToInfoOnBack) {
+        var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
+        
+        frame.topmost().navigate({
+            animated: false,
+            context: infoContext,
+            moduleName: "views/example-info-page",
+        });
+    }
 }
 
 export function navigateToCode(context: examplesVM.Example) {

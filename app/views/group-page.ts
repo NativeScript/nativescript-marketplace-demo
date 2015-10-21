@@ -22,8 +22,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
     var example = <examplesVM.Example>args.view.bindingContext;
     var vm = <groupVM.GroupPageViewModel>args.view.page.bindingContext;
 
-    var context = new examplePageVM.ExamplePageViewModel(example);
-    navigator.navigateToExample(context);
+    navigator.navigateToExample(example);
 }
 
 export function navigateBack(args: gestures.GestureEventData) {

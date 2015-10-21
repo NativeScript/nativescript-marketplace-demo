@@ -53,7 +53,9 @@ export class ExamplePage extends pages.Page {
         overlay.cssClass = "example-overlay-button";
         overlay.on("tap", (args) => {
             // TODO: plug animations here
-            navigator.navigateBack();
+            
+            //
+            navigator.navigateBackFromExampe(this.navigationContext);
         });
 
         overlay.marginBottom = this.bottomOffset;
