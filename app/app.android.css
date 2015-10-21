@@ -3,7 +3,6 @@
 .drawer-item {
     padding: 16;
     font-size: 14;
-    
 }
 
 .drawer-controls-title{
@@ -18,4 +17,30 @@
 
 ActionBar {
     margin: 25 0 0 0;
+}
+
+.example-title-list, .example-title-wrap {
+    color: black;
+    margin: 3;
+}
+.example-title-list {
+    horizontal-align: left;
+    font-size: 20;
+}
+.example-title-wrap {
+    horizontal-align: center;
+    font-size: 17;
+}
+
+.used-controls-list, .used-controls-wrap {
+    vertical-align: top;
+    font-weight: bold;
+}
+.used-controls-list {
+    font-size: 18;
+    margin: 3;
+}
+.used-controls-wrap {
+    font-size: 16;
+    margin: 0 16;
 }

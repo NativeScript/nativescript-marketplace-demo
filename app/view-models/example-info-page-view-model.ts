@@ -35,7 +35,7 @@ export class ExampleViewModel extends observable.Observable implements examplesV
         return this._example.group;
     }
 
-    get controls(): Array<string> {
+    get controls(): string {
         return this._example.controls;
     }
 }

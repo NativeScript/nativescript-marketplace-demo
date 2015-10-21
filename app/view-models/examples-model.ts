@@ -5,7 +5,7 @@ export interface Example {
     isNew?: boolean;
     info?: string;
     image?: string;
-    controls: Array<string>;
+    controls: string;
 
     group?: ExampleGroup;
 }
@@ -33,7 +33,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Layouts",
                 image: "res://screen_layouts",
-                controls: ["stack-layout", "grid-layout", "wrap-layout", "dock-layout", "absolute-layout"],
+                controls: "stack-layout grid-layout wrap-layout dock-layout absolute-layout",
                 path: "examples/layouts/layouts-example",
                 info: "NativeScript provides a recursive layout system which sizes and positions views on the screen. The supported layouts are stack, grid, wrap, dock and absolute.",
                 isFeatured: true,
@@ -43,7 +43,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "User Profile",
                 image: "res://screen_user_profile",
-                controls: ["scroll-view", "stack-layout", "label", "text-field", "text-view", "image", "button", "switch", "action-bar"],
+                controls: "scroll-view stack-layout label text-field text-view image button switch action-bar",
                 path: "examples/user-profile/user-profile-example",
                 info: "This example demonstrates how you can use the different NativeScript layouts together to achieve a data input form behavior.",
                 isFeatured: true,
@@ -53,7 +53,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Conference Agenda",
                 image: "res://screen_conference_agenda",
-                controls: ["list-view", "segmented-bar", "search-bar", "action-bar", "label"],
+                controls: "list-view segmented-bar search-bar action-bar label",
                 path: "examples/conference-agenda/conference-agenda-example",
                 info: "This example demonstrates how you can create a ListView item template using the GridLayout.",
                 isFeatured: true,
@@ -74,7 +74,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://screen_bar_chart",
                 path: "examples/chart/bar-series",
                 info: "Bar charts are one of the most common types of graph used to display data. They are mostly used to show amounts or the number of times a value occurs.",
-                controls: ["chart"],
+                controls: "chart",
                 isFeatured: true,
                 isNew: true
             },
@@ -83,7 +83,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://screen_line_chart",
                 path: "examples/chart/line-series",
                 info: "Line charts are often used to plot changes in data over time, such as monthly temperature changes or daily changes in stock market prices.",
-                controls: ["chart"],
+                controls: "chart",
                 isFeatured: true,
                 isNew: true
             },
@@ -92,7 +92,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://screen_area_chart",
                 path: "examples/chart/area-series",
                 info: "Area charts are much like line charts, but they display different colors in the areas below the lines. This colorful and visual display distinguishes the data more clearly.",
-                controls: ["chart"],
+                controls: "chart",
                 isFeatured: true,
                 isNew: true
             },
@@ -101,7 +101,7 @@ export var groups: Array<ExampleGroup> = [
                 image: "res://screen_pie_chart",
                 path: "examples/chart/pie-series",
                 info: "Pie charts are used to display the contribution of franctional parts to a whole. Each data point is a pie slice with arc size proportional to the magnitude of the point's value.",
-                controls: ["chart"],
+                controls: "chart",
                 isFeatured: true,
                 isNew: true
             }

@@ -37,21 +37,16 @@
               visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
               
               <GridLayout horizontalAlignment="center" columns="*" rows="*"
-                cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
+                cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-wrap' : 'example-img-list' }}">
                 <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit"/>
                 <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
               </GridLayout>
 
               <StackLayout>
-                <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title' }}" />
-                <Repeater verticalAlignment="top" items="{{ controls }}" cssClass="example-used-controls">
-                  <Repeater.itemsLayout>
-                    <WrapLayout />
-                  </Repeater.itemsLayout>
-                  <Repeater.itemTemplate>
-                    <Label text="{{ $value }}" cssClass="group-control" />
-                  </Repeater.itemTemplate>
-                </Repeater>
+                <Label text="{{ title }}" 
+                  cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
+                <Label text="{{ controls }}" textWrap="true" 
+                  cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'used-controls-wrap' : 'used-controls-list' }}"/>
               </StackLayout>
             </StackLayout>
           </Repeater.itemTemplate>

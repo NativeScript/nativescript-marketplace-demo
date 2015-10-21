@@ -87,21 +87,15 @@
                   visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
                   
                   <GridLayout columns="*" rows="*"
-                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-grid-wrap' : 'example-img-grid' }}">
+                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-wrap' : 'example-img-list' }}">
                     <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
                     <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                   </GridLayout>
     
                   <StackLayout>
-                    <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title' }}" />
-                    <Repeater verticalAlignment="top" items="{{ controls }}" cssClass="example-used-controls">
-                      <Repeater.itemsLayout>
-                        <WrapLayout />
-                      </Repeater.itemsLayout>
-                      <Repeater.itemTemplate>
-                        <Label text="{{ $value }}" cssClass="control"/>
-                      </Repeater.itemTemplate>
-                    </Repeater>
+                    <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
+                    <Label text="{{ controls }}" textWrap="true" color="#3C5AFD"
+                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'used-controls-wrap' : 'used-controls-list' }}"/>
                   </StackLayout>
                 </StackLayout>
               </Repeater.itemTemplate>
@@ -122,9 +116,10 @@
               <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
             </Repeater.itemsLayout>
             <Repeater.itemTemplate>
-              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item"
+              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" ios:columns="42, *" android:columns="72, *" rows="42" 
                 visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-                <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
+                <Label col="1" text="{{ title }}" 
+                  cssClass="example-title-list" verticalAlignment="center" />
                 <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
               </GridLayout>
             </Repeater.itemTemplate>

@@ -10,8 +10,34 @@
     font-size: 14;
 }
 
-
 .example-types-bar {
     color: white;
     margin: 8 12 8 12;
 }
+
+.example-title-list, .example-title-wrap {
+    color: black;
+    margin: 3;
+}
+.example-title-list {
+    font-size: 19;
+    horizontal-align: left;
+}
+.example-title-wrap {
+    font-size: 17;
+    horizontal-align: center;
+}
+
+.used-controls-list, .used-controls-wrap{
+    vertical-align: top;
+    font-weight: bold;
+}
+.used-controls-list {
+    margin: 3;
+    font-size: 17;
+}
+.used-controls-wrap {
+    margin: 12;
+    font-size: 15;
+}
+
