@@ -7,6 +7,7 @@ import mainPageVM = require("../view-models/main-page-view-model");
 import groupPageVM = require("../view-models/group-page-view-model");
 import examplePageVM = require("../view-models/example-info-page-view-model");
 import navigator = require("../common/navigator");
+import prof = require("../common/profiling");
 
 var page;
 
@@ -26,7 +27,7 @@ export function onPageLoaded(args: observable.EventData) {
         
         // TODO: Is it possible to style the title color of the action bar?
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
-        
+
         var sideDrawerView = page.getViewById("side-drawer");
         sideDrawerView.ios.sideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
         sideDrawerView.ios.sideDrawer.style.dimOpacity = 0.5;
@@ -39,16 +40,20 @@ export function toggleWrapLayout(e: any) {
 }
 
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
+    prof.start("group");
+
     page.getViewById("side-drawer").closeDrawer();
-    var exampleGroup = <examplesVM.ExampleGroup>args.view.bindingContext;
+    var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup, false);
     navigator.navigateToExampleGroup(context);
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
+    //prof.startCPUProfile("example");
+    prof.start("example");
+
     page.getViewById("side-drawer").closeDrawer();
-    console.log("Navigate to example...");
-    var example = <examplesVM.Example>args.view.bindingContext;
+    var example = <examplesVM.Example>(<any>args).object.bindingContext;
     var context = new examplePageVM.ExamplePageViewModel(example);
     navigator.navigateToExample(context);
 }
@@ -58,10 +63,12 @@ export function showSlideout(args) {
 }
 
 export function tapHome(args) {
+    //prof.startCPUProfile("profile");
     page.getViewById("side-drawer").closeDrawer();
 }
 
 export function tapAbout(args) {
+    //prof.stopCPUProfile("profile");
     page.getViewById("side-drawer").closeDrawer();
     navigator.navigateToAbout();
 }

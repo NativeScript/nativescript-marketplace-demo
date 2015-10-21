@@ -25,7 +25,6 @@
       <StackLayout cssClass="drawer-content">
         <Label text="Home" cssClass="drawer-item" tap="tapHome" />
         <Label text="About" cssClass="drawer-item" tap="tapAbout" />
-        <!-- <Label text="Send feedback" /> -->
         <Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" />
 
         <StackLayout cssClass="drawer-controls">
@@ -40,7 +39,6 @@
         </StackLayout>
         
         <Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
-        <!-- <Label text="SDK Examples" cssClass="drawer-item" tap="tapDrawerLink" tag="" /> -->
         <Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://nativescript.org" />
         
       </StackLayout>
@@ -124,7 +122,7 @@
               <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
             </Repeater.itemsLayout>
             <Repeater.itemTemplate>
-              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" ios:columns="42, *" android:columns="72, *" rows="42" 
+              <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item"
                 visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
                 <Label col="1" text="{{ title }}" cssClass="example-title" verticalAlignment="center" />
                 <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />

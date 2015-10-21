@@ -7,6 +7,7 @@ import gridModule = require("ui/layouts/grid-layout");
 import navigator = require("../common/navigator");
 import view = require("ui/core/view");
 import platform = require("platform");
+import prof = require("../common/profiling");
 
 var OVERLAY_ELEVATION = 12;
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;
@@ -37,6 +38,10 @@ export class ExamplePage extends pages.Page {
         var root = <gridModule.GridLayout>this.content;
 
         this.addOverlayButton(root);
+        
+        //prof.stopCPUProfile("example");
+        prof.pause("example");
+        
     }
 
     private addOverlayButton(root: gridModule.GridLayout) {

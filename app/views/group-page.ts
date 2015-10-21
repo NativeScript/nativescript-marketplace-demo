@@ -6,11 +6,16 @@ import examplesVM = require("../view-models/examples-model");
 import navigator = require("../common/navigator");
 import groupVM = require("../view-models/group-page-view-model");
 import examplePageVM = require("../view-models/example-info-page-view-model");
+import prof = require("../common/profiling");
 
 export function pageNavigatingTo(args: pages.NavigatedData) {
     // Get the event sender
     var page = <pages.Page>args.object;
     page.bindingContext = args.context;
+}
+
+export function pageLoaded() {
+    prof.pause("group");
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {

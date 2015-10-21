@@ -30,6 +30,7 @@ declare type UITableView = any;
 declare type UITableViewCell = any;
 declare type CGRect = any;
 declare type UIView = any;
+declare function CACurrentMediaTime(): number;
 
 // telerik-ui
 declare var TKSideDrawerShadowMode: any;

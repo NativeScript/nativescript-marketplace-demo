@@ -3,7 +3,8 @@
     backgroundColor="{{ group.tint }}"
     color="{{ group.tint }}"
     navigatingTo="pageNavigatingTo"
-    backgroundSpanUnderStatusBar="true">
+    backgroundSpanUnderStatusBar="true"
+    loaded="pageLoaded">
   <Page.actionBar>
     <ActionBar title="{{ group.title }}" cssClass="qsf-actionbar">
       <NavigationButton tap="navigateBack" icon="res://ic_arrow_back" />
