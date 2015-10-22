@@ -17,7 +17,10 @@
   <GridLayout rows="44, *" columns="*" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
     
     <!-- Show New filter -->
-    <Button text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" cssClass="group-show-new-btn" tap="{{ toggleShowNew }}"/>
+    <Button cssClass="group-show-new-btn" tap="{{ toggleShowNew }}"
+          ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
+          android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
+    />
     
     <!-- Examples list -->
     <GridLayout row="1" columns="*" rows="*">

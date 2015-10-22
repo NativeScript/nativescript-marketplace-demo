@@ -33,14 +33,26 @@ ActionBar {
 }
 
 .used-controls-list, .used-controls-wrap {
+    color: #95959E;
     vertical-align: top;
     font-weight: bold;
 }
 .used-controls-list {
-    font-size: 18;
+    font-size: 16;
     margin: 3;
 }
 .used-controls-wrap {
     font-size: 16;
     margin: 0 16;
+}
+
+.info-link-button {
+    font-size: 14;
+    font-weight: bold;
+}
+
+.show-new-btn,
+.group-show-new-btn {
+    font-weight: bold;
+    font-size: 14;
 }

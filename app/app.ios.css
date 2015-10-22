@@ -31,6 +31,7 @@
 .used-controls-list, .used-controls-wrap{
     vertical-align: top;
     font-weight: bold;
+    color: #95959E;
 }
 .used-controls-list {
     margin: 3;
@@ -41,3 +42,6 @@
     font-size: 15;
 }
 
+.info-link-button {
+    font-size: 16;
+}
