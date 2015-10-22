@@ -2,7 +2,7 @@
     <GridLayout loaded="rootGridLoaded" rows="auto, *">
         <GridLayout cssClass="repeaterItemsScrollerStyle" rows="*">
             <GridLayout cssClass="repeaterBottomBorderStyle" row="1"/>
-            <ScrollView orientation="horizontal" ios.showsHorizontalScrollIndicator="false" cssClass="galleryRepeaterStyle">
+            <ScrollView id="scrollView" orientation="horizontal" ios.showsHorizontalScrollIndicator="false" cssClass="galleryRepeaterStyle">
                 <Repeater items="{{ lineTypes }}" >
                     <Repeater.itemsLayout>
                         <StackLayout orientation="horizontal"/>

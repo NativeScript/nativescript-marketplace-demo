@@ -1,13 +1,13 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
     <Label cssClass="chart-example-tytle-style" text="Monthly sales revenue, 2014"/>
-    <chart:RadCartesianChart row="1">
+    <chart:RadCartesianChart row="1" id="chart">
         <chart:RadCartesianChart.series>
             <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource }}" valueProperty="Amount"></chart:SplineAreaSeries>
             <chart:RadCartesianChart.horizontalAxis>
-                <chart:CategoricalAxis android:labelSize="36"/>
+                <chart:CategoricalAxis android:labelSize="30"/>
             </chart:RadCartesianChart.horizontalAxis>
             <chart:RadCartesianChart.verticalAxis>
-                <chart:LinearAxis android:labelSize="36"/>
+                <chart:LinearAxis android:labelSize="30"/>
             </chart:RadCartesianChart.verticalAxis>
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.grid>

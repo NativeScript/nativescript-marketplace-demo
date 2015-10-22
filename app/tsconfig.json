@@ -13,5 +13,36 @@
         "!./node_modules/**/*.ts",
         "!./bin/**/*.*",
         "!./obj/**/*.*"
-    ]
+    ],
+    "files": [
+        "android17-dummy.d.ts",
+        "app.ts",
+        "common/navigator.ts",
+        "common/profiling.ts",
+        "examples/chart/area-series.ts",
+        "examples/chart/bar-series.ts",
+        "examples/chart/line-series.ts",
+        "examples/chart/pie-series.ts",
+        "examples/chart/view-model.ts",
+        "examples/conference-agenda/conference-agenda-example.ts",
+        "examples/conference-agenda/conference-view-model.ts",
+        "examples/example-base-page.ts",
+        "examples/layouts/layouts-example.ts",
+        "examples/user-profile/user-profile-example.ts",
+        "ios-dummy.d.ts",
+        "ns-dependencies.d.ts",
+        "typings/highlightjs.d.ts",
+        "view-models/code-page-view-model.ts",
+        "view-models/example-info-page-view-model.ts",
+        "view-models/examples-model.ts",
+        "view-models/group-page-view-model.ts",
+        "view-models/main-page-view-model.ts",
+        "views/about.ts",
+        "views/code-page.ts",
+        "views/example-info-page.ts",
+        "views/group-info-page.ts",
+        "views/group-page.ts",
+        "views/main-page.ts"
+    ],
+    "exclude": []
 }

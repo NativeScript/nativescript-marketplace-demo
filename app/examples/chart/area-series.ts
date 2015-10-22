@@ -21,6 +21,8 @@ export function rootGridLoaded(args: observable.EventData) {
 function loadItem(page, item: models.ChartTypeItem) {
     var dataModel = page.bindingContext;
     dataModel.loadGalleryFragment(item, page.getViewById("exampleHolder"), "~/examples/chart/area", item.exampleXml);
+    var cartesianChart = page.getViewById("chart");
+    cartesianChart.horizontalAxis.android.setLabelFitMode(com.telerik.widget.chart.engine.axes.common.AxisLabelFitMode.MULTI_LINE);
 }
 var dataModel = new models.ChartExamplesDataModel();
 export function onPageLoaded(args: observable.EventData) {
@@ -28,6 +30,7 @@ export function onPageLoaded(args: observable.EventData) {
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.areaTypes[0];
     loadItem(page, itemToLoad);
+    page.getViewById("scrollView").android.setHorizontalScrollBarEnabled(false);
 }
 
 export function repeaterItemTap(args: gestures.GestureEventData) {

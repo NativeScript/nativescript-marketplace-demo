@@ -29,6 +29,7 @@ export function onPageLoaded(args: observable.EventData) {
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.pieTypes[0];
     loadItem(page, itemToLoad);
+    page.getViewById("scrollView").android.setHorizontalScrollBarEnabled(false);
 }
 
 export function repeaterItemTap(args: gestures.GestureEventData) {

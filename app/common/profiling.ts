@@ -1,4 +1,4 @@
-var ENABLE_PROFILING = true;
+var ENABLE_PROFILING = false;
 export function time(): number {
     if (!ENABLE_PROFILING) {
         return;
