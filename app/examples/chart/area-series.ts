@@ -5,6 +5,7 @@ import models = require("./view-model");
 import frame = require("ui/frame");
 import pages = require("ui/page");
 import gestures = require("ui/gestures");
+import app = require("application");
 
 export function rootGridLoaded(args: observable.EventData) {
     var grid = <gridModule.GridLayout>args.object;
@@ -22,7 +23,9 @@ function loadItem(page, item: models.ChartTypeItem) {
     var dataModel = page.bindingContext;
     dataModel.loadGalleryFragment(item, page.getViewById("exampleHolder"), "~/examples/chart/area", item.exampleXml);
     var cartesianChart = page.getViewById("chart");
-    cartesianChart.horizontalAxis.android.setLabelFitMode(com.telerik.widget.chart.engine.axes.common.AxisLabelFitMode.MULTI_LINE);
+    if (app.android) {
+        cartesianChart.horizontalAxis.android.setLabelFitMode(com.telerik.widget.chart.engine.axes.common.AxisLabelFitMode.MULTI_LINE);
+    }
 }
 var dataModel = new models.ChartExamplesDataModel();
 export function onPageLoaded(args: observable.EventData) {

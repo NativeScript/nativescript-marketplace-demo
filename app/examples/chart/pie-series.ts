@@ -5,6 +5,7 @@ import models = require("./view-model");
 import frame = require("ui/frame");
 import pages = require("ui/page");
 import gestures = require("ui/gestures");
+import app = require("application");
 
 export function rootGridLoaded(args: observable.EventData) {
     var grid = <gridModule.GridLayout>args.object;
@@ -29,7 +30,9 @@ export function onPageLoaded(args: observable.EventData) {
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.pieTypes[0];
     loadItem(page, itemToLoad);
-    page.getViewById("scrollView").android.setHorizontalScrollBarEnabled(false);
+    if (app.android) {
+        page.getViewById("scrollView").android.setHorizontalScrollBarEnabled(false);
+    }
 }
 
 export function repeaterItemTap(args: gestures.GestureEventData) {
