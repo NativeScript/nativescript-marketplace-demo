@@ -40,6 +40,11 @@ declare module android {
                 constructor();
             }
         }
+        
+        export type View = any;
+        export module inputmethod {
+            export type InputMethodManager = any;
+        }
     }
 
     export module widget {
