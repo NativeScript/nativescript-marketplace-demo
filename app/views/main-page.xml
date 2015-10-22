@@ -93,8 +93,9 @@
                   </GridLayout>
 
                   <StackLayout>
-                    <Label text="{{ title }}" cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
-                    <Label text="{{ controls }}" textWrap="true" color="#3C5AFD"
+                    <Label text="{{ title }}" 
+                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
+                    <Label text="{{ controls }}" textWrap="true"
                       cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'used-controls-wrap' : 'used-controls-list' }}"/>
                   </StackLayout>
                 </StackLayout>
