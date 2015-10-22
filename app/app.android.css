@@ -50,3 +50,9 @@ ActionBar {
     font-size: 14;
     font-weight: bold;
 }
+
+.show-new-btn,
+.group-show-new-btn {
+    font-weight: bold;
+    font-size: 14;
+}

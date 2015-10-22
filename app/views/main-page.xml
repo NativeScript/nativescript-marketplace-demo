@@ -64,7 +64,6 @@
         <Button row="1"
           ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
           android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
-          android:style.fontSize="11"
           cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
 
         <!-- Featured examples -->
