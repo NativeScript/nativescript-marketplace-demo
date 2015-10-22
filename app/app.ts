@@ -16,18 +16,4 @@ if (application.ios) {
 }
 
 application.mainModule = "views/main-page";
-
-application.on("launch", () => {
-    if (application.android) {
-        // Plug in to handle do a doble back navigation in Android
-        application.android.on("activityBackPressed", (args) => {
-            if (frame.topmost().currentPage instanceof exampleBase.ExamplePage) {
-                frame.goBack();
-                frame.goBack();
-                args.cancel = true;
-            }
-        })
-    }
-})
-
 application.start();
