@@ -34,8 +34,7 @@ export function onPageLoaded(args: observable.EventData) {
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.lineTypes[0];
     loadItem(page, itemToLoad);
-    var androidAxis = page.getViewById("scrollView").android;
-    if (androidAxis) {
+    if (app.android) {
         page.getViewById("scrollView").android.setHorizontalScrollBarEnabled(false);
     }
 }
