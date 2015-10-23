@@ -46,6 +46,13 @@
     font-size: 16;
 }
 
+.info-text {
+    margin-left: 5;
+}
+.info-title, .info-link-button {
+    margin-left: 10;
+}
+
 .marginated-content{
-    margin: 0 12;
+    margin: 0 16;
 }

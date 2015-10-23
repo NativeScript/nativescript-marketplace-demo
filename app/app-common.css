@@ -87,13 +87,13 @@ ActionBar {
 .info-title {
     color: black;
     font-size: 32;
-    margin: 20 0 0 0;
+    margin-top: 20;
     padding: 0;
 }
 .info-text {
     color: #555555;
     font-size: 16;
-    margin: 20 0 0 0;
+    margin-top: 20;
     padding: 0;
     background-color: transparent;
 }
