@@ -5,9 +5,7 @@ import { groups } from "../../view-models/examples-model"
 import { topmost } from "ui/frame"
 
 export function onLoaded(args) {
-    console.log("SideDrawer On loaded!!!");
     args.object.bindingContext = groups;
-    console.log("Args: " + args + " " + args.object + " " + args.object.bindingContext);
 }
 
 function sideDrawer(): any {

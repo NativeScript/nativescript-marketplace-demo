@@ -2,15 +2,17 @@ import view = require("ui/core/view")
 import pages = require("ui/page")
 import gestures = require("ui/gestures");
 import observable = require("data/observable");
-import examplesVM = require("../view-models/examples-model");
-import navigator = require("../common/navigator");
-import groupVM = require("../view-models/group-page-view-model");
-import examplePageVM = require("../view-models/example-info-page-view-model");
-import prof = require("../common/profiling");
+import examplesVM = require("../../view-models/examples-model");
+import navigator = require("../../common/navigator");
+import groupVM = require("../../view-models/group-page-view-model");
+import examplePageVM = require("../../view-models/example-info-page-view-model");
+import prof = require("../../common/profiling");
+
+var page;
 
 export function pageNavigatingTo(args: pages.NavigatedData) {
     // Get the event sender
-    var page = <pages.Page>args.object;
+    page = <pages.Page>args.object;
     page.bindingContext = args.context;
 }
 
@@ -38,4 +40,8 @@ export function toggleWrapLayout(e: any) {
 export function infoTap(args: observable.EventData) {
     var currentContext = <groupVM.GroupPageViewModel>(<view.View>args.object).bindingContext;
     navigator.navigateToGroupInfo(currentContext.group);
+}
+
+export function showSlideout(args) {
+    page.getViewById("side-drawer").toggleDrawerState();
 }

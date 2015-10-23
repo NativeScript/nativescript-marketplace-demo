@@ -2,7 +2,7 @@
     xmlns:drawer="nativescript-telerik-ui/sidedrawer"
     xmlns:sdc="views/side-drawer-content"
     cssClass="qsf-page"
-    loaded="onPageLoaded"
+    navigatingTo="onNavigatingTo"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
     <ActionBar cssClass="qsf-actionbar">

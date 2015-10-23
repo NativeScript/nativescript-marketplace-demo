@@ -1,0 +1,29 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:about="views/about"
+        cssClass="qsf-page"
+        backgroundSpanUnderStatusBar="true"
+        loaded="onPageLoaded">
+    <Page.actionBar>
+        <ActionBar cssClass="qsf-actionbar" android:title="">
+            <NavigationButton
+                    ios:text="Back to all"
+                    ios:tap="navigateBack"
+                    ios:icon="res://ic_arrow_back"
+                    android:icon="res://ic_menu"
+                    android:tap="showSlideout" />
+        </ActionBar>
+    </Page.actionBar>
+    <android xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns:sdc="views/side-drawer-content">
+        <drawer:SideDrawer id="side-drawer">
+            <drawer:SideDrawer.drawerContent>
+                <sdc:side-drawer-content />
+            </drawer:SideDrawer.drawerContent>
+            <drawer:SideDrawer.mainContent>
+                <about:about-content />
+            </drawer:SideDrawer.mainContent>
+        </drawer:SideDrawer>
+    </android>
+    <ios>
+        <about:about-content />
+    </ios>
+</Page>

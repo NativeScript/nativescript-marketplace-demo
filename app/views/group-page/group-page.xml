@@ -1,0 +1,35 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+		xmlns:content="views/group-page"
+		cssClass="qsf-page"
+		backgroundColor="{{ group.tint }}"
+		color="{{ group.tint }}"
+		navigatingTo="pageNavigatingTo"
+		backgroundSpanUnderStatusBar="true"
+		loaded="pageLoaded">
+	<Page.actionBar>
+		<ActionBar title="{{ group.title }}" cssClass="qsf-actionbar">
+			<NavigationButton
+                    ios:tap="navigateBack"
+                    ios:icon="res://ic_arrow_back"
+                    android:icon="res://ic_menu"
+                    android:tap="showSlideout" />
+			<ActionBar.actionItems>
+				<ActionItem icon="res://ic_view_info" ios.position="right" tap="infoTap" />
+				<ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
+			</ActionBar.actionItems>
+		</ActionBar>
+	</Page.actionBar>
+	<android xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns:sdc="views/side-drawer-content">
+		<drawer:SideDrawer id="side-drawer">
+			<drawer:SideDrawer.drawerContent>
+				<sdc:side-drawer-content />
+			</drawer:SideDrawer.drawerContent>
+			<drawer:SideDrawer.mainContent>
+				<content:group-page-content />
+			</drawer:SideDrawer.mainContent>
+		</drawer:SideDrawer>
+	</android>
+	<ios>
+		<content:group-page-content />
+	</ios>
+</Page>
