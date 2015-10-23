@@ -45,3 +45,7 @@
 .info-link-button {
     font-size: 16;
 }
+
+.marginated-content{
+    margin: 0 12;
+}

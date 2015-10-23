@@ -56,3 +56,7 @@ ActionBar {
     font-weight: bold;
     font-size: 14;
 }
+
+.marginated-content {
+    margin: 0 16 0 60;
+}
