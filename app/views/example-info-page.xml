@@ -25,12 +25,12 @@
       <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
     </StackLayout>
     <ScrollView row="2" orientation="horizontal">
-      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10" id="examples-container">
+      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10 0" id="examples-container">
         <Repeater.itemsLayout>
           <StackLayout id="thumbs-layout" orientation="horizontal" />
         </Repeater.itemsLayout>
         <Repeater.itemTemplate>
-          <GridLayout rows="auto" tap="exampleTap">
+          <GridLayout rows="auto" tap="exampleTap" padding="2">
             <Image src="{{ image }}" cssClass="example-image" />
             <GridLayout id="selected-example-border">
               <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.tint, $parents['Page'].group.tint }}" />
