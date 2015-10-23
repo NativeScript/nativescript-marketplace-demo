@@ -10,9 +10,9 @@
         </ActionBar>
     </Page.actionBar>
     <GridLayout cssClass="content-background" backgroundImage="{{ 'res://bg_' + id }}">
-        <StackLayout margin="12 0 0 16">
+        <StackLayout cssClass="marginated-content">
             <TextView text="{{ info }}" editable="false" cssClass="info-text" />
-            <Button text="Documentation" cssClass="info-link-button" tag="{{ url }}" tap="openLink" />
+            <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="{{ url }}" tap="openLink" />
         </StackLayout>
     </GridLayout>
 </Page>

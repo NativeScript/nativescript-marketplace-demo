@@ -15,7 +15,7 @@
     color: white;
 }
 
-ActionBar {
+ActionBar, .status-bar-offset {
     margin: 25 0 0 0;
 }
 
@@ -55,4 +55,8 @@ ActionBar {
 .group-show-new-btn {
     font-weight: bold;
     font-size: 14;
+}
+
+.marginated-content {
+    margin: 0 16 0 60;
 }

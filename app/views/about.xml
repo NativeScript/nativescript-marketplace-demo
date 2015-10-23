@@ -7,9 +7,10 @@
         </ActionBar>
     </Page.actionBar>
     <GridLayout cssClass="content-background-main">
-        <StackLayout margin="0 0 0 16">
+        <StackLayout cssClass="marginated-content">
             <Label text="About" cssClass="info-title" />
-            <TextView text="NativeScript enables developers to build native apps for iOS and Android while sharing the application code across the platforms." editable="false" cssClass="info-text" />
+            <TextView cssClass="info-text" editable="false" 
+                text="NativeScript enables developers to build native apps for iOS and Android while sharing the application code across the platforms." />
         </StackLayout>
     </GridLayout>
 </Page>

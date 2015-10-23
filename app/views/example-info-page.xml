@@ -18,19 +18,19 @@
       <Image id="p4" src="{{ 'res://particle_04_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
       <Image id="p5" src="{{ 'res://particle_05_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
     </GridLayout>
-    <StackLayout margin="0 0 0 16">
+    <StackLayout cssClass="marginated-content">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
-      <Button text="View code" cssClass="info-link-button" tap="showCodeTap"/>
-      <Button text="Documentation" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
+      <Button ios:text="View code" android:text="VIEW CODE" cssClass="info-link-button" tap="showCodeTap"/>
+      <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
     </StackLayout>
     <ScrollView row="2" orientation="horizontal">
-      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10" id="examples-container">
+      <Repeater items="{{ examples }}" verticalAlignment="bottom" margin="10 0" id="examples-container">
         <Repeater.itemsLayout>
           <StackLayout id="thumbs-layout" orientation="horizontal" />
         </Repeater.itemsLayout>
         <Repeater.itemTemplate>
-          <GridLayout rows="auto" tap="exampleTap">
+          <GridLayout rows="auto" tap="exampleTap" padding="2">
             <Image src="{{ image }}" cssClass="example-image" />
             <GridLayout id="selected-example-border">
               <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.tint, $parents['Page'].group.tint }}" />
