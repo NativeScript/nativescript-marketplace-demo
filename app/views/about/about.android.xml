@@ -1,0 +1,21 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+        xmlns:sdc="views/side-drawer-content"
+        xmlns:about="views/about"
+        cssClass="qsf-page"
+        backgroundSpanUnderStatusBar="true"
+        loaded="onPageLoaded">
+    <Page.actionBar>
+        <ActionBar cssClass="qsf-actionbar" title="">
+            <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
+        </ActionBar>
+    </Page.actionBar>
+    <drawer:SideDrawer id="side-drawer">
+        <drawer:SideDrawer.drawerContent>
+            <sdc:side-drawer-content />
+        </drawer:SideDrawer.drawerContent>
+        <drawer:SideDrawer.mainContent>
+            <about:about-content />
+        </drawer:SideDrawer.mainContent>
+    </drawer:SideDrawer>
+</Page>

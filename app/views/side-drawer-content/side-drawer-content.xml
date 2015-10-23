@@ -1,0 +1,20 @@
+<StackLayout cssClass="drawer-content" loaded="onLoaded">
+	<Label text="Home" cssClass="drawer-item" tap="tapHome" />
+	<Label text="About" cssClass="drawer-item" tap="tapAbout" />
+	<Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" />
+
+	<StackLayout cssClass="drawer-controls">
+		<StackLayout cssClass="drawer-line" />
+		<Label text="Controls" cssClass="drawer-controls-title" />
+		<Repeater items="{{ $value }}">
+			<Repeater.itemTemplate>
+				<Label text="{{ title }}" tap="navigateToExampleGroup" cssClass="drawer-item" />
+			</Repeater.itemTemplate>
+		</Repeater>
+		<StackLayout cssClass="drawer-line" />
+	</StackLayout>
+
+	<Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
+	<Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://nativescript.org" />
+
+</StackLayout>

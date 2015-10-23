@@ -1,5 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+    xmlns:sdc="views/side-drawer-content"
     cssClass="qsf-page"
     loaded="onPageLoaded"
     backgroundSpanUnderStatusBar="true">
@@ -22,26 +23,7 @@
   </Page.actionBar>
   <drawer:SideDrawer id="side-drawer">
     <drawer:SideDrawer.drawerContent>
-      <StackLayout cssClass="drawer-content">
-        <Label text="Home" cssClass="drawer-item" tap="tapHome" />
-        <Label text="About" cssClass="drawer-item" tap="tapAbout" />
-        <Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" />
-
-        <StackLayout cssClass="drawer-controls">
-          <StackLayout cssClass="drawer-line" />
-          <Label text="Controls"  cssClass="drawer-controls-title" />
-          <Repeater items="{{ exampleGroups }}">
-            <Repeater.itemTemplate>
-              <Label text="{{ title }}" tap="navigateToExampleGroup" cssClass="drawer-item" />
-            </Repeater.itemTemplate>
-          </Repeater>
-          <StackLayout cssClass="drawer-line" />
-        </StackLayout>
-        
-        <Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
-        <Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://nativescript.org" />
-        
-      </StackLayout>
+      <sdc:side-drawer-content />
     </drawer:SideDrawer.drawerContent>
     <drawer:SideDrawer.mainContent>
       <GridLayout rows="auto, 44, *" columns="*">

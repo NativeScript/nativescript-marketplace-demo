@@ -1,0 +1,12 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:about="view/about"
+        cssClass="qsf-page"
+        backgroundSpanUnderStatusBar="true"
+        loaded="onPageLoaded">
+    <Page.actionBar>
+        <ActionBar cssClass="qsf-actionbar">
+            <ios:NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back" />
+        </ActionBar>
+    </Page.actionBar>
+    <about:about-content />
+</Page>
