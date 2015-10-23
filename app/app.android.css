@@ -15,7 +15,7 @@
     color: white;
 }
 
-ActionBar {
+ActionBar, .status-bar-offset {
     margin: 25 0 0 0;
 }
 
