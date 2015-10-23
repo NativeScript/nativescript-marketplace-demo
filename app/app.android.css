@@ -15,8 +15,13 @@
     color: white;
 }
 
-ActionBar, .status-bar-offset {
+ActionBar {
     margin: 25 0 0 0;
+}
+
+.chart-demo-content {
+    padding-top: 25;
+    background-color: black;
 }
 
 .example-title-list, .example-title-wrap {
@@ -38,11 +43,11 @@ ActionBar, .status-bar-offset {
     font-weight: bold;
 }
 .used-controls-list {
-    font-size: 16;
+    font-size: 12;
     margin: 3;
 }
 .used-controls-wrap {
-    font-size: 16;
+    font-size: 12;
     margin: 0 16;
 }
 
