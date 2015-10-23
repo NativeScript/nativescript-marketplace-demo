@@ -11,7 +11,7 @@ import prof = require("../common/profiling");
 
 var page;
 
-export function onPageLoaded(args: observable.EventData) {
+export function onNavigatingTo(args: observable.EventData) {
     // Get the event sender
     page = <pages.Page>args.object;
     page.bindingContext = mainPageVM.instance;
