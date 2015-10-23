@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"highlight.js": "^8.7.0",
-		"nativescript-telerik-ui": "file:deps/nativescript-ui/binaries/nativescript-telerik-ui-0.0.11-debug.tgz",
+		"nativescript-telerik-ui": "file:deps/nativescript-ui/binaries/nativescript-ui-stable-dev.tgz",
 		"settings": "file:settings",
 		"tns-core-modules": "^1.3.0"
 	},
