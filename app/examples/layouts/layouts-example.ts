@@ -14,18 +14,6 @@ export function rootGridLoaded(args: observable.EventData) {
             compat.setElevation(grid.android, 4 * utils.layout.getDisplayDensity());
         }
     }
-
-    var tabView = grid.getViewById("tabView");
-    var bgColor = new Color("#FF034D8D");
-    
-    if (tabView.ios) {
-        tabView.ios.tabBar.barTintColor = bgColor.ios;
-        tabView.ios.tabBar.tintColor = UIColor.whiteColor();
-    }
-    
-    if (tabView.android) {
-        (<any>tabView)._tabLayout.setBackgroundColor(bgColor.android);
-    }
 }
 
 // TODO: This should be in "pageNavigatingTo" but that method is defined in the Page base class

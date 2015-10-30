@@ -10,6 +10,7 @@
   <GridLayout loaded="rootGridLoaded">
     <TabView id="tabView" 
       selectedIndex="{{ selectedIndex }}" 
+      tabsBackgroundColor="#FF034D8D"
       android:cssClass="android-tab-view" 
       android:selectedColor="#CED910"
       ios:cssClass="ios-tab-view"
