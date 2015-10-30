@@ -4,11 +4,14 @@ import exampleInfoPageVM = require("../view-models/example-info-page-view-model"
 import frame = require("ui/frame");
 import viewModule = require("ui/core/view");
 import platform = require("platform");
+import prof = require("../common/profiling");
 
 var isIOS: boolean = platform.device.os === platform.platformNames.ios;
 var isAndroid: boolean = platform.device.os === platform.platformNames.android;
 
 export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
+    // prof.start("group");
+
     frame.topmost().navigate({
         animated: true,
         context: context,
@@ -17,6 +20,9 @@ export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
 }
 
 export function navigateToExample(example: examplesVM.Example) {
+    // prof.start("example");
+    // prof.startCPUProfile("example");
+
     var navContext: exampleInfoPageVM.ExampleNavigationContext = {
         shouldNavigateToInfoOnBack: true,
         example: example

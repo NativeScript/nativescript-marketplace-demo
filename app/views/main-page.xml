@@ -3,10 +3,11 @@
     xmlns:sdc="views/side-drawer-content"
     cssClass="qsf-page"
     navigatingTo="onNavigatingTo"
+    loaded="pageLoaded"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
     <ActionBar cssClass="qsf-actionbar">
-      <andoird:NavigationButton icon="res://ic_menu" tap="showSlideout" />
+      <android:NavigationButton icon="res://ic_menu" tap="showSlideout" />
       <ActionBar.actionItems>
         <iOS>
           <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />

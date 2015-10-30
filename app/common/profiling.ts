@@ -1,4 +1,10 @@
-var ENABLE_PROFILING = false;
+declare var java: any;
+declare var CACurrentMediaTime: any;
+declare var __startCPUProfiler: any;
+declare var __stopCPUProfiler: any;
+
+export var ENABLE_PROFILING = true;
+
 export function time(): number {
     if (!ENABLE_PROFILING) {
         return;
@@ -60,7 +66,7 @@ export function stop(name: string) {
     var info = pauseInternal(name);
     console.log(`---- [${name}] STOP total: ${info.totalTime} count:${info.count}`);
 
-    timers.set(name, undefined);
+    timers.delete(name);
 }
 
 function pauseInternal(name: string): TimerInfo {

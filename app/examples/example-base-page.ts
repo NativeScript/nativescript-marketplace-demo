@@ -39,9 +39,8 @@ export class ExamplePage extends pages.Page {
 
         this.addOverlayButton(root);
 
-        //prof.stopCPUProfile("example");
-    //    prof.pause("example");
-
+        // prof.stopCPUProfile("example");
+        // prof.pause("example");
     }
 
     private addOverlayButton(root: gridModule.GridLayout) {
