@@ -17,7 +17,7 @@ export function pageNavigatingTo(args: pages.NavigatedData) {
 }
 
 export function pageLoaded() {
-    prof.pause("group");
+    // prof.pause("group");
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {

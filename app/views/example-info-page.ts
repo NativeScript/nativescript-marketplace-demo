@@ -99,6 +99,9 @@ function showExamplePage(example: examplePageVM.ExampleViewModel) {
         return;
     }
 
+    // prof.start("example");
+    // prof.startCPUProfile("example");
+    
     frame.topmost().navigate({
         animated: true,
         moduleName: example.path,

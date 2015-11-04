@@ -11,6 +11,11 @@ import prof = require("../common/profiling");
 
 var page;
 
+export function pageLoaded(){
+    // prof.stopCPUProfile("main-page");
+    // prof.pause("main-page");
+}
+
 export function onNavigatingTo(args: observable.EventData) {
     // Get the event sender
     page = <pages.Page>args.object;
@@ -40,8 +45,6 @@ export function toggleWrapLayout(e: any) {
 }
 
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
-    prof.start("group");
-
     page.getViewById("side-drawer").closeDrawer();
     var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup);
@@ -49,9 +52,6 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
-    //prof.startCPUProfile("example");
-    prof.start("example");
-
     page.getViewById("side-drawer").closeDrawer();
     var example = <examplesVM.Example>(<any>args).object.bindingContext;
     navigator.navigateToExample(example);
@@ -62,12 +62,10 @@ export function showSlideout(args) {
 }
 
 export function tapHome(args) {
-    //prof.startCPUProfile("profile");
     page.getViewById("side-drawer").closeDrawer();
 }
 
 export function tapAbout(args) {
-    //prof.stopCPUProfile("profile");
     page.getViewById("side-drawer").closeDrawer();
     navigator.navigateToAbout();
 }

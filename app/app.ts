@@ -16,4 +16,5 @@ if (application.ios) {
 }
 
 application.mainModule = "views/main-page";
+// application.mainModule = "profile-main";
 application.start();
