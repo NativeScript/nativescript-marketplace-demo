@@ -3,7 +3,7 @@ declare var CACurrentMediaTime: any;
 declare var __startCPUProfiler: any;
 declare var __stopCPUProfiler: any;
 
-export var ENABLE_PROFILING = true;
+export var ENABLE_PROFILING = false;
 
 export function time(): number {
     if (!ENABLE_PROFILING) {
