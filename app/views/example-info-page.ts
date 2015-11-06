@@ -12,6 +12,7 @@ import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-model")
 import examplePageVM = require("../view-models/example-info-page-view-model")
 import platform = require("platform")
+import prof = require("../common/profiling");
 
 var exampleContainerID = "examples-container";
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
@@ -99,7 +100,7 @@ function showExamplePage(example: examplePageVM.ExampleViewModel) {
         return;
     }
 
-    // prof.start("example");
+    prof.start("example");
     // prof.startCPUProfile("example");
     
     frame.topmost().navigate({

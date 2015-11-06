@@ -12,8 +12,7 @@ import prof = require("../common/profiling");
 var page;
 
 export function pageLoaded(){
-    // prof.stopCPUProfile("main-page");
-    // prof.pause("main-page");
+    prof.stop("main-page");
 }
 
 export function onNavigatingTo(args: observable.EventData) {
@@ -28,7 +27,6 @@ export function onNavigatingTo(args: observable.EventData) {
         bar.translucent = true;
         bar.shadowImage = UIImage.new();
         bar.tintColor = UIColor.whiteColor();
-
 
         // TODO: Is it possible to style the title color of the action bar?
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
@@ -45,6 +43,7 @@ export function toggleWrapLayout(e: any) {
 }
 
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
+    prof.start("group");
     page.getViewById("side-drawer").closeDrawer();
     var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup);
@@ -52,6 +51,7 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
+    prof.start("example");
     page.getViewById("side-drawer").closeDrawer();
     var example = <examplesVM.Example>(<any>args).object.bindingContext;
     navigator.navigateToExample(example);

@@ -4,6 +4,7 @@
 import frame = require("ui/frame");
 import exampleBase = require("./examples/example-base-page");
 import application = require("application");
+import prof = require("./common/profiling");
 
 if (application.ios) {
     application.on("launch", args => {
@@ -15,8 +16,7 @@ if (application.ios) {
     });
 }
 
-
-
+prof.start("main-page");
 application.mainModule = "views/main-page";
 // application.mainModule = "profile-main";
 application.start();
