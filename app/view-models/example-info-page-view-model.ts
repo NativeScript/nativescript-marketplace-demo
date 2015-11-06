@@ -38,6 +38,10 @@ export class ExampleViewModel extends observable.Observable implements examplesV
     get controls(): string {
         return this._example.controls;
     }
+    
+    get example(): examplesVM.Example {
+        return this._example;
+    }
 }
 
 export class ExampleInfoPageViewModel extends observable.Observable {
@@ -51,7 +55,7 @@ export class ExampleInfoPageViewModel extends observable.Observable {
         if (!example) {
             throw new Error("Cannot create view model with no example");
         }
-
+        
         var examplesWrappers = example.group.examples.map<ExampleViewModel>((e) => {
             var exVM = new ExampleViewModel(e);
             if (e === example) {
