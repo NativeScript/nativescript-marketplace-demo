@@ -15,7 +15,7 @@
                     android:tap="showSlideout" />
 			<ActionBar.actionItems>
 				<ActionItem icon="res://ic_view_info" ios.position="right" tap="infoTap" />
-				<ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
+				<ActionItem icon="{{ useListLayout ? 'res://ic_wrap_view' : 'res://ic_list_view' }}" ios.position="right" tap="toggleWrapLayout" />
 			</ActionBar.actionItems>
 		</ActionBar>
 	</Page.actionBar>

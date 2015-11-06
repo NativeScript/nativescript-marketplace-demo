@@ -12,7 +12,7 @@
         <iOS>
           <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
         </iOS>
-        <ActionItem icon="{{ useWrapLayout ? 'res://ic_list_view' : 'res://ic_wrap_view' }}" ios.position="right" tap="toggleWrapLayout" />
+        <ActionItem icon="{{ useListLayout ? 'res://ic_wrap_view' : 'res://ic_list_view' }}" ios.position="right" tap="toggleWrapLayout" />
       </ActionBar.actionItems>
       <ActionBar.titleView>
         <!-- TODO: We should be able to center an image horizontally in android without using GridLayout -->
@@ -61,24 +61,24 @@
                 <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
                 <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->
                 <!-- TODO: When the orientation is changed for a first time this doesn't seem to re-evaluate on iOS. It works on subsequent rotations. -->
-                <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
+                <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
               </Repeater.itemsLayout>
               <Repeater.itemTemplate>
                 <StackLayout tap="navigateToExample" cssClass="example-item"
-                  orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}"
+                  orientation="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'horizontal' : 'vertical' }}"
                   visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
 
                   <GridLayout columns="*" rows="*"
-                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-wrap' : 'example-img-list' }}">
+                      cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
                     <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
                     <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                   </GridLayout>
 
                   <StackLayout>
                     <Label text="{{ title }}" 
-                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
+                      cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-title-list' : 'example-title-wrap' }}" />
                     <Label text="{{ controls }}" textWrap="true"
-                      cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'used-controls-wrap' : 'used-controls-list' }}"/>
+                      cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'used-controls-list' : 'used-controls-wrap' }}"/>
                   </StackLayout>
                 </StackLayout>
               </Repeater.itemTemplate>
@@ -96,7 +96,7 @@
                   and have the panel accomodate as much equal sized columns as possible. -->
               <!-- TODO: Sticking to 2 columns won't look nice on landscape and tablets. -->
               <!-- NOTE: In iOS iPhone-6 iOS 8.3 if we do not subtract 1px the grind will show only one column. -->
-              <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
+              <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
             </Repeater.itemsLayout>
             <Repeater.itemTemplate>
               <GridLayout tap="navigateToExampleGroup" orientation="horizontal" cssClass="no-image-example-item" ios:columns="42, *" android:columns="72, *" rows="42"
