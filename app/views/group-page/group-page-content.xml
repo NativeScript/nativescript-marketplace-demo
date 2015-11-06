@@ -8,24 +8,24 @@
         <ScrollView>
             <Repeater items="{{ examples }}">
                 <Repeater.itemsLayout>
-                    <WrapLayout horizontalAlignment="left" itemWidth="{{ useWrapLayout ? (screenWidth - 1) / 2 : (screenWidth - 1) }}" />
+                    <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
                 </Repeater.itemsLayout>
                 <Repeater.itemTemplate>
                     <StackLayout tap="navigateToExample" cssClass="example-item" 
-                        orientation="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'vertical' : 'horizontal' }}" 
+                        orientation="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'horizontal' : 'vertical' }}" 
                         visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
 
                         <GridLayout horizontalAlignment="center" columns="*" rows="*" 
-                            cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-img-wrap' : 'example-img-list' }}">
+                            cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
                             <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
                             <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                         </GridLayout>
 
                         <StackLayout>
                             <Label text="{{ title }}" 
-                                cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'example-title-wrap' : 'example-title-list' }}" />
+                                cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-title-list' : 'example-title-wrap' }}" />
                             <Label text="{{ controls }}" textWrap="true" 
-                                cssClass="{{ $parents['Repeater'].useWrapLayout, $parents['Repeater'].useWrapLayout ? 'used-controls-wrap' : 'used-controls-list' }}" />
+                                cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'used-controls-list' : 'used-controls-wrap' }}" />
                         </StackLayout>
                     </StackLayout>
                 </Repeater.itemTemplate>
