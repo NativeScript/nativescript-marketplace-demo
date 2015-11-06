@@ -3,7 +3,6 @@
     backgroundColor="{{ group.tint }}"
     color="{{ group.tint }}"
     navigatingTo="pageNavigatingTo"
-    loaded="pageLoaded"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
     <ActionBar cssClass="qsf-actionbar" android:title="Back to all">

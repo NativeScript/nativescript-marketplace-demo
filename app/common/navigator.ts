@@ -39,21 +39,23 @@ export function navigateToExample(example: examplesVM.Example) {
     frame.topmost().navigate({
         animated: true,
         moduleName: example.path,
-        context: navContext
+        context: navContext,
+        backstackVisible: isIOS
     })
 }
 
 export function navigateBackFromExampe(context: exampleInfoPageVM.ExampleNavigationContext) {
-    frame.goBack();
-
-    if (isAndroid && context && context.shouldNavigateToInfoOnBack) {
+    if (isAndroid) {
         var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
-
+        
         frame.topmost().navigate({
-            animated: false,
+            animated: true,
             context: infoContext,
             moduleName: "views/example-info-page",
+            backstackVisible: false
         });
+    } else {
+        frame.goBack();
     }
 }
 
