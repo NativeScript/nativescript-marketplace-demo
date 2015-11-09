@@ -7,7 +7,9 @@
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
     <ActionBar cssClass="qsf-actionbar">
-      <android:NavigationButton icon="res://ic_menu" tap="showSlideout" />
+      <android>
+        <NavigationButton icon="res://ic_menu" tap="showSlideout" />
+      </android>
       <ActionBar.actionItems>
         <iOS>
           <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
