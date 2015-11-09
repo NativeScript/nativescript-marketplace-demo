@@ -36,6 +36,7 @@
         "examples/user-profile/user-profile-example.ts",
         "ios-dummy.d.ts",
         "ns-dependencies.d.ts",
+        "profile-main.ts",
         "typings/highlightjs.d.ts",
         "view-models/code-page-view-model.ts",
         "view-models/example-info-page-view-model.ts",
