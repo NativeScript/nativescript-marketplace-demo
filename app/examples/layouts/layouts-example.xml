@@ -1,4 +1,4 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd"
+<examples:ExamplePage xmlns="http://schemas.nativescript.org/tns.xsd"
     xmlns:examples="examples/example-base-page"
     loaded="pageLoaded"
     navigatingTo="pageNavigatingTo"
