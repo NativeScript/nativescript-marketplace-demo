@@ -1,4 +1,4 @@
-<GridLayout xmlns="http://schemas.nativescript.org/tns.xsd" cssClass="content-background-main">
+<GridLayout xmlns="http://www.nativescript.org/tns.xsd" cssClass="content-background-main">
     <StackLayout cssClass="marginated-content">
         <ios>
             <Label text="About" cssClass="info-title" />
