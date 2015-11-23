@@ -21,7 +21,7 @@
     <StackLayout cssClass="marginated-content">
       <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
       <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
-      <Button ios:text="View code" android:text="VIEW CODE" cssClass="info-link-button" tap="showCodeTap"/>
+      <!--<Button ios:text="View code" android:text="VIEW CODE" cssClass="info-link-button" tap="showCodeTap"/>-->
       <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
     </StackLayout>
     <ScrollView row="2" orientation="horizontal">
