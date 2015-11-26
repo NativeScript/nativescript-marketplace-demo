@@ -29,8 +29,8 @@ export function onPageLoaded(args: observable.EventData) {
         (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
 
         var sideDrawerView = page.getViewById("side-drawer");
-        sideDrawerView.ios.sideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
-        sideDrawerView.ios.sideDrawer.style.dimOpacity = 0.5;
+        sideDrawerView.ios.defaultSideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
+        sideDrawerView.ios.defaultSideDrawer.style.dimOpacity = 0.5;
     }
 }
 

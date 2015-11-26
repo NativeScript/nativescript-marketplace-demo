@@ -1,0 +1,51 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui/listview"
+    loaded="pageLoaded"
+    actionBarHidden="true">
+
+  <GridLayout rows="auto, *" orientation="vertical">
+
+     <GridLayout columns="*,*" style="background-color: #A9958D">
+        <StackLayout orientation="vertical" >
+             <Button text="ALL" tap="{{onTap_AllMode}}" cssClass="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}"/>
+             <GridLayout cssClass="{{ Mode == 'ALL' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
+         </StackLayout>
+         <StackLayout col= "1" orientation="vertical" >
+             <Button text="FAVOURITES" tap="{{onTap_FavoritesMode}}" cssClass="{{ Mode == 'FAVOURITES' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}"/>
+             <GridLayout cssClass="{{ Mode == 'FAVOURITES' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
+         </StackLayout>
+     </GridLayout>
+
+    <lv:RadListView row="1" id="theListView" items="{{ lvItems }}"
+               cellReorder="false"
+               startSwipeCell="{{onStartSwipeCell}}"
+               didFinishSwipeCell="{{onCellSwiped}}"
+               itemTap="{{onlvItemSelected}}"
+               swipeCells="true" cssClass="mainPageStyle">
+
+        <lv:RadListView.listViewLayout>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemHeight="100" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
+        </lv:RadListView.listViewLayout>
+
+        <lv:RadListView.itemTemplate>
+            <GridLayout columns="auto, *" rows="auto,*" cssClass="itemStyle" >
+                <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ IsFavourite ? 'visible' : 'collapsed' }}" />
+                <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
+                <Label row="1" colspan="2" text="{{ Content }}" cssClass="contentStyle" textWrap="true"/>
+            </GridLayout>
+        </lv:RadListView.itemTemplate>
+
+        <lv:RadListView.itemSwipeTemplate>
+            <GridLayout columns="100, *, 100" >
+                <GridLayout tap="{{onTap_SetAsFavourite}}" style="background-color: #FFF3AF40; ">
+                    <Image  src="res://add_to_fav_icon"  stretch="none" cssClass="swipedImageStyle" />
+                </GridLayout>
+                <GridLayout col="2" tap="{{onTap_DeletePost}}" style="background-color: #FFFF1744; ">
+                    <Image  src="res://delete_icon" stretch="none" cssClass="swipedImageStyle"/>
+                </GridLayout>
+            </GridLayout>
+        </lv:RadListView.itemSwipeTemplate>
+    </lv:RadListView>
+
+
+    </GridLayout>
+</Page>

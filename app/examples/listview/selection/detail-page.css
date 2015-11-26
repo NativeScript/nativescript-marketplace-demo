@@ -1,0 +1,26 @@
+.actionBarStyle {
+    background-color: #FF262120;
+    color: red;
+    font-size: 30;
+}
+
+.detailPageStyle{
+    background-color: #FFE4D8D4;
+}
+
+.detailTitle{
+    color: #FF262120;
+    margin-left: 10;
+    font-size:22;
+    padding: 10;
+}
+
+.detailContent{
+    color: #FF262120;
+    font-size: 14;
+    margin-top: 15;
+    margin-left: 10;
+    margin-right: 10;
+    margin-bottom: 4
+    padding : 10;
+}

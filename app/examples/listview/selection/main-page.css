@@ -1,0 +1,64 @@
+.mainPageStyle{
+    background-color: #FFE4D8D4;
+}
+
+.titleStyle {
+    color: #FF262120;
+    margin-left: 10;
+    font-size:14;
+}
+
+.contentStyle {
+    color: #8A262120;
+    font-size: 12;
+    margin-top: 4;
+    margin-left: 10;
+    margin-right: 10;
+    margin-bottom: 4
+}
+.itemStyle{
+    background-color: #FFE4D8D4;
+    padding: 8;
+}
+
+.itemSelectedStyle{
+    background-color: : #FF5D4037;
+    padding: 8;
+}
+
+.swipedImageStyle{
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+
+.modeSelectedButtonStyle{
+    background-color: #A9958D;
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 14;
+    font-weight: bold;
+    color: white;
+    padding:10;
+}
+.modeButtonStyle{
+    background-color: #A9958D;
+    color: #FFDAD3D0;
+    font-size: 14;
+    horizontal-align: center;
+    vertical-align: center;
+    padding:10;
+}
+
+.selectedBarItemBottomBorder{
+    background-color: #E64A19;
+    height: 2;
+    vertical-align: bottom;
+
+}
+
+.barItemBottomBorder{
+    background-color: #A9958D;
+    height: 2;
+    vertical-align: bottom;
+}

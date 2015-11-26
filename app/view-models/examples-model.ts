@@ -109,6 +109,25 @@ export var groups: Array<ExampleGroup> = [
 
 
     },
+    {
+        id: "listview",
+        title: "ListView",
+        isNew: true,
+        url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/ListView/listview-overview",
+        info: "ListView for NativeScript is a powerful UI virtualized list control that provides popular UX scenarios out-of-the-box.",
+        tint: "#018f88",
+        examples: [
+            {
+                title: "Selection",
+                image: "res://screen_bar_chart",
+                path: "examples/listview/selection/main-page",
+                info: "Item selection is one of the main features of ListView",
+                controls: "listview",
+                isFeatured: true,
+                isNew: true
+            }
+        ]
+    }
     // { title: "Side Drawer", isNew: true, controls: ["side-drawer"], tint: "teal", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." }
     // { title: "Calendar", isNew: false, controls: ["calendar"], tint: "purple", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
     // { title: "List View", isNew: false, controls: ["list-view-ui"], tint: "magenta", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
