@@ -2,9 +2,17 @@
     xmlns="http://www.nativescript.org/tns.xsd" 
     xmlns:lv="nativescript-telerik-ui/listview"
     loaded="onPageLoaded">
-
+<Page.actionBar>
+    <ActionBar title="layouts">
+        <ActionBar.actionItems>
+            <ActionItem text="linear" tap="onLinearLayoutTap"/>
+            <ActionItem text="staggered" tap="onStaggeredLayoutTap"/>
+            <ActionItem text="grid" tap="onGridLayoutTap"/>
+        </ActionBar.actionItems>
+    </ActionBar>
+</Page.actionBar>
 	<GridLayout rows="*">
-        <lv:RadListView row="0" items="{{ pictures }}">
+        <lv:RadListView id="list-view" row="0" items="{{ pictures }}">
             <lv:RadListView.listViewLayout>
                 <lv:ListViewLinearLayout scrollDirection="Vertical"/>
             </lv:RadListView.listViewLayout>
