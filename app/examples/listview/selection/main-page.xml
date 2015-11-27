@@ -17,13 +17,13 @@
 
     <lv:RadListView row="1" id="theListView" items="{{ lvItems }}"
                cellReorder="false"
-               startSwipeCell="{{onStartSwipeCell}}"
-               didFinishSwipeCell="{{onCellSwiped}}"
+               itemSwipeProgressStarted="{{onStartSwipeCell}}"
+               itemSwipeProgressEnded="{{onCellSwiped}}"
                itemTap="{{onlvItemSelected}}"
                swipeCells="true" cssClass="mainPageStyle">
 
         <lv:RadListView.listViewLayout>
-            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemHeight="100" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
         </lv:RadListView.listViewLayout>
 
         <lv:RadListView.itemTemplate>

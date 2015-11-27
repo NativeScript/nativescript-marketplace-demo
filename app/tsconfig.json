@@ -24,6 +24,8 @@
         "examples/chart/line-series.ts",
         "examples/chart/pie-series.ts",
         "examples/chart/view-model.ts",
+        "examples/listview/layouts/layouts-view-model.ts",
+        "examples/listview/layouts/listview-layouts.ts",
         "examples/listview/selection/main-page-model.ts",
         "examples/listview/selection/detail-page.ts",
         "examples/listview/selection/main-page.ts",

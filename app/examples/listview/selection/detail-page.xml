@@ -3,12 +3,12 @@
     navigatedTo="pageNavigatedTo"
     cssClass="detailPageStyle">
 
-    <!-- <Page.actionBar >
+     <Page.actionBar >
         <ActionBar  title="" style="actionBarStyle">
             <NavigationButton  tap="navigateBack" />
             <ActionItem icon="res://add_to_fav_icon"  text="aaa" position="right" tap="addToFav"  />
         </ActionBar>
-    </Page.actionBar> -->
+    </Page.actionBar> 
 
     <StackLayout rows="auto, *" orientation="vertical" >
       <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />

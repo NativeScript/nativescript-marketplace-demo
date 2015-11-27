@@ -1,0 +1,26 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-telerik-ui/listview"
+    loaded="onPageLoaded">
+
+	<GridLayout rows="*">
+        <lv:RadListView row="0" items="{{ pictures }}">
+            <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical"/>
+            </lv:RadListView.listViewLayout>
+            <lv:RadListView.itemTemplate>
+                <GridLayout rows="auto">
+                    <ActivityIndicator/>
+                    <!--<Image width="100" height="100" src="{{ groupKey ? '' : 'res://listview/layouts/' + category + '/' + photo}}"/>-->
+                    <Image width="100" height="100" src="res://listview/layouts/breakfast/breakfast1.imageset/breakfast1"/>
+                    <!--<Image setretch="aspectFill" src="{{ groupKey ? '' : 'res://' + photo}}"/>-->
+                    <StackLayout>
+                        <Label text="{{ title }}" />
+                        <Label text="{{ author }}" />
+                    </StackLayout>
+                </GridLayout>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+    </GridLayout>
+	
+</Page>

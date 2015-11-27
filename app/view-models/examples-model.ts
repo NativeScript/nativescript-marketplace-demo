@@ -125,6 +125,15 @@ export var groups: Array<ExampleGroup> = [
                 controls: "listview",
                 isFeatured: true,
                 isNew: true
+            },
+             {
+                title: "Item layouts",
+                image: "res://screen_bar_chart",
+                path: "examples/listview/layouts/listview-layouts",
+                info: "Item layouts is one of the main features of ListView",
+                controls: "listview",
+                isFeatured: true,
+                isNew: true
             }
         ]
     }
