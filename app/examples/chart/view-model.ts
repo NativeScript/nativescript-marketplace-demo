@@ -3,6 +3,7 @@ import bindable = require("ui/core/bindable");
 import observable = require("data/observable");
 import builder = require("ui/builder");
 import app = require("application");
+import utils = require("utils/utils");
 
 
 export class ChartExamplesDataModel {
@@ -45,7 +46,10 @@ export class ChartExamplesDataModel {
     //    }
 
         if (viewHolder.getChildrenCount() > 0) {
-            viewHolder.removeChild(viewHolder.getChildAt(0));
+            var child = viewHolder.getChildAt(0);
+            viewHolder.removeChild(child);
+            child = null;
+            utils.GC();
         }
 
         viewHolder.addChild(exampleView);

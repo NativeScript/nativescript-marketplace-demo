@@ -25,20 +25,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         ts: {
             build: {
-                src: [
-                    'app/**/*.ts',
-                    'typings/tsd.d.ts',
-                ],
+                tsconfig: './app/tsconfig.json',
                 options: {
                     fast: "never",
-                    module: "commonjs",
-                    target: "es5",
-                    sourceMap: true,
-                    removeComments: false,
-                    experimentalDecorators: true,
-                    emitDecoratorMetadata: true,
-                    compiler: "node_modules/typescript/bin/tsc",
-                    noEmitOnError: true
+                    compiler: "node_modules/typescript/bin/tsc"
                 },
             },
         },

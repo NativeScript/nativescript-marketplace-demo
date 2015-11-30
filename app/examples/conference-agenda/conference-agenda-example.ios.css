@@ -23,3 +23,7 @@
     color: #FBE5AE;
     margin: 0 12 12 12;
 }
+
+ListView {
+    background-color: white;
+}

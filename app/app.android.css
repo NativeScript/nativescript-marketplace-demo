@@ -19,6 +19,11 @@ ActionBar {
     margin: 25 0 0 0;
 }
 
+.chart-demo-content {
+    padding-top: 25;
+    background-color: black;
+}
+
 .example-title-list, .example-title-wrap {
     color: black;
     margin: 3;
@@ -38,11 +43,11 @@ ActionBar {
     font-weight: bold;
 }
 .used-controls-list {
-    font-size: 16;
+    font-size: 12;
     margin: 3;
 }
 .used-controls-wrap {
-    font-size: 16;
+    font-size: 12;
     margin: 0 16;
 }
 
@@ -55,4 +60,8 @@ ActionBar {
 .group-show-new-btn {
     font-weight: bold;
     font-size: 14;
+}
+
+.marginated-content {
+    margin: 0 16 0 60;
 }

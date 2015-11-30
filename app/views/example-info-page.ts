@@ -12,32 +12,32 @@ import navigator = require("../common/navigator");
 import examplesVM = require("../view-models/examples-model")
 import examplePageVM = require("../view-models/example-info-page-view-model")
 import platform = require("platform")
+import prof = require("../common/profiling");
 
 var exampleContainerID = "examples-container";
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;
 
-export function pageLoaded(args: pages.NavigatedData) {
+export function pageNavigatingTo(args: pages.NavigatedData) {
     var page = <pages.Page>args.object;
     var vm = <examplePageVM.ExampleInfoPageViewModel>page.navigationContext;
     page.bindingContext = vm;
     
+    if (!vm.currentExample) 
+        throw new Error("Expected current example to be set...");
+    
     // NOTE: Views does not belong to the view model, so we will maintain the currentExampleView in the view.
     var currentExampleView: view.View;
     var thumbsContainer = page.getViewById("thumbs-layout");
-    (<any>thumbsContainer)._eachChildView(v => {
-        var isCurrent = v.bindingContext == vm.currentExample;
-        if (isCurrent) {
-            currentExampleView = v;
-        }
-
-        // TODO: If the state animation is applied immediately,
-        // or the properties are set immediately,
-        // the scale gets into account for the iOS layout.
-        setTimeout(function() {
-            // TODO: Consider moving the initialization in "loaded" of the items.
-            // For now there is a bug that "loaded" is invoked before the bindingContext is set.
+    
+    thumbsContainer.on("loaded", function() {
+        (<any>thumbsContainer)._eachChildView(v => {
+            var isCurrent = v.bindingContext == vm.currentExample;
+            if (isCurrent) {
+                currentExampleView = v;
+            }
+    
             thumbGotoState(v, isCurrent ? "selected" : "unselected", false);
-        }, 100);
+        });
     });
     
     var particles = ["p1", "p2", "p3", "p4", "p5"].map(l => page.getViewById(l));
@@ -99,10 +99,10 @@ function showExamplePage(example: examplePageVM.ExampleViewModel) {
         return;
     }
 
-    frame.topmost().navigate({
-        animated: true,
-        moduleName: example.path,
-    });
+    prof.start("example");
+    // prof.startCPUProfile("example");
+
+    navigator.navigateToExample(example.example);
 }
 
 function thumbGotoState(view: view.View, state: string, animated: boolean) {
@@ -111,19 +111,36 @@ function thumbGotoState(view: view.View, state: string, animated: boolean) {
     }
 
     var selectionOverlay = view.getViewById("selected-example-border");
-    var anims = new Array<animations.AnimationDefinition>();
-    switch(state) {
-        case "selected":
-            anims.push({ target: view, scale: { x: 1, y: 1 }, curve: CURVE, duration: animated ? 150 : 0 });
-            anims.push({ target: selectionOverlay, opacity: 1, curve: CURVE, duration: animated ? 150 : 0 });
-            break;
-        case "unselected":
-            anims.push({ target: view, scale: { x: 0.8, y: 0.8 }, curve: CURVE, duration: animated ? 250 : 0 });
-            anims.push({ target: selectionOverlay, opacity: 0, curve: CURVE, duration: animated ? 250 : 0 });
-            break;
+
+    if (animated) {
+        var anims = new Array<animations.AnimationDefinition>();
+        switch(state) {
+            case "selected":
+                anims.push({ target: view, scale: { x: 1, y: 1 }, curve: CURVE, duration: 150 });
+                anims.push({ target: selectionOverlay, opacity: 1, curve: CURVE, duration: 150 });
+                break;
+            case "unselected":
+                anims.push({ target: view, scale: { x: 0.8, y: 0.8 }, curve: CURVE, duration: 250 });
+                anims.push({ target: selectionOverlay, opacity: 0, curve: CURVE, duration: 250 });
+                break;
+        }
+        var animation = new animations.Animation(anims);
+        animation.play();
+    } else {
+        switch(state) {
+            case "selected":
+                view.scaleX = 1;
+                view.scaleY = 1;
+                selectionOverlay.opacity = 1;
+                break;
+            case "unselected":
+                view.scaleX = 0.8;
+                view.scaleY = 0.8;
+                selectionOverlay.opacity = 0;
+                break;
+        }
     }
-    var animation = new animations.Animation(anims);
-    animation.play();
+
 }
 
 var particleStates = [
@@ -152,32 +169,42 @@ var particleStates = [
 
 function particlesGotoState(particles: view.View[], stateIndex: number, animated: boolean) {
     setTimeout(() => {
-        // Stop animtions for android if there are no native views
-        if((platform.device.os === platform.platformNames.android) && !particles.every((v) => { return !!v.android })){
-            return;
+        
+        if (animated) {
+            var anims = particles.map((particle, particleIndex) => {
+                var states = particleStates[particleIndex]; 
+                var state = states[stateIndex % states.length];
+                
+                var screenWidth = platform.screen.mainScreen.widthDIPs;
+                var screenHeight = platform.screen.mainScreen.heightDIPs;
+                
+                var animation = {
+                    target: particle,
+                    // opacity: state.opacity,
+                    translate: {
+                        x: state.translate.x * screenWidth,
+                        y: state.translate.y * (screenHeight - 180) // TODO: Take the action bar and the thumbs at the bottom into account
+                    },
+                    curve: CURVE,
+                    duration: state.duration
+                };
+                return animation;
+            });
+            
+            var animation = new animations.Animation(anims);
+            animation.play();
+        } else {
+            particles.forEach((particle, particleIndex) => {
+                var states = particleStates[particleIndex]; 
+                var state = states[stateIndex % states.length];
+                
+                var screenWidth = platform.screen.mainScreen.widthDIPs;
+                var screenHeight = platform.screen.mainScreen.heightDIPs;
+                
+                particle.translateX = state.translate.x * screenWidth;
+                particle.translateY = state.translate.y * (screenHeight - 180);
+            });
         }
-        
-        var anims = particles.map((particle, particleIndex) => {
-            var states = particleStates[particleIndex]; 
-            var state = states[stateIndex % states.length];
-            
-            var screenWidth = platform.screen.mainScreen.widthDIPs;
-            var screenHeight = platform.screen.mainScreen.heightDIPs;
-            
-            var animation = {
-                target: particle,
-                // opacity: state.opacity,
-                translate: {
-                    x: state.translate.x * screenWidth,
-                    y: state.translate.y * (screenHeight - 180) // TODO: Take the action bar and the thumbs at the bottom into account
-                },
-                curve: CURVE,
-                duration: animated ? state.duration : 0
-            };
-            return animation;
-        });
-        
-        var animation = new animations.Animation(anims);
-        animation.play();
+
     }, 1);
 }

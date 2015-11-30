@@ -15,7 +15,7 @@ export class MainPageViewModel extends observable.Observable {
 		super();
 		this.set("showOnlyNew", false);
 		this.set("selectedScreen", 0);
-        this.set("useWrapLayout", true);
+        this.set("useListLayout", false);
 	}
 
     public toggleShowNew() {
@@ -24,7 +24,7 @@ export class MainPageViewModel extends observable.Observable {
 
     public toggleWrapLayout(){
         console.log("toggleWrapLayout");
-        this.set("useWrapLayout", !this.get("useWrapLayout"));
+        this.set("useListLayout", !this.get("useListLayout"));
     }
 
     get screenWidth(): number {

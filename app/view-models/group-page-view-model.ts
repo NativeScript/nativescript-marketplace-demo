@@ -11,7 +11,7 @@ export class GroupPageViewModel extends observable.Observable {
 
         this.set("examples", group.examples);
         this.set("group", group);
-        this.set("useWrapLayout", true);
+        this.set("useListLayout", false);
     }
 
     public toggleShowNew() {
@@ -19,7 +19,7 @@ export class GroupPageViewModel extends observable.Observable {
     }
 
     public toggleWrapLayout() {
-        this.set("useWrapLayout", !this.get("useWrapLayout"));
+        this.set("useListLayout", !this.get("useListLayout"));
     }
 
     get screenWidth(): number {

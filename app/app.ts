@@ -4,6 +4,21 @@
 import frame = require("ui/frame");
 import exampleBase = require("./examples/example-base-page");
 import application = require("application");
+import prof = require("./common/profiling");
+
+if(application.android) {
+    application.onLaunch = function (intent) {
+        console.log("onLaunch");
+
+        application.android.onActivityStarted = function (activity) {
+            console.log("onStarted");
+            var window = activity.getWindow();
+            if (window) {
+                window.setBackgroundDrawable(null);
+            }
+        }
+    }
+}
 
 if (application.ios) {
     application.on("launch", args => {
@@ -15,5 +30,7 @@ if (application.ios) {
     });
 }
 
+prof.start("main-page");
 application.mainModule = "views/main-page";
+// application.mainModule = "profile-main";
 application.start();

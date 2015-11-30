@@ -1,4 +1,10 @@
-var ENABLE_PROFILING = false;
+declare var java: any;
+declare var CACurrentMediaTime: any;
+declare var __startCPUProfiler: any;
+declare var __stopCPUProfiler: any;
+
+export var ENABLE_PROFILING = false;
+
 export function time(): number {
     if (!ENABLE_PROFILING) {
         return;
@@ -29,7 +35,7 @@ export function start(name: string): void {
     if (timers.has(name)) {
         info = timers.get(name);
         if (info.currentStart != 0) {
-            throw new Error(`Timer already started: ${name}`);
+            console.log(`WARNING: Timer already started: ${name}`);
         }
         info.currentStart = time();
     }
@@ -49,7 +55,9 @@ export function pause(name: string) {
     }
 
     var info = pauseInternal(name);
-    console.log(`---- [${name}] PAUSE last: ${info.lastTime} total: ${info.totalTime} count: ${info.count}`);
+    if (info) {
+        console.log(`---- [${name}] PAUSE last: ${info.lastTime} total: ${info.totalTime} count: ${info.count}`);
+    }
 }
 
 export function stop(name: string) {
@@ -58,15 +66,17 @@ export function stop(name: string) {
     }
 
     var info = pauseInternal(name);
-    console.log(`---- [${name}] STOP total: ${info.totalTime} count:${info.count}`);
-
-    timers.set(name, undefined);
+    if (info) {
+        console.log(`---- [${name}] STOP total: ${info.totalTime} count:${info.count}`);
+        timers.delete(name);
+    }
 }
 
 function pauseInternal(name: string): TimerInfo {
     var info = timers.get(name);
     if (!info) {
-        throw new Error(`No timer started: ${name}`);
+        console.log(`WARNING: No timer started: ${name}`)
+        return null;
     }
 
     info.lastTime = Math.round(time() - info.currentStart);

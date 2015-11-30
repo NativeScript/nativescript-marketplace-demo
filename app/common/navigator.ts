@@ -4,39 +4,58 @@ import exampleInfoPageVM = require("../view-models/example-info-page-view-model"
 import frame = require("ui/frame");
 import viewModule = require("ui/core/view");
 import platform = require("platform");
+import prof = require("../common/profiling");
+
+var isIOS: boolean = platform.device.os === platform.platformNames.ios;
+var isAndroid: boolean = platform.device.os === platform.platformNames.android;
 
 export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
+    // prof.start("group");
+
     frame.topmost().navigate({
         animated: true,
         context: context,
-        moduleName: "views/group-page",
+        moduleName: "views/group-page/group-page",
     })
 }
 
 export function navigateToExample(example: examplesVM.Example) {
+    // prof.start("example");
+    // prof.startCPUProfile("example");
+
     var navContext: exampleInfoPageVM.ExampleNavigationContext = {
         shouldNavigateToInfoOnBack: true,
         example: example
     }
 
+    if (isIOS) {
+        frame.topmost().navigate({
+            animated: false,
+            context: new exampleInfoPageVM.ExampleInfoPageViewModel(navContext.example),
+            moduleName: "views/example-info-page",
+        });
+    }
+
     frame.topmost().navigate({
         animated: true,
         moduleName: example.path,
-        context: navContext
+        context: navContext,
+        backstackVisible: isIOS
     })
 }
 
 export function navigateBackFromExampe(context: exampleInfoPageVM.ExampleNavigationContext) {
-    frame.goBack();
-    
-    if (context && context.shouldNavigateToInfoOnBack) {
+    if (isAndroid) {
         var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
         
         frame.topmost().navigate({
-            animated: false,
+            animated: true,
             context: infoContext,
             moduleName: "views/example-info-page",
+            backstackVisible: false
         });
+    } else {
+        frame.goBack();
     }
 }
 
@@ -56,8 +75,12 @@ export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
     })
 }
 
+export function navigateToHome() {
+    frame.topmost().navigate("views/main-page");
+}
+
 export function navigateToAbout() {
-    frame.topmost().navigate("views/about");
+    frame.topmost().navigate("views/about/about");
 }
 
 export function navigateBack() {
@@ -67,14 +90,14 @@ export function navigateBack() {
 export function openLink(view: any) {
     var url = view.tag;
     if (url) {
-        if (platform.device.os === platform.platformNames.ios) {
+        if (isIOS) {
             var nsUrl = NSURL.URLWithString(url);
             var sharedApp = UIApplication.sharedApplication();
             if (sharedApp.canOpenURL(nsUrl)) {
                 sharedApp.openURL(nsUrl);
             }
         }
-        else if (platform.device.os === platform.platformNames.android) {
+        else if (isAndroid) {
             var intent = new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url));
             var activity = frame.topmost().android.activity;
             activity.startActivity(android.content.Intent.createChooser(intent, "share"));
