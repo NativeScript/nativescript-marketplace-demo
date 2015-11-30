@@ -40,7 +40,7 @@ export class ListViewLayoutsModel {
 		{ "title": "Golden Chicken", "author": "Chicken's Heaven", "photo": "paleo2", "category": "paleo" },
 		{ "title": "Pork Steak with Vegetables", "author": "Nice to Meat You", "photo": "paleo3", "category": "paleo" },
 		{ "title": "Lamb Cotlets", "author": "Nice to Meat You", "photo": "paleo4", "category": "paleo" },
-		{ "title": "Salmon Steak", "author": "Ron's Fishery", "photo": "paleo5", "category": "paleo" }
+		{ "title": "Salmon Steak", "author": "Ron's Fishery", "photo": "paleo5", "category": "paleo" },
 		
 		{ "groupKey": "Desserts" },
 		

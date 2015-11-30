@@ -134,6 +134,15 @@ export var groups: Array<ExampleGroup> = [
                 controls: "listview",
                 isFeatured: true,
                 isNew: true
+            },
+             {
+                title: "Item reorder",
+                image: "res://screen_bar_chart",
+                path: "examples/listview/reorder/listview-reorder",
+                info: "Item reorder is one of the main features of ListView",
+                controls: "listview",
+                isFeatured: true,
+                isNew: true
             }
         ]
     }
