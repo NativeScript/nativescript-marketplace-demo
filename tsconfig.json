@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "inlineSourceMap": true,
+    "experimentalDecorators": true
+  },
+  "files": [
+    "app/android17-dummy.d.ts",
+    "app/app.ts",
+    "app/common/navigator.ts",
+    "app/common/profiling.ts",
+    "app/examples/chart/area-series.ts",
+    "app/examples/chart/bar-series.ts",
+    "app/examples/chart/line-series.ts",
+    "app/examples/chart/pie-series.ts",
+    "app/examples/chart/view-model.ts",
+    "app/examples/conference-agenda/conference-agenda-example.ts",
+    "app/examples/conference-agenda/conference-view-model.ts",
+    "app/examples/example-base-page.ts",
+    "app/examples/layouts/layouts-example.ts",
+    "app/examples/user-profile/user-profile-example.ts",
+    "app/ios-dummy.d.ts",
+    "app/ns-dependencies.d.ts",
+    "app/profile-main.ts",
+    "app/typings/highlightjs.d.ts",
+    "app/view-models/code-page-view-model.ts",
+    "app/view-models/example-info-page-view-model.ts",
+    "app/view-models/examples-model.ts",
+    "app/view-models/group-page-view-model.ts",
+    "app/view-models/main-page-view-model.ts",
+    "app/views/about/about.ts",
+    "app/views/code-page.ts",
+    "app/views/example-info-page.ts",
+    "app/views/group-info-page.ts",
+    "app/views/group-page/group-page.ts",
+    "app/views/main-page.ts",
+    "app/views/side-drawer-content/side-drawer-content.ts",
+    "node_modules/tns-core-modules/tns-core-modules.d.ts"
+  ],
+  "filesGlob": [
+    "node_modules/tns-core-modules/tns-core-modules.d.ts",
+    "app/**/*.ts"
+  ]
+}
