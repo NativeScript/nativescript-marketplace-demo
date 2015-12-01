@@ -7,11 +7,13 @@ Install npm dependencies (currently `highlight.js` and `tns-modules-core`):
 npm install
 ```
 
-Run typescript compiler(`npm i -g typescript`) inside the `app` folder:
-```
-tsc -p .
-```
+To rebuild the tns-modules-core from source execute `grunt prepare` or `npm install`.
+
 Use the TNS CLI to run the project.
+```
+tns run ios --emulator --device iPhone\ 6
+tns run android
+```
 
 ## Examples Model
 
