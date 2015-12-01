@@ -26,7 +26,7 @@ export var groups: Array<ExampleGroup> = [
         id: "coreui",
         title: "CoreUI",
         isNew: true,
-        info: "NativeScript enables developers to build native apps for iOS, Android and Windows Universal while sharing the application code across the platforms. It ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native platform views while providing a common API to work with.",
+        info: "NativeScript enables developers to build cross platform native apps while sharing the application code across the platforms. It ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native platform views while providing a common API to work with.",
         url: "http://docs.nativescript.org/ui-views",
         tint: "#034d8d",
         examples: [
