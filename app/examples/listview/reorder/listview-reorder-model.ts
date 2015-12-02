@@ -1,58 +1,56 @@
 import {Observable} from 'data/observable';
+import {ObservableArray} from 'data/observable-array';
 
 export class ListItem extends Observable {
-	private _title: string;
-	private _isDone: boolean;
-	private _isDeleted: boolean;
 
 	constructor(title: string, isDone: boolean, isDeleted: boolean) {
 		super();
-		this._title = title;
-		this._isDone = isDone;
-		this._isDeleted = isDeleted;
+		this.set("_title", title);
+		this.set("_isDone", isDone);
+		this.set("_isDeleted", isDeleted);
 	}
 
 	get title() {
-		return this._title;
+		return this.get("_title");
 	}
 
 	set title(value: string) {
-		this._title = value;
+		this.set("_title", value);
 	}
 
 	get isDone() {
-		return this._isDone;
+		return this.get("_isDone");
 	}
 
 	set isDone(value: boolean) {
-		this._isDone = value;
+			this.set("_isDone", value);
 	}
 
 	get isDeleted() {
-		return this._isDeleted;
+		return this.get("_isDeleted");
 	}
 
 	set isDeleted(value: boolean) {
-		this._isDeleted = value;
+		this.set("_isDeleted", value);
 	}
 }
 
 export class ListViewReorderModel {
 
-	private _todoItems: Array<ListItem>;
-	private _shoppingList: Array<ListItem>;
+	private _todoItems: ObservableArray<ListItem>;
+	private _shoppingList: ObservableArray<ListItem>;
 
 	constructor() {
-		this._todoItems = new Array<ListItem>();
-		this._shoppingList = new Array<ListItem>();
+		this._todoItems = new ObservableArray<ListItem>();
+		this._shoppingList = new ObservableArray<ListItem>();
 		this.preparePictures();
 	}
 
-	get todoItems(): Array<any> {
+	get todoItems(): ObservableArray<any> {
 		return this._todoItems;
 	}
 
-	get shoppingItems(): Array<any> {
+	get shoppingItems(): ObservableArray<any> {
 		return this._shoppingList;
 	}
 

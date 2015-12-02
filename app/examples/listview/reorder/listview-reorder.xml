@@ -8,7 +8,10 @@
 			<Button text="SHOPPING LIST" tap="onBtnShoppingTap" col="1"/>
 		</GridLayout>
 		<GridLayout rows="*" row="1">
-			<lv:RadListView id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true">
+			<lv:RadListView id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
+			 						itemSwipeProgressStarted="onItemSwipeProgressStarted" 
+			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
+			 						itemSwipeProgressChanged="onTodoItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
 					<lv:ListViewLinearLayout />
 				</lv:RadListView.listViewLayout>
@@ -21,16 +24,16 @@
 				</lv:RadListView.itemTemplate>
 				<lv:RadListView.itemSwipeTemplate>
 					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="2" verticalAlignment="stretch">
-						<GridLayout backgroundColor="#FFFFA200" verticalAlignment="stretch">
-							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="stretch" horizontalAlignment="center"/>
+						<GridLayout id="complete-view" backgroundColor="#FFFFA200" verticalAlignment="stretch">
+							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
 						</GridLayout>
-						<GridLayout backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
-							<Image android:src="res://ic_listview_reorder_delete" ios:src="res://listview/reorder/reorder-delete-icon" stretch="none" verticalAlignment="stretch" horizontalAlignment="center"/>
+						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
+							<Image android:src="res://ic_listview_reorder_delete" ios:src="res://listview/reorder/reorder-delete-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
 						</GridLayout>
 					</GridLayout>
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>
-			<lv:RadListView id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true">
+			<lv:RadListView id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" itemSwipeProgressStarted="onItemSwipeProgressStarted" itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" itemSwipeProgressChanged="onShoppingItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
 					<lv:ListViewLinearLayout />
 				</lv:RadListView.listViewLayout>
@@ -38,16 +41,17 @@
 					<StackLayout paddingBottom="2">
 						<StackLayout backgroundColor="#FFF3C7B9" padding="12">
 							<Label text="{{ title }}"/>
+							<StackLayout backgroundColor="Black"/>
 						</StackLayout>
 					</StackLayout>
 				</lv:RadListView.itemTemplate>
 				<lv:RadListView.itemSwipeTemplate>
 					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="2" verticalAlignment="stretch">
-						<GridLayout backgroundColor="#FFFFA200" verticalAlignment="stretch">
-							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="stretch" horizontalAlignment="center"/>
+						<GridLayout id="complete-view" backgroundColor="#FFFFA200" verticalAlignment="stretch">
+							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
 						</GridLayout>
-						<GridLayout backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
-							<Image android:src="res://ic_listview_reorder_delete"  ios:src="res://listview/reorder/reorder-delete-icon"  stretch="none" verticalAlignment="stretch" horizontalAlignment="center"/>
+						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
+							<Image android:src="res://ic_listview_reorder_delete"  ios:src="res://listview/reorder/reorder-delete-icon"  stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
 						</GridLayout>
 					</GridLayout>
 				</lv:RadListView.itemSwipeTemplate>

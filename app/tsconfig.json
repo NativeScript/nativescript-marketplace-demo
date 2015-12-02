@@ -9,7 +9,7 @@
         "noLib": false,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "noEmitOnError": true
+        "noEmitOnError": false
     },
     "filesGlob": [
         "../node_modules/tns-core-modules/tns-core-modules.d.ts",
