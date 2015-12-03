@@ -1,4 +1,4 @@
-
+import {Observable} from 'data/observable';
 
 export class PictureItem {
 	private _pictureUri;
@@ -30,8 +30,13 @@ export class PictureGroup {
 	}
 }
 
-export class ListViewLayoutsModel {
+export class ListViewLayoutsModel extends Observable{
 
+	constructor(){
+		super();
+		this.isLinearActive = true;
+		this.isWrapActive = false;
+	}
 	private _source = [
 
 
@@ -89,6 +94,22 @@ export class ListViewLayoutsModel {
 
 	get pictures(): Array<any> {
 		return this._source;
+	}
+	
+	get isLinearActive(){
+		return this.get("linearActive");
+	}
+	
+	set isLinearActive(value: boolean){
+		this.set("linearActive", value);
+	}
+	
+	get isWrapActive(){
+		return this.get("wrapActive");
+	}
+	
+	set isWrapActive(value: boolean){
+		this.set("wrapActive", value);
 	}
 
 	private preparePictures() {

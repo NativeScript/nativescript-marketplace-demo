@@ -1,13 +1,14 @@
-<Page 
+<examples:ExamplePage 
     xmlns="http://www.nativescript.org/tns.xsd" 
     xmlns:lv="nativescript-telerik-ui/listview"
+    xmlns:examples="examples/example-base-page"
     xmlns:f="fresco"
     loaded="onPageLoaded">
 <Page.actionBar>
-    <ActionBar title="RECIPES" style="background-color: #FF6E40" >
+    <ActionBar title="RECIPES" >
         <ActionBar.actionItems>
-            <ActionItem icon="res://ic_list_view" tap="onLinearLayoutTap"/>
-            <ActionItem icon="res://ic_wrap_view" tap="onGridLayoutTap"/>
+            <ActionItem icon="{{isLinearActive ? 'res://ic_list_view' : 'res://ic_listview_layouts_list_1' }}" tap="onLinearLayoutTap" />
+            <ActionItem icon="{{isWrapActive ? 'res://ic_listview_layouts_wrap' : 'res://ic_listview_layouts_wrap_1' }}" tap="onGridLayoutTap" />
         </ActionBar.actionItems>
     </ActionBar>
 </Page.actionBar>
@@ -32,5 +33,4 @@
             </lv:RadListView.itemTemplate>
         </lv:RadListView>
     </GridLayout>
-	
-</Page>
+</examples:ExamplePage>
