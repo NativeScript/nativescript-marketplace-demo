@@ -9,7 +9,7 @@ import prof = require("./common/profiling");
 if(application.android) {
     application.onLaunch = function (intent) {
         console.log("onLaunch");
-
+        com.facebook.drawee.backends.pipeline.Fresco.initialize(application.android.context);
         application.android.onActivityStarted = function (activity) {
             console.log("onStarted");
             var window = activity.getWindow();

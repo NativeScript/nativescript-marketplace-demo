@@ -1,0 +1,34 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-telerik-ui/listview"
+    loaded="onPageLoaded">
+<Page.actionBar>
+    <ActionBar title="RECIPES" style="background-color: #FF6E40" >
+        <ActionBar.actionItems>
+            <ActionItem icon="res://listview/layouts/icons/list-layout" tap="onLinearLayoutTap" position="right"/>
+            <ActionItem icon="res://listview/layouts/icons/wrap-layout" tap="onGridLayoutTap" position="right"/>
+        </ActionBar.actionItems>
+    </ActionBar>
+</Page.actionBar>
+	<GridLayout rows="*" >
+        <lv:RadListView id="list-view" row="0" items="{{ pictures }}" marginRight="-2">
+            <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical"/>
+            </lv:RadListView.listViewLayout>
+            <lv:RadListView.itemTemplate>
+                <GridLayout rows="*" backgroundColor="White">
+                   <GridLayout rows="*" columns="*" marginBottom="2" marginRight="2">
+                        <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill"/>
+                        <GridLayout verticalAlignment="bottom">
+                            <StackLayout backgroundColor="#BBFFFFFF" paddingTop="8" paddingBottom="8" paddingLeft="16" paddingRight="16">
+                                <Label text="{{ title }}" cssClass="recipeTitle" />
+                                <Label text="{{ author }}" cssClass="recipeAuthor"/>
+                            </StackLayout>
+                        </GridLayout>
+                   </GridLayout>
+                </GridLayout>
+           </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+    </GridLayout>
+	
+</Page>

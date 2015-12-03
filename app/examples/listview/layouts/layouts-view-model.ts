@@ -1,4 +1,5 @@
 
+
 export class PictureItem {
 	private _pictureUri;
 	private _pictureTitle;
@@ -32,18 +33,13 @@ export class PictureGroup {
 export class ListViewLayoutsModel {
 
 	private _source = [
-		
-		
-		{ "groupKey": "Paleo" },
+
 
 		{ "title": "Dried Meat with Spices", "author": "Nice to Meat You", "photo": "paleo1", "category": "paleo" },
 		{ "title": "Golden Chicken", "author": "Chicken's Heaven", "photo": "paleo2", "category": "paleo" },
 		{ "title": "Pork Steak with Vegetables", "author": "Nice to Meat You", "photo": "paleo3", "category": "paleo" },
 		{ "title": "Lamb Cotlets", "author": "Nice to Meat You", "photo": "paleo4", "category": "paleo" },
 		{ "title": "Salmon Steak", "author": "Ron's Fishery", "photo": "paleo5", "category": "paleo" },
-		
-		{ "groupKey": "Desserts" },
-		
 		{ "title": "These Rolls..", "author": "Le Bakery de Trevi", "photo": "dessert1", "category": "desserts" },
 		{ "title": "Chocolate Cake", "author": "The Sweetest Thing", "photo": "dessert2", "category": "desserts" },
 		{ "title": "Rainbow Chocolate Pudding", "author": "Sweet and Sweeter", "photo": "dessert3", "category": "desserts" },
@@ -52,9 +48,6 @@ export class ListViewLayoutsModel {
 		{ "title": "Le Tiramisu de Treviso", "author": "Sweet and Sweeter", "photo": "dessert6", "category": "desserts" },
 		{ "title": "Creme Caramel", "author": "The Sweetest Thing", "photo": "dessert7", "category": "desserts" },
 		{ "title": "Be Fit, Be Healthy Fruit Mix", "author": "Sweet and Sweeter", "photo": "dessert8", "category": "desserts" },
-
-		{ "groupKey": "Drinks" },
-
 		{ "title": "Ceylon Tea", "author": "The Healthy Bar", "photo": "drink1", "category": "drinks" },
 		{ "title": "Orange Juice, Fresh", "author": "The Healthy Bar", "photo": "drink2", "category": "drinks" },
 		{ "title": "A Glass of Wine", "author": "Tonight's Bar", "photo": "drink3", "category": "drinks" },
@@ -67,18 +60,12 @@ export class ListViewLayoutsModel {
 		{ "title": "Soda", "author": "The Healthy Bar", "photo": "drink10", "category": "drinks" },
 		{ "title": "Lemon Ice Tea", "author": "Sweet and Sweeter", "photo": "drink11", "category": "drinks" },
 		{ "title": "Crystal Water with Almond Oil", "author": "The Healthy Bar", "photo": "drink12", "category": "drinks" },
-
-		{ "groupKey": "Breakfast" },
-
 		{ "title": "The Fresh Sandwich", "author": "Sandwiches and More", "photo": "breakfast1", "category": "breakfast" },
 		{ "title": "The Healthy Sandwich", "author": "Sandwiches and More", "photo": "breakfast2", "category": "breakfast" },
 		{ "title": "Crispy Chicken with Avocado Sandwich", "author": "Chicken's Heaven", "photo": "breakfast3", "category": "breakfast" },
 		{ "title": "Beef Sandwich", "author": "Nice to Meat You", "photo": "breakfast4", "category": "breakfast" },
 		{ "title": "Tuna Sandwich", "author": "Ron's Fishery", "photo": "breakfast5", "category": "breakfast" },
 		{ "title": "Fruit Cake", "author": "ReFresh", "photo": "breakfast6", "category": "breakfast" },
-
-		{ "groupKey": "Mains" },
-
 		{ "title": "A Quick Snack Burger", "author": "Nice to Meat You", "photo": "main1", "category": "mains" },
 		{ "title": "Chilli Meat Bites", "author": "Nice to Meat You", "photo": "main2", "category": "mains" },
 		{ "title": "Your Favourite Ribs", "author": "Nice to Meat You", "photo": "main3", "category": "mains" },

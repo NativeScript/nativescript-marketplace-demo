@@ -15,14 +15,9 @@ export function onLinearLayoutTap(args: any){
 	listView.listViewLayout = linearLayout; 
 }
 
-export function onStaggeredLayoutTap(args: any){
-	var staggeredLayout = new listViewModule.ListViewStaggeredLayout();
-	staggeredLayout.spanCount = 3;
-	listView.listViewLayout = staggeredLayout; 
-}
-
 export function onGridLayoutTap(args: any){
 	var gridLayout = new listViewModule.ListViewGridLayout();
-	gridLayout.spanCount = 3;
+	gridLayout.spanCount = 2;
+	gridLayout.itemHeight="250";
 	listView.listViewLayout = gridLayout; 
 }
