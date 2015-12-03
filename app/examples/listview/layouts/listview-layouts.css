@@ -5,3 +5,8 @@
 .recipeAuthor{
 	font-style: italic
 }
+
+ActionBar {
+    color: white;
+    background-color: #FF6E40;
+}

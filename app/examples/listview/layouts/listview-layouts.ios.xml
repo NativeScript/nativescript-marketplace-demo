@@ -3,10 +3,10 @@
     xmlns:lv="nativescript-telerik-ui/listview"
     loaded="onPageLoaded">
 <Page.actionBar>
-    <ActionBar title="RECIPES" style="background-color: #FF6E40" >
+    <ActionBar title="RECIPES">
         <ActionBar.actionItems>
-            <ActionItem icon="res://listview/layouts/icons/list-layout" tap="onLinearLayoutTap" position="right"/>
-            <ActionItem icon="res://listview/layouts/icons/wrap-layout" tap="onGridLayoutTap" position="right"/>
+            <ActionItem icon="res://listview/layouts/icons/list-layout" tap="onLinearLayoutTap" ios.position="right"/>
+            <ActionItem icon="res://listview/layouts/icons/wrap-layout" tap="onGridLayoutTap" ios.position="right"/>
         </ActionBar.actionItems>
     </ActionBar>
 </Page.actionBar>
