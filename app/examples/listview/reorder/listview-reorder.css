@@ -1,0 +1,44 @@
+ .notDoneItemStyle{
+    text-decoration: none; 
+ }
+
+.doneItemStyle {
+   text-decoration: line-through;
+}
+
+.itemIOS{
+    margin-right: 25;    
+}
+
+.todoModeONButton{
+    height: 55;
+    padding-bottom: 10;
+    size: 14;
+    color: white;
+    background-color: #00CCA1;
+}
+
+.todoModeOFFButton{
+    height: 45;
+    padding-bottom: 0;
+    size: 14;
+    color: black;
+    background-color: #88D4C4;
+}
+
+.shoppingModeONButton{
+    height: 55;
+    padding-bottom: 10;
+    size: 14;
+    color: white;
+    background-color: #FF6E40;
+}
+
+.shoppingModeOFFButton{
+    height: 45;
+    padding-bottom: 0;
+    size: 14;
+    color: black;
+    background-color: #F3C7B9;
+    
+}

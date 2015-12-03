@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.nativescript.nativescriptmarketplacedemo"
-    android:versionCode="3"
-    android:versionName="1.2" >
+    android:versionCode="1"
+    android:versionName="1.0" >
 
    <supports-screens
         android:smallScreens="true"
@@ -27,8 +27,7 @@
 		<activity
             android:name="com.tns.NativeScriptActivity"
             android:label="@string/title_activity_kimera"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait">
+            android:configChanges="keyboardHidden|orientation|screenSize">
             
              <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

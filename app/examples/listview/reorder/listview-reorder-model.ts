@@ -35,22 +35,31 @@ export class ListItem extends Observable {
 	}
 }
 
-export class ListViewReorderModel {
+export class ListViewReorderModel extends Observable{
 
 	private _todoItems: ObservableArray<ListItem>;
 	private _shoppingList: ObservableArray<ListItem>;
+	
+	get viewMode() {
+        return this.get("currentMode");
+    }
 
+    set viewMode(value) {
+        this.set("currentMode", value);
+    }
+		
 	constructor() {
+		super();
 		this._todoItems = new ObservableArray<ListItem>();
 		this._shoppingList = new ObservableArray<ListItem>();
 		this.preparePictures();
 	}
 
-	get todoItems(): ObservableArray<any> {
+	get todoItems(): ObservableArray<ListItem> {
 		return this._todoItems;
 	}
 
-	get shoppingItems(): ObservableArray<any> {
+	get shoppingItems(): ObservableArray<ListItem> {
 		return this._shoppingList;
 	}
 

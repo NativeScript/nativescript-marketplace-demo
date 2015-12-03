@@ -1,27 +1,37 @@
-<Page
-    xmlns="http://www.nativescript.org/tns.xsd"
+
+<examples:ExamplePage 
+	xmlns:examples="examples/example-base-page"
+    xmlns="http://schemas.nativescript.org/tns.xsd"
 	xmlns:lv="nativescript-telerik-ui/listview"
+	actionBarHidden="true"
 	loaded="onPageLoaded">
+	
 	<GridLayout rows="auto, *" backgroundColor="white">
-		<GridLayout columns="*, *" marginBottom="8">
-			<Button text="TO DO LIST" tap="onBtnTodoTap"/>
-			<Button text="SHOPPING LIST" tap="onBtnShoppingTap" col="1"/>
+		
+		<GridLayout columns="*, *" marginBottom="8" >
+			<Button text="TO DO LIST"  	 verticalAlignment="top" tap="onBtnTodoTap" cssClass = "{{viewMode == 'Todo' ? 'todoModeONButton' : 'todoModeOFFButton'}}"/>
+			<Button text="SHOPPING LIST" verticalAlignment="top" tap="onBtnShoppingTap" col="1"  cssClass = "{{viewMode == 'Shopping' ? 'shoppingModeONButton' : 'shoppingModeOFFButton'}}" />   
 		</GridLayout>
+		
+<!--ToDo list-->
 		<GridLayout rows="*" row="1">
 			<lv:RadListView id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
 			 						itemSwipeProgressStarted="onItemSwipeProgressStarted" 
 			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
-			 						itemSwipeProgressChanged="onTodoItemSwipeProgressChanged">
+			 						itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
 					<lv:ListViewLinearLayout />
 				</lv:RadListView.listViewLayout>
+				
 				<lv:RadListView.itemTemplate>
 					<StackLayout paddingBottom="2">
 						<StackLayout backgroundColor="#FF88D4C4" padding="12">
-							<Label text="{{ title }}"/>
+							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
+												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
 						</StackLayout>
 					</StackLayout>
 				</lv:RadListView.itemTemplate>
+				
 				<lv:RadListView.itemSwipeTemplate>
 					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="2" verticalAlignment="stretch">
 						<GridLayout id="complete-view" backgroundColor="#FFFFA200" verticalAlignment="stretch">
@@ -33,14 +43,21 @@
 					</GridLayout>
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>
-			<lv:RadListView id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" itemSwipeProgressStarted="onItemSwipeProgressStarted" itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" itemSwipeProgressChanged="onShoppingItemSwipeProgressChanged">
+			
+<!--Shopping List -->
+			<lv:RadListView id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" 
+										itemSwipeProgressStarted="onItemSwipeProgressStarted" 
+										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
+										itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
 					<lv:ListViewLinearLayout />
 				</lv:RadListView.listViewLayout>
+				
 				<lv:RadListView.itemTemplate>
 					<StackLayout paddingBottom="2">
 						<StackLayout backgroundColor="#FFF3C7B9" padding="12">
-							<Label text="{{ title }}"/>
+							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}" 
+												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
 							<StackLayout backgroundColor="Black"/>
 						</StackLayout>
 					</StackLayout>
@@ -58,4 +75,4 @@
 			</lv:RadListView>
 		</GridLayout>
 	</GridLayout>
-</Page>
+</examples:ExamplePage>
