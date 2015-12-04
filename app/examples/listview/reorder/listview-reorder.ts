@@ -40,17 +40,13 @@ export function onItemSwipeProgressChanged(args: any) {
 
 	if (args.data.x >= 0) {
 		currentView = itemView.getViewById("complete-view");
-		currentView.width = args.data.x;
-		var dimensions = viewModule.View.measureChild(currentView.parent, currentView, 
-			utils.layout.makeMeasureSpec(args.data.x, utils.layout.EXACTLY), 
-			utils.layout.makeMeasureSpec(currentView.getMeasuredHeight(), utils.layout.EXACTLY));
+		var dimensions = viewModule.View.measureChild(currentView.parent, currentView, utils.layout.makeMeasureSpec(args.data.x, utils.layout.EXACTLY), utils.layout.makeMeasureSpec(currentView.getMeasuredHeight(), utils.layout.EXACTLY));
 		viewModule.View.layoutChild(currentView.parent, currentView, 0, 0, dimensions.measuredWidth, dimensions.measuredHeight);
+		
 	} else {
 		currentView = itemView.getViewById("delete-view");
-		currentView.width = Math.abs(args.data.x);
-		var dimensions = viewModule.View.measureChild(currentView.parent, currentView, 
-			utils.layout.makeMeasureSpec(Math.abs(args.data.x), utils.layout.EXACTLY), 
-			utils.layout.makeMeasureSpec(currentView.getMeasuredHeight(), utils.layout.EXACTLY));
+		
+		var dimensions = viewModule.View.measureChild(currentView.parent, currentView, utils.layout.makeMeasureSpec(Math.abs(args.data.x), utils.layout.EXACTLY), utils.layout.makeMeasureSpec(currentView.getMeasuredHeight(), utils.layout.EXACTLY));
 		viewModule.View.layoutChild(currentView.parent, currentView, itemView.getMeasuredWidth() - dimensions.measuredWidth, 0, itemView.getMeasuredWidth(), dimensions.measuredHeight);
 	}
 }

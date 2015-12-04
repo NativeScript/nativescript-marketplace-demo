@@ -53,7 +53,7 @@ export class FrescoDrawee extends commonModule.FrescoDrawee {
 							var uri = new android.net.Uri.Builder()
 								.scheme(com.facebook.common.util.UriUtil.LOCAL_RESOURCE_SCHEME)
 								.path(java.lang.String.valueOf(identifier))
-								.build();ı
+								.build();
 							this._android.setImageURI(uri);
 						}
 					}
