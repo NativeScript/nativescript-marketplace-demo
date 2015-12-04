@@ -1,22 +1,19 @@
-# nativescript-marketplace-demo
-Repository used for the NativeScript demo app 
+# Examples NativeScript
+Repository used for the **Examples NativeScript** app.
 
-##To Build
-Install npm dependencies (currently `highlight.js` and `tns-modules-core`):
-```
-npm install
-```
+## Building The App
+You should setup [the NativeScript CLI](https://docs.nativescript.org/setup/quick-setup) with its dependencies.
 
-To rebuild the tns-modules-core from source execute `grunt prepare` or `npm install`.
+Clone the repo.
 
-Use the TNS CLI to run the project.
+Build and run using:
+
 ```
 tns run ios --emulator --device iPhone\ 6
 tns run android
 ```
 
-## Examples Model
-
+## Adding Examples
 All examples are defined in the `view-models\examples-model.ts`. The main model is defined in 3 arrays:
  - `controlInfos` - information about each compnent - name, description, link to docs, etc.
  - `examples` - the actual definitions of each example. 
@@ -25,5 +22,3 @@ All examples are defined in the `view-models\examples-model.ts`. The main model 
 *Note:* Each control in the controls list should be defined in the `controlInfos` list in the examples-modules. There is a runtime check that checks the integrity of the model.
 
 Its recommended that all files related to the example are placed in a subfolder inside `app\examples`. All files in the example folder will be availabe for vewing in the code view.
-
-Design resources: `R:\xPlatCore\Design\Demo` 
