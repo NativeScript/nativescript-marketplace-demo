@@ -108,7 +108,6 @@ export class ListView_ViewModel extends observableModule.Observable {
                 }
             }
         }
-        listView.refresh();
     }
 
     //bound to listview array with current visible items
