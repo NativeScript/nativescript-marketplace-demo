@@ -1,26 +1,27 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.nativescriptmarketplacedemo",
-    "tns-ios": {
-      "version": "1.5.0"
-    },
-    "tns-android": {
-      "version": "1.5.0"
-    }
-  },
-  "dependencies": {
-    "highlight.js": "^8.7.0",
-    "nativescript-telerik-ui": "file:deps/nativescript-ui/binaries/nativescript-ui-stable-dev.tgz",
-    "settings": "file:deps/settings",
-    "tns-core-modules": "file:deps/tns-core-modules.tgz"
-  },
-  "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-clean": "0.6.0",
-    "grunt-contrib-copy": "0.8.0",
-    "grunt-shell": "1.1.2",
-    "grunt-ts": "5.0.0-beta.5",
-    "nativescript-dev-typescript": "^0.2.2",
-    "typescript": "^1.7.3"
-  }
+	"nativescript": {
+		"id": "org.nativescript.nativescriptmarketplacedemo",
+		"tns-ios": {
+			"version": "1.5.0"
+		},
+		"tns-android": {
+			"version": "1.5.0"
+		}
+	},
+	"dependencies": {
+		"highlight.js": "^8.7.0",
+		"nativescript-telerik-ui": "file:deps/nativescript-ui/binaries/nativescript-ui-stable-dev.tgz",
+		"settings": "file:deps/settings",
+		"tns-core-modules": "file:deps/tns-core-modules.tgz"
+	},
+	"devDependencies": {
+		"grunt": "0.4.5",
+		"grunt-contrib-clean": "0.6.0",
+		"grunt-contrib-copy": "0.8.0",
+		"grunt-shell": "1.1.2",
+		"grunt-ts": "5.0.0-beta.5",
+		"nativescript-dev-typescript": "^0.2.2",
+		"shelljs": "^0.5.3",
+		"typescript": "^1.7.3"
+	}
 }
