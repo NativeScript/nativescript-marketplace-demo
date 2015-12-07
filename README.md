@@ -30,7 +30,7 @@ tns emulate ios
 tns run android
 ```
 
-If you have any questions of feebdack please log them in the issues.
+If you have any questions of feebdack please [open an issue](https://github.com/NativeScript/nativescript-marketplace-demo/issues).
 
 Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
 
