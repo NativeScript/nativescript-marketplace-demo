@@ -3,9 +3,12 @@ This is an app created by the NativeScript team to show the NativeScript framewo
 
 You will find here the most common mobile use cases implemented - Data visualization, Data entry, Charting and native API access. The app contains samples that shows different nuts and bolts from the core NativeScript framework like layouts, buttons, animations and more.
 
-The application also serves as a demo for the paid UI components created by Telerik called "UI for NativeScript".
+![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/01-2-home-wrapview.png?sfvrsn=0)
+![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/03-1-layouts-ios.png?sfvrsn=0)
 
-You can use the application to see NativeScript in action, but also as learning purpose since the entire source code is available on GitHub.
+The application also serves as a demo for the paid UI components created by Telerik called "[UI for NativeScript](https://www.npmjs.com/package/nativescript-telerik-ui)".
+
+You can use the application to see NativeScript in action, but also as a learning purpose since the entire source code is available in this repo.
 
 # Install it on device
 [![Telerik Next cross-platform mobile app - all sessions view](https://www.telerik.com/sfimages/default-source/app-store-buttons/googleplay.png?sfvrsn=2)](https://play.google.com/store/apps/details?id=org.nativescript.nativescriptmarketplacedemo&amp;hl=en)
