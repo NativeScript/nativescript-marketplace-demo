@@ -3,7 +3,8 @@
     xmlns:lv="nativescript-telerik-ui/listview"
     xmlns:examples="examples/example-base-page"
     xmlns:f="fresco"
-    loaded="onPageLoaded">
+    loaded="onPageLoaded"
+    unloaded="onPageUnloaded">
 <Page.actionBar>
     <ActionBar title="RECIPES" >
         <ActionBar.actionItems>

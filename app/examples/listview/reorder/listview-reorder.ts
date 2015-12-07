@@ -2,20 +2,37 @@ import model = require("./listview-reorder-model");
 import listViewModule = require("nativescript-telerik-ui/listview");
 import viewModule = require('ui/core/view');
 import utils = require("utils/utils");
+import application = require("application");
 
 var viewModel = new model.ListViewReorderModel();
 var todoList;
 var shoppingList;
+
+var reorderedItem;
 
 export function onPageLoaded(args: any) {
 	var page = args.object;
 	page.bindingContext = viewModel;
 	todoList = page.getViewById("todo-list");
 	shoppingList = page.getViewById("shopping-list");
-
 	shoppingList.visibility = "collapsed";
 	todoList.visibility = "visible";
 	viewModel.viewMode = "Todo";
+	
+	if (application.android){
+		var window = application.android.foregroundActivity.getWindow();
+		
+		window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+	}
+}
+
+export function onPageUnloaded(args:any){
+	if (application.android){
+		var window = application.android.foregroundActivity.getWindow();
+		
+		// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+		window.addFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+	}
 }
 
 export function onBtnTodoTap(args: any) {
@@ -70,7 +87,7 @@ export function onShoppingItemSwipeProgressEnded(args: listViewModule.ListViewEv
 }
 
 export function onItemSwipeProgressStarted(args: listViewModule.ListViewEventData) {
-	args.data.swipeLimits.threshold = todoList.getMeasuredWidth();
+	args.data.swipeLimits.threshold = 50 * utils.layout.getDisplayDensity();
 	args.data.swipeLimits.left = 350 * utils.layout.getDisplayDensity();
     args.data.swipeLimits.right = 350 * utils.layout.getDisplayDensity();
 }

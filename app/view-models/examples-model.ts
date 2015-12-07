@@ -117,29 +117,20 @@ export var groups: Array<ExampleGroup> = [
         info: "ListView for NativeScript is a powerful UI virtualized list control that provides popular UX scenarios out-of-the-box.",
         tint: "#018f88",
         examples: [
-            {
-                title: "Selection",
-                image: "res://screen_bar_chart",
-                path: "examples/listview/selection/main-page",
-                info: "Item selection is one of the main features of ListView",
-                controls: "listview",
-                isFeatured: true,
-                isNew: true
-            },
              {
                 title: "Item layouts",
-                image: "res://screen_bar_chart",
+                image: "res://screen_listview_layouts",
                 path: "examples/listview/layouts/listview-layouts",
-                info: "Item layouts is one of the main features of ListView",
+                info: "ListView for NativeScript supports different item layouts that are UI virtualized and optimized for mobile.",
                 controls: "listview",
                 isFeatured: true,
                 isNew: true
             },
              {
                 title: "Item reorder",
-                image: "res://screen_bar_chart",
+                image: "res://screen_reorder",
                 path: "examples/listview/reorder/listview-reorder",
-                info: "Item reorder is one of the main features of ListView",
+                info: "Item reorder allows you to change the position of an item in ListView by dragging it.",
                 controls: "listview",
                 isFeatured: true,
                 isNew: true
