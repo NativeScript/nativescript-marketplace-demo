@@ -83,7 +83,7 @@ var allSessions: Array<Session> = [
     new Session("Performance Tuning Your Mobile Web Apps",
         new Date(2015, 5, 5, 13, 30), new Date(2015, 5, 5, 14, 15), "room 2", false),
 
-    new Session("Telerik Native Mobile UI for iOS and Android",
+    new Session("Cross platform Telerik Native Mobile UI",
         new Date(2015, 5, 5, 14, 30), new Date(2015, 5, 5, 15, 15), "room 1", false),
     new Session("Advanced Kendo UI",
         new Date(2015, 5, 5, 14, 30), new Date(2015, 5, 5, 15, 15), "room 2", true),

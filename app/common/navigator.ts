@@ -29,18 +29,21 @@ export function navigateToExample(example: examplesVM.Example) {
     }
 
     if (isIOS) {
-        frame.topmost().navigate({
-            animated: false,
-            context: new exampleInfoPageVM.ExampleInfoPageViewModel(navContext.example),
-            moduleName: "views/example-info-page",
-        });
+        var topmost = frame.topmost();
+        if (topmost.currentEntry.moduleName !== "views/example-info-page") { 
+            frame.topmost().navigate({
+                animated: false,
+                context: new exampleInfoPageVM.ExampleInfoPageViewModel(navContext.example),
+                moduleName: "views/example-info-page",
+            });
+        }
     }
 
     frame.topmost().navigate({
         animated: true,
         moduleName: example.path,
         context: navContext,
-        backstackVisible: isIOS
+        backstackVisible: false
     })
 }
 
@@ -76,7 +79,10 @@ export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
 }
 
 export function navigateToHome() {
-    frame.topmost().navigate("views/main-page");
+    var topmost = frame.topmost();
+    if (topmost.currentEntry.moduleName !== "views/main-page") {
+        frame.topmost().navigate("views/main-page");
+    }
 }
 
 export function navigateToAbout() {

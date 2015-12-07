@@ -3,6 +3,6 @@
         <ios>
             <Label text="About" cssClass="info-title" />
         </ios>
-        <TextView cssClass="info-text" editable="false" text="NativeScript enables developers to build native apps for iOS and Android while sharing the application code across the platforms." />
+        <TextView cssClass="info-text" editable="false" text="NativeScript enables developers to build cross platform native apps while sharing the application code across the platforms." />
     </StackLayout>
 </GridLayout>

@@ -38,6 +38,10 @@ module.exports = function (grunt) {
                 dest: path.join(androidPlatfrom, "libs") + "/",
                 cwd: "deps/android-widgets",
                 expand: true
+            },
+            localInstallModules: {
+                src: "<%= nsPackagePath %>",
+                dest: "deps/tns-core-modules.tgz"
             }
         },
         clean: {
@@ -73,7 +77,7 @@ module.exports = function (grunt) {
                 }
             },
             localInstallModules: {
-                command: "npm install \"<%= nsPackagePath %>\""
+                command: "npm install 'deps/tns-core-modules.tgz'"
             },
             emulateGeny: {
                 command: "tns emulate android --geny '" + genyDevice + "'"
@@ -95,6 +99,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask("updateModules", [
         "getNSPackage",
+        "copy:localInstallModules",
         "shell:localInstallModules",
     ]);
 
