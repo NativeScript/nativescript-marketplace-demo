@@ -1,48 +1,39 @@
-# Examples NativeScript
-Repository used for the **Examples NativeScript** app.
+# See the NativeScript framework in Action!
+This is an app created by the NativeScript team to show the NativeScript framework in action. Run the app on your phone to explore the UX and performance that are delivered using cross platform JavaScript code.
 
-## Building The App
-You should setup [the NativeScript CLI](https://docs.nativescript.org/setup/quick-setup) with its dependencies.
+You will find here the most common mobile use cases implemented - Data visualization, Data entry, Charting and native API access. The app contains samples that shows different nuts and bolts from the core NativeScript framework like layouts, buttons, animations and more.
 
-For a **quick trial** make a shallow clone of the repo and don't worry about the submodules.
-This won't get all the history making a smaller download:
+![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/01-2-home-wrapview.png?sfvrsn=0)
+![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/03-1-layouts-ios.png?sfvrsn=0)
+
+The application also serves as a demo for the paid UI components created by Telerik called "[UI for NativeScript](https://www.npmjs.com/package/nativescript-telerik-ui)".
+
+You can use the application to see NativeScript in action, but also as a learning purpose since the entire source code is available in this repo.
+
+# Install it on device
+[![Telerik Next cross-platform mobile app - all sessions view](https://www.telerik.com/sfimages/default-source/app-store-buttons/googleplay.png?sfvrsn=2)](https://play.google.com/store/apps/details?id=org.nativescript.nativescriptmarketplacedemo&amp;hl=en)
+
+The app will be also available in the Apple App Store - it is currently under review by Apple.
+
+# Explore the Source code
+As a prerequisite you should setup [the NativeScript CLI](https://docs.nativescript.org/setup/quick-setup) with its dependencies.
+
+1.Get the source code of the app on your machine:  
 ```
 git clone --depth 1 https://github.com/NativeScript/nativescript-marketplace-demo.git
 ```
-
-Build and run using the NativeScript CLI commands like:
+2.Build and run using the NativeScript CLI commands like:  
+*for iOS:*
 ```
-tns run ios --emulator --device iPhone\ 6
+tns emulate ios 
+```
+*for Android:*
+```
 tns run android
 ```
 
-## Working With The Repo
-The following is information for the core NativeScript teams.
+If you have any questions of feebdack please [open an issue](https://github.com/NativeScript/nativescript-marketplace-demo/issues).
 
-If you are not member of Telerik, you probably won't have access to the telerik-ui submodules. 
-You will have to use the publically available prebuilt binaries.
+Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
 
-We are sorry for the inconveninece.
-
-### Clone the Repo, all Submodules and Rebuild
-To make a full clone and update the submodules.
-```
-git clone git@github.com:NativeScript/nativescript-marketplace-demo.git
-git submodule update --init
-```
-
-Build the core NativeScript Module from source.
-```
-grunt prepare
-```
-This will regenerate the `deps/tns-core-modules.tgz`.
-
-### Adding Examples
-All examples are defined in the `view-models\examples-model.ts`. The main model is defined in 3 arrays:
- - `controlInfos` - information about each compnent - name, description, link to docs, etc.
- - `examples` - the actual definitions of each example. 
- - `exampleGroups` - defines the grouping of examples - visible in the "All Controls" section in the main page. Navigating to example group should show all examples that contain controls defined in that group.
-
-*Note:* Each control in the controls list should be defined in the `controlInfos` list in the examples-modules. There is a runtime check that checks the integrity of the model.
-
-Its recommended that all files related to the example are placed in a subfolder inside `app\examples`. All files in the example folder will be availabe for vewing in the code view.
+For more news about NativeScript please [follow our twitter account](http://twitter.com/nativescript).

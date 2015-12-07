@@ -13,7 +13,9 @@
 		</Repeater>
 		<StackLayout cssClass="drawer-line" />
 	</StackLayout>
-
+	
+	<Label text="Source" cssClass="drawer-item" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-marketplace-demo" />
+	<Label text="Verified Plugins" cssClass="drawer-item" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript" />
 	<Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
 	<Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://www.nativescript.org" />
 
