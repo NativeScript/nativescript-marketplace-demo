@@ -1,4 +1,4 @@
-# See the NativeScript framework in Action
+# See the NativeScript framework in Action!
 This is an app created by the NativeScript team to show the NativeScript framework in action. Run the app on your phone to explore the UX and performance that are delivered using cross platform JavaScript code.
 
 You will find here the most common mobile use cases implemented - Data visualization, Data entry, Charting and native API access. The app contains samples that shows different nuts and bolts from the core NativeScript framework like layouts, buttons, animations and more.
@@ -11,7 +11,7 @@ You can use the application to see NativeScript in action, but also as learning 
 [![Telerik Next cross-platform mobile app - all sessions view](https://www.telerik.com/sfimages/default-source/app-store-buttons/googleplay.png?sfvrsn=2)](https://play.google.com/store/apps/details?id=org.nativescript.nativescriptmarketplacedemo&amp;hl=en)
 
 # Explore the Source code
-You should setup [the NativeScript CLI](https://docs.nativescript.org/setup/quick-setup) with its dependencies.
+As a prerequisite you should setup [the NativeScript CLI](https://docs.nativescript.org/setup/quick-setup) with its dependencies.
 
 1.Get the source code of the app on your machine:  
 ```
@@ -27,3 +27,8 @@ tns emulate ios
 tns run android
 ```
 
+If you have any questions of feebdack please log them in the issues.
+
+Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
+
+For more news about NativeScript please [follow our twitter account](http://twitter.com/nativescript).
