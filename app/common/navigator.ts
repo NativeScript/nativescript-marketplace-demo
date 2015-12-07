@@ -86,7 +86,10 @@ export function navigateToHome() {
 }
 
 export function navigateToAbout() {
-    frame.topmost().navigate("views/about/about");
+    var topmost = frame.topmost();
+    if (topmost.currentEntry.moduleName !== "views/about/about") {
+        frame.topmost().navigate("views/about/about");
+    }
 }
 
 export function navigateBack() {
