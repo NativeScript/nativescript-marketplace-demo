@@ -87,7 +87,7 @@ export function onShoppingItemSwipeProgressEnded(args: listViewModule.ListViewEv
 }
 
 export function onItemSwipeProgressStarted(args: listViewModule.ListViewEventData) {
-	args.data.swipeLimits.threshold = 50 * utils.layout.getDisplayDensity();
+	args.data.swipeLimits.threshold = todoList.getMeasuredWidth() * utils.layout.getDisplayDensity();
 	args.data.swipeLimits.left = 350 * utils.layout.getDisplayDensity();
     args.data.swipeLimits.right = 350 * utils.layout.getDisplayDensity();
 }
