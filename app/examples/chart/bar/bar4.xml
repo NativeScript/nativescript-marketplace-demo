@@ -2,10 +2,10 @@
     <Label text="Performance summary, 2014" cssClass="chart-example-tytle-style"/>
     <chart:RadCartesianChart row="1" id="chart">
         <chart:RadCartesianChart.horizontalAxis>
-            <chart:LinearAxis android:labelSize="26"/>
+            <chart:LinearAxis />
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.verticalAxis>
-            <chart:CategoricalAxis android:labelSize="30"/>
+            <chart:CategoricalAxis />
         </chart:RadCartesianChart.verticalAxis>
         <chart:RadCartesianChart.series>
             <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount"></chart:BarSeries>

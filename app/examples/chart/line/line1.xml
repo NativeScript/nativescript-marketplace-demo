@@ -6,10 +6,10 @@
             </chart:LineSeries>
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.horizontalAxis>
-            <chart:CategoricalAxis android:labelSize="30"/>
+            <chart:CategoricalAxis />
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.verticalAxis>
-            <chart:LinearAxis android:labelSize="30"/>
+            <chart:LinearAxis />
         </chart:RadCartesianChart.verticalAxis>
         <chart:RadCartesianChart.grid>
             <chart:RadCartesianChartGrid horizontalLinesVisible="true" verticalLinesVisible="true"/>

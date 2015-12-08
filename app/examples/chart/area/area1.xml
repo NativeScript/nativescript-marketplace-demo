@@ -5,10 +5,10 @@
             <chart:AreaSeries categoryProperty="Category" items="{{ areaSource }}" valueProperty="Amount"/>
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.verticalAxis>
-            <chart:LinearAxis android:labelSize="30"/>
+            <chart:LinearAxis />
         </chart:RadCartesianChart.verticalAxis>
         <chart:RadCartesianChart.horizontalAxis>
-            <chart:CategoricalAxis android:labelSize="30"/>
+            <chart:CategoricalAxis />
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.grid>
             <chart:RadCartesianChartGrid horizontalLinesVisible="true"/>

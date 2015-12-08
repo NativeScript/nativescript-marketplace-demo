@@ -4,10 +4,10 @@
         <chart:RadCartesianChart.series>
             <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource }}" valueProperty="Amount"></chart:SplineAreaSeries>
             <chart:RadCartesianChart.horizontalAxis>
-                <chart:CategoricalAxis android:labelSize="30"/>
+                <chart:CategoricalAxis />
             </chart:RadCartesianChart.horizontalAxis>
             <chart:RadCartesianChart.verticalAxis>
-                <chart:LinearAxis android:labelSize="30"/>
+                <chart:LinearAxis/>
             </chart:RadCartesianChart.verticalAxis>
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.grid>
