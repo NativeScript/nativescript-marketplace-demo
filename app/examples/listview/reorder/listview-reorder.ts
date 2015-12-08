@@ -69,18 +69,18 @@ export function onItemSwipeProgressChanged(args: any) {
 }
 
 export function onTodoItemSwipeProgressEnded(args: listViewModule.ListViewEventData) {
-	if (args.data.x < -args.data.swipeLimits.threshold / 3){ 
+	if ((args.data.x * utils.layout.getDisplayDensity()) < -args.data.swipeLimits.threshold / 3){ 
 		viewModel.todoItems.splice(args.itemIndex, 1);
-	} else if (args.data.x > args.data.swipeLimits.threshold / 3) {
+	} else if ((args.data.x * utils.layout.getDisplayDensity()) > args.data.swipeLimits.threshold / 3) {
 		var completedItem: model.ListItem = <model.ListItem>viewModel.todoItems.getItem(args.itemIndex);
 		completedItem.isDone = !completedItem.isDone;
 	}
 }
 
 export function onShoppingItemSwipeProgressEnded(args: listViewModule.ListViewEventData) {
-	if (args.data.x < -args.data.swipeLimits.threshold / 3) {
+	if ((args.data.x * utils.layout.getDisplayDensity()) < -args.data.swipeLimits.threshold / 3) {
 		viewModel.shoppingItems.splice(args.itemIndex, 1);
-	} else if (args.data.x > args.data.swipeLimits.threshold / 3) {
+	} else if ((args.data.x * utils.layout.getDisplayDensity()) > args.data.swipeLimits.threshold / 3) {
 		var completedItem: model.ListItem = <model.ListItem>viewModel.shoppingItems.getItem(args.itemIndex);
 		completedItem.isDone = !completedItem.isDone;
 	}
