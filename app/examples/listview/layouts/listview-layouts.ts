@@ -13,7 +13,7 @@ export function onPageLoaded(args: any) {
 	viewModel.isLinearActive = true;
 	viewModel.isWrapActive = false;
 
-	if (applicationModule.android) {
+	if (applicationModule.android && android.os.Build.VERSION > 18) {
 		var window = applicationModule.android.foregroundActivity.getWindow();
 		window.addFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 	}
@@ -22,7 +22,7 @@ export function onPageLoaded(args: any) {
 export function onPageUnloaded(args: any) {
 
 
-	if (applicationModule.android) {
+	if (applicationModule.android && android.os.Build.VERSION > 18) {
 		var window = applicationModule.android.foregroundActivity.getWindow();
 		window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 	}

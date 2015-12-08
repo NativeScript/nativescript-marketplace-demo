@@ -19,7 +19,7 @@ export function onPageLoaded(args: any) {
 	todoList.visibility = "visible";
 	viewModel.viewMode = "Todo";
 	
-	if (application.android){
+	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		
 		window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -27,10 +27,9 @@ export function onPageLoaded(args: any) {
 }
 
 export function onPageUnloaded(args:any){
-	if (application.android){
+	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		
-		// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
 		window.addFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 	}
 }
