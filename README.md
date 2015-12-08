@@ -29,7 +29,7 @@ git clone --depth 1 https://github.com/NativeScript/nativescript-marketplace-dem
 ```
 tns emulate ios 
 ```
-*for Android, you will need to update to latest Android SDKs (type ```android``` on your console and then update everything that is reported). After that execute:*
+*for Android, you will need to update to the latest Android SDKs (type ```android``` on your console and then update everything that is reported). After that execute:*
 ```
 tns run android
 ```
