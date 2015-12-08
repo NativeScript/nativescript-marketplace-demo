@@ -1,6 +1,8 @@
 # See the NativeScript framework in Action!
 This is an app created by the NativeScript team to show the NativeScript framework in action. Run the app on your phone to explore the UX and performance that are delivered using cross platform JavaScript code.
 
+*The app is currently in Beta state, so there maybe some rough edges during execution, please report them to us if you hit one.*
+
 You will find here the most common mobile use cases implemented - Data visualization, Data entry, Charting and native API access. The app contains samples that shows different nuts and bolts from the core NativeScript framework like layouts, buttons, animations and more.
 
 ![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/01-2-home-wrapview.png?sfvrsn=0)
