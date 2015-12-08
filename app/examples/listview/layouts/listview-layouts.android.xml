@@ -1,8 +1,8 @@
-<examples:ExamplePage 
-    xmlns="http://www.nativescript.org/tns.xsd" 
+<examples:ExamplePage
+    xmlns="http://www.nativescript.org/tns.xsd"
     xmlns:lv="nativescript-telerik-ui/listview"
     xmlns:examples="examples/example-base-page"
-    xmlns:f="fresco"
+    xmlns:f="fresco/fresco"
     loaded="onPageLoaded"
     unloaded="onPageUnloaded">
 <Page.actionBar>
@@ -20,7 +20,7 @@
             </lv:RadListView.listViewLayout>
             <lv:RadListView.itemTemplate>
                     <GridLayout rows="*" columns="*" marginBottom="2" marginRight="2">
-                        <f:FrescoDrawee 
+                        <f:FrescoDrawee
                            horizontalAlignment="stretch"
                            height="250"
                            imageUri="{{ photo ? 'res://' + photo : 'res://'}}"/>
