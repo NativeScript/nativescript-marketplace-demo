@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "highlight.js": "^8.7.0",
-    "nativescript-telerik-ui": "^0.1.2",
+    "nativescript-telerik-ui": "^0.1.3",
     "tns-core-modules": "file:./deps/tns-core-modules.tgz",
     "fresco": "file:./deps/fresco-0.1.0.tgz"
   },
