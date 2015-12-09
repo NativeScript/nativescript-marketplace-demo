@@ -17,8 +17,10 @@
 
                         <GridLayout horizontalAlignment="center" columns="*" rows="*" 
                             cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
-                            <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
-                            <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
+                            <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}"
+                                borderColor="{{ $parents['Repeater'].group.tint }}"
+                                stretch="aspectFit" />
+                            <Image src="{{ $parents['Page'].group.id, 'res://ic_new_' + $parents['Repeater'].group.id }}" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                         </GridLayout>
 
                         <StackLayout>

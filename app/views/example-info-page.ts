@@ -110,7 +110,7 @@ function thumbGotoState(view: view.View, state: string, animated: boolean) {
         return;
     }
 
-    var selectionOverlay = view.getViewById("selected-example-border");
+    var selectionOverlay = view.getViewById("selected-example-visual");
 
     if (animated) {
         var anims = new Array<animations.AnimationDefinition>();

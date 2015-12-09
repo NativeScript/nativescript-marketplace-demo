@@ -25,7 +25,7 @@ export var groups: Array<ExampleGroup> = [
     {
         id: "coreui",
         title: "CoreUI",
-        isNew: true,
+        isNew: false,
         info: "NativeScript enables developers to build cross platform native apps while sharing the application code across the platforms. It ships with a set of user interface Views (also known as widgets) which you can use to build the user interface of a mobile application. Most of these views wrap the corresponding native platform views while providing a common API to work with.",
         url: "http://docs.nativescript.org/ui-views",
         tint: "#034d8d",
@@ -37,7 +37,7 @@ export var groups: Array<ExampleGroup> = [
                 path: "examples/layouts/layouts-example",
                 info: "NativeScript provides a recursive layout system which sizes and positions views on the screen. The supported layouts are stack, grid, wrap, dock and absolute.",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
 
             {
@@ -47,7 +47,7 @@ export var groups: Array<ExampleGroup> = [
                 path: "examples/user-profile/user-profile-example",
                 info: "This example demonstrates how you can use the different NativeScript layouts together to achieve a data input form behavior.",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
 
             {
@@ -64,7 +64,7 @@ export var groups: Array<ExampleGroup> = [
     {
         id: "chart",
         title: "Chart",
-        isNew: true,
+        isNew: false,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/Chart/chart-overview",
         info: "Chart for NativeScript supports chart type series essential for visualizing your application data. You can customize its look and feel to match those of your application.",
         tint: "#018f88",
@@ -76,7 +76,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "Bar charts are one of the most common types of graph used to display data. They are mostly used to show amounts or the number of times a value occurs.",
                 controls: "chart",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
             {
                 title: "Line series",
@@ -85,7 +85,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "Line charts are often used to plot changes in data over time, such as monthly temperature changes or daily changes in stock market prices.",
                 controls: "chart",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
             {
                 title: "Area series",
@@ -94,7 +94,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "Area charts are much like line charts, but they display different colors in the areas below the lines. This colorful and visual display distinguishes the data more clearly.",
                 controls: "chart",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
             {
                 title: "Pie series",
@@ -106,8 +106,6 @@ export var groups: Array<ExampleGroup> = [
                 isNew: true
             }
         ]
-
-
     },
     {
         id: "listview",
@@ -115,7 +113,7 @@ export var groups: Array<ExampleGroup> = [
         isNew: true,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/ListView/listview-overview",
         info: "ListView for NativeScript is a powerful UI virtualized list control that provides popular UX scenarios out-of-the-box.",
-        tint: "#018f88",
+        tint: "#ff6e40",
         examples: [
              {
                 title: "Item layouts",
@@ -126,7 +124,7 @@ export var groups: Array<ExampleGroup> = [
                 isFeatured: true,
                 isNew: true
             },
-             {
+            {
                 title: "Item reorder",
                 image: "res://screen_reorder",
                 path: "examples/listview/reorder/listview-reorder",

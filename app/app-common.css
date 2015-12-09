@@ -65,6 +65,8 @@ ActionBar {
 .list-example-image {
     horzontal-align: left;
     border-radius: 16;
+    border-color: #3D5AFE;
+    border-width: 1;
 }
 .list-example-image-new {
     border-radius: 16;
