@@ -1,7 +1,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="fill">
-    <item android:drawable="@color/ns_blue"/>
-    <item android:left="60px" >
+    <item android:drawable="@color/ns_blue" />
+    <item android:top="200dp" android:drawable="@color/ns_mainbg"/>
+    <item android:left="60px">
         <bitmap android:src="@drawable/bg_nav_bar" android:gravity="top|left"/>
     </item>
     <item android:top="@dimen/header_height">
