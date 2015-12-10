@@ -38,3 +38,4 @@ If you have any questions of feebdack please [open an issue](https://github.com/
 Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
 
 For more news about NativeScript please [follow our twitter account](http://twitter.com/nativescript).
+![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
