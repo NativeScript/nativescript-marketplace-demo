@@ -12,3 +12,7 @@ export function pageLoaded(args) {
 
     listView = page.getViewById("theListView");
 }
+
+export function onActivateReorderTap(args){
+    listView.cellReorder = !listView.cellReorder;
+}

@@ -1,3 +1,5 @@
+import applicationModule = require("application");
+
 export interface Example {
     title: string;
     path?: string;
@@ -117,7 +119,7 @@ export var groups: Array<ExampleGroup> = [
         examples: [
              {
                 title: "Item layouts",
-                image: "res://screen_listview_layouts",
+                image: applicationModule.ios ? "res://screen_listview_layouts.jpg" : "res://screen_listview_layouts",
                 path: "examples/listview/layouts/listview-layouts",
                 info: "ListView for NativeScript supports different item layouts that are UI virtualized and optimized for mobile.",
                 controls: "listview",

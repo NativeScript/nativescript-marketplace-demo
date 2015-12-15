@@ -4,7 +4,7 @@
     xmlns:examples="examples/example-base-page"
     loaded="onPageLoaded">
 <Page.actionBar>
-    <ActionBar title="Recipes">
+    <ActionBar title="Recipes" backgroundColor="#FF6E40">
         <ActionBar.actionItems>
             <ActionItem icon="{{isLinearActive ? 'res://listview/layouts/icons/list-layout' : 'res://listview/layouts/icons/list-layout-1' }}" tap="onLinearLayoutTap" ios.position="right"/>
             <ActionItem icon="{{isWrapActive ? 'res://listview/layouts/icons/wrap-layout' : 'res://listview/layouts/icons/wrap-layout-1' }}" tap="onGridLayoutTap" ios.position="right"/>

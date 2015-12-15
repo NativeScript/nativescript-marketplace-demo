@@ -9,6 +9,7 @@ import {listView} from "./main-page";
 var DELTA = 0.1;
 
 class BlogPostItemData extends observableModule.Observable {
+    
     constructor(title: string, content: string, fav: boolean, id: number) {
         super();
         this.Title = title;
@@ -16,15 +17,44 @@ class BlogPostItemData extends observableModule.Observable {
         this.IsFavourite = fav;
         this.ID = id;
     }
-    public ID: number;
-    public Title: string;
-    public Content: string;
-    public IsFavourite: boolean;
+    
+    get ID(): number{
+        return this.get("_id");
+    }
+    
+    set ID(value: number){
+        this.set("_id", value);
+    }
+    
+    get Title(): string{
+        return this.get("_title");
+    }
+    
+    set Title(value: string){
+        this.set("_title", value);
+    }
+    
+    get Content():string{
+        return this.get("_content");
+    }
+    
+    set Content(value: string){
+        this.set("_content", value);
+    }
+  
+    get IsFavourite(){
+        return this.get("_isFavourite");
+    }
+    
+    set IsFavourite(value: boolean){
+        this.set("_isFavourite", value);
+    }
 }
 
 export class ListView_ViewModel extends observableModule.Observable {
     constructor() {
         super();
+        this.isReorderActive = false;
         this.Mode = "ALL";
         this._itemsBackup = new Array<BlogPostItemData>();
         this._itemsBackup.push(new BlogPostItemData(
@@ -58,6 +88,14 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
 
     private _currentItemIndex: number;
+    
+    get isReorderActive(){
+        return this.get("_isReorderActive");
+    }
+    
+    set isReorderActive(value: boolean){
+        this.set("_isReorderActive", value);
+    }
 
     get Mode() {
         return this.get("currentMode");
@@ -78,22 +116,6 @@ export class ListView_ViewModel extends observableModule.Observable {
 
     //main repository for items
     private _itemsBackup: Array<BlogPostItemData>;
-    private removeBackupItemByID(id: number) {
-        for (var i = 0; i < this._itemsBackup.length; ++i) {
-            if (this._itemsBackup[i].ID === id) {
-                this._itemsBackup.splice(i, 1);
-            }
-        }
-    }
-    private updateBackupItem(newItem: BlogPostItemData) {
-        for (var i = 0; i < this._itemsBackup.length; ++i) {
-            if (this._itemsBackup[i].ID === newItem.ID) {
-                this._itemsBackup[i].Title = newItem.Title;
-                this._itemsBackup[i].Content = newItem.Content;
-                this._itemsBackup[i].IsFavourite = newItem.IsFavourite;
-            }
-        }
-    }
 
     private updateCurrentState() {
         this._lvItems.splice(0, this._lvItems.length);
@@ -103,7 +125,7 @@ export class ListView_ViewModel extends observableModule.Observable {
             }
         } else {
             for (var i = 0; i < this._itemsBackup.length; ++i) {
-                if (this._itemsBackup[i].IsFavourite) {
+                if (this._itemsBackup[i].IsFavourite === true) {
                     this._lvItems.push(this._itemsBackup[i]);
                 }
             }
@@ -159,12 +181,17 @@ export class ListView_ViewModel extends observableModule.Observable {
     onTap_SetAsFavourite(args: any) {
         var tmp = this.lvItems.getItem(this._currentItemIndex);
         tmp.IsFavourite = !tmp.IsFavourite;
-        this.lvItems.setItem(this._currentItemIndex, tmp);
-        this.updateBackupItem(this.lvItems.getItem(this._currentItemIndex));
+        
+        if (tmp.IsFavourite === false && this.Mode === "FAVOURITES"){
+            this.lvItems.splice(this._currentItemIndex, 1);     
+        }
+        
+        var listView = frame.topmost().getViewById("theListView");
+        listView.notifySwipeToExecuteFinished();
     }
 
     onTap_DeletePost(args: any) {
-        this.removeBackupItemByID(this.lvItems.getItem(this._currentItemIndex).ID);
+        this._itemsBackup.splice(this._currentItemIndex, 1);
         this.lvItems.splice(this._currentItemIndex, 1);
     }
 

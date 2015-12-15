@@ -1,6 +1,8 @@
 import model = require("./layouts-view-model");
 import listViewModule = require("nativescript-telerik-ui/listview");
 import applicationModule = require("application");
+import frame = require("ui/frame");
+import colorModule = require("color");
 
 var viewModel: model.ListViewLayoutsModel = new model.ListViewLayoutsModel();
 var listView;
@@ -20,8 +22,6 @@ export function onPageLoaded(args: any) {
 }
 
 export function onPageUnloaded(args: any) {
-
-
 	if (applicationModule.android && android.os.Build.VERSION > 18) {
 		var window = applicationModule.android.foregroundActivity.getWindow();
 		window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

@@ -1,7 +1,12 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui/listview"
-    loaded="pageLoaded"
-    actionBarHidden="true">
-
+    loaded="pageLoaded">
+    <Page.actionBar>
+        <ActionBar title="READING LIST" >
+            <ActionBar.actionItems>
+                <ActionItem icon="{{isReorderActive ? 'res://ic_listview_selection_reorder' : 'res://ic_listview_selection_reorder' }}" tap="onActivateReorderTap" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
   <GridLayout rows="auto, *" orientation="vertical">
 
      <GridLayout columns="*,*" style="background-color: #A9958D">
@@ -23,7 +28,7 @@
                swipeCells="true" cssClass="mainPageStyle">
 
         <lv:RadListView.listViewLayout>
-            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="None" itemDeleteAnimation="None"/>
         </lv:RadListView.listViewLayout>
 
         <lv:RadListView.itemTemplate>
