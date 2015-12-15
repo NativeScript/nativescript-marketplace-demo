@@ -4,5 +4,5 @@
         <chart:RadPieChart.series>
             <chart:PieSeries items="{{ pieSource2 }}" valueProperty="Amount"/>
         </chart:RadPieChart.series>
-    </chart:RadPieChart >
+    </chart:RadPieChart>
 </GridLayout>
