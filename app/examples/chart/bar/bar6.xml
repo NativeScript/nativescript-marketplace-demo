@@ -1,6 +1,6 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
     <Label text="Performance summary, 2014" cssClass="chart-example-tytle-style"/>
-    <chart:RadCartesianChart row="1" id="chart">
+    <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.verticalAxis>
             <chart:CategoricalAxis />
         </chart:RadCartesianChart.verticalAxis>
@@ -8,8 +8,8 @@
             <chart:LinearAxis />
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.series>
-            <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
-            <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack100" valueProperty="Amount"></chart:BarSeries>
+            <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource2 }}" stackMode="Stack100" valueProperty="Amount" selectionMode="Series" />
+            <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}"  stackMode="Stack100" valueProperty="Amount" selectionMode="Series" />
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.grid>
             <chart:RadCartesianChartGrid horizontalLinesVisible="true"/>

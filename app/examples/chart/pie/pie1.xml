@@ -1,8 +1,17 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
-    <Label text="International sales by country, 2014" cssClass="chart-example-tytle-style"/>
-    <chart:RadPieChart row="1">
+    <Label text="International food sales by country, 2014" cssClass="chart-example-tytle-style"/>
+    <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
-            <chart:PieSeries items="{{ pieSource }}" valueProperty="Amount"/>
+            <chart:PieSeries showLabels="true" selectionMode="DataPoint" outerRadiusFactor="0.9" items="{{ pieSource }}" valueProperty="Amount" legendLabelProperty="Country">
+                <chart:PieSeries.labelStyle>
+                    <chart:PointLabelStyle  margin="-70" textFormat="%2.0f %%" fontStyle="BoldItalic" textColor="White" textSize="10" />
+                </chart:PieSeries.labelStyle>
+            </chart:PieSeries>
         </chart:RadPieChart.series>
+        
+        <chart:RadPieChart.legend>
+            <chart:RadLegendView position="Top" title="" height="150"/>
+        </chart:RadPieChart.legend>
+        
     </chart:RadPieChart>
 </GridLayout>

@@ -1,8 +1,0 @@
-<GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
-    <Label text="International sales by country, 2014" cssClass="chart-example-tytle-style"/>
-    <chart:RadPieChart row="1">
-        <chart:RadPieChart.series>
-            <chart:DonutSeries items="{{ pieSource2 }}" valueProperty="Amount"/>
-        </chart:RadPieChart.series>
-    </chart:RadPieChart>
-</GridLayout>

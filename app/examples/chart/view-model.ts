@@ -15,6 +15,7 @@ export class ChartExamplesDataModel {
     private _bubbleCategoricalSource;
     private _pieSource;
     private _pieSource2;
+    private _pieSource3;
     private _areaTypes;
     private _pieTypes;
     private _lineTypes;
@@ -138,19 +139,32 @@ export class ChartExamplesDataModel {
             return this._pieSource;
         }
         return this.pieSource = [
-            { Country: "Germany", Amount: 40.0 },
-            { Country: "France", Amount: 80.0 }
+            { Country: "Belgium", Amount: 20.0 },
+            { Country: "Germany", Amount: 50.0 },
+            { Country: "UK", Amount: 30.0 }
         ];
     }
 
-    get pieSource2() {
+   get pieSource2() {
         if (this._pieSource2) {
             return this._pieSource2;
         }
-        return this._pieSource2 = [
-            { Country: "Bulgaria", Amount: 40.0 },
-            { Country: "Spain", Amount: 30.0 },
-            { Country: "USA", Amount: 70.0 }
+        return this.pieSource2 = [
+            { Company: "Google", Amount: 20.0 },
+            { Company: "Apple", Amount: 30.0 },
+            { Company: "Microsoft", Amount: 10.0 },
+            { Company: "Oracle", Amount: 8.0 }
+        ];
+    }
+
+    get pieSource3() {
+        if (this._pieSource3) {
+            return this._pieSource3;
+        }
+        return this._pieSource3 = [
+            { Level: "Elementary", Amount: 180.0 },
+            { Level: "Higher", Amount: 120.0 },
+            { Level: "Training", Amount: 60.0 }
         ];
     }
 
