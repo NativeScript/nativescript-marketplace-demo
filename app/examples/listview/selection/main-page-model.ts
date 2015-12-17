@@ -9,44 +9,62 @@ import {listView} from "./main-page";
 var DELTA = 0.1;
 
 class BlogPostItemData extends observableModule.Observable {
-    
+
     constructor(title: string, content: string, fav: boolean, id: number) {
         super();
         this.Title = title;
         this.Content = content;
         this.IsFavourite = fav;
         this.ID = id;
+        this.reorderActive = false;
+        this.isSelected = false;
     }
-    
-    get ID(): number{
+
+    get isSelected(): boolean {
+        return this.get("_isSelected");
+    }
+
+    set isSelected(value: boolean) {
+        this.set("_isSelected", value);
+    }
+
+    get ID(): number {
         return this.get("_id");
     }
-    
-    set ID(value: number){
+
+    set ID(value: number) {
         this.set("_id", value);
     }
-    
-    get Title(): string{
+
+    get reorderActive(): boolean {
+        return this.get("_reorderActive");
+    }
+
+    set reorderActive(value: boolean) {
+        this.set("_reorderActive", value);
+    }
+
+    get Title(): string {
         return this.get("_title");
     }
-    
-    set Title(value: string){
+
+    set Title(value: string) {
         this.set("_title", value);
     }
-    
-    get Content():string{
+
+    get Content(): string {
         return this.get("_content");
     }
-    
-    set Content(value: string){
+
+    set Content(value: string) {
         this.set("_content", value);
     }
-  
-    get IsFavourite(){
+
+    get IsFavourite() {
         return this.get("_isFavourite");
     }
-    
-    set IsFavourite(value: boolean){
+
+    set IsFavourite(value: boolean) {
         this.set("_isFavourite", value);
     }
 }
@@ -55,6 +73,7 @@ export class ListView_ViewModel extends observableModule.Observable {
     constructor() {
         super();
         this.isReorderActive = false;
+        this.isSelectionActive = false;
         this.Mode = "ALL";
         this._itemsBackup = new Array<BlogPostItemData>();
         this._itemsBackup.push(new BlogPostItemData(
@@ -88,12 +107,35 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
 
     private _currentItemIndex: number;
-    
-    get isReorderActive(){
+
+    public reorderToggled(state: boolean) {
+        this.isReorderActive = state;
+        for (var i = 0; i < this.lvItems.length; i++) {
+            this.lvItems.getItem(i).reorderActive = state;
+        }
+    }
+
+    get selectedItemsCount() {
+        return this.get("_selectedItemsCount");
+    }
+
+    set selectedItemsCount(value: number) {
+        this.set("_selectedItemsCount", value);
+    }
+
+    get isSelectionActive() {
+        return this.get("_isSelectionActive");
+    }
+
+    set isSelectionActive(value: boolean) {
+        this.set("_isSelectionActive", value);
+    }
+
+    get isReorderActive() {
         return this.get("_isReorderActive");
     }
-    
-    set isReorderActive(value: boolean){
+
+    set isReorderActive(value: boolean) {
         this.set("_isReorderActive", value);
     }
 
@@ -118,6 +160,7 @@ export class ListView_ViewModel extends observableModule.Observable {
     private _itemsBackup: Array<BlogPostItemData>;
 
     private updateCurrentState() {
+        this.reorderToggled(false);
         this._lvItems.splice(0, this._lvItems.length);
         if (this.Mode == "ALL") {
             for (var i = 0; i < this._itemsBackup.length; ++i) {
@@ -148,18 +191,16 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
 
     //Event handlers
-    onlvItemSelected(args: lvModule.ListViewEventData) {
-
+    onItemTap(args: lvModule.ListViewEventData) {
+        if (this.isSelectionActive === true) {
+            return;
+        }
         this.CurrentItem = this.lvItems.getItem(args.itemIndex);
         frame.topmost().navigate({
             moduleName: "examples/listview/selection/detail-page",
             animated: true,
             context: this.CurrentItem
         });
-    }
-
-    onItemTapped(args: lvModule.ListViewEventData) {
-        console.log("ItemTapped");
     }
 
     onStartSwipeCell(args: lvModule.ListViewEventData) {
@@ -181,18 +222,22 @@ export class ListView_ViewModel extends observableModule.Observable {
     onTap_SetAsFavourite(args: any) {
         var tmp = this.lvItems.getItem(this._currentItemIndex);
         tmp.IsFavourite = !tmp.IsFavourite;
-        
-        if (tmp.IsFavourite === false && this.Mode === "FAVOURITES"){
-            this.lvItems.splice(this._currentItemIndex, 1);     
+
+        if (tmp.IsFavourite === false && this.Mode === "FAVOURITES") {
+            this.lvItems.splice(this._currentItemIndex, 1);
         }
-        
+
         var listView = frame.topmost().getViewById("theListView");
         listView.notifySwipeToExecuteFinished();
     }
 
     onTap_DeletePost(args: any) {
-        this._itemsBackup.splice(this._currentItemIndex, 1);
-        this.lvItems.splice(this._currentItemIndex, 1);
+        this.deleteItemAt(this._currentItemIndex)
+    }
+
+    private deleteItemAt(index: number) {
+        this._itemsBackup.splice(index, 1);
+        this.lvItems.splice(index, 1);
     }
 
     onTap_FavoritesMode(args) {
@@ -210,6 +255,75 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
     onBackTapped() {
         frame.goBack();
-        console.log("onBackTapped")
+        console.log("onBackTapped");
+    }
+
+    public onItemSelected(args) {
+        var listView = frame.topmost().getViewById("theListView");
+        this.selectedItemsCount = listView.getSelectedItems().length;
+        console.log("Selected items count: " + this.selectedItemsCount);
+        this.lvItems.getItem(args.itemIndex).isSelected = true;
+    }
+
+    public onItemDeselected(args) {
+        var listView = frame.topmost().getViewById("theListView");
+        console.log("Deselecting item: " + args.itemIndex);
+        this.selectedItemsCount = listView.getSelectedItems().length;
+        this.lvItems.getItem(args.itemIndex).isSelected = false;
+    }
+
+    public onItemHold(args) {
+        if (this.isReorderActive || this.isSelectionActive) {
+            return;
+        }
+        var listView = frame.topmost().getViewById("theListView");
+        if (this.isSelectionActive === false) {
+            this.toggleSelection(args.itemIndex);
+        }
+    }
+
+    public onAddAllToFavoritesTap(args) {
+        var listView = frame.topmost().getViewById("theListView");
+        var selectedItems = listView.getSelectedItems();
+        for (var i = 0; i < selectedItems.length; i++) {
+            var currentItem = selectedItems[i];
+            currentItem.IsFavourite = true;
+        }
+
+    }
+
+    public onActivateReorderTap(args) {
+        this.isReorderActive = !this.isReorderActive;
+        this.reorderToggled(this.isReorderActive);
+    }
+
+    public onBackImageTap(args) {
+        this.turnOffSelection();
+        this.reorderToggled(false);
+    }
+
+    public onDeleteAllTap(args) {
+        var listView = frame.topmost().getViewById("theListView");
+        var selectedItems = listView.getSelectedItems();
+        for (var i = 0; i < selectedItems.length; i++) {
+            var currentItem = selectedItems[i];
+            this.deleteItemAt(this.lvItems.indexOf(currentItem));
+        }
+
+        this.turnOffSelection();
+    }
+
+    private turnOffSelection() {
+        listView.deselectAll();
+        listView.selectionBehavior = "None";
+        this.isSelectionActive = false;
+        listView.multipleSelection = false;
+    }
+
+    private toggleSelection(initialIndex: number) {
+        this.isSelectionActive = true;
+        listView.selectItemAt(initialIndex);
+        listView.selectionBehavior = "Press";
+        listView.multipleSelection = true;
     }
 }

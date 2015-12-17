@@ -43,12 +43,14 @@ export function navigateToExample(example: examplesVM.Example) {
         animated: true,
         moduleName: example.path,
         context: navContext,
-        backstackVisible: false
+        backstackVisible: true
     })
 }
 
 export function navigateBackFromExampe(context: exampleInfoPageVM.ExampleNavigationContext) {
+ 
     if (isAndroid) {
+        frame.topmost().goBack();
         var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
         
         frame.topmost().navigate({

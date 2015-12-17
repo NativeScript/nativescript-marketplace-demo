@@ -5,14 +5,16 @@ import frame = require("ui/frame");
 import pages = require("ui/page");
 
 export var listView: lvModule.ListView;
+var viewModel;
 
 export function pageLoaded(args) {
     var page = <pageModule.Page>args.object;
-    page.bindingContext = new mainPageModule.ListView_ViewModel();
+    page.bindingContext = viewModel = new mainPageModule.ListView_ViewModel();
 
     listView = page.getViewById("theListView");
 }
 
-export function onActivateReorderTap(args){
-    listView.cellReorder = !listView.cellReorder;
+export function onPageUnloaded(args){
+    listView = undefined;
+    viewModel = undefined;
 }

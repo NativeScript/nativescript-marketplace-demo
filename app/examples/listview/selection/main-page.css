@@ -14,15 +14,16 @@
     margin-top: 4;
     margin-left: 10;
     margin-right: 10;
-    margin-bottom: 4
+    margin-bottom: 4;
 }
+
 .itemStyle{
     background-color: #FFE4D8D4;
     padding: 8;
 }
 
 .itemSelectedStyle{
-    background-color: : #FF5D4037;
+    background-color: #FFC2B0A9;
     padding: 8;
 }
 
