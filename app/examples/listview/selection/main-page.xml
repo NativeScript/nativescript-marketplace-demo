@@ -1,5 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui/listview"
-    loaded="pageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui/listview" navigatingTo="pageNavigatingTo" actionBarHidden="true">
     <Page.actionBar>
         <ActionBar title="READING LIST" >
             <ActionBar.actionItems>

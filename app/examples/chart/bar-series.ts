@@ -30,13 +30,16 @@ function loadItem(page, item: models.ChartTypeItem) {
 }
 
 var dataModel = new models.ChartExamplesDataModel();
-export function onPageLoaded(args: observable.EventData) {
+export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.barTypes[0];
     loadItem(page, itemToLoad);
-    if (app.android) {
-        page.getViewById("scrollView").android.setHorizontalScrollBarEnabled(false);
+}
+
+export function scrollViewLoaded(args) {
+    if (args.object.android) {
+        args.object.android.setHorizontalScrollBarEnabled(false);
     }
 }
 

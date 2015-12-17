@@ -1,6 +1,7 @@
 // import trace = require("trace");
-// trace.setCategories(trace.categories.Layout);
+// trace.setCategories(trace.categories.Style);
 // trace.enable();
+
 import frame = require("ui/frame");
 import exampleBase = require("./examples/example-base-page");
 import application = require("application");

@@ -6,7 +6,7 @@ import application = require("application")
 var viewModel;
 
 // Event handler for Page "loaded" event attached in main-page.xml
-export function pageLoaded(args: observable.EventData) {
+export function pageNavigatingTo(args: observable.EventData) {
     // Get the event sender
     var page = <pages.ExamplePage>args.object;
     viewModel = new observable.Observable({

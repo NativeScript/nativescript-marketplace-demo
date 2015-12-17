@@ -6,7 +6,7 @@ import list = require("ui/list-view");
 import utils = require("utils/utils");
 import {View} from "ui/core/view";
 
-export function pageLoaded(args: observable.EventData) {
+export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
     page.bindingContext = conferenceViewModel.instance;
 

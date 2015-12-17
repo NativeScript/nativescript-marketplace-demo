@@ -4,7 +4,7 @@
         backgroundSpanUnderStatusBar="true"
         loaded="onPageLoaded">
     <Page.actionBar>
-        <ActionBar cssClass="qsf-actionbar" android:title="About">
+        <ActionBar android:title="About">
             <NavigationButton
                     ios:text="Back to all"
                     ios:tap="navigateBack"
