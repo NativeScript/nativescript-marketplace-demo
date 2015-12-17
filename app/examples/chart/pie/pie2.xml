@@ -4,7 +4,7 @@
         <chart:RadPieChart.series>
             <chart:PieSeries showLabels="true" selectionMode="DataPoint" outerRadiusFactor="0.9" items="{{ pieSource2 }}" valueProperty="Amount" legendLabelProperty="Company">
                 <chart:PieSeries.labelStyle>
-                    <chart:PointLabelStyle  margin="-70" textFormat="%3.0f %%" fontStyle="BoldItalic" textColor="White" textSize="10"  />
+                    <chart:PointLabelStyle  margin="-70" textFormat="%3.0f%%" fontStyle="BoldItalic" textColor="White" textSize="10"  />
                 </chart:PieSeries.labelStyle>
             </chart:PieSeries>
         </chart:RadPieChart.series>
