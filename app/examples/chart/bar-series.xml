@@ -1,4 +1,9 @@
-<examples:ExamplePage actionBarHidden="true" loaded="onPageLoaded" xmlns:examples="examples/example-base-page" xmlns="http://www.nativescript.org/tns.xsd" backgroundSpanUnderStatusBar="true">
+<examples:ExamplePage
+        actionBarHidden="true"
+        navigatingTo="pageNavigatingTo"
+        xmlns:examples="examples/example-base-page"
+        xmlns="http://www.nativescript.org/tns.xsd"
+        backgroundSpanUnderStatusBar="true">
     <GridLayout loaded="rootGridLoaded" rows="auto, *" cssClass="chart-demo-content">
         <GridLayout cssClass="repeaterItemsScrollerStyle" rows="*">
             <GridLayout cssClass="repeaterBottomBorderStyle" row="1"/>

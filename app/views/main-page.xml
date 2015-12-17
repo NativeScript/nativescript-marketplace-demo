@@ -6,7 +6,7 @@
     loaded="pageLoaded"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-    <ActionBar cssClass="qsf-actionbar">
+    <ActionBar>
       <android>
         <NavigationButton icon="res://ic_menu" tap="showSlideout" />
       </android>

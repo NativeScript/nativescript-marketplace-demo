@@ -10,7 +10,7 @@ var shoppingList;
 
 var reorderedItem;
 
-export function onPageLoaded(args: any) {
+export function pageNavigatingTo(args: any) {
 	var page = args.object;
 	page.bindingContext = viewModel;
 	todoList = page.getViewById("todo-list");
@@ -26,7 +26,7 @@ export function onPageLoaded(args: any) {
 	}
 }
 
-export function onPageUnloaded(args:any){
+export function pageNavigatedFrom(args:any){
 	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		

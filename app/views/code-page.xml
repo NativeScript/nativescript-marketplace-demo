@@ -6,7 +6,7 @@
     navigatingTo="pageNavigatingTo"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-    <ActionBar title="View Code" cssClass="qsf-actionbar"/>
+    <ActionBar title="View Code" />
   </Page.actionBar>
   <GridLayout rows="44, *" columns="*" cssClass="content-background-main">
     <Button text="{{ selectedFileName }}" tap="selectFile" />   

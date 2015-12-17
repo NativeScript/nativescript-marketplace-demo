@@ -2,15 +2,19 @@
     xmlns="http://www.nativescript.org/tns.xsd" 
     xmlns:lv="nativescript-telerik-ui/listview"
     xmlns:examples="examples/example-base-page"
-    loaded="onPageLoaded">
-<Page.actionBar>
-    <ActionBar title="Recipes" backgroundColor="#FF6E40">
-        <ActionBar.actionItems>
-            <ActionItem icon="{{isLinearActive ? 'res://listview/layouts/icons/list-layout' : 'res://listview/layouts/icons/list-layout-1' }}" tap="onLinearLayoutTap" ios.position="right"/>
-            <ActionItem icon="{{isWrapActive ? 'res://listview/layouts/icons/wrap-layout' : 'res://listview/layouts/icons/wrap-layout-1' }}" tap="onGridLayoutTap" ios.position="right"/>
-        </ActionBar.actionItems>
-    </ActionBar>
-</Page.actionBar>
+    navigatingTo="pageNavigatingTo"
+    backgroundSpanUnderStatusBar="true">
+    <Page.actionBar>
+        <ActionBar title="Recipes" backgroundColor="red">
+            <ActionBar.navigationButton>
+                <NavigationButton visibility="collapse" />
+            </ActionBar.navigationButton>
+            <ActionBar.actionItems>
+                <ActionItem icon="{{isLinearActive ? 'res://listview/layouts/icons/list-layout' : 'res://listview/layouts/icons/list-layout-1' }}" tap="onLinearLayoutTap" ios.position="right"/>
+                <ActionItem icon="{{isWrapActive ? 'res://listview/layouts/icons/wrap-layout' : 'res://listview/layouts/icons/wrap-layout-1' }}" tap="onGridLayoutTap" ios.position="right"/>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
 	<GridLayout rows="*" >
         <lv:RadListView id="list-view" row="0" items="{{ pictures }}" marginRight="-2">
             <lv:RadListView.listViewLayout>

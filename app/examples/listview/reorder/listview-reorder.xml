@@ -4,8 +4,9 @@
     xmlns="http://schemas.nativescript.org/tns.xsd"
 	xmlns:lv="nativescript-telerik-ui/listview"
 	actionBarHidden="true"
-	loaded="onPageLoaded"
-	unloaded="onPageUnloaded">
+	navigatingTo="pageNavigatingTo"
+	navigatedFrom="pageNavigatedFrom"
+	backgroundSpanUnderStatusBar="true">
 	
 	<GridLayout rows="auto, *" backgroundColor="white">
 		
