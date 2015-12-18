@@ -29,6 +29,7 @@ export function pageNavigatedFrom(args: any) {
 
 export function onLinearLayoutTap(args: any) {
 	var linearLayout = new listViewModule.ListViewLinearLayout();
+	linearLayout.ios.itemSize = CGSizeMake(listView.getMeasuredWidth(), 250);
 	listView.listViewLayout = linearLayout;
 	viewModel.isLinearActive = true;
 	viewModel.isWrapActive = false;

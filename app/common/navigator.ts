@@ -28,38 +28,23 @@ export function navigateToExample(example: examplesVM.Example) {
         example: example
     }
 
-    if (isIOS) {
-        var topmost = frame.topmost();
-        if (topmost.currentEntry.moduleName !== "views/example-info-page") { 
-            frame.topmost().navigate({
-                animated: false,
-                context: new exampleInfoPageVM.ExampleInfoPageViewModel(navContext.example),
-                moduleName: "views/example-info-page",
-            });
-        }
-    }
-
     frame.topmost().navigate({
         animated: true,
         moduleName: example.path,
         context: navContext,
         backstackVisible: false
-    })
+    });
 }
 
 export function navigateBackFromExampe(context: exampleInfoPageVM.ExampleNavigationContext) {
-    if (isAndroid) {
-        var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
-        
-        frame.topmost().navigate({
-            animated: true,
-            context: infoContext,
-            moduleName: "views/example-info-page",
-            backstackVisible: false
-        });
-    } else {
-        frame.goBack();
-    }
+    var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
+    
+    frame.topmost().navigate({
+        animated: isAndroid,
+        context: infoContext,
+        moduleName: "views/example-info-page",
+        backstackVisible: false
+    });
 }
 
 export function navigateToCode(context: examplesVM.Example) {

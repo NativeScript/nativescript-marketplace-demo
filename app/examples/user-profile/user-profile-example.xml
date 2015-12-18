@@ -4,6 +4,11 @@
             <android>
                 <NavigationButton tap="cancelTapped" icon="res://ic_close" />
             </android>
+            <ios>
+                <ActionBar.navigationButton>
+                    <NavigationButton visibility="collapse" />
+                </ActionBar.navigationButton>
+            </ios>
             <ActionBar.actionItems>
                 <ios>
                     <ActionItem text="Cancel" ios.position="left" tap="cancelTapped" />
