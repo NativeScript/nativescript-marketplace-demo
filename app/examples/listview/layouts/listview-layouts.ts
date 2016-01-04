@@ -30,15 +30,19 @@ export function onPageUnloaded(args: any) {
 
 export function onLinearLayoutTap(args: any) {
 	var linearLayout = new listViewModule.ListViewLinearLayout();
+	linearLayout.ios.dynamicItemSize = false;
+	linearLayout.itemHeight = 250;
 	listView.listViewLayout = linearLayout;
 	viewModel.isLinearActive = true;
 	viewModel.isWrapActive = false;
+	
 }
 
 export function onGridLayoutTap(args: any) {
 	var gridLayout = new listViewModule.ListViewGridLayout();
+	gridLayout.dynamicItemSize = false;
 	gridLayout.spanCount = 2;
-	gridLayout.itemHeight = "250";
+	gridLayout.itemHeight = 250;
 	listView.listViewLayout = gridLayout;
 	viewModel.isLinearActive = false;
 	viewModel.isWrapActive = true;

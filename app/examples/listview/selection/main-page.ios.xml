@@ -1,0 +1,69 @@
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" xmlns:lv="nativescript-telerik-ui/listview"
+    loaded="pageLoaded" unloaded="onPageUnloaded">
+    <examples:ExamplePage.actionBar>
+        <ActionBar backgroundColor="{{(isReorderActive || isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}">
+            <ActionBar.actionItems>
+                <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>
+            </ActionBar.actionItems>
+            <ActionBar.titleView>
+                <StackLayout orientation="horizontal">
+                    <Label text="READING LIST" style="color: White;" textSize="40"/>
+               </StackLayout>
+            </ActionBar.titleView>
+        </ActionBar>
+    </examples:ExamplePage.actionBar>
+    <GridLayout rows="auto, *" orientation="vertical">
+        <GridLayout columns="*,*" style="background-color: #A9958D">
+            <StackLayout orientation="vertical" >
+                <Button text="ALL" tap="{{onTap_AllMode}}" cssClass="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
+                <GridLayout cssClass="{{ Mode == 'ALL' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
+            </StackLayout>
+            <StackLayout col= "1" orientation="vertical" >
+                <Button text="FAVOURITES" tap="{{onTap_FavoritesMode}}" cssClass="{{ Mode == 'FAVOURITES' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
+                <GridLayout cssClass="{{ Mode == 'FAVOURITES' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
+            </StackLayout>
+        </GridLayout>
+        <lv:RadListView row="1" id="theListView" items="{{ lvItems }}"
+            itemSelected="{{onItemSelected}}"
+            itemDeselected="{{onItemDeselected}}"
+            cellReorder="{{isReorderActive ? true : false}}"
+            itemSwipeProgressStarted="{{onStartSwipeCell}}"
+            itemSwipeProgressEnded="{{onCellSwiped}}"
+            itemTap="{{ onItemTap }}"
+            itemHold="{{ onItemHold }}"
+            swipeCells="{{isReorderActive ? false : true}}" cssClass="mainPageStyle">
+
+        <lv:RadListView.listViewLayout>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="None" itemDeleteAnimation="None"/>
+        </lv:RadListView.listViewLayout>
+
+        <lv:RadListView.itemTemplate>
+            <GridLayout columns="auto, *, auto" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
+                <Image col="0" src="{{isSelected === true ? 'res://listview/selection/checked-icon' : 'res://listview/selection/unchecked-icon'}}" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
+                <GridLayout columns="auto, *" rows="auto,*"  col="1" >
+                    <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ IsFavourite ? 'visible' : 'collapsed' }}" />
+                    <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
+                    <Label row="1" colspan="2" text="{{ Content }}" cssClass="contentStyle" textWrap="true"/>
+                </GridLayout>
+                <Image col="2" src="res://listview/selection/reorder-icon" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
+            </GridLayout>
+         </lv:RadListView.itemTemplate>
+
+         <lv:RadListView.itemSwipeTemplate>
+                <GridLayout columns="100, *, 100" >
+                    <GridLayout tap="{{onTap_SetAsFavourite}}" style="background-color: #FFF3AF40; ">
+                        <Image  src="res://add_to_fav_icon"  stretch="none" cssClass="swipedImageStyle" />
+                    </GridLayout>
+                    <GridLayout col="2" tap="{{onTap_DeletePost}}" style="background-color: #FFFF1744; ">
+                        <Image  src="res://delete_icon" stretch="none" cssClass="swipedImageStyle"/>
+                    </GridLayout>
+                </GridLayout>
+            </lv:RadListView.itemSwipeTemplate>
+        </lv:RadListView>
+
+        <GridLayout row="1" columns="*, *" backgroundColor="#75665F" verticalAlignment="bottom" horizontalAlignment="stretch" visibility="{{ isReorderActive === true ? 'visible' : 'collapsed'}}">
+            <Image col="0" src="res://listview/selection/add-to-fav-icon" stretch="none" horizontalAlignment="center" marginTop="8" marginBottom="8" tap="{{onAddAllToFavoritesTap}}"/>
+            <Image col="1" src="res://listview/selection/delete-icon" stretch="none" horizontalAlignment="center" marginTop="8" marginBottom="8" tap="{{onDeleteAllTap}}"/>
+        </GridLayout>
+    </GridLayout>
+</examples:ExamplePage>

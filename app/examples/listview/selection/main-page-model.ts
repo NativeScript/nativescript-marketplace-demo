@@ -1,6 +1,7 @@
 import observableModule = require("data/observable");
 import observableArray = require("data/observable-array");
-import lvModule = require("nativescript-telerik-ui/listview")
+import lvModule = require("nativescript-telerik-ui/listview");
+import applicationModule = require("application");
 import utilsModule = require("utils/utils");
 import frame = require("ui/frame");
 
@@ -277,8 +278,9 @@ export class ListView_ViewModel extends observableModule.Observable {
             return;
         }
         var listView = frame.topmost().getViewById("theListView");
-        if (this.isSelectionActive === false) {
+        if (applicationModule.android && this.isSelectionActive === false) {
             this.toggleSelection(args.itemIndex);
+            console.log("Toggling selection");
         }
     }
 
@@ -295,6 +297,14 @@ export class ListView_ViewModel extends observableModule.Observable {
     public onActivateReorderTap(args) {
         this.isReorderActive = !this.isReorderActive;
         this.reorderToggled(this.isReorderActive);
+
+        if (applicationModule.ios) {
+            if (this.isReorderActive === true) {
+                this.toggleSelection(-1);
+            } else if (this.isReorderActive === false) {
+                this.turnOffSelection();
+            }
+        }
     }
 
     public onBackImageTap(args) {
@@ -310,7 +320,9 @@ export class ListView_ViewModel extends observableModule.Observable {
             this.deleteItemAt(this.lvItems.indexOf(currentItem));
         }
 
-        this.turnOffSelection();
+        if (applicationModule.android) {
+            this.turnOffSelection();
+        }
     }
 
     private turnOffSelection() {
@@ -322,7 +334,9 @@ export class ListView_ViewModel extends observableModule.Observable {
 
     private toggleSelection(initialIndex: number) {
         this.isSelectionActive = true;
-        listView.selectItemAt(initialIndex);
+        if (initialIndex !== -1) {
+            listView.selectItemAt(initialIndex);
+        }
         listView.selectionBehavior = "Press";
         listView.multipleSelection = true;
     }
