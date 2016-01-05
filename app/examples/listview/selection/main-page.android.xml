@@ -37,6 +37,7 @@
                 itemSwipeProgressStarted="{{onStartSwipeCell}}"
                 itemSwipeProgressEnded="{{onCellSwiped}}"
                 itemTap="{{ onItemTap }}"
+                itemHold="{{onItemHold}}"
                 swipeCells="{{isReorderActive ? false : true}}" cssClass="mainPageStyle">
 
         <lv:RadListView.listViewLayout>

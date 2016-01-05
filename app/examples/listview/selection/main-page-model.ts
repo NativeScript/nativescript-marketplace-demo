@@ -193,7 +193,7 @@ export class ListView_ViewModel extends observableModule.Observable {
 
     //Event handlers
     onItemTap(args: lvModule.ListViewEventData) {
-        if (this.isSelectionActive === true) {
+        if (this.isSelectionActive === true || this.isReorderActive === true) {
             return;
         }
         this.CurrentItem = this.lvItems.getItem(args.itemIndex);
@@ -205,7 +205,6 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
 
     onStartSwipeCell(args: lvModule.ListViewEventData) {
-        console.log("==>swiped")
         var density = utilsModule.layout.getDisplayDensity();
         var delta = Math.floor(density) !== density ? 1.1 : DELTA;
 
@@ -262,13 +261,11 @@ export class ListView_ViewModel extends observableModule.Observable {
     public onItemSelected(args) {
         var listView = frame.topmost().getViewById("theListView");
         this.selectedItemsCount = listView.getSelectedItems().length;
-        console.log("Selected items count: " + this.selectedItemsCount);
         this.lvItems.getItem(args.itemIndex).isSelected = true;
     }
 
     public onItemDeselected(args) {
         var listView = frame.topmost().getViewById("theListView");
-        console.log("Deselecting item: " + args.itemIndex);
         this.selectedItemsCount = listView.getSelectedItems().length;
         this.lvItems.getItem(args.itemIndex).isSelected = false;
     }
@@ -280,7 +277,6 @@ export class ListView_ViewModel extends observableModule.Observable {
         var listView = frame.topmost().getViewById("theListView");
         if (applicationModule.android && this.isSelectionActive === false) {
             this.toggleSelection(args.itemIndex);
-            console.log("Toggling selection");
         }
     }
 
@@ -291,17 +287,23 @@ export class ListView_ViewModel extends observableModule.Observable {
             var currentItem = selectedItems[i];
             currentItem.IsFavourite = true;
         }
-
     }
 
     public onActivateReorderTap(args) {
+        var listView = frame.topmost().getViewById("theListView");
+        var selectedItems:Array<any> = listView.getSelectedItems();
         this.isReorderActive = !this.isReorderActive;
         this.reorderToggled(this.isReorderActive);
-
         if (applicationModule.ios) {
             if (this.isReorderActive === true) {
                 this.toggleSelection(-1);
             } else if (this.isReorderActive === false) {
+                for (var i = 0; i < selectedItems.length; i++) {
+                    var selectedItem = selectedItems[i];
+                    listView.deselectItemAt(listView.items.indexOf(selectedItem));
+                    console.log("Deselecting item: " + selectedItem.isSelected);
+                    selectedItem.isSelected = false;
+                }
                 this.turnOffSelection();
             }
         }
@@ -324,7 +326,7 @@ export class ListView_ViewModel extends observableModule.Observable {
             this.turnOffSelection();
         }
     }
-
+    
     private turnOffSelection() {
         listView.deselectAll();
         listView.selectionBehavior = "None";
