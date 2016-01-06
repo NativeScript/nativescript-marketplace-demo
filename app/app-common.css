@@ -5,7 +5,8 @@
     background-position: 60 0;
 }
 
-.qsf-actionbar {
+ActionBar {
+    color: white;
     background-color: transparent;
 }
 
@@ -27,11 +28,6 @@ Page, ExamplePage {
 }
 
 TabView {
-    background-color: #034D8D;
-}
-
-ActionBar {
-    color: white;
     background-color: #034D8D;
 }
 

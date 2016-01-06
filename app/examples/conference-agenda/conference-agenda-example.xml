@@ -1,6 +1,10 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" loaded="pageLoaded" backgroundSpanUnderStatusBar="true">
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" navigatingTo="pageNavigatingTo" backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-		<ActionBar title="All Sessions" />
+		<ActionBar title="All Sessions">
+            <ActionBar.navigationButton>
+                <NavigationButton visibility="collapsed" />
+            </ActionBar.navigationButton>
+        </ActionBar>
     </Page.actionBar>
     <GridLayout rows="auto, auto, *" columns="*" cssClass="main-content">
         <!-- Segmented Bar -->

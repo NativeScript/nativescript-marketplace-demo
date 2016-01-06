@@ -7,7 +7,7 @@
 		backgroundSpanUnderStatusBar="true"
 		loaded="pageLoaded">
 	<Page.actionBar>
-		<ActionBar title="{{ group.title }}" cssClass="qsf-actionbar">
+		<ActionBar title="{{ group.title }}">
 			<NavigationButton
                     ios:tap="navigateBack"
                     ios:icon="res://ic_arrow_back"

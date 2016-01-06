@@ -7,7 +7,7 @@ import pages = require("ui/page");
 export var listView: lvModule.ListView;
 var viewModel;
 
-export function pageLoaded(args) {
+export function pageNavigatingTo(args) {
     var page = <pageModule.Page>args.object;
     page.bindingContext = viewModel = new mainPageModule.ListView_ViewModel();
 

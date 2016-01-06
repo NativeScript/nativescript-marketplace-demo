@@ -7,9 +7,8 @@ import colorModule = require("color");
 var viewModel: model.ListViewLayoutsModel = new model.ListViewLayoutsModel();
 var listView;
 
-export function onPageLoaded(args: any) {
+export function pageNavigatingTo(args: any) {
 	var page = args.object;
-	page.actionBar.navigationButton = undefined;
 	page.bindingContext = viewModel;
 	listView = page.getViewById("list-view");
 	viewModel.isLinearActive = true;
@@ -21,7 +20,7 @@ export function onPageLoaded(args: any) {
 	}
 }
 
-export function onPageUnloaded(args: any) {
+export function pageNavigatedFrom(args: any) {
 	if (applicationModule.android && android.os.Build.VERSION > 18) {
 		var window = applicationModule.android.foregroundActivity.getWindow();
 		window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

@@ -5,7 +5,11 @@
     ios:bottomOffset="49"
     backgroundSpanUnderStatusBar="true">
   <Page.actionBar>
-		<ActionBar title="Layouts" />
+		<ActionBar title="Layouts">
+      <ActionBar.navigationButton>
+        <NavigationButton visibility="collapse" />
+      </ActionBar.navigationButton>
+    </ActionBar>
   </Page.actionBar>
   <GridLayout loaded="rootGridLoaded">
     <TabView id="tabView" 
