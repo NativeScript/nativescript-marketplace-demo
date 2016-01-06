@@ -5,7 +5,7 @@
     navigatingTo="pageNavigatingTo"
     backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar title="Recipes" backgroundColor="red">
+        <ActionBar title="Recipes">
             <ActionBar.navigationButton>
                 <NavigationButton visibility="collapse" />
             </ActionBar.navigationButton>

@@ -1,7 +1,13 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" xmlns:lv="nativescript-telerik-ui/listview"
-    loaded="pageLoaded" unloaded="onPageUnloaded">
+<examples:ExamplePage 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    xmlns:examples="examples/example-base-page" 
+    xmlns:lv="nativescript-telerik-ui/listview"
+    navigatingTo="pageNavigatingTo" 
+    unloaded="onPageUnloaded"
+    backgroundColor="{{(_isReorderActive || _isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}"
+    backgroundSpanUnderStatusBar="true">
     <examples:ExamplePage.actionBar>
-        <ActionBar backgroundColor="{{(isReorderActive || isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}">
+        <ActionBar >
             <ActionBar.actionItems>
                 <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>
             </ActionBar.actionItems>
