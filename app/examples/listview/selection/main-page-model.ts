@@ -197,10 +197,11 @@ export class ListView_ViewModel extends observableModule.Observable {
             return;
         }
         this.CurrentItem = this.lvItems.getItem(args.itemIndex);
+        this._currentItemIndex = args.itemIndex;
         frame.topmost().navigate({
             moduleName: "examples/listview/selection/detail-page",
             animated: true,
-            context: this.CurrentItem
+            context: this
         });
     }
 
@@ -228,7 +229,9 @@ export class ListView_ViewModel extends observableModule.Observable {
         }
 
         var listView = frame.topmost().getViewById("theListView");
-        listView.notifySwipeToExecuteFinished();
+        if (listView) {
+            listView.notifySwipeToExecuteFinished();
+        }
     }
 
     onTap_DeletePost(args: any) {
@@ -291,7 +294,7 @@ export class ListView_ViewModel extends observableModule.Observable {
 
     public onActivateReorderTap(args) {
         var listView = frame.topmost().getViewById("theListView");
-        var selectedItems:Array<any> = listView.getSelectedItems();
+        var selectedItems: Array<any> = listView.getSelectedItems();
         this.isReorderActive = !this.isReorderActive;
         this.reorderToggled(this.isReorderActive);
         if (applicationModule.ios) {
@@ -326,7 +329,7 @@ export class ListView_ViewModel extends observableModule.Observable {
             this.turnOffSelection();
         }
     }
-    
+
     private turnOffSelection() {
         listView.deselectAll();
         listView.selectionBehavior = "None";

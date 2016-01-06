@@ -18,7 +18,7 @@
 		<GridLayout rows="*" row="1">
         
         <!--Shopping List -->
-			<lv:RadListView id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" 
+			<lv:RadListView backgroundColor="white" id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" 
 										itemSwipeProgressStarted="onItemSwipeProgressStarted" 
 										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
 										itemSwipeProgressChanged="onItemSwipeProgressChanged">
@@ -47,7 +47,7 @@
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>
         <!--ToDo list-->
-			<lv:RadListView id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
+			<lv:RadListView backgroundColor="white" id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
 			 						itemSwipeProgressStarted="onItemSwipeProgressStarted" 
 			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
 			 						itemSwipeProgressChanged="onItemSwipeProgressChanged">

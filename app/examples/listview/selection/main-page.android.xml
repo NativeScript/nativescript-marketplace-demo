@@ -48,7 +48,7 @@
             <GridLayout columns="auto, *">
                 <Image src="res://ic_listview_selection_reorder" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
                 <GridLayout columns="auto, *" rows="auto,*" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" col="1" >
-                    <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ IsFavourite ? 'visible' : 'collapsed' }}" />
+                    <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ _isFavourite ? 'visible' : 'collapsed' }}" />
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
                     <Label row="1" colspan="2" text="{{ Content }}" cssClass="contentStyle" textWrap="true"/>
                 </GridLayout>

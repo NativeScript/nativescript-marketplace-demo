@@ -5,8 +5,9 @@ import application = require("application")
 import detailPage = require("./detail-page")
 import mainPage = require("./main-page");
 import pages = require("Page");
+import viewModelModule = require("./main-page-model");
 
-var viewModel;
+var viewModel: viewModelModule.ListView_ViewModel;
 
 // Event handler for Page "loaded" event attached in main-page.xml
 export function pageLoaded(args: observable.EventData) {
@@ -14,11 +15,20 @@ export function pageLoaded(args: observable.EventData) {
 
 export function pageNavigatedTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
-    page.bindingContext = page.navigationContext;
+    viewModel = page.navigationContext;
+    page.bindingContext = viewModel.CurrentItem;
 
 }
 
-export function navigateBack(args: observable.EventData) {
-    console.log("go back ")
+export function onBackImageTap(args: observable.EventData) {
+    frame.goBack();
+}
+
+export function onAddToFavouritesTap(args:any){
+    viewModel.onTap_SetAsFavourite(args);
+}
+
+export function onDeleteTap(args:any){
+    viewModel.onTap_DeletePost(args);
     frame.goBack();
 }

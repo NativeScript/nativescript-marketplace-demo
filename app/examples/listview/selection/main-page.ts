@@ -9,12 +9,15 @@ var viewModel;
 
 export function pageNavigatingTo(args) {
     var page = <pageModule.Page>args.object;
-    page.bindingContext = viewModel = new mainPageModule.ListView_ViewModel();
+    if (viewModel === undefined) {
+        page.bindingContext = viewModel = new mainPageModule.ListView_ViewModel();
+    } else {
+        page.bindingContext = viewModel;
+    }
 
     listView = page.getViewById("theListView");
 }
 
-export function onPageUnloaded(args){
+export function onPageUnloaded(args) {
     listView = undefined;
-    viewModel = undefined;
 }

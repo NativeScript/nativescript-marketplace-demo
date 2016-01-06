@@ -7,13 +7,13 @@
     backgroundColor="{{(_isReorderActive || _isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}"
     backgroundSpanUnderStatusBar="true">
     <examples:ExamplePage.actionBar>
-        <ActionBar >
+        <ActionBar>
             <ActionBar.actionItems>
                 <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">
-                    <Label text="READING LIST" style="color: White;" textSize="40"/>
+                    <Label text="READING LIST" style="color: #C7262120" textSize="40"/>
                </StackLayout>
             </ActionBar.titleView>
         </ActionBar>
