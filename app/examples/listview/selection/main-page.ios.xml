@@ -4,7 +4,7 @@
     xmlns:lv="nativescript-telerik-ui/listview"
     navigatingTo="pageNavigatingTo" 
     unloaded="onPageUnloaded"
-    backgroundColor="{{(_isReorderActive || _isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}"
+    backgroundColor="#FF5D4037"
     backgroundSpanUnderStatusBar="true">
     <examples:ExamplePage.actionBar>
         <ActionBar>
@@ -13,7 +13,7 @@
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">
-                    <Label text="READING LIST" style="color: #C7262120" textSize="40"/>
+                    <Label text="READING LIST" style="color: White;" textSize="40"/>
                </StackLayout>
             </ActionBar.titleView>
         </ActionBar>

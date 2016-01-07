@@ -19,7 +19,9 @@
         
         <!--Shopping List -->
 			<lv:RadListView backgroundColor="white" id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" 
-										itemSwipeProgressStarted="onItemSwipeProgressStarted" 
+										itemSwipeProgressStarted="onItemSwipeProgressStarted"
+                                        itemReorderStarted="{{onShoppingItemReorderStarted}}"
+                                        itemReordered="{{onShoppingItemReordered}}"
 										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
 										itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
@@ -28,7 +30,7 @@
 				
 				<lv:RadListView.itemTemplate>
 					<StackLayout paddingBottom="2">
-						<StackLayout backgroundColor="#FFF3C7B9" padding="12">
+						<StackLayout backgroundColor="{{isReordered === false ? '#FFF3C7B9' : '#FF6E40'}}" padding="12">
 							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
 												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
 							<StackLayout backgroundColor="Black"/>
@@ -46,9 +48,12 @@
 					</GridLayout>
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>
+            
         <!--ToDo list-->
 			<lv:RadListView backgroundColor="white" id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
-			 						itemSwipeProgressStarted="onItemSwipeProgressStarted" 
+			 						itemSwipeProgressStarted="onItemSwipeProgressStarted"
+                                    itemReorderStarted="{{onTodoItemReorderStarted}}"
+                                    itemReordered="{{onTodoItemReordered}}"
 			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
 			 						itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
@@ -57,7 +62,7 @@
 				
 				<lv:RadListView.itemTemplate>
 					<StackLayout paddingBottom="2">
-						<StackLayout backgroundColor="#FF88D4C4" padding="12">
+						<StackLayout backgroundColor="{{isReordered === false ? '#FF88D4C4' : '#00CCA1'}}" padding="12">
 							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
 												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
 						</StackLayout>
