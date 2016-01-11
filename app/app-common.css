@@ -214,3 +214,32 @@ TabView {
 .chart-example-tytle-style {
     horizontal-align: center;
 }
+
+.example-menu-item-back {
+    font-weight: bold;
+    
+    background-image: url("res://ic_back_btn");
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    background-size: 13 21;
+}
+
+.example-menu-item-back,
+.example-menu-item,
+.example-menu-item-prev,
+.example-menu-item-next {
+    color: white;
+    font-size: 17;
+}
+
+.example-menu-item-back,
+.example-menu-item {
+    horizontal-align: left;
+    margin: 0 0 0 20;
+    padding: 10 10 10 30;
+}
+
+.example-menu-item-prev,
+.example-menu-item-next {
+    margin: 5 15;
+}

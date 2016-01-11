@@ -10,6 +10,7 @@
         "app/app.ts",
         "app/common/navigator.ts",
         "app/common/profiling.ts",
+        "app/examples/example-menu.ts",
         "app/examples/chart/area-series.ts",
         "app/examples/chart/bar-series.ts",
         "app/examples/chart/line-series.ts",

@@ -1,43 +1,22 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
-    cssClass="qsf-page"
-    backgroundColor="{{ group.tint }}"
-    color="{{ group.tint }}"
-    navigatingTo="pageNavigatingTo"
-    backgroundSpanUnderStatusBar="true">
-  <Page.actionBar>
-    <ActionBar android:title="Back to all">
-      <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back" />
-    </ActionBar>
-  </Page.actionBar>
-  <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
-    <GridLayout rowSpan="2">
-      <Image id="p1" src="{{ 'res://particle_01_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p2" src="{{ 'res://particle_02_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p3" src="{{ 'res://particle_03_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p4" src="{{ 'res://particle_04_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
-      <Image id="p5" src="{{ 'res://particle_05_' + group.id }}" stretch="none" horizontalAlignment="left" verticalAlignment="top" />
+      cssClass="qsf-page"
+      backgroundColor="{{ group.tint }}"
+      color="{{ group.tint }}"
+      navigatingTo="pageNavigatingTo"
+      backgroundSpanUnderStatusBar="true">
+    <Page.actionBar>
+        <ActionBar>
+            <ActionBar.navigationButton>
+                <NavigationButton text="Back" />
+            </ActionBar.navigationButton>
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
+        <StackLayout cssClass="marginated-content">
+            <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
+            <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
+            <Button ios:text="View code" android:text="VIEW CODE" cssClass="info-link-button" tap="showCodeTap"/>
+            <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
+        </StackLayout>
     </GridLayout>
-    <StackLayout cssClass="marginated-content">
-      <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
-      <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
-      <!--<Button ios:text="View code" android:text="VIEW CODE" cssClass="info-link-button" tap="showCodeTap"/>-->
-      <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
-    </StackLayout>
-    <ScrollView row="2" orientation="horizontal">
-      <Repeater items="{{ examples }}" verticalAlignment="bottom" id="examples-container">
-        <Repeater.itemsLayout>
-          <StackLayout id="thumbs-layout" orientation="horizontal" margin="16" />
-        </Repeater.itemsLayout>
-        <Repeater.itemTemplate>
-          <GridLayout rows="auto" tap="exampleTap" padding="2">
-            <Image src="{{ image }}" cssClass="example-image" />
-            <GridLayout id="selected-example-border">
-              <GridLayout cssClass="selected-example-border" borderColor="{{ $parents['Page'].group.tint, $parents['Page'].group.tint }}" />
-              <Image id="selected-example-visual" src="{{ $parents['Page'].group.id, 'res://ic_fullscreen_' + $parents['Page'].group.id }}" verticalAlignment="bottom" horizontalAlignment="left" stretch="none" />
-            </GridLayout>
-          </GridLayout>
-        </Repeater.itemTemplate>
-      </Repeater>
-    </ScrollView>
-  </GridLayout>
 </Page>

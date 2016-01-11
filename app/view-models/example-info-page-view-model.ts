@@ -93,4 +93,5 @@ export class ExampleInfoPageViewModel extends observable.Observable {
 export interface ExampleNavigationContext {
     shouldNavigateToInfoOnBack: boolean;
     example: examplesVM.Example;
+    siblings: examplesVM.Example[];
 }
