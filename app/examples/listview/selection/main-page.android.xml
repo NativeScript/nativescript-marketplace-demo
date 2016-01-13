@@ -1,4 +1,8 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" xmlns:lv="nativescript-telerik-ui/listview"
+<examples:ExamplePage 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    xmlns:examples="examples/example-base-page" 
+    xmlns:lv="nativescript-telerik-ui/listview"
+    navigatingFrom="onNavigatingFrom"
     navigatingTo="pageNavigatingTo" unloaded="onPageUnloaded">
     <examples:ExamplePage.actionBar>
         <ActionBar backgroundColor="{{(isReorderActive || isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}">

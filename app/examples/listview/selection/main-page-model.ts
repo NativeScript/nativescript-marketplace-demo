@@ -196,7 +196,9 @@ export class ListView_ViewModel extends observableModule.Observable {
         if (this.isSelectionActive === true || this.isReorderActive === true) {
             return;
         }
-        this.CurrentItem = this.lvItems.getItem(args.itemIndex);
+        var listView = frame.topmost().getViewById("theListView");
+        this.CurrentItem = listView.items.getItem(args.itemIndex);
+        console.log("Item index: " + args.itemIndex + " items length: " + listView.items.length);
         this._currentItemIndex = args.itemIndex;
         frame.topmost().navigate({
             moduleName: "examples/listview/selection/detail-page",
@@ -217,6 +219,8 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
 
     onCellSwiped(args: lvModule.ListViewEventData) {
+        var listView = frame.topmost().getViewById("theListView");
+        console.log("Sel beh: " + listView.ios.selectionBehavior);
         this._currentItemIndex = args.itemIndex;
     }
 
@@ -262,9 +266,11 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
 
     public onItemSelected(args) {
-        var listView = frame.topmost().getViewById("theListView");
-        this.selectedItemsCount = listView.getSelectedItems().length;
-        this.lvItems.getItem(args.itemIndex).isSelected = true;
+        if (this.isSelectionActive === true) {
+            var listView = frame.topmost().getViewById("theListView");
+            this.selectedItemsCount = listView.getSelectedItems().length;
+            this.lvItems.getItem(args.itemIndex).isSelected = true;
+        }
     }
 
     public onItemDeselected(args) {

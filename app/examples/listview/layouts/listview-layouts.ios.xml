@@ -22,11 +22,11 @@
             </lv:RadListView.listViewLayout>
             <lv:RadListView.itemTemplate>
                 <GridLayout rows="*" backgroundColor="White">
-                   <GridLayout rows="*" columns="*" marginBottom="2" marginRight="2">
+                   <GridLayout rows="*" marginBottom="2" marginRight="2">
                         <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill"/>
                         <GridLayout verticalAlignment="bottom">
                             <StackLayout backgroundColor="#BBFFFFFF" paddingTop="8" paddingBottom="8" paddingLeft="16" paddingRight="16">
-                                <Label text="{{ title }}" cssClass="recipeTitle" />
+                                <Label text="{{ title }}" cssClass="recipeTitle" textWrap="true"/>
                                 <Label text="{{ author }}" cssClass="recipeAuthor"/>
                             </StackLayout>
                         </GridLayout>

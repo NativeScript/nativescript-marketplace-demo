@@ -18,6 +18,12 @@ export function pageNavigatingTo(args) {
     listView = page.getViewById("theListView");
 }
 
+export function onNavigatingFrom(args){
+    if (args.isBackNavigation){
+        viewModel = undefined;
+    }
+}
+
 export function onPageUnloaded(args) {
     listView = undefined;
 }
