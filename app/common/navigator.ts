@@ -127,9 +127,9 @@ export function navigateBackFromExample() {
     var topmostFrame = frame.topmost();
     var stack = topmostFrame.backStack;
     for (var top = stack.length - 1; top >= 0; --top) {
-        topmostFrame.goBack();
-        if (!/^examples\//.test(stack[top].entry.moduleName)) {
-            // TODO: topmostFrame.goBack(stack[top])
+        var backStackEntry = stack[top];
+        if (!/^examples\//.test(backStackEntry.entry.moduleName)) {
+            topmostFrame.goBack(backStackEntry);
             break;
         }
     }
