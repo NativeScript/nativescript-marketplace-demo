@@ -11,26 +11,43 @@ export function toggleDrawerState(args) {
 }
 
 export function menuButtonLoaded(args) {
-	var overlay = args.object;
+	var menuBackground = args.object.getViewById("menu-button-background");
 
-	var scale = (scale, duration: number = 120) => () => overlay.animate({
+	var animateBackground = (scale, opacity, duration: number = 120) => () => menuBackground.animate({
 		scale: { x: scale, y: scale },
+		opacity: opacity,
 		duration: duration,
 		curve: CURVE
 	});
 
-	scale(0, 1)()
-		.then(scale(2))
-		.then(scale(0.8))
-		.then(scale(1.7))
-		.then(scale(0.9))
-		.then(scale(1.4))
-		.then(scale(1));
+	animateBackground(0, 0, 1)()
+		.then(animateBackground(2, 0.2))
+		.then(animateBackground(0.8, 0.4))
+		.then(animateBackground(1.7, 0.6))
+		.then(animateBackground(0.9, 0.8))
+		.then(animateBackground(1.2, 1))
+		.then(animateBackground(1, 1));
+	
+	var menuDots = args.object.getViewById("menu-button-dots");
+	setTimeout(() => menuDots.animate({
+		translate: { x: 0, y: 0 },
+		opacity: 1,
+		duration: 500,
+		curve: CURVE
+	}), 300);
+	
+	var title = args.object.getViewById("menu-button-title");
+	setTimeout(() => title.animate({
+		translate: { x: 0, y: 0 },
+		opacity: 1,
+		duration: 450,
+		curve: CURVE
+	}), 430);
 
-	if (overlay.android) {
+	if (args.object.android) {
 		var compat = <any>android.support.v4.view.ViewCompat;
 		if (compat.setElevation) {
-			compat.setElevation(overlay.android, OVERLAY_ELEVATION * utils.layout.getDisplayDensity());
+			compat.setElevation(menuBackground.android, OVERLAY_ELEVATION * utils.layout.getDisplayDensity());
 		}
 	}
 }

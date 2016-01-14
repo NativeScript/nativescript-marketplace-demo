@@ -22,7 +22,11 @@
 	</drawer:RadSideDrawer.drawerContent>
 	<drawer:RadSideDrawer.mainContent>
 		<GridLayout>
-			<Image id="menu-button" src="res://ic_fullscreen_exit" class="example-overlay-button" originX="0" originY="1" tap="toggleDrawerState" loaded="menuButtonLoaded" />
+			<GridLayout id="menu-button" tap="toggleDrawerState" width="42" height="42" horizontalAlignment="left" verticalAlignment="bottom" loaded="menuButtonLoaded">
+				<Image id="menu-button-background" src="res://menu_btn_bg" opacity="0" scaleX="0" scaleY="0" width="42" height="42" originX="0" originY="1" />
+				<Image id="menu-button-dots" src="res://menu_btn" width="24" opacity="0" translateY="10" height="6" horizontalAlignment="center" margin="0 0 2 0" verticalAlignment="center" />
+				<Label id="menu-button-title" text="MENU" opacity="0" translateY="7" horizontalAlignment="center" verticalAlignment="bottom" fontSize="10" color="#AAAAAA" margin="0 0 4 0" />
+			</GridLayout>
 		</GridLayout>
 	</drawer:RadSideDrawer.mainContent>
 </drawer:RadSideDrawer>
