@@ -19,31 +19,73 @@ export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
     })
 }
 
-export function navigateToExample(example: examplesVM.Example) {
+export function navigateToExample(example: examplesVM.Example, siblings: examplesVM.Example[]) {
     // prof.start("example");
     // prof.startCPUProfile("example");
 
     var navContext: exampleInfoPageVM.ExampleNavigationContext = {
         shouldNavigateToInfoOnBack: true,
-        example: example
+        example: example,
+        siblings: siblings
     }
 
     frame.topmost().navigate({
         animated: true,
-        moduleName: example.path,
+        moduleName: navContext.example.path,
         context: navContext,
-        backstackVisible: false
+        backstackVisible: true
     });
 }
 
-export function navigateBackFromExampe(context: exampleInfoPageVM.ExampleNavigationContext) {
-    var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
-    
+export function navigateToNextExample(current: exampleInfoPageVM.ExampleNavigationContext) {
+    var index = current.siblings.indexOf(current.example);
+    --index;
+    if (index < 0) {
+        index = current.siblings.length - 1;
+    }
+
+    var navContext: exampleInfoPageVM.ExampleNavigationContext = {
+        shouldNavigateToInfoOnBack: true,
+        example: current.siblings[index],
+        siblings: current.siblings
+    }
+
     frame.topmost().navigate({
-        animated: isAndroid,
+        animated: true,
+        moduleName: navContext.example.path,
+        context: navContext,
+        backstackVisible: true
+    });
+}
+
+export function navigateToPrevExample(current: exampleInfoPageVM.ExampleNavigationContext) {
+    var index = current.siblings.indexOf(current.example);
+    ++index;
+    if (index >= current.siblings.length) {
+        index = 0;
+    }
+
+    var navContext: exampleInfoPageVM.ExampleNavigationContext = {
+        shouldNavigateToInfoOnBack: true,
+        example: current.siblings[index],
+        siblings: current.siblings
+    }
+
+    frame.topmost().navigate({
+        animated: true,
+        moduleName: navContext.example.path,
+        context: navContext,
+        backstackVisible: true
+    });
+}
+
+export function navigateToExampleInfo(context: exampleInfoPageVM.ExampleNavigationContext) {
+    var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
+
+    frame.topmost().navigate({
+        animated: true,
         context: infoContext,
-        moduleName: "views/example-info-page",
-        backstackVisible: false
+        moduleName: "views/example-info-page"
     });
 }
 
@@ -79,6 +121,18 @@ export function navigateToAbout() {
 
 export function navigateBack() {
     frame.goBack();
+}
+
+export function navigateBackFromExample() {
+    var topmostFrame = frame.topmost();
+    var stack = topmostFrame.backStack;
+    for (var top = stack.length - 1; top >= 0; --top) {
+        var backStackEntry = stack[top];
+        if (!/^examples\//.test(backStackEntry.entry.moduleName)) {
+            topmostFrame.goBack(backStackEntry);
+            break;
+        }
+    }
 }
 
 export function openLink(view: any) {

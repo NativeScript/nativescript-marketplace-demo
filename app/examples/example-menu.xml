@@ -1,0 +1,33 @@
+<drawer:RadSideDrawer
+		xmlns="http://www.nativescript.org/tns.xsd"
+		xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+		id="example-menu-drawer"
+		drawerLocation="Bottom"
+		loaded="drawerLoaded"
+		ios:drawerContentSize="170"
+		android:drawerContentSize="190">
+	<drawer:RadSideDrawer.drawerContent>
+		<GridLayout class="example-menu-content" backgroundColor="{{ example.group.tint }}">
+			<StackLayout>
+				<Button text="Back to all examples" class="example-menu-item-back" tap="backTap" />
+				<GridLayout height="1" backgroundColor="#33000000" />
+				<Button text="Example information" class="example-menu-item" tap="informationTap" />
+				<Button text="View code" class="example-menu-item" tap="codeTap" />
+			</StackLayout>
+			<StackLayout orientation="horizontal" horizontalAlignment="right" verticalAlignment="bottom">
+				<Button text="Prev" class="example-menu-item-prev" tap="prevTap" />
+				<Button text="Next" class="example-menu-item-next" tap="nextTap" />
+			</StackLayout>
+			<Image id="menu-button-backup" src="res://ic_fullscreen_exit" class="example-overlay-button" tap="toggleDrawerState" />
+		</GridLayout>
+	</drawer:RadSideDrawer.drawerContent>
+	<drawer:RadSideDrawer.mainContent>
+		<GridLayout>
+			<GridLayout id="menu-button" tap="toggleDrawerState" width="80" height="80" horizontalAlignment="left" verticalAlignment="bottom" loaded="menuButtonLoaded">
+				<Image id="menu-button-background" src="res://menu_btn_bg" opacity="0" scaleX="0" scaleY="0" horizontalAlignment="left" verticalAlignment="bottom" width="42" height="42" margin="38 38 0 0" originX="0" originY="1" />
+				<Image id="menu-button-dots" ios:src="res://menu_btn" android:src="res://ic_menu_btn" width="24" height="6" opacity="0" translateY="10" margin="0 0 17 9" horizontalAlignment="left" verticalAlignment="bottom" />
+				<Label id="menu-button-title" text="MENU" opacity="0" translateY="7" horizontalAlignment="left" verticalAlignment="bottom" fontSize="10" color="#AAAAAA" margin="0 0 4 7" />
+			</GridLayout>
+		</GridLayout>
+	</drawer:RadSideDrawer.mainContent>
+</drawer:RadSideDrawer>
