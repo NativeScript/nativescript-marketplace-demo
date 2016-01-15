@@ -4,7 +4,8 @@
 		id="example-menu-drawer"
 		drawerLocation="Bottom"
 		loaded="drawerLoaded"
-		drawerContentSize="170">
+		ios:drawerContentSize="170"
+		android:drawerContentSize="190">
 	<drawer:RadSideDrawer.drawerContent>
 		<GridLayout class="example-menu-content" backgroundColor="{{ example.group.tint }}">
 			<StackLayout>
@@ -22,10 +23,10 @@
 	</drawer:RadSideDrawer.drawerContent>
 	<drawer:RadSideDrawer.mainContent>
 		<GridLayout>
-			<GridLayout id="menu-button" tap="toggleDrawerState" width="42" height="42" horizontalAlignment="left" verticalAlignment="bottom" loaded="menuButtonLoaded">
-				<Image id="menu-button-background" src="res://menu_btn_bg" opacity="0" scaleX="0" scaleY="0" width="42" height="42" originX="0" originY="1" />
-				<Image id="menu-button-dots" src="res://menu_btn" width="24" opacity="0" translateY="10" height="6" horizontalAlignment="center" margin="0 0 2 0" verticalAlignment="center" />
-				<Label id="menu-button-title" text="MENU" opacity="0" translateY="7" horizontalAlignment="center" verticalAlignment="bottom" fontSize="10" color="#AAAAAA" margin="0 0 4 0" />
+			<GridLayout id="menu-button" tap="toggleDrawerState" width="80" height="80" horizontalAlignment="left" verticalAlignment="bottom" loaded="menuButtonLoaded">
+				<Image id="menu-button-background" src="res://menu_btn_bg" opacity="0" scaleX="0" scaleY="0" horizontalAlignment="left" verticalAlignment="bottom" width="42" height="42" margin="38 38 0 0" originX="0" originY="1" />
+				<Image id="menu-button-dots" ios:src="res://menu_btn" android:src="res://ic_menu_btn" width="24" height="6" opacity="0" translateY="10" margin="0 0 17 9" horizontalAlignment="left" verticalAlignment="bottom" />
+				<Label id="menu-button-title" text="MENU" opacity="0" translateY="7" horizontalAlignment="left" verticalAlignment="bottom" fontSize="10" color="#AAAAAA" margin="0 0 4 7" />
 			</GridLayout>
 		</GridLayout>
 	</drawer:RadSideDrawer.mainContent>
