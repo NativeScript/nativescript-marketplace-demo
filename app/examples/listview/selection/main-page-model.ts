@@ -198,7 +198,6 @@ export class ListView_ViewModel extends observableModule.Observable {
         }
         var listView = frame.topmost().getViewById("theListView");
         this.CurrentItem = listView.items.getItem(args.itemIndex);
-        console.log("Item index: " + args.itemIndex + " items length: " + listView.items.length);
         this._currentItemIndex = args.itemIndex;
         frame.topmost().navigate({
             moduleName: "examples/listview/selection/detail-page",
@@ -220,7 +219,6 @@ export class ListView_ViewModel extends observableModule.Observable {
 
     onCellSwiped(args: lvModule.ListViewEventData) {
         var listView = frame.topmost().getViewById("theListView");
-        console.log("Sel beh: " + listView.ios.selectionBehavior);
         this._currentItemIndex = args.itemIndex;
     }
 
@@ -262,7 +260,6 @@ export class ListView_ViewModel extends observableModule.Observable {
     }
     onBackTapped() {
         frame.goBack();
-        console.log("onBackTapped");
     }
 
     public onItemSelected(args) {
@@ -310,7 +307,6 @@ export class ListView_ViewModel extends observableModule.Observable {
                 for (var i = 0; i < selectedItems.length; i++) {
                     var selectedItem = selectedItems[i];
                     listView.deselectItemAt(listView.items.indexOf(selectedItem));
-                    console.log("Deselecting item: " + selectedItem.isSelected);
                     selectedItem.isSelected = false;
                 }
                 this.turnOffSelection();
