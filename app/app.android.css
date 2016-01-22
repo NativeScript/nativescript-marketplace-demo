@@ -65,3 +65,7 @@ ActionBar {
 .marginated-content {
     margin: 0 16 0 60;
 }
+
+Button{
+   border-width: 0.1
+}

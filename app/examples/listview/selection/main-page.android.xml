@@ -45,7 +45,7 @@
                 swipeCells="{{isReorderActive ? false : true}}" cssClass="mainPageStyle">
 
         <lv:RadListView.listViewLayout>
-            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="None" itemDeleteAnimation="None"/>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="Fade" itemDeleteAnimation="Fade"/>
         </lv:RadListView.listViewLayout>
 
         <lv:RadListView.itemTemplate>

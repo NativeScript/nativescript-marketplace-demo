@@ -12,11 +12,14 @@ var reorderedItem;
 
 export function pageNavigatingTo(args: any) {
 	var page = args.object;
+    if (viewModel === undefined){
+        viewModel = new model.ListViewReorderModel();
+    }
 	page.bindingContext = viewModel;
 	todoList = page.getViewById("todo-list");
 	shoppingList = page.getViewById("shopping-list");
 	viewModel.viewMode = "Todo";
-	
+    
 	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		
@@ -25,6 +28,10 @@ export function pageNavigatingTo(args: any) {
 }
 
 export function pageNavigatedFrom(args:any){
+    
+    if (args.isBackNavigation){
+        viewModel = undefined;
+    }
 	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		
