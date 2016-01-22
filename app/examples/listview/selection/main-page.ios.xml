@@ -14,7 +14,7 @@
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">
-                    <Label text="READING LIST" style="color: White;" textSize="40"/>
+                    <Label text="Reading list" style="color: White;" textSize="40"/>
                </StackLayout>
             </ActionBar.titleView>
         </ActionBar>
@@ -22,11 +22,11 @@
     <GridLayout rows="auto, *" orientation="vertical">
         <GridLayout columns="*,*" style="background-color: #A9958D">
             <StackLayout orientation="vertical" >
-                <Button text="ALL" tap="{{onTap_AllMode}}" cssClass="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
+                <Button text="All" tap="{{onTap_AllMode}}" cssClass="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
                 <GridLayout cssClass="{{ Mode == 'ALL' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
             </StackLayout>
             <StackLayout col= "1" orientation="vertical" >
-                <Button text="FAVOURITES" tap="{{onTap_FavoritesMode}}" cssClass="{{ Mode == 'FAVOURITES' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
+                <Button text="Favorites" tap="{{onTap_FavoritesMode}}" cssClass="{{ Mode == 'FAVOURITES' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
                 <GridLayout cssClass="{{ Mode == 'FAVOURITES' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
             </StackLayout>
         </GridLayout>
@@ -45,12 +45,12 @@
         </lv:RadListView.listViewLayout>
 
         <lv:RadListView.itemTemplate>
-            <GridLayout columns="auto, *, auto" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
+            <GridLayout columns="auto, *, auto" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" maxHeight="100">
                 <Image col="0" src="{{isSelected === true ? 'res://listview/selection/checked-icon' : 'res://listview/selection/unchecked-icon'}}" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
                 <GridLayout columns="auto, *" rows="auto,*"  col="1" >
                     <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ _isFavourite ? 'visible' : 'collapsed' }}" />
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
-                    <Label row="1" colspan="2" text="{{ Content }}" cssClass="contentStyle" textWrap="true"/>
+                    <Label row="1" colspan="2" text="{{ Summary }}" ios.numberOfLines="3" cssClass="contentStyle" textWrap="true"/>
                 </GridLayout>
                 <Image col="2" src="res://listview/selection/reorder-icon" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
             </GridLayout>
