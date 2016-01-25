@@ -44,12 +44,16 @@ export function menuButtonLoaded(args) {
 		curve: CURVE
 	}), 430);
 
-	var menuButton = args.object.getViewById("menu-button");
 	if (args.object.android) {
 		var compat = <any>android.support.v4.view.ViewCompat;
-		if (compat.setElevation) {
-			compat.setElevation(menuBackground.android, OVERLAY_ELEVATION * utils.layout.getDisplayDensity());
+		var baseElevation = OVERLAY_ELEVATION * utils.layout.getDisplayDensity() + 1000;
+		var setElevation = (view, elev) => {
+			compat.setElevation(view.android, elev);
 		}
+		
+		setElevation(menuBackground, baseElevation);
+		setElevation(menuDots, baseElevation + 1);
+		setElevation(title, baseElevation + 1);
 	}
 }
 
