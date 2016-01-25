@@ -54,7 +54,7 @@
                 <GridLayout columns="auto, *" rows="auto,*" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" col="1" >
                     <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ _isFavourite ? 'visible' : 'collapsed' }}" />
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
-                    <Label row="1" colspan="2" text="{{ Content }}" cssClass="contentStyle" textWrap="true"/>
+                    <Label row="1" colspan="2" text="{{ Summary }}" cssClass="contentStyle" textWrap="true"/>
                 </GridLayout>
             </GridLayout>
         </lv:RadListView.itemTemplate>
