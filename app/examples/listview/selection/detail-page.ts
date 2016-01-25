@@ -26,6 +26,7 @@ export function onBackImageTap(args: observable.EventData) {
 
 export function onAddToFavouritesTap(args:any){
     viewModel.onTap_SetAsFavourite(args);
+    frame.goBack();
 }
 
 export function onDeleteTap(args:any){

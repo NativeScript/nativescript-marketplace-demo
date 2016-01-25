@@ -307,8 +307,10 @@ export class ListView_ViewModel extends observableModule.Observable {
         var selectedItems = listView.getSelectedItems();
         for (var i = 0; i < selectedItems.length; i++) {
             var currentItem = selectedItems[i];
-            currentItem.IsFavourite = true;
+            currentItem.IsFavourite = !currentItem.IsFavourite;
         }
+        
+        this.turnOffSelection();
     }
 
     public onActivateReorderTap(args) {

@@ -45,10 +45,10 @@
         </lv:RadListView.listViewLayout>
 
         <lv:RadListView.itemTemplate>
-            <GridLayout columns="auto, *, auto" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" maxHeight="100">
+            <GridLayout columns="auto, *, auto" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
                 <Image col="0" src="{{isSelected === true ? 'res://listview/selection/checked-icon' : 'res://listview/selection/unchecked-icon'}}" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
                 <GridLayout columns="auto, *" rows="auto,*"  col="1" >
-                    <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ _isFavourite ? 'visible' : 'collapsed' }}" />
+                    <Image row="0" col="0" margin="5" src="{{IsFavourite ? 'res://fav_icon' : ''}}" />
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
                     <Label row="1" colspan="2" text="{{ Summary }}" ios.numberOfLines="3" cssClass="contentStyle" textWrap="true"/>
                 </GridLayout>

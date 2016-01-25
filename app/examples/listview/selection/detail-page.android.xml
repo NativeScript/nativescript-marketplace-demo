@@ -6,7 +6,7 @@
      <Page.actionBar >
         <ActionBar backgroundColor="#FF5D4037">
             <ActionBar.actionItems>
-                <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" visibility="{{IsFavourite ? 'collapsed' : 'visible' }}" />
+                <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" />
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="onDeleteTap" />
             </ActionBar.actionItems>
             <ActionBar.titleView>
