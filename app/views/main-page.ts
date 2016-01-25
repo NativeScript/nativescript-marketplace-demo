@@ -54,7 +54,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
     prof.start("example");
     page.getViewById("side-drawer").closeDrawer();
     var example = <examplesVM.Example>(<any>args).object.bindingContext;
-    navigator.navigateToExample(example);
+    navigator.navigateToExample(example, examplesVM.featuredExamples);
 }
 
 export function showSlideout(args) {
