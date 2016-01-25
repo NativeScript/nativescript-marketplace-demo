@@ -137,7 +137,7 @@ export var groups: Array<ExampleGroup> = [
             },
             {
                 title: "Selection",
-                image: "res://screen_reorder",
+                image: "res://screen_listview_selection",
                 path: "examples/listview/selection/main-page",
                 info: "ListView supports two selection modes: single and miltiple. It also exposes convenient API for managing selection. You can programmatically select, deselect and query the currently selected items.",
                 controls: "listview",
