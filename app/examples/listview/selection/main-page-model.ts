@@ -309,7 +309,7 @@ export class ListView_ViewModel extends observableModule.Observable {
             var currentItem = selectedItems[i];
             currentItem.IsFavourite = !currentItem.IsFavourite;
         }
-        
+
         this.turnOffSelection();
     }
 
