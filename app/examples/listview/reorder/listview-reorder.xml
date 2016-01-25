@@ -5,20 +5,55 @@
 	xmlns:lv="nativescript-telerik-ui/listview"
 	actionBarHidden="true"
 	navigatingTo="pageNavigatingTo"
-	navigatedFrom="pageNavigatedFrom"
-	backgroundSpanUnderStatusBar="true">
+	navigatedFrom="pageNavigatedFrom">
 	
 	<GridLayout rows="auto, *" backgroundColor="white">
 		
 		<GridLayout columns="*, *" marginBottom="8" >
-			<Button text="TO DO LIST"  	 verticalAlignment="top" tap="onBtnTodoTap" cssClass = "{{viewMode == 'Todo' ? 'todoModeONButton' : 'todoModeOFFButton'}}"/>
-			<Button text="SHOPPING LIST" verticalAlignment="top" tap="onBtnShoppingTap" col="1"  cssClass = "{{viewMode == 'Shopping' ? 'shoppingModeONButton' : 'shoppingModeOFFButton'}}" />   
+			<Button text="TO DO LIST"  	 verticalAlignment="top" tap="onBtnTodoTap" cssClass = "{{viewMode === 'Todo' ? 'todoModeONButton' : 'todoModeOFFButton'}}"/>
+			<Button text="SHOPPING LIST" verticalAlignment="top" tap="onBtnShoppingTap" col="1"  cssClass = "{{viewMode === 'Shopping' ? 'shoppingModeONButton' : 'shoppingModeOFFButton'}}" />   
 		</GridLayout>
 		
-<!--ToDo list-->
+
 		<GridLayout rows="*" row="1">
-			<lv:RadListView id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
-			 						itemSwipeProgressStarted="onItemSwipeProgressStarted" 
+        
+        <!--Shopping List -->
+			<lv:RadListView backgroundColor="white" id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" 
+										itemSwipeProgressStarted="onItemSwipeProgressStarted"
+                                        itemReorderStarted="{{onShoppingItemReorderStarted}}"
+                                        itemReordered="{{onShoppingItemReordered}}"
+										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
+										itemSwipeProgressChanged="onItemSwipeProgressChanged">
+				<lv:RadListView.listViewLayout>
+					<lv:ListViewLinearLayout />
+				</lv:RadListView.listViewLayout>
+				
+				<lv:RadListView.itemTemplate>
+					<StackLayout paddingBottom="2">
+						<StackLayout backgroundColor="{{isReordered === false ? '#FFF3C7B9' : '#FF6E40'}}" padding="12">
+							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
+												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
+							<StackLayout backgroundColor="Black"/>
+						</StackLayout>
+					</StackLayout>
+				</lv:RadListView.itemTemplate>
+				<lv:RadListView.itemSwipeTemplate>
+					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="2" verticalAlignment="stretch">
+						<GridLayout id="complete-view" backgroundColor="#FFFFA200" verticalAlignment="stretch">
+							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
+						</GridLayout>
+						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
+							<Image android:src="res://ic_listview_reorder_delete"  ios:src="res://listview/reorder/reorder-delete-icon"  stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
+						</GridLayout>
+					</GridLayout>
+				</lv:RadListView.itemSwipeTemplate>
+			</lv:RadListView>
+            
+        <!--ToDo list-->
+			<lv:RadListView backgroundColor="white" id="todo-list" items="{{ todoItems }}" swipeCells="true" cellReorder="true"
+			 						itemSwipeProgressStarted="onItemSwipeProgressStarted"
+                                    itemReorderStarted="{{onTodoItemReorderStarted}}"
+                                    itemReordered="{{onTodoItemReordered}}"
 			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
 			 						itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
@@ -27,7 +62,7 @@
 				
 				<lv:RadListView.itemTemplate>
 					<StackLayout paddingBottom="2">
-						<StackLayout backgroundColor="#FF88D4C4" padding="12">
+						<StackLayout backgroundColor="{{isReordered === false ? '#FF88D4C4' : '#00CCA1'}}" padding="12">
 							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
 												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
 						</StackLayout>
@@ -46,35 +81,7 @@
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>
 			
-<!--Shopping List -->
-			<lv:RadListView id="shopping-list" items="{{ shoppingItems }}" swipeCells="true" cellReorder="true" 
-										itemSwipeProgressStarted="onItemSwipeProgressStarted" 
-										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
-										itemSwipeProgressChanged="onItemSwipeProgressChanged">
-				<lv:RadListView.listViewLayout>
-					<lv:ListViewLinearLayout />
-				</lv:RadListView.listViewLayout>
-				
-				<lv:RadListView.itemTemplate>
-					<StackLayout paddingBottom="2">
-						<StackLayout backgroundColor="#FFF3C7B9" padding="12">
-							<Label text="{{ title }}" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}" 
-												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
-							<StackLayout backgroundColor="Black"/>
-						</StackLayout>
-					</StackLayout>
-				</lv:RadListView.itemTemplate>
-				<lv:RadListView.itemSwipeTemplate>
-					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="2" verticalAlignment="stretch">
-						<GridLayout id="complete-view" backgroundColor="#FFFFA200" verticalAlignment="stretch">
-							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</GridLayout>
-						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
-							<Image android:src="res://ic_listview_reorder_delete"  ios:src="res://listview/reorder/reorder-delete-icon"  stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</GridLayout>
-					</GridLayout>
-				</lv:RadListView.itemSwipeTemplate>
-			</lv:RadListView>
+
 		</GridLayout>
 	</GridLayout>
 </examples:ExamplePage>

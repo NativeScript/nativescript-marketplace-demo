@@ -5,9 +5,9 @@
       navigatingTo="pageNavigatingTo"
       backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar>
+        <ActionBar title="Example Info">
             <ActionBar.navigationButton>
-                <NavigationButton text="Back" />
+                <NavigationButton ios:text="Back" android:icon="res://ic_arrow_back" android:tap="navigateBack" />
             </ActionBar.navigationButton>
         </ActionBar>
     </Page.actionBar>

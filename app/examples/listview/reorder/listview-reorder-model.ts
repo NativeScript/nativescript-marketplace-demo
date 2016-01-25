@@ -8,6 +8,7 @@ export class ListItem extends Observable {
 		this.set("_title", title);
 		this.set("_isDone", isDone);
 		this.set("_isDeleted", isDeleted);
+        this.set("_isReordered", false);
 	}
 
 	get title() {
@@ -23,7 +24,7 @@ export class ListItem extends Observable {
 	}
 
 	set isDone(value: boolean) {
-			this.set("_isDone", value);
+	   this.set("_isDone", value);
 	}
 
 	get isDeleted() {
@@ -33,6 +34,14 @@ export class ListItem extends Observable {
 	set isDeleted(value: boolean) {
 		this.set("_isDeleted", value);
 	}
+    
+    get isReordered(){
+        return this.get("_isReordered");
+    }
+    
+    set isReordered(value: boolean): void{
+        this.set("_isReordered", value);
+    }
 }
 
 export class ListViewReorderModel extends Observable{
@@ -84,4 +93,25 @@ export class ListViewReorderModel extends Observable{
 		this._shoppingList.push(new ListItem("Apples", false, false));
 		this._shoppingList.push(new ListItem("Tomatoes", true, false));
 	}
+    
+    public onTodoItemReorderStarted(args:any){
+        var todoItem = this.todoItems.getItem(args.itemIndex);
+        todoItem.isReordered = true;
+        
+    }
+    
+    public onTodoItemReordered(args:any){
+        var todoItem = this.todoItems.getItem(args.data.targetIndex);
+        todoItem.isReordered = false;
+    }
+    
+    public onShoppingItemReorderStarted(args:any){
+        var shoppingItem = this.shoppingItems.getItem(args.itemIndex);
+        shoppingItem.isReordered = true;
+    }
+    
+    public onShoppingItemReordered(args:any){
+        var shoppingItem = this.shoppingItems.getItem(args.data.targetIndex);
+        shoppingItem.isReordered = false;
+    }
 }

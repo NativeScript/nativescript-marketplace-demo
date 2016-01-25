@@ -2,6 +2,8 @@ import utils = require("utils/utils");
 import platform = require("platform");
 import * as navigator from "../common/navigator";
 
+var isAndroid: boolean = platform.device.os === platform.platformNames.android;
+
 var OVERLAY_ELEVATION = 12;
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;
 
@@ -13,10 +15,13 @@ export function toggleDrawerState(args) {
 export function menuButtonLoaded(args) {
 	var menuBackground = args.object.getViewById("menu-button-background");
 
+	var timeFactor = isAndroid ? 0.4 : 0.6;
+	var scaleFactor = (s) => 1 * 0.4 + s * 0.6;
+
 	var animateBackground = (scale, opacity, duration: number = 120) => () => menuBackground.animate({
-		scale: { x: scale, y: scale },
+		scale: { x: scaleFactor(scale), y: scaleFactor(scale) },
 		opacity: opacity,
-		duration: duration,
+		duration: duration * timeFactor,
 		curve: CURVE
 	});
 
@@ -32,7 +37,7 @@ export function menuButtonLoaded(args) {
 	setTimeout(() => menuDots.animate({
 		translate: { x: 0, y: 0 },
 		opacity: 1,
-		duration: 500,
+		duration: 500 * timeFactor,
 		curve: CURVE
 	}), 300);
 	
@@ -40,16 +45,19 @@ export function menuButtonLoaded(args) {
 	setTimeout(() => title.animate({
 		translate: { x: 0, y: 0 },
 		opacity: 1,
-		duration: 450,
+		duration: 450 * timeFactor,
 		curve: CURVE
 	}), 430);
 
+	var menuButton = args.object.getViewById("menu-button");
 	if (args.object.android) {
 		var compat = <any>android.support.v4.view.ViewCompat;
 		var baseElevation = OVERLAY_ELEVATION * utils.layout.getDisplayDensity() + 1000;
 		var setElevation = (view, elev) => {
 			compat.setElevation(view.android, elev);
 		}
+		
+		setElevation(menuButton, 4 * utils.layout.getDisplayDensity() + 1);
 		
 		setElevation(menuBackground, baseElevation);
 		setElevation(menuDots, baseElevation + 1);

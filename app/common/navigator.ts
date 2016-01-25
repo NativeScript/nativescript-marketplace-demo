@@ -32,8 +32,7 @@ export function navigateToExample(example: examplesVM.Example, siblings: example
     frame.topmost().navigate({
         animated: true,
         moduleName: navContext.example.path,
-        context: navContext,
-        backstackVisible: true
+        context: navContext
     });
 }
 
@@ -53,8 +52,7 @@ export function navigateToNextExample(current: exampleInfoPageVM.ExampleNavigati
     frame.topmost().navigate({
         animated: true,
         moduleName: navContext.example.path,
-        context: navContext,
-        backstackVisible: true
+        context: navContext
     });
 }
 
@@ -74,8 +72,7 @@ export function navigateToPrevExample(current: exampleInfoPageVM.ExampleNavigati
     frame.topmost().navigate({
         animated: true,
         moduleName: navContext.example.path,
-        context: navContext,
-        backstackVisible: true
+        context: navContext
     });
 }
 

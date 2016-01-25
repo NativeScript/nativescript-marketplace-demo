@@ -93,3 +93,17 @@
     padding: 10 20 10 0;
     margin: 5 15;
 }
+
+.example-overlay-button {
+    width: 42;
+    height: 42;
+}
+.in-menu-btn-background {
+}
+.in-menu-btn-close {
+    width: 13;
+    height: 13;
+    horizontal-align: left;
+    vertical-align: bottom;
+    margin: 0 0 13 13;
+}

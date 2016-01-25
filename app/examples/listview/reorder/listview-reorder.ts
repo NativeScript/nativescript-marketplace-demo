@@ -12,13 +12,14 @@ var reorderedItem;
 
 export function pageNavigatingTo(args: any) {
 	var page = args.object;
+    if (viewModel === undefined){
+        viewModel = new model.ListViewReorderModel();
+    }
 	page.bindingContext = viewModel;
 	todoList = page.getViewById("todo-list");
 	shoppingList = page.getViewById("shopping-list");
-	shoppingList.visibility = "collapsed";
-	todoList.visibility = "visible";
 	viewModel.viewMode = "Todo";
-	
+    
 	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		
@@ -27,6 +28,10 @@ export function pageNavigatingTo(args: any) {
 }
 
 export function pageNavigatedFrom(args:any){
+    
+    if (args.isBackNavigation){
+        viewModel = undefined;
+    }
 	if (application.android && android.os.Build.VERSION > 18){
 		var window = application.android.foregroundActivity.getWindow();
 		
@@ -38,7 +43,7 @@ export function onBtnTodoTap(args: any) {
 	if (viewModel.viewMode !== "Todo") {
 		shoppingList.visibility = "collapsed";
 		todoList.visibility = "visible";
-		viewModel.viewMode = "Todo"
+		viewModel.viewMode = "Todo";
 	}
 }
 
@@ -46,7 +51,7 @@ export function onBtnShoppingTap(args: any) {
 	if (viewModel.viewMode !== "Shopping") {
 		shoppingList.visibility = "visible";
 		todoList.visibility = "collapsed";
-		viewModel.viewMode = "Shopping"
+		viewModel.viewMode = "Shopping";
 	}
 }
 
@@ -73,6 +78,7 @@ export function onTodoItemSwipeProgressEnded(args: listViewModule.ListViewEventD
 	} else if ((args.data.x * utils.layout.getDisplayDensity()) > args.data.swipeLimits.threshold / 5) {
 		var completedItem: model.ListItem = <model.ListItem>viewModel.todoItems.getItem(args.itemIndex);
 		completedItem.isDone = !completedItem.isDone;
+        console.log("TODO DONE: " + completedItem.isDone);
 	}
 }
 
@@ -82,6 +88,7 @@ export function onShoppingItemSwipeProgressEnded(args: listViewModule.ListViewEv
 	} else if ((args.data.x * utils.layout.getDisplayDensity()) > args.data.swipeLimits.threshold / 5) {
 		var completedItem: model.ListItem = <model.ListItem>viewModel.shoppingItems.getItem(args.itemIndex);
 		completedItem.isDone = !completedItem.isDone;
+        console.log("SHOPPING DONE: " + completedItem.isDone);
 	}
 }
 

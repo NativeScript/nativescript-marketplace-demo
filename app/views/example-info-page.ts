@@ -45,6 +45,10 @@ export function exampleTap(args: gestures.GestureEventData) {
     }
 }
 
+export function navigateBack(args: gestures.GestureEventData) {
+    navigator.navigateBack();
+}
+
 function showExamplePage(example: examplePageVM.ExampleViewModel) {
     // TODO: plug in animations here.
     if (!example.path) {

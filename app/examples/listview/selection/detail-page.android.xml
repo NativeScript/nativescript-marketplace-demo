@@ -1,0 +1,25 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+    loaded="pageLoaded"
+    navigatedTo="pageNavigatedTo"
+    cssClass="detailPageStyle">
+
+     <Page.actionBar >
+        <ActionBar backgroundColor="#FF5D4037">
+            <ActionBar.actionItems>
+                <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" visibility="{{IsFavourite ? 'collapsed' : 'visible' }}" />
+                <ActionItem android:icon="res://ic_listview_selection_delete" tap="onDeleteTap" />
+            </ActionBar.actionItems>
+            <ActionBar.titleView>
+                <StackLayout orientation="horizontal">
+                    <Image stretch="none" verticalAlignment="center" android:src="res://ic_arrow_back" tap="onBackImageTap"/>
+               </StackLayout>
+            </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar> 
+
+    <StackLayout rows="auto, *" orientation="vertical" >
+      <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
+      <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
+    </StackLayout>
+
+</Page>

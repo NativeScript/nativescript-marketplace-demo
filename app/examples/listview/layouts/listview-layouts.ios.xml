@@ -5,7 +5,7 @@
     navigatingTo="pageNavigatingTo"
     backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar title="Recipes" backgroundColor="red">
+        <ActionBar title="Recipes">
             <ActionBar.navigationButton>
                 <NavigationButton visibility="collapse" />
             </ActionBar.navigationButton>
@@ -18,15 +18,15 @@
 	<GridLayout rows="*" >
         <lv:RadListView id="list-view" row="0" items="{{ pictures }}" marginRight="-2">
             <lv:RadListView.listViewLayout>
-                <lv:ListViewLinearLayout scrollDirection="Vertical"/>
+                <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="250"/>
             </lv:RadListView.listViewLayout>
             <lv:RadListView.itemTemplate>
                 <GridLayout rows="*" backgroundColor="White">
-                   <GridLayout rows="*" columns="*" marginBottom="2" marginRight="2">
+                   <GridLayout rows="*" marginBottom="2" marginRight="2">
                         <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill"/>
                         <GridLayout verticalAlignment="bottom">
                             <StackLayout backgroundColor="#BBFFFFFF" paddingTop="8" paddingBottom="8" paddingLeft="16" paddingRight="16">
-                                <Label text="{{ title }}" cssClass="recipeTitle" />
+                                <Label text="{{ title }}" cssClass="recipeTitle" textWrap="true"/>
                                 <Label text="{{ author }}" cssClass="recipeAuthor"/>
                             </StackLayout>
                         </GridLayout>

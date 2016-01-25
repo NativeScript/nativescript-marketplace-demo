@@ -66,9 +66,13 @@ ActionBar {
     margin: 0 16 0 60;
 }
 
+Button{
+    border-width: 0.1;
+}
+
 .example-menu-item-back {
     color: white;
-    font-size: 17;
+    font-size: 14;
     font-weight: bold;
     background-image: url("res://ic_arrow_back");
     background-repeat: no-repeat;
@@ -79,7 +83,7 @@ ActionBar {
 .example-menu-item-prev,
 .example-menu-item-next {
     color: white;
-    font-size: 17;
+    font-size: 14;
     background-color: transparent;
 }
 
@@ -93,14 +97,14 @@ ActionBar {
 .example-menu-item-prev {
     background-image: url("res://ic_prev");
     background-repeat: no-repeat;
-    background-position: 0% 50%;
-    padding: 10 0 10 20;
-    margin: 5 15;
+    background-position: 25% 52%;
+    padding: 10 0 10 11;
+    margin: 5;
 }
 .example-menu-item-next {
     background-image: url("res://ic_next");
     background-repeat: no-repeat;
-    background-position: 100% 50%;
-    padding: 10 20 10 0;
-    margin: 5 15;
+    background-position: 75% 52%;
+    padding: 10 11 10 0;
+    margin: 5;
 }

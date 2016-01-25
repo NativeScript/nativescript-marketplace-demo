@@ -1,0 +1,25 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+    loaded="pageLoaded"
+    navigatedTo="pageNavigatedTo"
+    cssClass="detailPageStyle">
+
+     <Page.actionBar >
+        <ActionBar color="#C7262120">
+            <ActionBar.titleView>
+                <StackLayout orientation="horizontal">
+                    <Label text="READING LIST" style="color: #C7262120" textSize="40"/>
+               </StackLayout>
+            </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar> 
+<GridLayout rows="auto, *">
+    <StackLayout rows="auto, *" orientation="vertical" >
+        <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
+        <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
+    </StackLayout>
+    <GridLayout row="1" columns="*, *" backgroundColor="#75665F" verticalAlignment="bottom" horizontalAlignment="stretch">
+        <Image col="0" src="res://listview/selection/add-to-fav-icon" stretch="none" horizontalAlignment="center" marginTop="8" marginBottom="8" tap="onAddToFavouritesTap"/>
+        <Image col="1" src="res://listview/selection/delete-icon" stretch="none" horizontalAlignment="center" marginTop="8" marginBottom="8" tap="onDeleteTap"/>
+    </GridLayout>
+</GridLayout>
+</Page>
