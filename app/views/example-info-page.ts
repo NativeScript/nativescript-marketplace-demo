@@ -32,32 +32,6 @@ export function openLink(args: observable.EventData) {
     navigator.openLink(args.object);
 }
 
-export function exampleTap(args: gestures.GestureEventData) {
-    var exampleView = args.view;
-    var vm = <examplePageVM.ExampleInfoPageViewModel>exampleView.page.bindingContext;
-    var exampleVM = <examplePageVM.ExampleViewModel> exampleView.bindingContext;
-
-    if (vm.currentExample === exampleVM) {
-        showExamplePage(vm.currentExample);
-    }
-    else {
-        vm.currentExample = exampleVM;
-    }
-}
-
 export function navigateBack(args: gestures.GestureEventData) {
     navigator.navigateBack();
-}
-
-function showExamplePage(example: examplePageVM.ExampleViewModel) {
-    // TODO: plug in animations here.
-    if (!example.path) {
-        alert("No path for this example");
-        return;
-    }
-
-    prof.start("example");
-    // prof.startCPUProfile("example");
-
-    navigator.navigateToExample(example.example);
 }
