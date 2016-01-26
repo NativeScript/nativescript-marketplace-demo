@@ -8,6 +8,9 @@ import groupPageVM = require("../view-models/group-page-view-model");
 import examplePageVM = require("../view-models/example-info-page-view-model");
 import navigator = require("../common/navigator");
 import prof = require("../common/profiling");
+import { Color } from "color";
+import { View } from "ui/core/view";
+import { grayTouch } from "../common/effects";
 
 var page;
 
@@ -48,6 +51,10 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
     var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup);
     navigator.navigateToExampleGroup(context);
+}
+
+export function tileTouch(args: gestures.TouchGestureEventData) {
+    grayTouch(args);
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {

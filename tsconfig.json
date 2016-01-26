@@ -8,6 +8,7 @@
     "files": [
         "app/android17-dummy.d.ts",
         "app/app.ts",
+        "app/common/effects.ts",
         "app/common/navigator.ts",
         "app/common/profiling.ts",
         "app/examples/example-menu.ts",

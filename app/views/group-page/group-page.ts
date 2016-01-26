@@ -7,6 +7,7 @@ import navigator = require("../../common/navigator");
 import groupVM = require("../../view-models/group-page-view-model");
 import examplePageVM = require("../../view-models/example-info-page-view-model");
 import prof = require("../../common/profiling");
+import { grayTouch } from "../../common/effects";
 
 var page;
 
@@ -18,6 +19,10 @@ export function pageNavigatingTo(args: pages.NavigatedData) {
 
 export function pageLoaded() {
     prof.stop("group");
+}
+
+export function tileTouch(args: gestures.TouchGestureEventData) {
+    grayTouch(args);
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {

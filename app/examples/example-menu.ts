@@ -1,6 +1,8 @@
 import utils = require("utils/utils");
 import platform = require("platform");
 import * as navigator from "../common/navigator";
+import { loadedGuard } from "../common/effects";
+import { View } from "ui/core/view";
 
 var isAndroid: boolean = platform.device.os === platform.platformNames.android;
 
@@ -34,20 +36,20 @@ export function menuButtonLoaded(args) {
 		.then(animateBackground(1, 1));
 	
 	var menuDots = args.object.getViewById("menu-button-dots");
-	setTimeout(() => menuDots.animate({
+	setTimeout(loadedGuard(menuDots, () => menuDots.animate({
 		translate: { x: 0, y: 0 },
 		opacity: 1,
 		duration: 500 * timeFactor,
 		curve: CURVE
-	}), 300);
-	
+	})), 300);
+
 	var title = args.object.getViewById("menu-button-title");
-	setTimeout(() => title.animate({
+	setTimeout(loadedGuard(title, () => title.animate({
 		translate: { x: 0, y: 0 },
 		opacity: 1,
 		duration: 450 * timeFactor,
 		curve: CURVE
-	}), 430);
+	})), 430);
 
 	var menuButton = args.object.getViewById("menu-button");
 	if (args.object.android) {

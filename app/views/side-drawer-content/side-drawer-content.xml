@@ -1,11 +1,11 @@
 <StackLayout cssClass="drawer-content" loaded="onLoaded">
-	<Label text="Home" cssClass="drawer-item" tap="tapHome" />
-	<Label text="About" cssClass="drawer-item" tap="tapAbout" />
-	<Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" />
+	<Label text="Home" cssClass="drawer-item" tap="tapHome" touch="tileTouch" />
+	<Label text="About" cssClass="drawer-item" tap="tapAbout" touch="tileTouch" />
+	<Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" touch="tileTouch" />
 
 	<StackLayout cssClass="drawer-controls">
 		<StackLayout cssClass="drawer-line" />
-		<Label text="Controls" cssClass="drawer-controls-title" />
+		<Label text="Controls" cssClass="drawer-controls-title" touch="tileTouch" />
 		<Repeater items="{{ $value }}">
 			<Repeater.itemTemplate>
 				<Label text="{{ title }}" tap="navigateToExampleGroup" cssClass="drawer-item" />
@@ -14,9 +14,9 @@
 		<StackLayout cssClass="drawer-line" />
 	</StackLayout>
 	
-	<Label text="Source" cssClass="drawer-item" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-marketplace-demo" />
-	<Label text="Verified Plugins" cssClass="drawer-item" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript" />
-	<Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" />
-	<Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://www.nativescript.org" />
+	<Label text="Source" cssClass="drawer-item" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-marketplace-demo" touch="tileTouch" />
+	<Label text="Verified Plugins" cssClass="drawer-item" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript" touch="tileTouch" />
+	<Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" touch="tileTouch" />
+	<Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://www.nativescript.org" touch="tileTouch" />
 
 </StackLayout>

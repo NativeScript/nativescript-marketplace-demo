@@ -1,11 +1,17 @@
 import { ExampleGroup } from "../../view-models/examples-model";
 import { GroupPageViewModel } from "../../view-models/group-page-view-model"
 import * as navigator from "../../common/navigator"
+import * as gestures from "ui/gestures";
 import { groups } from "../../view-models/examples-model"
 import { topmost } from "ui/frame"
+import { grayTouch } from "../../common/effects";
 
 export function onLoaded(args) {
     args.object.bindingContext = groups;
+}
+
+export function tileTouch(args: gestures.TouchGestureEventData) {
+    grayTouch(args);
 }
 
 function sideDrawer(): any {

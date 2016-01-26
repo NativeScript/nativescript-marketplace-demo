@@ -11,7 +11,7 @@
                     <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
                 </Repeater.itemsLayout>
                 <Repeater.itemTemplate>
-                    <StackLayout tap="navigateToExample" cssClass="example-item" 
+                    <StackLayout touch="tileTouch" tap="navigateToExample" cssClass="example-item" 
                         orientation="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'horizontal' : 'vertical' }}" 
                         visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
 
