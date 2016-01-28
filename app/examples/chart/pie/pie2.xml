@@ -2,9 +2,9 @@
     <Label text="Energy consumption, 2013/2014" cssClass="chart-example-tytle-style"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
-            <chart:PieSeries showLabels="true" selectionMode="DataPoint" outerRadiusFactor="0.9" items="{{ pieSource2 }}" valueProperty="Amount" legendLabelProperty="Company">
+            <chart:PieSeries showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.9" items="{{ pieSource2 }}" valueProperty="Amount" legendLabelProperty="Company">
                 <chart:PieSeries.labelStyle>
-                    <chart:PointLabelStyle  margin="-70" textFormat="%3.0f%%" fontStyle="BoldItalic" textColor="White" textSize="10"  />
+                    <chart:PointLabelStyle  margin="-70" textFormat="%3.0f%%" textColor="White" textSize="10"  />
                 </chart:PieSeries.labelStyle>
             </chart:PieSeries>
         </chart:RadPieChart.series>
