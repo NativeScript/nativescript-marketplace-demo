@@ -25,7 +25,7 @@
 										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
 										itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
-					<lv:ListViewLinearLayout />
+					<lv:ListViewLinearLayout itemAddAnimation="Fade" itemRemoveAnimation="Fade"/>
 				</lv:RadListView.listViewLayout>
 				
 				<lv:RadListView.itemTemplate>
@@ -57,7 +57,7 @@
 			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
 			 						itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
-					<lv:ListViewLinearLayout />
+					<lv:ListViewLinearLayout itemAddAnimation="Fade" itemRemoveAnimation="Fade"/>
 				</lv:RadListView.listViewLayout>
 				
 				<lv:RadListView.itemTemplate>

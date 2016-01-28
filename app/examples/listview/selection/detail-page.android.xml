@@ -10,8 +10,10 @@
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="onDeleteTap" />
             </ActionBar.actionItems>
             <ActionBar.titleView>
-                <StackLayout orientation="horizontal">
-                    <Image stretch="none" verticalAlignment="center" android:src="res://ic_arrow_back" tap="onBackImageTap"/>
+               <StackLayout orientation="horizontal">
+                    <StackLayout horizontalAlignment="left" tap="{{onBackImageTap}}" paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8" tap="onBackImageTap"> 
+                        <Image stretch="none" verticalAlignment="center" android:src="res://ic_arrow_back"/>
+                    </StackLayout>
                </StackLayout>
             </ActionBar.titleView>
         </ActionBar>
@@ -19,7 +21,7 @@
 
     <StackLayout rows="auto, *" orientation="vertical" >
       <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
-      <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
+      <Label text="{{ Content }}" cssClass="detailContent" textWrap="true" />
     </StackLayout>
 
 </Page>

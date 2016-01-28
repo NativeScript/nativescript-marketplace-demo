@@ -13,9 +13,11 @@
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">
-                    <Image stretch="none" verticalAlignment="center" android:src="res://ic_arrow_back" visibility="{{ isSelectionActive || isReorderActive ? 'visible' : 'collapsed' }}" tap="{{onBackImageTap}}"/>
-                    <Label visibility="{{ (isReorderActive || isSelectionActive) ? 'collapsed' : 'visible'}}" text="Reading list" style="color: #C7262120;" textSize="40"/>
-                    <Label marginLeft="16" visibility="{{ (isReorderActive && !isSelectionActive) ? 'visible' : 'collapsed'}}" text="Reorder" style="color: White;" textSize="40"/>
+                    <StackLayout horizontalAlignment="left" tap="{{onBackImageTap}}" paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8">
+                        <Image stretch="none" verticalAlignment="center" android:src="res://ic_arrow_back" visibility="{{ isSelectionActive || isReorderActive ? 'visible' : 'collapsed' }}" />
+                    </StackLayout>
+                    <Label visibility="{{ (isReorderActive || isSelectionActive) ? 'collapsed' : 'visible'}}" text="Reading list" style="color: #C7262120; font-size: 20;"/>
+                    <Label marginLeft="16" visibility="{{ (isReorderActive && !isSelectionActive) ? 'visible' : 'collapsed'}}" text="Reorder" style="color: White;  font-size: 20;"/>
                     <Label verticalAlignment="center" marginLeft="16" visibility="{{ isSelectionActive ? 'visible' : 'collapsed'}}" text="{{'' + selectedItemsCount }}" style="color: White;" textSize="30"/>
                </StackLayout>
             </ActionBar.titleView>
@@ -24,11 +26,11 @@
   <GridLayout rows="auto, *" orientation="vertical">
 
      <GridLayout columns="*,*" style="background-color: #A9958D">
-        <StackLayout orientation="vertical" >
+        <StackLayout orientation="vertical" opacity="{{ isReorderActive ? '0.3' : '1'}}">
              <Button text="ALL" tap="{{onTap_AllMode}}" cssClass="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
              <GridLayout cssClass="{{ Mode == 'ALL' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
          </StackLayout>
-         <StackLayout col= "1" orientation="vertical" >
+         <StackLayout col= "1" orientation="vertical" opacity="{{ isReorderActive ? '0.3' : '1'}}">
              <Button text="FAVOURITES" tap="{{onTap_FavoritesMode}}" cssClass="{{ Mode == 'FAVOURITES' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
              <GridLayout cssClass="{{ Mode == 'FAVOURITES' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
          </StackLayout>

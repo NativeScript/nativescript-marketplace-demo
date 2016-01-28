@@ -20,7 +20,7 @@
         </ActionBar>
     </examples:ExamplePage.actionBar>
     <GridLayout rows="auto, *" orientation="vertical">
-        <GridLayout columns="*,*" style="background-color: #A9958D">
+        <GridLayout columns="*,*" style="background-color: #A9958D" opacity="{{ isReorderActive ? '0.3' : '1'}}">
             <StackLayout orientation="vertical" >
                 <Button text="All" tap="{{onTap_AllMode}}" cssClass="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
                 <GridLayout cssClass="{{ Mode == 'ALL' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
