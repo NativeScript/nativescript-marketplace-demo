@@ -2,7 +2,7 @@
     <Label text="Spending on education" cssClass="chart-example-tytle-style"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
-            <chart:DonutSeries showLabels="true" selectionMode="DataPoint" expandRadiusFactor="1.1" outerRadiusFactor="0.9" items="{{ pieSource3 }}" valueProperty="Amount" legendLabelProperty="Level">
+            <chart:DonutSeries showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.9" items="{{ pieSource3 }}" valueProperty="Amount" legendLabelProperty="Level">
                 <chart:DonutSeries.labelStyle>
                     <chart:PointLabelStyle  margin="-50" textFormat="$%3.0f"  textColor="White" textSize="10"/>
                 </chart:DonutSeries.labelStyle>

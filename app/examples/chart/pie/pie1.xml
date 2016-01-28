@@ -2,7 +2,7 @@
     <Label text="International food sales by country, 2014" cssClass="chart-example-tytle-style"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
-            <chart:PieSeries showLabels="true" selectionMode="DataPoint" expandRadiusFactor="1.1" outerRadiusFactor="0.9" items="{{ pieSource }}" valueProperty="Amount" legendLabelProperty="Country">
+            <chart:PieSeries showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.9" items="{{ pieSource }}" valueProperty="Amount" legendLabelProperty="Country">
                 <chart:PieSeries.labelStyle>
                     <chart:PointLabelStyle  margin="-70" textFormat="%2.0f%%" textColor="White" textSize="10" />
                 </chart:PieSeries.labelStyle>
