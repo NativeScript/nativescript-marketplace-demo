@@ -4,6 +4,7 @@
     xmlns="http://schemas.nativescript.org/tns.xsd"
 	xmlns:lv="nativescript-telerik-ui/listview"
 	actionBarHidden="true"
+    backgroundColor="Black"
 	navigatingTo="pageNavigatingTo"
 	navigatedFrom="pageNavigatedFrom">
 	
@@ -22,6 +23,7 @@
 										itemSwipeProgressStarted="onItemSwipeProgressStarted"
                                         itemReorderStarted="{{onShoppingItemReorderStarted}}"
                                         itemReordered="{{onShoppingItemReordered}}"
+                                        reorderMode="HoldAndDrag"
 										itemSwipeProgressEnded="onShoppingItemSwipeProgressEnded" 
 										itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>
@@ -54,6 +56,7 @@
 			 						itemSwipeProgressStarted="onItemSwipeProgressStarted"
                                     itemReorderStarted="{{onTodoItemReorderStarted}}"
                                     itemReordered="{{onTodoItemReordered}}"
+                                    reorderMode="HoldAndDrag"
 			 						itemSwipeProgressEnded="onTodoItemSwipeProgressEnded"
 			 						itemSwipeProgressChanged="onItemSwipeProgressChanged">
 				<lv:RadListView.listViewLayout>

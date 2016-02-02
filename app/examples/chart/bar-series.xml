@@ -1,4 +1,5 @@
 <examples:ExamplePage
+        backgroundColor="Black" 
         actionBarHidden="true"
         navigatingTo="pageNavigatingTo"
         xmlns:examples="examples/example-base-page"

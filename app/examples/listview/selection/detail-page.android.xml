@@ -1,5 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     loaded="pageLoaded"
+     backgroundColor="#FF5D4037"
     navigatedTo="pageNavigatedTo"
     cssClass="detailPageStyle">
 
@@ -18,10 +19,10 @@
             </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar> 
-
-    <StackLayout rows="auto, *" orientation="vertical" >
-      <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
-      <Label text="{{ Content }}" cssClass="detailContent" textWrap="true" />
-    </StackLayout>
-
+    <GridLayout backgroundColor="#FFE4D8D4" verticalAlignment="stretch">
+        <StackLayout rows="auto, *" orientation="vertical" >
+            <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
+            <Label text="{{ Content }}" cssClass="detailContent" textWrap="true" />
+        </StackLayout>
+    </GridLayout>
 </Page>

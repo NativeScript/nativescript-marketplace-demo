@@ -34,6 +34,7 @@
             itemSelected="{{onItemSelected}}"
             itemDeselected="{{onItemDeselected}}"
             cellReorder="{{isReorderActive ? true : false}}"
+            reorderMode="Drag"
             itemSwipeProgressStarted="{{onStartSwipeCell}}"
             itemSwipeProgressEnded="{{onCellSwiped}}"
             itemTap="{{ onItemTap }}"
@@ -41,7 +42,7 @@
             swipeCells="{{isReorderActive ? false : true}}" cssClass="mainPageStyle">
 
         <lv:RadListView.listViewLayout>
-            <lv:ListViewLinearLayout scrollDirection="Vertical" itemSpacing="10" itemInsertAnimation="Default" itemDeleteAnimation="Default"/>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"/>
         </lv:RadListView.listViewLayout>
 
         <lv:RadListView.itemTemplate>
@@ -52,7 +53,9 @@
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
                     <Label row="1" col="1"  text="{{ Summary }}" ios.numberOfLines="3" cssClass="contentStyle" textWrap="true"/>
                 </GridLayout>
-                <Image col="2" src="res://listview/selection/reorder-icon" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
+               <lv:ReorderHandle col="2"  verticalAlignment="center" paddingRight="8" paddingLeft="8" paddingBottom="8" paddingTop="8">
+                    <Image src="res://listview/selection/reorder-icon" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" />
+                </lv:ReorderHandle>
             </GridLayout>
          </lv:RadListView.itemTemplate>
 

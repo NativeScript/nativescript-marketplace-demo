@@ -1,5 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     loaded="pageLoaded"
+     backgroundColor="#FF5D4037"
     navigatedTo="pageNavigatedTo"
     cssClass="detailPageStyle">
 

@@ -3,6 +3,7 @@
     xmlns:examples="examples/example-base-page" 
     xmlns:lv="nativescript-telerik-ui/listview"
     navigatingFrom="onNavigatingFrom"
+    backgroundColor="#FF5D4037"
     navigatingTo="pageNavigatingTo" unloaded="onPageUnloaded">
     <examples:ExamplePage.actionBar>
         <ActionBar backgroundColor="{{(isReorderActive || isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}">
@@ -40,6 +41,7 @@
                 itemSelected="{{onItemSelected}}"
                 itemDeselected="{{onItemDeselected}}"
                 cellReorder="{{isReorderActive ? true : false}}"
+                reorderMode="Drag"
                 itemSwipeProgressStarted="{{onStartSwipeCell}}"
                 itemSwipeProgressEnded="{{onCellSwiped}}"
                 itemTap="{{ onItemTap }}"
@@ -52,7 +54,9 @@
 
         <lv:RadListView.itemTemplate>
             <GridLayout columns="auto, *">
-                <Image src="res://ic_listview_selection_reorder" marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}"/>
+                <lv:ReorderHandle marginRight="8" marginLeft="8" marginBottom="8" marginTop="8" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                    <Image src="res://ic_listview_selection_reorder" />
+                </lv:ReorderHandle>
                 <GridLayout columns="auto, *" rows="auto,*" cssClass="{{isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" col="1" >
                     <Image row="0" col="0" margin="5" src="res://fav_icon" visibility="{{ _isFavourite ? 'visible' : 'collapsed' }}" />
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
