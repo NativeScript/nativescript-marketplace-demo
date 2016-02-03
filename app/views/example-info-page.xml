@@ -6,9 +6,9 @@
       backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
         <ActionBar title="Example Info">
-            <ActionBar.navigationButton>
-                <NavigationButton ios:text="Back" android:icon="res://ic_arrow_back" android:tap="navigateBack" />
-            </ActionBar.navigationButton>
+            <ActionBar>
+                <NavigationButton ios:text="Back" android.systemIcon="ic_arrow_back" />
+            </ActionBar>
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">

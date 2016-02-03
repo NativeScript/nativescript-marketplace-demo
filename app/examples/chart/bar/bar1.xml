@@ -1,5 +1,5 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
-    <Label text="Performance summary, 2014" cssClass="chart-example-tytle-style"/>
+    <Label text="Performance summary, 2014" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.series>
             <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount" selectionMode="DataPoint" />

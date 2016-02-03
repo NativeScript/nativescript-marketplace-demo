@@ -1,5 +1,5 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
-    <Label text="Energy consumption, 2013/2014" cssClass="chart-example-tytle-style"/>
+    <Label text="Energy consumption, 2013/2014" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
             <chart:PieSeries showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.8" items="{{ pieSource2 }}" valueProperty="Amount" legendLabelProperty="Company">

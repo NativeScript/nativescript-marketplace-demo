@@ -53,8 +53,8 @@
                     <Label row= "0" col= "1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
                     <Label row="1" col="1"  text="{{ Summary }}" ios.numberOfLines="3" cssClass="contentStyle" textWrap="true"/>
                 </GridLayout>
-               <lv:ReorderHandle col="2"  verticalAlignment="center" paddingRight="8" paddingLeft="8" paddingBottom="8" paddingTop="8">
-                    <Image src="res://listview/selection/reorder-icon" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" />
+                <lv:ReorderHandle col="2" verticalAlignment="center">
+                     <Image src="res://listview/selection/reorder-icon" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" stretch="none" verticalAlignment="stretch" margin="16"/>
                 </lv:ReorderHandle>
             </GridLayout>
          </lv:RadListView.itemTemplate>
