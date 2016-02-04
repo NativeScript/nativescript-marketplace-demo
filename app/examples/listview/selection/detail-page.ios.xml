@@ -1,8 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
     loaded="pageLoaded"
-     backgroundColor="#FF5D4037"
-    navigatedTo="pageNavigatedTo"
-    cssClass="detailPageStyle">
+     backgroundColor="#FFE4D8D4"
+    navigatedTo="pageNavigatedTo">
 
      <Page.actionBar >
         <ActionBar color="#C7262120">
@@ -13,18 +12,18 @@
             </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar> 
-<GridLayout rows="auto, *">
-    <StackLayout rows="auto, *" orientation="vertical" >
-        <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
-        <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
-    </StackLayout>
-    <GridLayout row="1" columns="*, *" backgroundColor="#75665F" verticalAlignment="bottom" horizontalAlignment="stretch" >
-        <GridLayout col="0" tap="onAddToFavouritesTap" verticalAlignment="center">
-            <Image src="res://listview/selection/add-to-fav-icon" stretch="none" horizontalAlignment="center" verticalAlignment="center" marginTop="8" marginBottom="8" />
-        </GridLayout>
-        <GridLayout tap="onDeleteTap" col="1" verticalAlignment="center">
-            <Image src="res://listview/selection/delete-icon" stretch="none" horizontalAlignment="center" verticalAlignment="center" marginTop="8" marginBottom="8" />
+    <GridLayout rows="auto, *">
+        <StackLayout rows="auto, *" orientation="vertical" >
+            <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
+            <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
+        </StackLayout>
+        <GridLayout row="1" columns="*, *" backgroundColor="#75665F" verticalAlignment="bottom" horizontalAlignment="stretch" >
+            <GridLayout col="0" tap="onAddToFavouritesTap" verticalAlignment="center">
+                <Image src="res://listview/selection/add-to-fav-icon" stretch="none" horizontalAlignment="center" verticalAlignment="center" marginTop="8" marginBottom="8" />
+            </GridLayout>
+            <GridLayout tap="onDeleteTap" col="1" verticalAlignment="center">
+                <Image src="res://listview/selection/delete-icon" stretch="none" horizontalAlignment="center" verticalAlignment="center" marginTop="8" marginBottom="8" />
+            </GridLayout>
         </GridLayout>
     </GridLayout>
-</GridLayout>
 </Page>
