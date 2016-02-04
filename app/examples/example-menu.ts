@@ -9,9 +9,16 @@ var isAndroid: boolean = platform.device.os === platform.platformNames.android;
 var OVERLAY_ELEVATION = 12;
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;
 
-export function toggleDrawerState(args) {
+export function openDrawer(args) {
 	var drawer = args.object.page.getViewById("example-menu-drawer");
-	drawer.toggleDrawerState();
+	drawer.gesturesEnabled = true;
+	drawer.showDrawer();
+}
+
+export function closeDrawer(args) {
+	var drawer = args.object.page.getViewById("example-menu-drawer");
+	drawer.gesturesEnabled = false;
+	drawer.closeDrawer();
 }
 
 export function menuButtonLoaded(args) {
@@ -67,8 +74,14 @@ export function menuButtonLoaded(args) {
 	}
 }
 
+export function drawerClosed(args) {
+    var drawer = args.object;
+    drawer.gesturesEnabled = false;
+}
+
 export function drawerLoaded(args) {
 	var drawer = args.object;
+    drawer.gesturesEnabled = false;
 	if (!drawer.autoCloseAssigned) {
 		drawer.autoCloseAssigned = true;
 		drawer.page.on("navigatedFrom", (args) => {
