@@ -87,11 +87,6 @@ export class ListViewLayoutsModel extends Observable{
 
 	];
 
-	constructor() {
-
-		this.preparePictures();
-	}
-
 	get pictures(): Array<any> {
 		return this._source;
 	}
