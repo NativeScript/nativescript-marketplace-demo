@@ -38,9 +38,9 @@ export function navigateToExample(example: examplesVM.Example, siblings: example
 
 export function navigateToNextExample(current: exampleInfoPageVM.ExampleNavigationContext) {
     var index = current.siblings.indexOf(current.example);
-    --index;
-    if (index < 0) {
-        index = current.siblings.length - 1;
+    ++index;
+    if (index >= current.siblings.length) {
+        index = 0;
     }
 
     var navContext: exampleInfoPageVM.ExampleNavigationContext = {
@@ -58,9 +58,9 @@ export function navigateToNextExample(current: exampleInfoPageVM.ExampleNavigati
 
 export function navigateToPrevExample(current: exampleInfoPageVM.ExampleNavigationContext) {
     var index = current.siblings.indexOf(current.example);
-    ++index;
-    if (index >= current.siblings.length) {
-        index = 0;
+    --index;
+    if (index < 0) {
+        index = current.siblings.length - 1;
     }
 
     var navContext: exampleInfoPageVM.ExampleNavigationContext = {
