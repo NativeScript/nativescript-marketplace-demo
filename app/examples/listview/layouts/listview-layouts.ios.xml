@@ -18,7 +18,7 @@
 	<GridLayout rows="*" >
         <lv:RadListView id="list-view" row="0" items="{{ pictures }}" marginRight="-2">
             <lv:RadListView.listViewLayout>
-                <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="250"/>
+                <lv:ListViewLinearLayout ios.dynamicItemSize="false" scrollDirection="Vertical" itemHeight="250"/>
             </lv:RadListView.listViewLayout>
             <lv:RadListView.itemTemplate>
                 <GridLayout rows="*" backgroundColor="White">

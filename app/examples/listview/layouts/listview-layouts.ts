@@ -31,6 +31,7 @@ export function onLinearLayoutTap(args: any) {
 	var linearLayout = new listViewModule.ListViewLinearLayout();
 	listView.listViewLayout = linearLayout;
 	viewModel.isLinearActive = true;
+    linearLayout.ios.dynamicItemSize = false;
 	viewModel.isWrapActive = false;
 }
 
