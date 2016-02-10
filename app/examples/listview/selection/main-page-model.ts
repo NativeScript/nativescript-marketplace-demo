@@ -310,7 +310,9 @@ export class ListView_ViewModel extends observableModule.Observable {
             currentItem.IsFavourite = !currentItem.IsFavourite;
         }
 
-        this.turnOffSelection();
+        if (applicationModule.android) {
+            this.turnOffSelection();
+        }
     }
 
     public onActivateReorderTap(args) {
