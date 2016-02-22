@@ -6,8 +6,28 @@ import frame = require("ui/frame");
 import exampleBase = require("./examples/example-base-page");
 import application = require("application");
 import prof = require("./common/profiling");
+import * as trace from "trace";
+import * as analytics from "./common/analytics";
+ 
+application.on(application.launchEvent, context => {
+    analytics.start();
+});
 
-if(application.android) {
+var inAppTime: analytics.TimeToken;
+application.on(application.resumeEvent, data => {
+    console.log("Resume");
+    inAppTime = analytics.trackTimingStart("In app time");
+});
+
+application.on(application.suspendEvent, data => {
+    console.log("Suspend");
+    if (inAppTime) {
+        inAppTime.stop();
+        inAppTime = undefined;
+    }
+});
+
+if (application.android) {
     application.onLaunch = function (intent) {
         console.log("onLaunch");
         com.facebook.drawee.backends.pipeline.Fresco.initialize(application.android.context);

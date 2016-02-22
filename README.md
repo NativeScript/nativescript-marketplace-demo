@@ -39,3 +39,8 @@ Want to see more samples like this one? Check our [NativeScript samples list](ht
 
 For more news about NativeScript please [follow our twitter account](http://twitter.com/nativescript).
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
+
+# Enable Analytics
+Analytics is set in place but requires api key to be enabled.
+Just place an `"analyticsAppId": "****************"` key in the `app/package.json`.
+For more information check the plugin in npmjs.org: https://www.npmjs.com/package/nativescript-telerik-analytics
