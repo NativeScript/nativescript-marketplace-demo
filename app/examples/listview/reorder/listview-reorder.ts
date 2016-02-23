@@ -24,11 +24,11 @@ export function pageNavigatingTo(args: any) {
         var window = application.android.foregroundActivity.getWindow();
         if (android.os.Build.VERSION.SDK_INT > 18) {
             window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             console.log("Adding flags");
         }
 
         if (android.os.Build.VERSION.SDK_INT >= 21) {
+            window.addFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(android.graphics.Color.BLACK);
         }
     }
@@ -44,6 +44,9 @@ export function pageNavigatedFrom(args: any) {
         var window = application.android.foregroundActivity.getWindow();
         if (android.os.Build.VERSION.SDK_INT > 18) {
             window.addFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
             window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         }
     }
