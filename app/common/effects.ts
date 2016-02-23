@@ -16,7 +16,6 @@ export function grayTouch(args: TouchGestureEventData) {
     switch(args.action) {
         case "up":
             if (!(--viewObject.gesturePoints)) {
-                console.log("Set background to WHITE!");
                 viewObject.animate({
                     // Get gray fast!
                     backgroundColor: new Color(0xFFEEEEEE),

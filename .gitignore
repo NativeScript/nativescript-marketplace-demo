@@ -8,3 +8,7 @@
 /node_modules/
 
 *.tgz
+
+/keystore/
+*.apk
+*.ipa

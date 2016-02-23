@@ -1,13 +1,21 @@
-import examplesVM = require("../view-models/examples-model")
-import groupVM = require("../view-models/group-page-view-model")
+import examplesVM = require("../view-models/examples-model");
+import groupVM = require("../view-models/group-page-view-model");
 import exampleInfoPageVM = require("../view-models/example-info-page-view-model");
 import frame = require("ui/frame");
 import viewModule = require("ui/core/view");
 import platform = require("platform");
 import prof = require("../common/profiling");
+import * as analytics from "./analytics";
 
 var isIOS: boolean = platform.device.os === platform.platformNames.ios;
 var isAndroid: boolean = platform.device.os === platform.platformNames.android;
+
+function traceNavigateTo(to: string, context?: string): string {
+    var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : "");
+    console.log("Track: " + eventText);
+    analytics.trackEvent(eventText);
+    return to;
+}
 
 export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
     // prof.start("group");
@@ -15,7 +23,7 @@ export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
     frame.topmost().navigate({
         animated: true,
         context: context,
-        moduleName: "views/group-page/group-page",
+        moduleName: traceNavigateTo("views/group-page/group-page"),
     })
 }
 
@@ -31,7 +39,7 @@ export function navigateToExample(example: examplesVM.Example, siblings: example
 
     frame.topmost().navigate({
         animated: true,
-        moduleName: navContext.example.path,
+        moduleName: traceNavigateTo(navContext.example.path),
         context: navContext
     });
 }
@@ -51,7 +59,7 @@ export function navigateToNextExample(current: exampleInfoPageVM.ExampleNavigati
 
     frame.topmost().navigate({
         animated: true,
-        moduleName: navContext.example.path,
+        moduleName: traceNavigateTo(navContext.example.path),
         context: navContext
     });
 }
@@ -71,18 +79,17 @@ export function navigateToPrevExample(current: exampleInfoPageVM.ExampleNavigati
 
     frame.topmost().navigate({
         animated: true,
-        moduleName: navContext.example.path,
+        moduleName: traceNavigateTo(navContext.example.path),
         context: navContext
     });
 }
 
 export function navigateToExampleInfo(context: exampleInfoPageVM.ExampleNavigationContext) {
     var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
-
     frame.topmost().navigate({
         animated: true,
         context: infoContext,
-        moduleName: "views/example-info-page"
+        moduleName: traceNavigateTo("views/example-info-page", infoContext.currentExample.path)
     });
 }
 
@@ -90,7 +97,7 @@ export function navigateToCode(context: examplesVM.Example) {
     frame.topmost().navigate({
         animated: true,
         context: context,
-        moduleName: "views/code-page",
+        moduleName: traceNavigateTo("views/code-page", context.path),
     })
 }
 
@@ -98,21 +105,21 @@ export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
     frame.topmost().navigate({
         animated: true,
         context: context,
-        moduleName: "views/group-info-page",
+        moduleName: traceNavigateTo("views/group-info-page", context.title),
     })
 }
 
 export function navigateToHome() {
     var topmost = frame.topmost();
     if (topmost.currentEntry.moduleName !== "views/main-page") {
-        frame.topmost().navigate("views/main-page");
+        frame.topmost().navigate(traceNavigateTo("views/main-page"));
     }
 }
 
 export function navigateToAbout() {
     var topmost = frame.topmost();
     if (topmost.currentEntry.moduleName !== "views/about/about") {
-        frame.topmost().navigate("views/about/about");
+        frame.topmost().navigate(traceNavigateTo("views/about/about"));
     }
 }
 
