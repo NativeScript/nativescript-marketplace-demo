@@ -138,7 +138,7 @@ export class ChartExamplesDataModel {
         if (this._pieSource) {
             return this._pieSource;
         }
-        return this.pieSource = [
+        return this._pieSource = [
             { Country: "Belgium", Amount: 20.0 },
             { Country: "Germany", Amount: 50.0 },
             { Country: "UK", Amount: 30.0 }
@@ -149,7 +149,7 @@ export class ChartExamplesDataModel {
         if (this._pieSource2) {
             return this._pieSource2;
         }
-        return this.pieSource2 = [
+        return this._pieSource2 = [
             { Company: "Google", Amount: 20.0 },
             { Company: "Apple", Amount: 30.0 },
             { Company: "Microsoft", Amount: 10.0 },

@@ -5,15 +5,16 @@
       "version": "1.6.0"
     },
     "tns-android": {
-      "version": "1.6.0"
+      "version": "1.6.2"
     }
   },
   "dependencies": {
     "fresco": "file:./deps/fresco-0.1.0.tgz",
     "highlight.js": "^8.7.0",
     "nativescript-telerik-analytics": "^1.0.0",
-    "nativescript-telerik-ui": "^0.1.3",
-    "tns-core-modules": "file:./deps/tns-core-modules.tgz"
+    "nativescript-telerik-ui": "http://nsbuild01.telerik.com/build/job/nativescript-ui-development/lastSuccessfulBuild/artifact/out/nativescript-ui-debug-dev.tgz",
+    "tns-core-modules": "http://nsbuild01.telerik.com/build/job/tns-modules-stable/lastSuccessfulBuild/artifact/bin/dist/tns-core-modules.tgz",
+    "tns-core-modules-widgets": "http://nsbuild01.telerik.com/build/job/android-widgets-stable/lastSuccessfulBuild/artifact/dist/tns-core-modules-widgets.tgz"
   },
   "devDependencies": {
     "grunt": "0.4.5",
@@ -21,8 +22,11 @@
     "grunt-contrib-copy": "0.8.0",
     "grunt-shell": "1.1.2",
     "grunt-ts": "5.0.0-beta.5",
+    "nativescript": "http://nsbuild01.telerik.com/build/job/CLI-stable/lastSuccessfulBuild/artifact/nativescript.tgz",
     "nativescript-dev-typescript": "^0.2.2",
     "shelljs": "^0.5.3",
-    "typescript": "^1.7.3"
+    "tns-android": "http://nsbuild01.telerik.com/build/job/tns-android-stable/lastSuccessfulBuild/artifact/dist/tns-android.tgz",
+    "tns-ios": "http://nsbuild01.telerik.com/build/job/tns-ios-stable/lastSuccessfulBuild/artifact/dist/tns-ios.tgz",
+    "typescript": "^1.8.2"
   }
 }
