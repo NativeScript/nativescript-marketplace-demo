@@ -10,7 +10,15 @@ import * as trace from "trace";
 import * as analytics from "./common/analytics";
  
 application.on("uncaughtError", args => {
-    analytics.trackException(args.android || args.ios, "Uncaught Application Error");
+    var error = args.android || args.ios;
+    if (error.nativeException){
+        error = {
+            name: error.name,
+            message: error.message,
+            stack: error.stackTrace
+        };
+    }
+    analytics.trackException(error, `Uncaught application error`);
 });
 
 application.on(application.launchEvent, context => {
