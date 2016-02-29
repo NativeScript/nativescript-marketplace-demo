@@ -28,5 +28,6 @@
     "tns-android": "http://nsbuild01.telerik.com/build/job/tns-android-stable/lastSuccessfulBuild/artifact/dist/tns-android.tgz",
     "tns-ios": "http://nsbuild01.telerik.com/build/job/tns-ios-stable/lastSuccessfulBuild/artifact/dist/tns-ios.tgz",
     "typescript": "^1.8.2"
-  }
+  },
+  "license": "Apache-2.0"
 }
