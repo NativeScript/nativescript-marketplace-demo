@@ -29,7 +29,7 @@
 	</drawer:RadSideDrawer.drawerContent>
 	<drawer:RadSideDrawer.mainContent>
 		<GridLayout>
-			<GridLayout id="menu-button" tap="openDrawer" width="80" height="80" horizontalAlignment="left" verticalAlignment="bottom" loaded="menuButtonLoaded">
+			<GridLayout id="menu-button" automationText="Menu" tap="openDrawer" width="80" height="80" horizontalAlignment="left" verticalAlignment="bottom" loaded="menuButtonLoaded">
 				<Image id="menu-button-background" src="res://menu_btn_bg" opacity="0" scaleX="0" scaleY="0" horizontalAlignment="left" verticalAlignment="bottom" width="42" height="42" margin="38 38 0 0" originX="0" originY="1" />
 				<Image id="menu-button-dots" ios:src="res://menu_btn" android:src="res://ic_menu_btn" width="24" height="6" opacity="0" translateY="10" margin="0 0 18 7" horizontalAlignment="left" verticalAlignment="bottom" />
 				<Label id="menu-button-title" text="MENU" opacity="0" translateY="7" horizontalAlignment="left" verticalAlignment="bottom" fontSize="10" color="#55FFFFFF" android:margin="0 0 4 6" ios:margin="0 0 4 5" />
