@@ -9,6 +9,10 @@ import prof = require("./common/profiling");
 import * as trace from "trace";
 import * as analytics from "./common/analytics";
  
+application.on("uncaughtError", args => {
+    analytics.trackException(args.android || args.ios, "Uncaught Application Error");
+});
+
 application.on(application.launchEvent, context => {
     analytics.start();
 });

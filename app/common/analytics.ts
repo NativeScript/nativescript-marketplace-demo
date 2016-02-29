@@ -39,6 +39,13 @@ export function trackTimingStart(feature: string): TimeToken {
     return Analytics.trackTimingStart(feature);
 }
 
+export function trackException(e: Error, context: string): TimeToken {
+    if (!enabled) {
+        return;
+    }
+    Analytics.trackException(e, context);
+}
+
 export interface TimeToken {
     stop: () => void;
 }
