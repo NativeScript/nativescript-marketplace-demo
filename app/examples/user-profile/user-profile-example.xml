@@ -1,4 +1,9 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" navigatingTo="pageNavigatingTo" backgroundSpanUnderStatusBar="true">
+<examples:ExamplePage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:examples="examples/example-base-page"
+        navigatingTo="pageNavigatingTo"
+        backgroundSpanUnderStatusBar="true"
+        tap="tap">
     <Page.actionBar>
         <ActionBar title="User Profile">
             <android>
@@ -29,30 +34,32 @@
                 <!-- Username -->
                 <GridLayout columns="*" rows="auto, auto" verticalAlignment="top">
                     <Label text="Username" cssClass="field-title" />
-                    <TextField text="{{ username }}" cssClass="field" android:row="1"/>
+                    <TextField id="username" text="{{ username }}" cssClass="field" android:row="1" tap="inputTap" />
                 </GridLayout>
                 <StackLayout cssClass="line"/>
                 <!-- Email -->
                 <GridLayout columns="*" rows="auto, auto" verticalAlignment="top">
                     <Label text="Email" cssClass="field-title" />
-                    <TextField text="{{ email }}" cssClass="field" android:row="1"/>
+                    <TextField id="email" text="{{ email }}" cssClass="field" android:row="1" tap="inputTap" />
                 </GridLayout>
                 <StackLayout cssClass="line"/>
                 <!-- Password -->
                 <GridLayout columns="*" rows="auto, auto" verticalAlignment="top">
                     <Label text="Password" cssClass="field-title" />
-                    <TextField col="1" text="{{ password }}" secure="{{ showPassword, !showPassword }}" cssClass="field" android:row="1"/>
+                    <TextField id="password" col="1" text="{{ password }}" secure="{{ showPassword, !showPassword }}" cssClass="field" android:row="1" tap="inputTap" />
                 </GridLayout>
                 <StackLayout cssClass="line"/>
                 <StackLayout orientation="horizontal">
-                    <Image src="{{ showPassword ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" tap="toggleShowPassword" />
+                    <GridLayout tap="toggleShowPassword" horizontalAlignment="left">
+                        <Image src="{{ showPassword ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" />
+                    </GridLayout>
                     <Label text="Show password" cssClass="field-switch-title" />
                 </StackLayout>
                 <StackLayout cssClass="line"/>
                 <!-- Bio -->
                 <StackLayout>
                     <Label text="Bio" cssClass="field-title" />
-                    <TextView text="{{ bio }}" android:hint="Add bio" ios:hint="Bio" cssClass="field-multiline" />
+                    <TextView id="bio" text="{{ bio }}" android:hint="Add bio" ios:hint="Bio" cssClass="field-multiline" tap="inputTap" />
                 </StackLayout>
                 <StackLayout cssClass="line"/>
                 <!-- Public -->

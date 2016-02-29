@@ -4,6 +4,7 @@ import platform = require("platform");
 import application = require("application")
 
 var viewModel;
+var lastInput = undefined;
 
 // Event handler for Page "loaded" event attached in main-page.xml
 export function pageNavigatingTo(args: observable.EventData) {
@@ -18,6 +19,8 @@ export function pageNavigatingTo(args: observable.EventData) {
         showPassword: false
     });
     page.bindingContext = viewModel;
+
+    lastInput = undefined;
 }
 
 export function doneTapped(args) {
@@ -44,4 +47,29 @@ function showToast(msg: string) {
 
 export function toggleShowPassword(args: observable.EventData) {
     viewModel.showPassword = !viewModel.showPassword;
+}
+
+var closeTimeout = false;
+
+export function inputTap(args) {
+    lastInput = args.object;
+    if (closeTimeout) {
+        clearTimeout(closeTimeout);
+    }
+    closeTimeout = setTimeout(() => {
+        closeTimeout = false;
+    }, 20);
+}
+
+export function tap(args) {
+    var page = args.object.page;
+    if (!closeTimeout) {
+        closeTimeout = setTimeout(() => {
+            page.getViewById("username").dismissSoftInput();
+            page.getViewById("email").dismissSoftInput();
+            page.getViewById("password").dismissSoftInput();
+            page.getViewById("bio").dismissSoftInput();
+            closeTimeout = false;
+        }, 20);
+    }
 }
