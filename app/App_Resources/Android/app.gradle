@@ -1,8 +1,8 @@
 // http://android-developers.blogspot.bg/2016/02/android-support-library-232.html
 android {  
-    defaultConfig {  
-        generatedDensities = []
-    }
+    // defaultConfig {
+    //     generatedDensities = []
+    // }
     aaptOptions {
         additionalParameters "--no-version-vectors"
     }
