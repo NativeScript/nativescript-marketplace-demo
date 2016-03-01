@@ -44,7 +44,7 @@
         "app/views/example-info-page.ts",
         "app/views/group-info-page.ts",
         "app/views/group-page/group-page.ts",
-        "app/views/main-page.ts",
+        "app/views/main-page/main-page.ts",
         "app/views/side-drawer-content/side-drawer-content.ts",
         "node_modules/tns-core-modules/tns-core-modules.d.ts"
     ],

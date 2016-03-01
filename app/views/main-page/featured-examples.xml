@@ -1,0 +1,28 @@
+<GridLayout>
+  <ScrollView>
+    <Repeater items="{{ featuredExamples }}">
+      <Repeater.itemsLayout>
+        <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
+      </Repeater.itemsLayout>
+      <Repeater.itemTemplate>
+        <StackLayout touch="tileTouch" tap="navigateToExample" cssClass="example-item" automationText="{{ title }}"
+          orientation="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'horizontal' : 'vertical' }}"
+          visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
+
+          <GridLayout columns="*" rows="*"
+              cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
+            <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
+            <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
+          </GridLayout>
+
+          <StackLayout>
+            <Label text="{{ title }}" 
+              cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-title-list' : 'example-title-wrap' }}" />
+            <Label text="{{ controls }}" textWrap="true"
+              cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'used-controls-list' : 'used-controls-wrap' }}"/>
+          </StackLayout>
+        </StackLayout>
+      </Repeater.itemTemplate>
+    </Repeater>
+  </ScrollView>
+</GridLayout>

@@ -64,6 +64,6 @@ if (application.ios) {
 }
 
 prof.start("main-page");
-application.mainModule = "views/main-page";
+application.mainModule = "views/main-page/main-page";
 // application.mainModule = "profile-main";
 application.start();
