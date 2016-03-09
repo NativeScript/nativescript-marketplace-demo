@@ -12,3 +12,5 @@
 /keystore/
 *.apk
 *.ipa
+
+Telerik.keystore
