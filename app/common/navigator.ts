@@ -111,8 +111,8 @@ export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
 
 export function navigateToHome() {
     var topmost = frame.topmost();
-    if (topmost.currentEntry.moduleName !== "views/main-page") {
-        frame.topmost().navigate(traceNavigateTo("views/main-page"));
+    if (topmost.currentEntry.moduleName !== "views/main-page/main-page") {
+        frame.topmost().navigate(traceNavigateTo("views/main-page/main-page"));
     }
 }
 

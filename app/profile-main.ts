@@ -8,7 +8,7 @@ export function createPage() {
     btn.text = "GO!";
     btn.on(button.Button.tapEvent, function() {
         prof.startCPUProfile("main-page");
-        var nextPage = "views/main-page";
+        var nextPage = "views/main-page/main-page";
         frame.topmost().navigate(nextPage);
         
         // testListenersCreate();
