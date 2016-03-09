@@ -39,6 +39,7 @@ application.on(application.suspendEvent, data => {
     }
 });
 
+declare var org;
 if (application.android) {
     application.onLaunch = function (intent) {
         console.log("onLaunch");
@@ -49,6 +50,12 @@ if (application.android) {
             if (window) {
                 window.setBackgroundDrawable(null);
             }
+        }
+        // Enable ACRA Telerik Analytics crash reporting
+        var packageJson = require("./package.json");
+        var analyticsProductKeyAndroid = packageJson.analyticsProductKeyAndroid;
+        if (analyticsProductKeyAndroid) {
+            org.nativescript.ata.AnalyticsReportSender.init(application.android.nativeApp, analyticsProductKeyAndroid);
         }
     }
 }
