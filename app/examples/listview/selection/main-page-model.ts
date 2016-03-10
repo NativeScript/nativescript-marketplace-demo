@@ -102,11 +102,6 @@ export class ListView_ViewModel extends observableModule.Observable {
             "Application teams are continuously adopting agile software techniques as the principal method of building applications. Agile methodologies, such as Scrum, Extreme Programming, Feature-Driven Development and Test-Driven Development offer the ability to iteratively develop applications.",
             true, 3));
         this._itemsBackup.push(new BlogPostItemData(
-            "Telerik UI for Xamarin Now Supports Xamarin.Forms 1.3.0",
-            "Recently, the Xamarin guys came with a so to say major version of Xamarin.Forms, 1.3.0. This version brought enhancements as well as some changes that required some internal changes on our side. We are well aware that you will want to benefit from the Xamarin.Forms improvements immediately, while still using Telerik UI for Xamarin, so I am happy to announce the availability of a new UI for Xamarin version supporting Xamarin.Forms 1.3.0. Feel free to NuGet-update your Telerik UI for Xamarin projects to Xamarin.Forms 1.3.0.",
-            "Recently, the Xamarin guys came with a so to say major version of Xamarin.Forms, 1.3.0. This version brought enhancements as well as some changes that required some internal changes on our side.",
-            false, 4));
-        this._itemsBackup.push(new BlogPostItemData(
             "Increase Your Mobile App Engagement. Become Part of the Web of Apps.",
             "Mobile developers are facing some severe limitations when it comes to app distribution: app content is almost invisible to browser search, app-to-app connections are scarce, and app updates need to go through a tedious re-submission process on the relevant marketplace. How can Google App Indexing, deep linking and Google Tag Manager for mobile apps help in the process of overcoming these limitations?",
             "Mobile developers are facing some severe limitations when it comes to app distribution: app content is almost invisible to browser search, app-to-app connections are scarce, and app updates need to go through a tedious re-submission process on the relevant marketplace.",
