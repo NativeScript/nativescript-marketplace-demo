@@ -1,4 +1,5 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" navigatingTo="pageNavigatingTo" backgroundSpanUnderStatusBar="true">
+<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" navigatingTo="pageNavigatingTo" backgroundSpanUnderStatusBar="true"
+    tap="tap">
     <Page.actionBar>
 		<ActionBar title="All Sessions">
             <ActionBar.navigationButton>
@@ -19,7 +20,7 @@
             </SegmentedBar.items>
         </SegmentedBar>
         <!-- Search -->
-        <SearchBar row="1" text="{{ search }}" hint="Search" id="search" />
+        <SearchBar row="1" text="{{ search }}" hint="Search" id="search" tap="inputTap" />
         <!-- List -->
         <ListView row="2" items="{{ sessions }}" id="sessions-list">
             <ListView.itemTemplate>
