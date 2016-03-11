@@ -1,5 +1,5 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
-    xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+    xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
     xmlns:sdc="views/side-drawer-content"
     xmlns:mainpage="views/main-page"
     cssClass="qsf-page"

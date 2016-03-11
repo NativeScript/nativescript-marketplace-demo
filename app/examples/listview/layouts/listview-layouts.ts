@@ -1,5 +1,5 @@
 import model = require("./layouts-view-model");
-import listViewModule = require("nativescript-telerik-ui/listview");
+import listViewModule = require("nativescript-telerik-ui-pro/listview");
 import applicationModule = require("application");
 import frame = require("ui/frame");
 import colorModule = require("color");

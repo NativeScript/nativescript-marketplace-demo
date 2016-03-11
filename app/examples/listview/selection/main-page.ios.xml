@@ -1,7 +1,7 @@
 <examples:ExamplePage 
     xmlns="http://www.nativescript.org/tns.xsd" 
     xmlns:examples="examples/example-base-page" 
-    xmlns:lv="nativescript-telerik-ui/listview"
+    xmlns:lv="nativescript-telerik-ui-pro/listview"
     navigatingTo="pageNavigatingTo" 
     navigatingFrom="onNavigatingFrom"
     unloaded="onPageUnloaded"

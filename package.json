@@ -13,7 +13,7 @@
     "fresco": "file:./deps/fresco-0.1.0.tgz",
     "highlight.js": "^8.7.0",
     "nativescript-telerik-analytics": "*",
-    "nativescript-telerik-ui": "*",
+    "nativescript-telerik-ui-pro": "*",
     "tns-core-modules": "*",
     "tns-core-modules-widgets": "*"
   },

@@ -1,6 +1,6 @@
 import mainPageModule = require("./main-page-model");
 import pageModule = require("ui/page");
-import lvModule = require("nativescript-telerik-ui/listview");
+import lvModule = require("nativescript-telerik-ui-pro/listview");
 import frame = require("ui/frame");
 import pages = require("ui/page");
 

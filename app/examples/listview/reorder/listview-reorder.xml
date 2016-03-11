@@ -2,7 +2,7 @@
 <examples:ExamplePage 
 	xmlns:examples="examples/example-base-page"
     xmlns="http://schemas.nativescript.org/tns.xsd"
-	xmlns:lv="nativescript-telerik-ui/listview"
+	xmlns:lv="nativescript-telerik-ui-pro/listview"
 	actionBarHidden="true"
     backgroundColor="Black"
 	navigatingTo="pageNavigatingTo"

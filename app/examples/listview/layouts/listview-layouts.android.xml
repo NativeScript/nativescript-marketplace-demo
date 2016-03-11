@@ -1,6 +1,6 @@
 <examples:ExamplePage
     xmlns="http://www.nativescript.org/tns.xsd"
-    xmlns:lv="nativescript-telerik-ui/listview"
+    xmlns:lv="nativescript-telerik-ui-pro/listview"
     xmlns:examples="examples/example-base-page"
     xmlns:f="fresco/fresco"
     navigatingTo="pageNavigatingTo"
