@@ -1,4 +1,4 @@
-<GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
+<GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui-pro/chart">
     <Label text="Energy consumption, 2013/2014" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>

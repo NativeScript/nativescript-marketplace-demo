@@ -1,4 +1,4 @@
-<GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui/chart">
+<GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui-pro/chart">
     <Label cssClass="chart-example-tytle-style" text="Monthly sales revenue, 2014" textWrap="true"/>
     <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.series>

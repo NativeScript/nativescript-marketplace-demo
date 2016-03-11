@@ -1,5 +1,5 @@
 import model = require("./listview-reorder-model");
-import listViewModule = require("nativescript-telerik-ui/listview");
+import listViewModule = require("nativescript-telerik-ui-pro/listview");
 import viewModule = require('ui/core/view');
 import utils = require("utils/utils");
 import application = require("application");

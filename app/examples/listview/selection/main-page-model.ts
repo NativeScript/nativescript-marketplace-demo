@@ -1,6 +1,6 @@
 import observableModule = require("data/observable");
 import observableArray = require("data/observable-array");
-import lvModule = require("nativescript-telerik-ui/listview");
+import lvModule = require("nativescript-telerik-ui-pro/listview");
 import applicationModule = require("application");
 import utilsModule = require("utils/utils");
 import frame = require("ui/frame");

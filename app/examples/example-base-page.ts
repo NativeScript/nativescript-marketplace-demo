@@ -10,7 +10,7 @@ import platform = require("platform");
 import prof = require("../common/profiling");
 import builder = require("ui/builder");
 import { View } from "ui/core/view"
-import { RadSideDrawer } from "nativescript-telerik-ui/sidedrawer";
+import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
 
 var OVERLAY_ELEVATION = 12;
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;
