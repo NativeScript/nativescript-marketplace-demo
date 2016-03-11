@@ -35,3 +35,27 @@ export function toggleFavourite(args: gestures.GestureEventData) {
     session.toggleFavourite();
 }
 
+var closeTimeout: number = 0;
+var lastInput = undefined;
+
+export function inputTap(args) {
+    console.log("Input TAP!");
+    lastInput = args.object;
+    if (closeTimeout) {
+        clearTimeout(closeTimeout);
+    }
+    closeTimeout = setTimeout(() => {
+        closeTimeout = 0;
+    }, 20);
+}
+
+export function tap(args) {
+    console.log("Page TAP!");
+    var page = args.object.page;
+    if (!closeTimeout) {
+        closeTimeout = setTimeout(() => {
+            page.getViewById("search").dismissSoftInput();
+            closeTimeout = 0;
+        }, 20);
+    }
+}
