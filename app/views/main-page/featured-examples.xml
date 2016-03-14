@@ -2,26 +2,19 @@
   <ScrollView>
     <Repeater items="{{ featuredExamples }}">
       <Repeater.itemsLayout>
-        <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
+        <WrapLayout
+            margin="4"
+            horizontalAlignment="left"
+            itemWidth="{{ (screenWidth - 8) / 2 }}"
+            itemHeight="{{ (screenWidth - 8) * 0.5 + 50 }}"/>
       </Repeater.itemsLayout>
       <Repeater.itemTemplate>
-        <StackLayout touch="tileTouch" tap="navigateToExample" cssClass="example-item" automationText="{{ title }}"
-          orientation="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'horizontal' : 'vertical' }}"
-          visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
-
-          <GridLayout columns="*" rows="*"
-              cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
-            <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}" stretch="aspectFit" />
-            <Image src="res://ic_new" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
-          </GridLayout>
-
-          <StackLayout>
-            <Label text="{{ title }}" 
-              cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-title-list' : 'example-title-wrap' }}" />
-            <Label text="{{ controls }}" textWrap="true"
-              cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'used-controls-list' : 'used-controls-wrap' }}"/>
-          </StackLayout>
-        </StackLayout>
+        <GridLayout>
+            <GridLayout margin="4" rows="* 50" backgroundColor="white" touch="tileTouch" tap="navigateToExample" automationText="{{ title }}">
+                <Image src="{{ image }}" stretch="aspectFill" />
+                <Label row="1" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" />
+            </GridLayout>
+        </GridLayout>
       </Repeater.itemTemplate>
     </Repeater>
   </ScrollView>

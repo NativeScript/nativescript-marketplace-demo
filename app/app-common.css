@@ -1,13 +1,10 @@
 .qsf-page {
-    background-color: #3D5AFE;
-    background-image: url("res://bg_nav_bar");
-    background-repeat: no-repeat;
-    background-position: 60 0;
+    background-color: #455B66;
 }
 
 ActionBar {
+    background-color: #151F2F;
     color: white;
-    background-color: transparent;
 }
 
 .content-background-main {
