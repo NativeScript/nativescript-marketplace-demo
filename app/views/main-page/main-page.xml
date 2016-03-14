@@ -15,12 +15,10 @@
         <iOS>
           <ActionItem icon="res://ic_menu" ios.position="left" tap="showSlideout" />
         </iOS>
-        <ActionItem icon="{{ useListLayout ? 'res://ic_wrap_view' : 'res://ic_list_view' }}" ios.position="right" tap="toggleWrapLayout" />
       </ActionBar.actionItems>
       <ActionBar.titleView>
-        <!-- TODO: We should be able to center an image horizontally in android without using GridLayout -->
         <GridLayout>
-          <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="40 0 0 0" />
+          <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="0 60 0 0" />
         </GridLayout>
       </ActionBar.titleView>
     </ActionBar>
@@ -30,69 +28,7 @@
       <sdc:side-drawer-content />
     </drawer:RadSideDrawer.drawerContent>
     <drawer:RadSideDrawer.mainContent>
-      <GridLayout rows="auto, 44, *" columns="*">
-
-        <GridLayout row="1" rowSpan="2" cssClass="content-background-main" android:margin="47.5 0 0 0" />
-
-        <!-- Segmented bar navigation -->
-        <!-- TODO: I have failed to set the selectedBackgroundColor in CSS -->
-        <iOS>
-          <SegmentedBar selectedIndex="{{ selectedScreen }}"
-              cssClass="example-types-bar"
-              ios:selectedBackgroundColor="#F5F5F5"
-              android:selectedBackgroundColor="#00E676">
-            <SegmentedBar.items>
-              <SegmentedBarItem title="Featured examples" />
-              <SegmentedBarItem title="All controls" />
-            </SegmentedBar.items>
-          </SegmentedBar>
-
-          <Button row="1"
-            ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
-            android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
-            cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
-        </iOS>
-        <!-- Show New filter -->
-
-        <iOS>
-          <!-- Featured examples -->
-          <mainpage:featured-examples visibility="{{ selectedScreen===0 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*" />
-
-          <!-- All examples -->
-          <mainpage:all-controls visibility="{{ selectedScreen===1 ? 'visible' : 'collapsed' }}" row="2" columns="*" rows="*" />
-        </iOS>
-        <Android>
-          <TabView row="1" rowSpan="2" columns="*" rows="*"
-              cssClass="example-types-tab"
-              tabsBackgroundColor="#00FFFFFF"
-              selectedColor="#00E676">
-            <TabView.items>
-              <TabViewItem title="Featured examples">
-                <TabViewItem.view>
-                  <GridLayout rows="auto, *">
-                    <Button
-                      ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
-                      android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
-                      cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
-                    <mainpage:featured-examples row="1" />
-                  </GridLayout>
-                </TabViewItem.view>
-              </TabViewItem>
-              <TabViewItem title="All controls">
-                <TabViewItem.view>
-                  <GridLayout rows="auto, *">
-                    <Button
-                      ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}"
-                      android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}"
-                      cssClass="show-new-btn" tap="{{ toggleShowNew }}" />
-                    <mainpage:all-controls row="1" />
-                  </GridLayout>
-                </TabViewItem.view>
-              </TabViewItem>
-            </TabView.items>
-          </TabView>
-        </Android>
-      </GridLayout>
+      <mainpage:featured-examples />
     </drawer:RadSideDrawer.mainContent>
   </drawer:RadSideDrawer>
 </Page>
