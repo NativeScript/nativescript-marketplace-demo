@@ -102,25 +102,20 @@ export class ListView_ViewModel extends observableModule.Observable {
             "Application teams are continuously adopting agile software techniques as the principal method of building applications. Agile methodologies, such as Scrum, Extreme Programming, Feature-Driven Development and Test-Driven Development offer the ability to iteratively develop applications.",
             true, 3));
         this._itemsBackup.push(new BlogPostItemData(
-            "Telerik UI for Xamarin Now Supports Xamarin.Forms 1.3.0",
-            "Recently, the Xamarin guys came with a so to say major version of Xamarin.Forms, 1.3.0. This version brought enhancements as well as some changes that required some internal changes on our side. We are well aware that you will want to benefit from the Xamarin.Forms improvements immediately, while still using Telerik UI for Xamarin, so I am happy to announce the availability of a new UI for Xamarin version supporting Xamarin.Forms 1.3.0. Feel free to NuGet-update your Telerik UI for Xamarin projects to Xamarin.Forms 1.3.0.",
-            "Recently, the Xamarin guys came with a so to say major version of Xamarin.Forms, 1.3.0. This version brought enhancements as well as some changes that required some internal changes on our side.",
-            false, 4));
-        this._itemsBackup.push(new BlogPostItemData(
             "Increase Your Mobile App Engagement. Become Part of the Web of Apps.",
             "Mobile developers are facing some severe limitations when it comes to app distribution: app content is almost invisible to browser search, app-to-app connections are scarce, and app updates need to go through a tedious re-submission process on the relevant marketplace. How can Google App Indexing, deep linking and Google Tag Manager for mobile apps help in the process of overcoming these limitations?",
             "Mobile developers are facing some severe limitations when it comes to app distribution: app content is almost invisible to browser search, app-to-app connections are scarce, and app updates need to go through a tedious re-submission process on the relevant marketplace.",
-            true, 5));
+            true, 4));
         this._itemsBackup.push(new BlogPostItemData(
             "Building a Seismograph App with CoreMotion, Swift and Telerik UI for iOS",
             "Data visualizations are important, especially on small screen areas, where Excel files or other tables are difficult to read and comprehend. Visualizations are even more important when you add the various sensors that an iPhone device offers, not to mention the different certified third-party devices. Today, I will show you how you can set up the Telerik Chart for iOS to live-stream data coming from the accelerometer sensor using the CoreMotion API.",
             "Data visualizations are important, especially on small screen areas, where Excel files or other tables are difficult to read and comprehend.",
-            false, 6));
+            false, 5));
         this._itemsBackup.push(new BlogPostItemData(
             "Application Performance Monitoring with the Crittercism Cordova Plugin",
             "As hybrid mobile apps scale to massive amounts of users and tremendous amount of data, developers need to monitor and trace the app’s performance. Crittercism is the world's first mobile application performance management (mAPM) solution, offering both error monitoring and service monitoring solutions. The Crittercism service monitors every aspect of mobile app performance, allowing Developers and IT Operations to deliver high performing, highly reliable, highly available mobile apps.",
             "As hybrid mobile apps scale to massive amounts of users and tremendous amount of data, developers need to monitor and trace the app’s performance.",
-            false, 7));
+            false, 6));
     }
 
     private _currentItemIndex: number;
