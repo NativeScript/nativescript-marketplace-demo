@@ -1,13 +1,14 @@
+.page-content {
+    background-color: #455B66;
+}
+
 .qsf-page {
-    background-color: #3D5AFE;
-    background-image: url("res://bg_nav_bar");
-    background-repeat: no-repeat;
-    background-position: 60 0;
+    background-color: #151F2F;
 }
 
 ActionBar {
+    background-color: #151F2F;
     color: white;
-    background-color: transparent;
 }
 
 .content-background-main {
@@ -97,34 +98,6 @@ Page, ExamplePage {
     background-color: transparent;
     font-size: 16;
 }
-
-/* Side Drawer START */
-
-.drawer-content {
-    background-color: white;
-}
-
-.drawer-item {
-    background-color: transparent;
-    text-align: left;
-    color: #3F3F3F;
-}
-
-.drawer-line {
-    height: 1;
-    background-color: #c8c8c8;
-}
-
-.drawer-controls {
-    background-color: #F0F0F0;
-}
-
-.drawer-controls-title{
-    color:#919191;
-}
-
-
-/* Side Drawer END */
 
 .show-new-btn,
 .group-show-new-btn {

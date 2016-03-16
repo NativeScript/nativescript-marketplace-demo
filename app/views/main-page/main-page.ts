@@ -25,14 +25,14 @@ export function onNavigatingTo(args: observable.EventData) {
 
     if (page.ios) {
         // TODO: Making the navigation bar transparent. It would be nice if this was property on the ActionBar.
-        var bar = frame.topmost().ios.controller.navigationBar; 
-        bar.setBackgroundImageForBarMetrics(UIImage.new(), UIBarMetrics.UIBarMetricsDefault);
-        bar.translucent = true;
-        bar.shadowImage = UIImage.new();
-        bar.tintColor = UIColor.whiteColor();
-
+        // var bar = frame.topmost().ios.controller.navigationBar; 
+        // bar.setBackgroundImageForBarMetrics(UIImage.new(), UIBarMetrics.UIBarMetricsDefault);
+        // bar.translucent = true;
+        // bar.shadowImage = UIImage.new();
+        // bar.tintColor = UIColor.whiteColor();
         // TODO: Is it possible to style the title color of the action bar?
-        (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
+        // (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
+
         console.log("Loading");
         var sideDrawerView = page.getViewById("side-drawer");
         sideDrawerView.ios.defaultSideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
