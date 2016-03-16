@@ -1,0 +1,5 @@
+@import { url('~/views/main-page/main-page-common.css') };
+
+.example-label {
+    font-size: 15;
+}

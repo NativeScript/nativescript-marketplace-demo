@@ -1,22 +1,45 @@
-<StackLayout cssClass="drawer-content" loaded="onLoaded">
-	<Label text="Home" cssClass="drawer-item" tap="tapHome" touch="tileTouch" />
-	<Label text="About" cssClass="drawer-item" tap="tapAbout" touch="tileTouch" />
-	<Label text="Getting started" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started" touch="tileTouch" />
+<ScrollView class="drawer-content">
+    <StackLayout loaded="onLoaded">
+        <Image src="res://logo_main_nav" margin="40 0 24 0" horizontalAlignment="center" stretch="none" />
 
-	<StackLayout cssClass="drawer-controls">
-		<StackLayout cssClass="drawer-line" />
-		<Label text="Controls" cssClass="drawer-controls-title" touch="tileTouch" />
-		<Repeater items="{{ $value }}">
-			<Repeater.itemTemplate>
-				<Label text="{{ title }}" tap="navigateToExampleGroup" cssClass="drawer-item" />
-			</Repeater.itemTemplate>
-		</Repeater>
-		<StackLayout cssClass="drawer-line" />
-	</StackLayout>
-	
-	<Label text="Source" cssClass="drawer-item" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-marketplace-demo" touch="tileTouch" />
-	<Label text="Verified Plugins" cssClass="drawer-item" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript" touch="tileTouch" />
-	<Label text="Documentation" cssClass="drawer-item" tap="tapDrawerLink" tag="http://docs.nativescript.org" touch="tileTouch" />
-	<Label text="Product page" cssClass="drawer-item" tap="tapDrawerLink" tag="http://www.nativescript.org" touch="tileTouch" />
+        <Button text="Home" tap="tapHome" class="drawer-button" />
+        <Button text="About" tap="tapAbout" class="drawer-button" />
 
-</StackLayout>
+        <Repeater items="{{ $value }}" class="drawer-control-groups">
+            <Repeater.itemTemplate>
+                <Button text="{{ title }}" tap="navigateToExampleGroup" class="drawer-button" />
+            </Repeater.itemTemplate>
+        </Repeater>
+
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started">
+            <GridLayout class="drawer-external-icon">
+                <Label text="Getting started" class="drawer-external-label" />
+            </GridLayout>
+        </GridLayout>
+
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-marketplace-demo">
+            <GridLayout class="drawer-external-icon">
+                <Label text="Source" class="drawer-external-label" />
+            </GridLayout>
+        </GridLayout>
+
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript">
+            <GridLayout class="drawer-external-icon">
+                <Label text="Verified plugins" class="drawer-external-label" />
+            </GridLayout>
+        </GridLayout>
+
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://docs.nativescript.org">
+            <GridLayout class="drawer-external-icon">
+                <Label text="Documentation" class="drawer-external-label" />
+            </GridLayout>
+        </GridLayout>
+
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://www.nativescript.org">
+            <GridLayout class="drawer-external-icon">
+                <Label text="Product page" class="drawer-external-label" />
+            </GridLayout>
+        </GridLayout>
+
+    </StackLayout>
+</ScrollView>

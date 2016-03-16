@@ -1,20 +1,19 @@
-<GridLayout>
+<GridLayout class="page-content">
     <ScrollView>
         <GridLayout>
-            <Repeater items="{{ featuredExamples }}" margin="10">
+            <Repeater items="{{ featuredExamples }}" android:margin="10" ios:margin="6">
                 <Repeater.itemsLayout>
                     <WrapLayout
                         horizontalAlignment="left"
-                        itemWidth="{{ (screenWidth - 20) / 2 }}"
-                        itemHeight="{{ (screenWidth - 20) * 0.5 + 50 }}"/>
+                        android:itemWidth="{{ (screenWidth - 20) / 2 }}"
+                        android:itemHeight="{{ (screenWidth - 20) * 0.5 + 50 }}"
+                        ios:itemWidth="{{ (screenWidth - 12) / 2 }}"
+                        ios:itemHeight="{{ (screenWidth - 12) * 0.5 + 50 }}"/>
                 </Repeater.itemsLayout>
                 <Repeater.itemTemplate>
                     <GridLayout margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" tap="navigateToExample" automationText="{{ title }}">
                         <Image src="{{ image }}" stretch="aspectFill" />
-                        <Label row="1" margin="0 8" textWrap="true"
-                            ios:style="text-align: center; font-size: 14;"
-                            android:style="text-align: center; font-size: 15;"
-                            horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" />
+                        <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
                     </GridLayout>
                 </Repeater.itemTemplate>
             </Repeater>
