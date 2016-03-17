@@ -5,6 +5,7 @@ import conferenceViewModel = require("./conference-view-model");
 import list = require("ui/list-view");
 import utils = require("utils/utils");
 import {View} from "ui/core/view";
+import * as navigator from "../../common/navigator";
 
 export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
@@ -58,4 +59,8 @@ export function tap(args) {
             closeTimeout = 0;
         }, 20);
     }
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

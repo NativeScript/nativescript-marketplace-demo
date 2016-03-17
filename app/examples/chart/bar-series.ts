@@ -7,6 +7,7 @@ import pages = require("ui/page");
 import gestures = require("ui/gestures");
 
 import app = require("application");
+import * as navigator from "../../common/navigator";
 
 export function rootGridLoaded(args: observable.EventData) {
     var grid = <gridModule.GridLayout>args.object;
@@ -47,4 +48,8 @@ export function repeaterItemTap(args: gestures.GestureEventData) {
     var item = args.view.bindingContext;
     var page = frame.topmost().currentPage;
     loadItem(page, item);
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

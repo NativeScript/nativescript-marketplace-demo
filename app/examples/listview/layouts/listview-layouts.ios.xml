@@ -1,14 +1,11 @@
 <examples:ExamplePage  
-    xmlns="http://www.nativescript.org/tns.xsd" 
-    xmlns:lv="nativescript-telerik-ui-pro/listview"
-    xmlns:examples="examples/example-base-page"
-    navigatingTo="pageNavigatingTo"
-    backgroundSpanUnderStatusBar="true">
+        xmlns="http://www.nativescript.org/tns.xsd" 
+        xmlns:lv="nativescript-telerik-ui-pro/listview"
+        xmlns:examples="examples/example-base-page"
+        navigatingTo="pageNavigatingTo">
     <Page.actionBar>
         <ActionBar title="Recipes">
-            <ActionBar.navigationButton>
-                <NavigationButton visibility="collapse" />
-            </ActionBar.navigationButton>
+            <NavigationButton icon="res://ic_back" tap="goBack" />
             <ActionBar.actionItems>
                 <ActionItem icon="{{isLinearActive ? 'res://listview/layouts/icons/list-layout' : 'res://listview/layouts/icons/list-layout-1' }}" tap="onLinearLayoutTap" ios.position="right"/>
                 <ActionItem icon="{{isWrapActive ? 'res://listview/layouts/icons/wrap-layout' : 'res://listview/layouts/icons/wrap-layout-1' }}" tap="onGridLayoutTap" ios.position="right"/>

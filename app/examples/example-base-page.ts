@@ -25,11 +25,6 @@ export class ExamplePage extends pages.Page {
 
         // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
         this.on("navigatingTo", args => {
-            if (this.ios) {
-                var viewController = <UIViewController>this.ios;
-                viewController.navigationItem.hidesBackButton = true;
-            }
-            
             if (!this.sidedrawer) {
                 var root = this.content;
                 var menufragment = <View>builder.load(__dirname + "/example-menu.xml", require("./example-menu"));

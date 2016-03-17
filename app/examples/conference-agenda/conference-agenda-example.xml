@@ -1,18 +1,19 @@
-<examples:ExamplePage xmlns="http://www.nativescript.org/tns.xsd" xmlns:examples="examples/example-base-page" navigatingTo="pageNavigatingTo" backgroundSpanUnderStatusBar="true"
-    tap="tap">
+<examples:ExamplePage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:examples="examples/example-base-page"
+        navigatingTo="pageNavigatingTo"
+        tap="tap">
     <Page.actionBar>
-		<ActionBar title="All Sessions">
-            <ActionBar.navigationButton>
-                <NavigationButton visibility="collapsed" />
-            </ActionBar.navigationButton>
+        <ActionBar title="All Sessions">
+            <NavigationButton icon="res://ic_back" tap="goBack" />
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="auto, auto, *" columns="*" cssClass="main-content">
         <!-- Segmented Bar -->
         <SegmentedBar selectedIndex="{{ selectedDay }}"
-            ios:selectedBackgroundColor="#FBE5AE"
-            android:selectedBackgroundColor="#FAC950" 
-            cssClass="conf-segmented-bar">
+                ios:selectedBackgroundColor="#FBE5AE"
+                android:selectedBackgroundColor="#FAC950" 
+                cssClass="conf-segmented-bar">
             <SegmentedBar.items>
                 <SegmentedBarItem title="MAY 3" />
                 <SegmentedBarItem title="MAY 4" />

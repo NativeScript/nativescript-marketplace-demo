@@ -1,21 +1,20 @@
 <examples:ExamplePage 
-    xmlns="http://www.nativescript.org/tns.xsd" 
-    xmlns:examples="examples/example-base-page" 
-    xmlns:lv="nativescript-telerik-ui-pro/listview"
-    navigatingTo="pageNavigatingTo" 
-    navigatingFrom="onNavigatingFrom"
-    unloaded="onPageUnloaded"
-    backgroundColor="#FF5D4037"
-    backgroundSpanUnderStatusBar="true">
+        xmlns="http://www.nativescript.org/tns.xsd" 
+        xmlns:examples="examples/example-base-page" 
+        xmlns:lv="nativescript-telerik-ui-pro/listview"
+        navigatingTo="pageNavigatingTo" 
+        navigatingFrom="onNavigatingFrom"
+        unloaded="onPageUnloaded">
     <examples:ExamplePage.actionBar>
         <ActionBar>
+            <NavigationButton icon="res://ic_back" tap="goBack" />
             <ActionBar.actionItems>
                 <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">
                     <Label text="Reading list" style="color: White;" textSize="40"/>
-               </StackLayout>
+                </StackLayout>
             </ActionBar.titleView>
         </ActionBar>
     </examples:ExamplePage.actionBar>

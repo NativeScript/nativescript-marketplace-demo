@@ -22,25 +22,8 @@ export function onNavigatingTo(args: observable.EventData) {
     // Get the event sender
     page = <pages.Page>args.object;
     page.bindingContext = mainPageVM.instance;
-
-    if (page.ios) {
-        // TODO: Making the navigation bar transparent. It would be nice if this was property on the ActionBar.
-        // var bar = frame.topmost().ios.controller.navigationBar; 
-        // bar.setBackgroundImageForBarMetrics(UIImage.new(), UIBarMetrics.UIBarMetricsDefault);
-        // bar.translucent = true;
-        // bar.shadowImage = UIImage.new();
-        // bar.tintColor = UIColor.whiteColor();
-        // TODO: Is it possible to style the title color of the action bar?
-        // (<any>bar).titleTextAttributes = { [NSForegroundColorAttributeName]: UIColor.whiteColor() };
-
-        console.log("Loading");
-        var sideDrawerView = page.getViewById("side-drawer");
-        sideDrawerView.ios.defaultSideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
-        sideDrawerView.ios.defaultSideDrawer.style.dimOpacity = 0.5;
-    }
 }
 
-// TODO: The tap="{{ toggleWrapLayout }}" in the XML doesn't seem to work.
 export function toggleWrapLayout(e: any) {
     e.object.bindingContext.toggleWrapLayout();
 }
