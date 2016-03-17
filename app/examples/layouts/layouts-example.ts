@@ -3,6 +3,7 @@ import gridModule = require("ui/layouts/grid-layout");
 import utils = require("utils/utils");
 import {Page} from "ui/page";
 import {Color} from "color";
+import * as navigator from "../../common/navigator";
 
 export function rootGridLoaded(args: observable.EventData) {
     var grid = <gridModule.GridLayout>args.object;
@@ -22,4 +23,8 @@ export function pageNavigatingTo(args: observable.EventData) {
     page.bindingContext = new observable.Observable({
         selectedIndex: 0
     });
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

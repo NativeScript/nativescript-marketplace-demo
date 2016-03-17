@@ -3,6 +3,7 @@ import listViewModule = require("nativescript-telerik-ui-pro/listview");
 import viewModule = require('ui/core/view');
 import utils = require("utils/utils");
 import application = require("application");
+import * as navigator from "../../../common/navigator";
 
 var viewModel = new model.ListViewReorderModel();
 var todoList;
@@ -109,4 +110,8 @@ export function onItemSwipeProgressStarted(args: listViewModule.ListViewEventDat
     args.data.swipeLimits.threshold = todoList.getMeasuredWidth() * utils.layout.getDisplayDensity();
     args.data.swipeLimits.left = 350 * utils.layout.getDisplayDensity();
     args.data.swipeLimits.right = 350 * utils.layout.getDisplayDensity();
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

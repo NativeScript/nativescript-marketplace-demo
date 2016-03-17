@@ -19,11 +19,6 @@ ActionBar {
     margin: 25 0 0 0;
 }
 
-.chart-demo-content {
-    padding-top: 25;
-    background-color: black;
-}
-
 .example-title-list, .example-title-wrap {
     color: black;
     margin: 3;

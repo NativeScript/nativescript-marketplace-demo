@@ -14,6 +14,7 @@
                     <GridLayout margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" tap="navigateToExample" automationText="{{ title }}">
                         <Image src="{{ image }}" stretch="aspectFill" />
                         <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
+                        <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" class="example-new" />
                     </GridLayout>
                 </Repeater.itemTemplate>
             </Repeater>

@@ -1,12 +1,15 @@
 <examples:ExamplePage 
-    xmlns="http://www.nativescript.org/tns.xsd" 
-    xmlns:examples="examples/example-base-page" 
-    xmlns:lv="nativescript-telerik-ui-pro/listview"
-    navigatingFrom="onNavigatingFrom"
-    backgroundColor="#FF5D4037"
-    navigatingTo="pageNavigatingTo" unloaded="onPageUnloaded">
+        xmlns="http://www.nativescript.org/tns.xsd" 
+        xmlns:examples="examples/example-base-page" 
+        xmlns:lv="nativescript-telerik-ui-pro/listview"
+        navigatingFrom="onNavigatingFrom"
+        navigatingTo="pageNavigatingTo"
+        unloaded="onPageUnloaded">
     <examples:ExamplePage.actionBar>
-        <ActionBar backgroundColor="{{(isReorderActive || isSelectionActive) ? '#FF5D4037' : '#FFFFF2ED' }}">
+        <ActionBar>
+            <ActionBar.navigationButton>
+                <NavigationButton icon="res://ic_back" tap="goBack" />
+            </ActionBar.navigationButton>
             <ActionBar.actionItems>
                 <ActionItem android:icon="res://ic_listview_selection_reorder" tap="{{onActivateReorderTap}}" visibility="{{(isReorderActive || isSelectionActive) ? 'collapsed' : 'visible' }}" />
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="{{onAddAllToFavoritesTap}}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />

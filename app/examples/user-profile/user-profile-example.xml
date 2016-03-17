@@ -2,22 +2,11 @@
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:examples="examples/example-base-page"
         navigatingTo="pageNavigatingTo"
-        backgroundSpanUnderStatusBar="true"
         tap="tap">
     <Page.actionBar>
         <ActionBar title="User Profile">
-            <android>
-                <NavigationButton tap="cancelTapped" icon="res://ic_close" />
-            </android>
-            <ios>
-                <ActionBar.navigationButton>
-                    <NavigationButton visibility="collapse" />
-                </ActionBar.navigationButton>
-            </ios>
+            <NavigationButton icon="res://ic_back" tap="goBack" />
             <ActionBar.actionItems>
-                <ios>
-                    <ActionItem text="Cancel" ios.position="left" tap="cancelTapped" />
-                </ios>
                 <ActionItem ios:text="Done" android:text="SAVE" ios.position="right" tap="doneTapped" />
             </ActionBar.actionItems>
         </ActionBar>

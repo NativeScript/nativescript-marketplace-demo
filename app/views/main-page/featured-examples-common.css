@@ -2,3 +2,9 @@
     margin: 0 8;
     text-align: center;
 }
+
+.example-new {
+    margin: 10;
+    horizontal-align: left;
+    vertical-align: top;
+}

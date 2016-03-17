@@ -1,13 +1,14 @@
-
 <examples:ExamplePage 
-	xmlns:examples="examples/example-base-page"
-    xmlns="http://schemas.nativescript.org/tns.xsd"
-	xmlns:lv="nativescript-telerik-ui-pro/listview"
-	actionBarHidden="true"
-    backgroundColor="Black"
-	navigatingTo="pageNavigatingTo"
-	navigatedFrom="pageNavigatedFrom">
-	
+        xmlns:examples="examples/example-base-page"
+        xmlns="http://schemas.nativescript.org/tns.xsd"
+        xmlns:lv="nativescript-telerik-ui-pro/listview"
+        navigatingTo="pageNavigatingTo"
+        navigatedFrom="pageNavigatedFrom">
+    <Page.actionBar>
+        <ActionBar title="Item reorder">
+            <NavigationButton icon="res://ic_back" tap="goBack" />
+        </ActionBar>
+    </Page.actionBar>
 	<GridLayout rows="auto, *" backgroundColor="white">
 		
 		<GridLayout columns="*, *" marginBottom="8" >

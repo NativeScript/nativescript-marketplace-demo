@@ -1,22 +1,15 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
-    loaded="pageLoaded"
-     backgroundColor="#FF5D4037"
-    navigatedTo="pageNavigatedTo"
-    cssClass="detailPageStyle">
+        loaded="pageLoaded"
+        navigatedTo="pageNavigatedTo"
+        cssClass="detailPageStyle">
 
-     <Page.actionBar >
-        <ActionBar backgroundColor="#FF5D4037">
+     <Page.actionBar>
+        <ActionBar title="Reading list">
+            <NavigationButton icon="res://ic_back" tap="onBackImageTap" />
             <ActionBar.actionItems>
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" />
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="onDeleteTap" />
             </ActionBar.actionItems>
-            <ActionBar.titleView>
-               <StackLayout orientation="horizontal">
-                    <StackLayout horizontalAlignment="left" tap="{{onBackImageTap}}" paddingLeft="8" paddingRight="8" paddingBottom="8" paddingTop="8" tap="onBackImageTap"> 
-                        <Image stretch="none" verticalAlignment="center" android:src="res://ic_arrow_back"/>
-                    </StackLayout>
-               </StackLayout>
-            </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar> 
     <GridLayout backgroundColor="#FFE4D8D4" verticalAlignment="stretch">

@@ -3,6 +3,7 @@ import pageModule = require("ui/page");
 import lvModule = require("nativescript-telerik-ui-pro/listview");
 import frame = require("ui/frame");
 import pages = require("ui/page");
+import * as navigator from "../../../common/navigator";
 
 export var listView: lvModule.ListView;
 var viewModel;
@@ -26,4 +27,8 @@ export function onNavigatingFrom(args){
 
 export function onPageUnloaded(args) {
     listView = undefined;
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

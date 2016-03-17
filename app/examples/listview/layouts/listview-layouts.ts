@@ -3,6 +3,7 @@ import listViewModule = require("nativescript-telerik-ui-pro/listview");
 import applicationModule = require("application");
 import frame = require("ui/frame");
 import colorModule = require("color");
+import * as navigator from "../../../common/navigator";
 
 var viewModel: model.ListViewLayoutsModel = new model.ListViewLayoutsModel();
 var listView;
@@ -45,4 +46,8 @@ export function onGridLayoutTap(args: any) {
     listView.listViewLayout = gridLayout;
     viewModel.isLinearActive = false;
     viewModel.isWrapActive = true;
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

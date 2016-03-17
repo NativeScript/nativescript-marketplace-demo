@@ -363,3 +363,5 @@ export class ListView_ViewModel extends observableModule.Observable {
         listView.multipleSelection = true;
     }
 }
+
+

@@ -2,6 +2,7 @@ import observable = require("data/observable");
 import pages = require("../example-base-page");
 import platform = require("platform");
 import application = require("application")
+import * as navigator from "../../common/navigator";
 
 var viewModel;
 var lastInput = undefined;
@@ -21,6 +22,10 @@ export function pageNavigatingTo(args: observable.EventData) {
     page.bindingContext = viewModel;
 
     lastInput = undefined;
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }
 
 export function doneTapped(args) {
