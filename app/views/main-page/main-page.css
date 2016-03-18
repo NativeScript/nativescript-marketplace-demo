@@ -1,0 +1,292 @@
+@keyframes intro-background-enter {
+    0% { transform: scale(1, 1); }
+    30% { transform: scale(1, 1); }
+    50% { transform: scale(1, 0); }
+    100% { transform: scale(1, 0); }
+}
+
+@keyframes intro-logo-bg-intro {
+    0% {
+        transform: scale(10, 10), translate(0, 0);
+        animation-timing-function: ease-out;
+    }
+    40% {
+        transform: scale(1, 1), translate(0, -40);
+        animation-timing-function: ease-out;
+    }
+    57% { transform: scale(1, 1), translate(0, -180); }
+    100% { transform: scale(1, 1), translate(0, -180); }
+}
+@keyframes intro-logo-bg-enter {
+    0% {
+        transform: scale(1, 1), translate(0, -180);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1, 1), translate(0, -180);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1), translate(0, -180);
+        opacity: 0;
+    }
+}
+
+@keyframes intro-logo-n-intro {
+    0% {
+        transform: translate(0, 0);
+        animation-timing-function: ease-out;
+    }
+    40% {
+        transform: translate(0, -40);
+        animation-timing-function: ease-out;
+    }
+    57% { transform: translate(0, -180); }
+    100% { transform: translate(0, -180); }
+}
+@keyframes intro-logo-n-enter {
+    0% {
+        transform: translate(0, -180);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(0, -180);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, -180);
+        opacity: 0;
+    }
+}
+
+@keyframes intro-logo-ns-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 80);
+    }
+    20% {
+        opacity: 0;
+        transform: translate(0, 80);
+        animation-timing-function: ease-out;
+    }
+    40% {
+        opacity: 1;
+        transform: translate(0, -40);
+    }
+    43% {
+        opacity: 1;
+        transform: translate(0, -40);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        opacity: 1;
+        transform: translate(0, -180);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, -180);
+    }
+}
+@keyframes intro-logo-ns-enter {
+    0% {
+        transform: translate(0, -180);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(0, -180);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, -180);
+        opacity: 0;
+    }
+}
+
+@keyframes intro-text-one-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 210);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(0, 210);
+        animation-timing-function: ease-out;
+    }
+    80% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes intro-text-one-enter {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(0, 150);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 150);
+    }
+}
+
+@keyframes intro-text-two-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 280);
+    }
+    60% {
+        opacity: 0;
+        transform: translate(0, 280);
+        animation-timing-function: ease-out;
+    }
+    90% {
+        opacity: 1;
+        transform: translate(0, 90);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 90);
+    }
+}
+@keyframes intro-text-two-enter {
+    0% {
+        opacity: 1;
+        transform: translate(0, 90);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(0, 90);
+    }
+    40% {
+        opacity: 0;
+        transform: translate(0, 240);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 240);
+    }
+}
+
+@keyframes intro-get-started-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 180);
+    }
+    85% {
+        opacity: 0;
+        transform: translate(0, 180);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 180);
+    }
+}
+@keyframes intro-get-started-enter {
+    0% {
+        opacity: 1;
+        transform: translate(0, 180);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(0, 180);
+    }
+    30% {
+        opacity: 0;
+        transform: translate(0, 230);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 230);
+    }
+}
+
+.intro-logo-bg-intro {
+    animation-name: intro-logo-bg-intro;
+    animation-duration: 3;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-logo-n-intro {
+    animation-name: intro-logo-n-intro;
+    animation-duration: 3;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-logo-ns-intro {
+    animation-name: intro-logo-ns-intro;
+    animation-duration: 3;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-text-one-intro {
+    animation-name: intro-text-one-intro;
+    animation-duration: 3;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-text-two-intro {
+    animation-name: intro-text-two-intro;
+    animation-duration: 3;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-get-started-intro {
+    animation-name: intro-get-started-intro;
+    animation-duration: 3;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.intro-background-enter {
+    animation-name: intro-background-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-logo-bg-enter {
+    animation-name: intro-logo-bg-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-logo-n-enter {
+    animation-name: intro-logo-n-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-logo-ns-enter {
+    animation-name: intro-logo-ns-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-text-one-enter {
+    animation-name: intro-text-one-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-text-two-enter {
+    animation-name: intro-text-two-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.intro-get-started-enter {
+    animation-name: intro-get-started-enter;
+    animation-duration: 1;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}

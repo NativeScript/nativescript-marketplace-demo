@@ -1,34 +1,72 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
-    xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
-    xmlns:sdc="views/side-drawer-content"
-    xmlns:mainpage="views/main-page"
-    cssClass="qsf-page"
-    navigatingTo="onNavigatingTo"
-    loaded="pageLoaded"
-    backgroundSpanUnderStatusBar="true">
-  <Page.actionBar>
-    <ActionBar>
-      <android>
-        <NavigationButton icon="res://ic_menu_main" tap="showSlideout" />
-      </android>
-      <ActionBar.actionItems>
-        <iOS>
-          <ActionItem icon="res://ic_menu_main" ios.position="left" tap="showSlideout" />
-        </iOS>
-      </ActionBar.actionItems>
-      <ActionBar.titleView>
-        <GridLayout>
-          <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="0 60 0 0" />
-        </GridLayout>
-      </ActionBar.titleView>
-    </ActionBar>
-  </Page.actionBar>
-  <drawer:RadSideDrawer id="side-drawer">
-    <drawer:RadSideDrawer.drawerContent>
-      <sdc:side-drawer-content />
-    </drawer:RadSideDrawer.drawerContent>
-    <drawer:RadSideDrawer.mainContent>
-      <mainpage:featured-examples />
-    </drawer:RadSideDrawer.mainContent>
-  </drawer:RadSideDrawer>
+        xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
+        xmlns:sdc="views/side-drawer-content"
+        xmlns:mainpage="views/main-page"
+        class="qsf-page"
+        navigatingTo="onNavigatingTo"
+        loaded="pageLoaded"
+        backgroundSpanUnderStatusBar="true"
+        tap="enter">
+    <Page.actionBar>
+        <ActionBar>
+            <android>
+                <NavigationButton icon="res://ic_menu_main" tap="showSlideout" />
+            </android>
+            <ActionBar.actionItems>
+                <iOS>
+                    <ActionItem icon="res://ic_menu_main" ios.position="left" tap="showSlideout" />
+                </iOS>
+            </ActionBar.actionItems>
+            <ActionBar.titleView>
+                <GridLayout>
+                    <Image src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="0 60 0 0" />
+                </GridLayout>
+            </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar>
+    <drawer:RadSideDrawer id="side-drawer">
+        <drawer:RadSideDrawer.drawerContent>
+            <sdc:side-drawer-content />
+        </drawer:RadSideDrawer.drawerContent>
+        <drawer:RadSideDrawer.mainContent>
+            <GridLayout>
+                <mainpage:featured-examples />
+                <GridLayout id="intro-background" class="intro-background-intro" backgroundColor="#151F2F" originY="0" />
+
+                <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="blue" width="100" height="100" horizontalAlignment="center" verticalAlignment="center" borderRadius="15" />
+                <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundColor="white" width="80" height="80" horizontalAlignment="center" verticalAlignment="center" />
+                <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundColor="white" width="200" height="22" horizontalAlignment="center" verticalAlignment="center" margin="180 0 0 0" />
+
+                <Label id="intro-text-one"
+                        class="intro-text-one-intro"
+                        text="Build truly&#xA;native apps with&#xA;JavaScript"
+                        fontSize="24"
+                        horizontalAlignment="center"
+                        verticalAlignment="center"
+                        textWrap="true"
+                        color="white"
+                        textAlignment="center" />
+                <Label id="intro-text-two"
+                        class="intro-text-two-intro"
+                        text="Develop native iOS and Android&#xA;apps from a single code base"
+                        fontSize="19"
+                        horizontalAlignment="center"
+                        verticalAlignment="center"
+                        textWrap="true"
+                        color="white"
+                        textAlignment="center" />
+
+                <Button id="intro-get-started"
+                        class="intro-get-started-intro"
+                        text="GET STARTED"
+                        backgroundColor="green"
+                        color="white"
+                        borderRadius="25"
+                        height="50"
+                        width="200"
+                        fontSize="18"
+                        tap="enter"/>
+            </GridLayout>
+        </drawer:RadSideDrawer.mainContent>
+    </drawer:RadSideDrawer>
 </Page>

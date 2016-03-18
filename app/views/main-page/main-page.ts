@@ -64,3 +64,9 @@ export function tapDrawerLink(args) {
     page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }
+
+export function enter(args) {
+    let page: pages.Page = args.object.page;
+    ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started"]
+        .forEach(id => page.getViewById(id).className = id + "-enter");
+}
