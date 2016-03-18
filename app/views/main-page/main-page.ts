@@ -69,4 +69,18 @@ export function enter(args) {
     let page: pages.Page = args.object.page;
     ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started"]
         .forEach(id => page.getViewById(id).className = id + "-enter");
+    let content = page.getViewById("content");
+    content.visibility = "visible";
+    let examplesList = page.getViewById("examples-wrap-layout");
+    let odd = true;
+    let timeout = 1000;
+    let classSetterFactory = (child, className) => () => child.className = className;
+    examplesList._eachChildView(child => {
+        setTimeout(classSetterFactory(child, odd ? "example-odd-enter" : "example-even-enter"), timeout); 
+        if (odd = !odd) {
+            timeout += 200;
+        }
+        return true;
+    });
+    setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1050);
 }
