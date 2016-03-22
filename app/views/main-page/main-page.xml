@@ -6,6 +6,7 @@
         navigatingTo="onNavigatingTo"
         loaded="pageLoaded"
         backgroundSpanUnderStatusBar="true"
+        actionBarHidden="true"
         tap="enter">
     <Page.actionBar>
         <ActionBar>

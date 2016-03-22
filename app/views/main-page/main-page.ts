@@ -67,8 +67,16 @@ export function tapDrawerLink(args) {
 
 export function enter(args) {
     let page: pages.Page = args.object.page;
+    startEnterAnimation(page);
+    startExamplesAnimation(page);
+    setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1050);
+    showActionBar(page);
+}
+function startEnterAnimation(page: pages.Page) {
     ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started"]
         .forEach(id => page.getViewById(id).className = id + "-enter");
+}
+function startExamplesAnimation(page: pages.Page) {
     let content = page.getViewById("content");
     content.visibility = "visible";
     let examplesList = page.getViewById("examples-wrap-layout");
@@ -82,5 +90,18 @@ export function enter(args) {
         }
         return true;
     });
-    setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1050);
+}
+function showActionBar(page: pages.Page) {
+    var introElements = page.getViewById("intro-elements");
+    if (introElements.ios) {
+        setTimeout(() => {
+            introElements.margin = "-44 0 0 0";
+            page.actionBarHidden = false;
+        }, 300);
+    } else {
+        setTimeout(() => {
+            introElements.margin = "-88 0 0 0";
+            page.actionBarHidden = false;
+        }, 500);
+    }
 }
