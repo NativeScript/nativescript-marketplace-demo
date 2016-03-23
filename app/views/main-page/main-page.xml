@@ -31,44 +31,7 @@
         </drawer:RadSideDrawer.drawerContent>
         <drawer:RadSideDrawer.mainContent>
             <GridLayout class="page-content">
-                <GridLayout id="intro-elements">
-                    <GridLayout id="intro-background" class="intro-background-intro" backgroundColor="#151F2F" originY="0" />
-
-                    <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="blue" width="100" height="100" horizontalAlignment="center" verticalAlignment="center" borderRadius="15" />
-                    <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundColor="white" width="80" height="80" horizontalAlignment="center" verticalAlignment="center" />
-                    <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundColor="white" width="200" height="22" horizontalAlignment="center" verticalAlignment="center" margin="180 0 0 0" />
-
-                    <Label id="intro-text-one"
-                            class="intro-text-one-intro"
-                            text="Build truly&#xA;native apps with&#xA;JavaScript"
-                            fontSize="24"
-                            horizontalAlignment="center"
-                            verticalAlignment="center"
-                            textWrap="true"
-                            color="white"
-                            textAlignment="center" />
-                    <Label id="intro-text-two"
-                            class="intro-text-two-intro"
-                            text="Develop native iOS and Android&#xA;apps from a single code base"
-                            fontSize="19"
-                            horizontalAlignment="center"
-                            verticalAlignment="center"
-                            textWrap="true"
-                            color="white"
-                            textAlignment="center" />
-
-                    <Button id="intro-get-started"
-                            class="intro-get-started-intro"
-                            text="GET STARTED"
-                            backgroundColor="green"
-                            color="white"
-                            borderRadius="25"
-                            height="50"
-                            width="200"
-                            fontSize="18"
-                            tap="enter"/>
-                </GridLayout>
-                <ScrollView id="content" visibility="collapsed">
+                <ScrollView id="content" opacity="0">
                     <GridLayout>
                         <Repeater items="{{ featuredExamples }}" android:margin="10" ios:margin="6">
                             <Repeater.itemsLayout>
@@ -89,6 +52,51 @@
                         </Repeater>
                     </GridLayout>
                 </ScrollView>
+                <GridLayout id="intro-elements">
+                    <GridLayout id="intro-background" class="intro-background-intro" backgroundColor="#151F2F" originY="0" />
+
+                    <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" scaleX="18" scaleY="18" />
+                    <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
+                    <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
+
+                    <Label id="intro-text-one"
+                            class="intro-text-one-intro"
+                            text="Build truly&#xA;native apps with&#xA;JavaScript"
+                            fontSize="37"
+                            horizontalAlignment="center"
+                            verticalAlignment="center"
+                            textWrap="true"
+                            color="white"
+                            textAlignment="center" />
+                    <Label id="intro-text-two"
+                            class="intro-text-two-intro"
+                            text="Develop native iOS and Android&#xA;apps from a single code base"
+                            fontSize="19"
+                            horizontalAlignment="center"
+                            verticalAlignment="center"
+                            textWrap="true"
+                            color="#8DA1AB"
+                            textAlignment="center" />
+
+                    <Button id="intro-get-started"
+                            class="intro-get-started-intro"
+                            text="GET STARTED"
+                            backgroundColor="#1DBE67"
+                            color="white"
+                            borderRadius="25"
+                            height="50"
+                            width="234"
+                            fontSize="18"
+                            tap="enter"/>
+                    <Label id="intro-version"
+                            class="intro-version-intro"
+                            text="version 1.6.2"
+                            fontSize="14"
+                            horizontalAlignment="center"
+                            verticalAlignment="center"
+                            color="white"
+                            textAlignment="center" />
+                </GridLayout>
             </GridLayout>
         </drawer:RadSideDrawer.mainContent>
     </drawer:RadSideDrawer>

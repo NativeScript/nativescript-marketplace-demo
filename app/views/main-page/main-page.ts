@@ -36,11 +36,18 @@ export function navigateToExampleGroup(args: gestures.GestureEventData) {
     navigator.navigateToExampleGroup(context);
 }
 
+var introPlayed = false;
 export function tileTouch(args: gestures.TouchGestureEventData) {
+    if (!introPlayed) {
+        return;
+    }
     grayTouch(args);
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
+    if (!introPlayed) {
+        return;
+    }
     prof.start("example");
     page.getViewById("side-drawer").closeDrawer();
     var example = <examplesVM.Example>(<any>args).object.bindingContext;
@@ -65,28 +72,36 @@ export function tapDrawerLink(args) {
     navigator.openLink(args.object);
 }
 
+var entered = false;
 export function enter(args) {
+    if (entered) {
+        return;
+    }
+    entered = true;
     let page: pages.Page = args.object.page;
+    let content = page.getViewById("content");
+    content.isEnabled = true;
+    content.opacity = 1;
     startEnterAnimation(page);
     startExamplesAnimation(page);
     setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1050);
     showActionBar(page);
 }
 function startEnterAnimation(page: pages.Page) {
-    ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started"]
+    ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started", "intro-version"]
         .forEach(id => page.getViewById(id).className = id + "-enter");
 }
 function startExamplesAnimation(page: pages.Page) {
-    let content = page.getViewById("content");
-    content.visibility = "visible";
     let examplesList = page.getViewById("examples-wrap-layout");
     let odd = true;
     let timeout = 1000;
+    setTimeout(() => introPlayed = true, timeout);
     let classSetterFactory = (child, className) => () => child.className = className;
     examplesList._eachChildView(child => {
-        setTimeout(classSetterFactory(child, odd ? "example-odd-enter" : "example-even-enter"), timeout); 
+        setTimeout(classSetterFactory(child, odd ? "example-odd-enter" : "example-even-enter"), timeout);
+        setTimeout(classSetterFactory(child, ""), timeout + 400);
         if (odd = !odd) {
-            timeout += 200;
+            timeout += 220;
         }
         return true;
     });
