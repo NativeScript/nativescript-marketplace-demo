@@ -84,7 +84,7 @@ export function enter(args) {
     content.opacity = 1;
     startEnterAnimation(page);
     startExamplesAnimation(page);
-    setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1050);
+    setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1500);
     showActionBar(page);
 }
 function startEnterAnimation(page: pages.Page) {

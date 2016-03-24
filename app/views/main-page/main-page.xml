@@ -52,7 +52,7 @@
                         </Repeater>
                     </GridLayout>
                 </ScrollView>
-                <GridLayout id="intro-elements">
+                <GridLayout id="intro-elements" tap="enter">
                     <GridLayout id="intro-background" class="intro-background-intro" backgroundColor="#151F2F" originY="0" />
 
                     <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" scaleX="18" scaleY="18" />
