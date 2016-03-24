@@ -29,8 +29,14 @@ declare var UIStatusBarStyle: any;
 declare type UITableView = any;
 declare type UITableViewCell = any;
 declare type CGRect = any;
+declare type CGPoint = any;
 declare type UIView = any;
 declare function CACurrentMediaTime(): number;
+declare type NSMutableArray = any;
+declare var NSMutableArray: any;
+declare type CAGradientLayer = any;
+declare var CAGradientLayer: any;
+declare function CGPointMake(x: number, y: number): CGPoint;
 
 // telerik-ui
 declare var TKSideDrawerShadowMode: any;

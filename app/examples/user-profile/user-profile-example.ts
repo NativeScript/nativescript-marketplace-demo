@@ -1,80 +1,96 @@
-import observable = require("data/observable");
-import pages = require("../example-base-page");
-import platform = require("platform");
-import application = require("application")
+import { EventData, Observable } from "data/observable";
+import { Page } from "ui/page";
+import { View } from "ui/core/view";
+import { EditableTextBase } from "ui/editable-text-base";
+import { Color } from "color";
+import * as platform from "platform";
+import * as application from "application"
 import * as navigator from "../../common/navigator";
+import * as linearGradient from "../../common/linear-gradient";
+ 
+declare var android: any;
 
-var viewModel;
-var lastInput = undefined;
-
-// Event handler for Page "loaded" event attached in main-page.xml
-export function pageNavigatingTo(args: observable.EventData) {
-    // Get the event sender
-    var page = <pages.ExamplePage>args.object;
-    viewModel = new observable.Observable({
-        username: "Joe",
-        email: "joe@telerik.com",
+export function onPageNavigatingTo(args: EventData) {
+    let page = <Page>args.object;
+    let viewModel = new Observable({
+        username: "ILoveNS",
+        email: "team@mail.com",
         password: "password",
-        bio: "Joe's life started, when he found NativeScript ...",
+        bio: undefined,
         isPublic: true,
         showPassword: false
     });
     page.bindingContext = viewModel;
-
-    lastInput = undefined;
-}
-
-export function goBack(args) {
-    navigator.navigateBackFromExample();
-}
-
-export function doneTapped(args) {
-    showToast("Done Tapped!");
-}
-
-export function cancelTapped(args) {
-    showToast("Cancel Tapped!");
-}
-
-export function changeImageTapped(args) {
-    showToast("Change Image Tapped!");
-}
-
-function showToast(msg: string) {
-    console.log(msg);
     
-    if (platform.device.os === platform.platformNames.android) {
-        var toast = (<any>android).widget.Toast;
-        var toast = toast.makeText(application.android.context, msg, toast.LENGTH_SHORT);
-        toast.show();
+}
+
+export function onBackgroundLoaded(args: EventData) {
+    let background = <View>args.object;
+    let colors = new Array<Color>(new Color("#667297"), new Color("#5C687C"));
+    let orientation = linearGradient.Orientation.Top_Bottom;
+    
+    switch (platform.device.os) {
+        case platform.platformNames.android:
+            linearGradient.drawBackground(background, colors, orientation);
+            break;
+        case platform.platformNames.ios:
+            // The iOS view has to be sized in order to apply a background
+            setTimeout(() => {
+                linearGradient.drawBackground(background, colors, orientation);
+            });
+            break;
     }
 }
 
-export function toggleShowPassword(args: observable.EventData) {
+export function onProfilePictureTapped(args: EventData) {
+    notify("Change Image Tapped!");
+}
+
+export function onUpdateButtonTapped(args: EventData) {
+    notify("Update Tapped!");
+}
+
+declare var android;
+function notify(msg: string) {
+    switch (platform.device.os) {
+        case platform.platformNames.android:
+            android.widget.Toast.makeText(application.android.context, msg, android.widget.Toast.LENGTH_SHORT).show();
+            break;
+        case platform.platformNames.ios:
+            console.log(msg);
+            break;
+    }
+}
+
+export function onShowPasswordTapped(args: EventData) {
+    var view = <View>args.object;
+    var viewModel = view.page.bindingContext
     viewModel.showPassword = !viewModel.showPassword;
 }
 
-var closeTimeout = false;
-
-export function inputTap(args) {
-    lastInput = args.object;
+var closeTimeout = 0;
+export function onTextInputTapped(args: EventData) {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
     closeTimeout = setTimeout(() => {
-        closeTimeout = false;
+        closeTimeout = 0;
     }, 20);
 }
 
-export function tap(args) {
-    var page = args.object.page;
+export function onPageTapped(args: EventData) {
+    var page = <Page>args.object;
     if (!closeTimeout) {
         closeTimeout = setTimeout(() => {
-            page.getViewById("username").dismissSoftInput();
-            page.getViewById("email").dismissSoftInput();
-            page.getViewById("password").dismissSoftInput();
-            page.getViewById("bio").dismissSoftInput();
-            closeTimeout = false;
+            page.getViewById<EditableTextBase>("username").dismissSoftInput();
+            page.getViewById<EditableTextBase>("email").dismissSoftInput();
+            page.getViewById<EditableTextBase>("password").dismissSoftInput();
+            page.getViewById<EditableTextBase>("bio").dismissSoftInput();
+            closeTimeout = 0;
         }, 20);
     }
+}
+
+export function goBack(args) {
+    navigator.navigateBackFromExample();
 }

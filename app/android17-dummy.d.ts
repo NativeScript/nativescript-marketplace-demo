@@ -64,6 +64,21 @@ declare module android {
             export class ColorDrawable {
                 constructor(color: number);
             }
+            export class GradientDrawable {
+                constructor();
+            }
+            export module GradientDrawable {
+				export enum Orientation {
+					TOP_BOTTOM,
+					TR_BL,
+					RIGHT_LEFT,
+					BR_TL,
+					BOTTOM_TOP,
+					BL_TR,
+					LEFT_RIGHT,
+					TL_BR
+				}
+            }
         }
     }
 

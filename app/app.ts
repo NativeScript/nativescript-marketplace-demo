@@ -49,8 +49,12 @@ if (application.android) {
             var window = activity.getWindow();
             if (window) {
                 window.setBackgroundDrawable(null);
+                
+                // Prevent the soft keyboard from hiding EditText's while typing.
+                window.setSoftInputMode(32); //android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
             }
         }
+        
         // Enable ACRA Telerik Analytics crash reporting
         var packageJson = require("./package.json");
         var analyticsProductKeyAndroid = packageJson.analyticsProductKeyAndroid;
