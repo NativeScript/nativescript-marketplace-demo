@@ -13,6 +13,9 @@
             <android>
                 <NavigationButton icon="res://ic_menu_main" tap="showSlideout" />
             </android>
+            <iOS>
+                <NavigationButton icon="res://ic_back" />
+            </iOS>
             <ActionBar.actionItems>
                 <iOS>
                     <ActionItem id="actionbar-menu" icon="res://ic_menu_main" ios.position="left" tap="showSlideout" />

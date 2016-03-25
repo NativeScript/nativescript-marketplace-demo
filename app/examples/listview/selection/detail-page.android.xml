@@ -9,6 +9,7 @@
             <ActionBar.actionItems>
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" />
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="onDeleteTap" />
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar> 

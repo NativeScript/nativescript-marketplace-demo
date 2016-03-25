@@ -8,6 +8,7 @@
             <NavigationButton icon="res://ic_back" tap="goBack" />
             <ActionBar.actionItems>
                 <ActionItem ios:text="Done" android:text="SAVE" ios.position="right" tap="doneTapped" />
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
