@@ -5,6 +5,7 @@
     <Page.actionBar>
         <ActionBar title="Line series">
             <NavigationButton icon="res://ic_back" tap="goBack" />
+            <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
         </ActionBar>
     </Page.actionBar>
     <GridLayout loaded="rootGridLoaded" rows="auto, *">

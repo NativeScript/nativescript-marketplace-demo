@@ -10,6 +10,7 @@
             <NavigationButton icon="res://ic_back" tap="goBack" />
             <ActionBar.actionItems>
                 <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">

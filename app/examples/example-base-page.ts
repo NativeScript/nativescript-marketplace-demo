@@ -46,5 +46,15 @@ export class ExamplePage extends pages.Page {
 
         // prof.stopCPUProfile("example");
         prof.stop("example");
+
+        this.actionBar.actionItems.getItems().forEach(item => {
+            if ((<any>item).id === "exampleMenuButton") {
+                item.on("tap", () => {
+                    // TODO: Toggle instead
+                    this.sidedrawer.gesturesEnabled = true;
+                    this.sidedrawer.showDrawer();
+                });
+            }
+        });
     }
 }
