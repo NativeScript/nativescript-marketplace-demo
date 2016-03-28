@@ -7,13 +7,6 @@ ActionBar {
     color: white;
 }
 
-.content-background-main {
-    background-color: #E5E5E8;
-    background-image: url("res://bg_main");
-    background-repeat: no-repeat;
-    background-position: 0 0;
-}
-
 .content-background {
     background-color: #E5E5E8;
     background-repeat: no-repeat;
