@@ -1,0 +1,13 @@
+.code-files-menu-background {
+    background-color: #212A39;
+}
+
+.code-files-menu {
+    font-size: 14;
+    color: white;
+    padding: 0px 18px;
+    background-image: url("res://ic_arrow_down");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    horizontal-align: center;
+}

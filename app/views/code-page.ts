@@ -28,6 +28,6 @@ export function selectFile(args: observable.EventData) {
     });
 }
 
-export function navigateBack(args: gestures.GestureEventData) {
+export function goBack(args: gestures.GestureEventData) {
     navigator.navigateBack();
 }
