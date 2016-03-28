@@ -26,10 +26,14 @@ export class ExamplePage extends pages.Page {
         this.on("navigatingTo", args => {
             if (!this.sidedrawer) {
                 var root = this.content;
+                var originalRootBindingContext = root.bindingContext;
                 var menufragment = <View>builder.load(__dirname + "/example-menu.xml", require("./example-menu"));
                 this.sidedrawer = menufragment.getViewById("example-menu-drawer");
                 this.content = menufragment;
                 this.sidedrawer.mainContent = root;
+                if (root.bindingContext !== originalRootBindingContext){
+                    root.bindingContext = originalRootBindingContext;
+                }
                 this.sidedrawer.drawerContent.bindingContext = this.navigationContext;
             }
         });
