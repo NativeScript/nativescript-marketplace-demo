@@ -1,52 +1,58 @@
-﻿.example-background {
-  background-color: white;
+﻿.profile-picture {
+    width: 80;
+    height: 80;
+    border-radius: 40;
+    margin-top: 20;
+    vertical-align: top;
+    horizontal-align: center;
 }
 
-.form-content{
-  margin: 16;
+.top-border {
+    height: 2;
+    background-color: #899BFE;
+    margin-bottom: 40;
+}
+
+.form-content {
+    background-color: white;
+    margin-top: 60;
+    margin-left: 42;
+    margin-right: 42;
+    margin-bottom: 30;
+}
+
+.fields-section {
+    margin-left: 16;
+    margin-right: 16;
 }
 
 .field-title {
   horizontal-align: left;
   font-size: 12;
-  color: #597CA7;
-  margin-top: 8;
+  color: #1e2d7e;
+  margin-top: 6;
 }
 
 .field-switch-title {
   font-size: 16;
-  margin-top: 8;
+  margin-top: 6;
 }
 
 .field {
-  font-size: 16;
+  font-size: 14;
   margin-left: -4;
 }
 
 .field-multiline {
-  font-size: 16;
+  font-size: 14;
   margin-left: -4;
-  height: 100;
-  margin-bottom: 12;
 }
 
 .field-switch {
-  vertical-align: center;
   horizontal-align: right;
-}
-
-.profile-image {
-  width: 80;
-  height: 80;
-  margin-right: 10;
-  margin-bottom: 20;
-}
-
-.button-change-image {
-    font-size: 14;
-    margin: 0;
-    vertical-align: top;
-    color: #034D8D;
+  margin-top: 6;
+  background-color: #BBE9FF;
+  color: #30BCFF;
 }
 
 .line {
@@ -58,4 +64,13 @@
     height: 18;
     margin: 8 10 0 0;
     horizontal-align: left;
+}
+
+.update {
+    horizontal-align: stretch;
+    text-align: center;
+    color: white;
+    background-color: #30BCFF;
+    font-size: 16;
+    text-transform: uppercase;
 }

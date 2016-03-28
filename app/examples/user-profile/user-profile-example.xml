@@ -1,64 +1,58 @@
 <examples:ExamplePage
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:examples="examples/example-base-page"
-        navigatingTo="pageNavigatingTo"
-        tap="tap">
+        navigatingTo="onPageNavigatingTo"
+        tap="onPageTapped">
     <Page.actionBar>
         <ActionBar title="User Profile">
             <NavigationButton icon="res://ic_back" tap="goBack" />
-            <ActionBar.actionItems>
-                <ActionItem ios:text="Done" android:text="SAVE" ios.position="right" tap="doneTapped" />
-                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
-            </ActionBar.actionItems>
+            <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
         </ActionBar>
     </Page.actionBar>
-    <GridLayout cssClass="example-background">
-        <ScrollView>
-            <StackLayout cssClass="form-content">
-                <!-- Picture -->
-                <StackLayout orientation="horizontal">
-                    <Image src="res://user" cssClass="profile-image" />
-                    <Button text="Change image" cssClass="button-change-image" tap="changeImageTapped"/>
-                </StackLayout>
-                <StackLayout cssClass="line"/>
-                <!-- Username -->
-                <GridLayout columns="*" rows="auto, auto" verticalAlignment="top">
-                    <Label text="Username" cssClass="field-title" />
-                    <TextField id="username" text="{{ username }}" cssClass="field" android:row="1" tap="inputTap" />
-                </GridLayout>
-                <StackLayout cssClass="line"/>
-                <!-- Email -->
-                <GridLayout columns="*" rows="auto, auto" verticalAlignment="top">
-                    <Label text="Email" cssClass="field-title" />
-                    <TextField id="email" text="{{ email }}" cssClass="field" android:row="1" tap="inputTap" />
-                </GridLayout>
-                <StackLayout cssClass="line"/>
-                <!-- Password -->
-                <GridLayout columns="*" rows="auto, auto" verticalAlignment="top">
-                    <Label text="Password" cssClass="field-title" />
-                    <TextField id="password" col="1" text="{{ password }}" secure="{{ showPassword, !showPassword }}" cssClass="field" android:row="1" tap="inputTap" />
-                </GridLayout>
-                <StackLayout cssClass="line"/>
-                <StackLayout orientation="horizontal">
-                    <GridLayout tap="toggleShowPassword" horizontalAlignment="left">
-                        <Image src="{{ showPassword ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" />
-                    </GridLayout>
-                    <Label text="Show password" cssClass="field-switch-title" />
-                </StackLayout>
-                <StackLayout cssClass="line"/>
-                <!-- Bio -->
+    <GridLayout id="example-background" loaded="onBackgroundLoaded">
+        <GridLayout cssClass="form-content" rows="auto,*,auto">
+            <StackLayout cssClass="top-border" row="0"/>
+            <ScrollView row="1" cssClass="fields-section">
                 <StackLayout>
-                    <Label text="Bio" cssClass="field-title" />
-                    <TextView id="bio" text="{{ bio }}" android:hint="Add bio" ios:hint="Bio" cssClass="field-multiline" tap="inputTap" />
+                    <!-- Username -->
+                    <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                        <Label text="Username" cssClass="field-title" />
+                        <TextField id="username" text="{{ username }}" cssClass="field" ios:col="1" android:row="1" tap="onTextInputTapped" />
+                    </GridLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Email -->
+                    <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                        <Label text="Email" cssClass="field-title" />
+                        <TextField id="email" text="{{ email }}" cssClass="field" ios:col="1" android:row="1" tap="onTextInputTapped" />
+                    </GridLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Password -->
+                    <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                        <Label text="Password" cssClass="field-title" />
+                        <TextField id="password" text="{{ password }}" secure="{{ showPassword, !showPassword }}" cssClass="field"  ios:col="1" android:row="1" tap="onTextInputTapped" />
+                    </GridLayout>
+                    <StackLayout cssClass="line"/>
+                    <StackLayout orientation="horizontal" tap="onShowPasswordTapped">
+                        <Image src="{{ showPassword ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" />
+                        <Label text="Show password" cssClass="field-switch-title" />
+                    </StackLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Bio -->
+                    <StackLayout>
+                        <Label text="Bio" cssClass="field-title" ios:visibility="collapse"/>
+                        <TextView id="bio" text="{{ bio }}" android:hint="Add bio" ios:hint="Bio" cssClass="field-multiline" tap="onTextInputTapped"/>
+                    </StackLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Public -->
+                    <GridLayout columns="*, auto" verticalAlignment="top">
+                        <Label text="Public profile" cssClass="field-switch-title" />
+                        <Switch checked="{{ isPublic }}" cssClass="field-switch" />
+                    </GridLayout>
                 </StackLayout>
-                <StackLayout cssClass="line"/>
-                <!-- Public -->
-                <GridLayout columns="*, auto" rows="auto" verticalAlignment="top">
-                    <Label text="Public profile" cssClass="field-switch-title" />
-                    <Switch checked="{{ isPublic }}" cssClass="field-switch" />
-                </GridLayout>
-                <StackLayout cssClass="line"/>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+            <Button text="Update" cssClass="update" tap="onUpdateButtonTapped" row="2"/>
+        </GridLayout>
+        <!-- Picture -->
+        <Image src="res://user" cssClass="profile-picture" tap="onProfilePictureTapped"/>
     </GridLayout>
 </examples:ExamplePage>

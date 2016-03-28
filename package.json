@@ -12,6 +12,7 @@
     "acra-telerik-analytics": "*",
     "fresco": "file:./deps/fresco-0.1.0.tgz",
     "highlight.js": "^8.7.0",
+	"nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-telerik-analytics": "*",
     "nativescript-telerik-ui-pro": "*",
     "tns-core-modules": "*",
