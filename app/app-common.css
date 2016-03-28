@@ -111,12 +111,6 @@ Page, ExamplePage {
     horizontal-align: left;
 }
 
-.example-overlay-button {
-    vertical-align: bottom;
-    horizontal-align: left;
-    width: 40;
-    height: 40;
-}
 .chartExampleHolderStyle {
     padding: 6;
     background-color: white;
@@ -180,3 +174,20 @@ Page, ExamplePage {
     horizontal-align: center;
 }
 
+.example-menu-background {
+    background-color: white;
+}
+
+.example-menu-stack {
+    margin: 8 0;
+}
+
+.example-menu-item {
+    color: #151F2F;
+    height: 44;
+    vertical-align: center;
+}
+
+.example-menu-item:highlighted {
+    background-color: #E5E5E5;
+}

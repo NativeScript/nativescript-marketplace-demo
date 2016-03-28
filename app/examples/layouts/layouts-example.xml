@@ -2,8 +2,7 @@
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:examples="examples/example-base-page"
         loaded="pageLoaded"
-        navigatingTo="pageNavigatingTo"
-        ios:bottomOffset="49">
+        navigatingTo="pageNavigatingTo">
     <Page.actionBar>
         <ActionBar title="Layouts">
             <NavigationButton icon="res://ic_back" tap="goBack" />
