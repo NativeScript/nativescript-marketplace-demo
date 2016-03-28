@@ -17,7 +17,6 @@ var CURVE = (platform.device.os === platform.platformNames.android) ? new androi
 
 export class ExamplePage extends pages.Page {
 
-    public bottomOffset: number = 0;
     private sidedrawer: RadSideDrawer;
 
     public constructor() {
@@ -30,13 +29,8 @@ export class ExamplePage extends pages.Page {
                 var menufragment = <View>builder.load(__dirname + "/example-menu.xml", require("./example-menu"));
                 this.sidedrawer = menufragment.getViewById("example-menu-drawer");
                 this.content = menufragment;
-                this.sidedrawer.mainContent.insertChild(root, 0);
+                this.sidedrawer.mainContent = root;
                 this.sidedrawer.drawerContent.bindingContext = this.navigationContext;
-                
-                if (this.bottomOffset) {
-                    var menubutton = menufragment.getViewById("menu-button");
-                    menubutton.translateY = - this.bottomOffset;
-                }
             }
         });
     }

@@ -57,53 +57,6 @@
     margin: 0 16;
 }
 
-.example-menu-item-back {
-    font-weight: bold;
-    background-image: url("res://ic_back_btn");
-    background-repeat: no-repeat;
-    background-position: 0% 50%;
-}
-
-.example-menu-item-back,
-.example-menu-item,
-.example-menu-item-prev,
-.example-menu-item-next {
-    color: white;
-    font-size: 17;
-}
-
-.example-menu-item-back,
 .example-menu-item {
-    horizontal-align: left;
-    margin: 0 0 0 20;
-    padding: 10 10 10 30;
-}
-
-.example-menu-item-prev {
-    background-image: url("res://ic_prev");
-    background-repeat: no-repeat;
-    background-position: 0% 50%;
-    padding: 10 0 10 20;
-    margin: 5 15;
-}
-.example-menu-item-next {
-    background-image: url("res://ic_next");
-    background-repeat: no-repeat;
-    background-position: 100% 50%;
-    padding: 10 20 10 0;
-    margin: 5 15;
-}
-
-.example-overlay-button {
-    width: 42;
-    height: 42;
-}
-.in-menu-btn-background {
-}
-.in-menu-btn-close {
-    width: 13;
-    height: 13;
-    horizontal-align: left;
-    vertical-align: bottom;
-    margin: 0 0 13 13;
+    font-size: 15;
 }
