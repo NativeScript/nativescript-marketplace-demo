@@ -32,6 +32,6 @@ export function openLink(args: observable.EventData) {
     navigator.openLink(args.object);
 }
 
-export function navigateBack(args: gestures.GestureEventData) {
+export function goBack(args: gestures.GestureEventData) {
     navigator.navigateBack();
 }
