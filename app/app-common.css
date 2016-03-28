@@ -75,26 +75,6 @@ Page, ExamplePage {
     border-width: 1;
 }
 
-.info-title {
-    color: black;
-    font-size: 32;
-    margin-top: 20;
-    padding: 0;
-}
-.info-text {
-    color: #555555;
-    font-size: 16;
-    margin-top: 20;
-    padding: 0;
-    background-color: transparent;
-}
-.info-link-button {
-    text-align: left;
-    padding: 0;
-    background-color: transparent;
-    font-size: 16;
-}
-
 .show-new-btn,
 .group-show-new-btn {
     horizontal-align: right;

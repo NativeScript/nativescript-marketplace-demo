@@ -1,20 +1,17 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
-      cssClass="qsf-page"
-      backgroundColor="{{ group.tint }}"
-      color="{{ group.tint }}"
       navigatingTo="pageNavigatingTo"
       backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar title="Example Info">
-            <NavigationButton ios:text="Back"  tap="navigateBack" icon="res://ic_arrow_back" />
+        <ActionBar title="Example Information">
+            <NavigationButton icon="res://ic_back" tap="goBack" />
         </ActionBar>
     </Page.actionBar>
-    <GridLayout rows="*, auto" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
-        <StackLayout cssClass="marginated-content">
-            <Label text="{{ currentExample, currentExample.title }}" cssClass="info-title" />
-            <TextView text="{{ currentExample, currentExample.info }}" editable="false" cssClass="info-text" />
-            <Button ios:text="View code" android:text="VIEW CODE" cssClass="info-link-button" tap="showCodeTap"/>
-            <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="http://docs.nativescript.org/" tap="openLink"/>
+    <GridLayout class="info-background">
+        <StackLayout>
+            <Label text="{{ currentExample, currentExample.title }}" class="info-title" />
+            <Label textWrap="true" text="{{ currentExample, currentExample.info }}" class="info-text" />
+            <Button ios:text="View code" android:text="VIEW CODE" class="info-link-button" tap="showCodeTap"/>
+            <Button ios:text="Documentation" android:text="DOCUMENTATION" class="info-link-button info-link-button-documentation" tag="http://docs.nativescript.org/" tap="openLink"/>
         </StackLayout>
     </GridLayout>
 </Page>
