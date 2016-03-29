@@ -3,7 +3,7 @@
       backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
         <ActionBar title="Example information">
-            <NavigationButton icon="res://ic_back" tap="goBack" />
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
         </ActionBar>
     </Page.actionBar>
     <GridLayout class="info-background">

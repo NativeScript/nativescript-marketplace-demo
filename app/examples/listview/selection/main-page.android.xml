@@ -8,13 +8,13 @@
     <examples:ExamplePage.actionBar>
         <ActionBar>
             <ActionBar.navigationButton>
-                <NavigationButton icon="res://ic_back" tap="goBack" />
+                <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             </ActionBar.navigationButton>
             <ActionBar.actionItems>
                 <ActionItem android:icon="res://ic_listview_selection_reorder" tap="{{onActivateReorderTap}}" visibility="{{(isReorderActive || isSelectionActive) ? 'collapsed' : 'visible' }}" />
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="{{onAddAllToFavoritesTap}}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="{{onDeleteAllTap}}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />
-                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">

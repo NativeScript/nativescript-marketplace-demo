@@ -5,11 +5,11 @@
 
      <Page.actionBar>
         <ActionBar title="Reading list">
-            <NavigationButton icon="res://ic_back" tap="onBackImageTap" />
+            <NavigationButton icon="res://ic_back" tap="onBackImageTap" automationText="GoBack" />
             <ActionBar.actionItems>
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" />
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="onDeleteTap" />
-                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar> 

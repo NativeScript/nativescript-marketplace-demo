@@ -6,8 +6,8 @@
         navigatedFrom="pageNavigatedFrom">
     <Page.actionBar>
         <ActionBar title="Item reorder">
-            <NavigationButton icon="res://ic_back" tap="goBack" />
-            <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" />
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
         </ActionBar>
     </Page.actionBar>
 	<GridLayout rows="auto, *" backgroundColor="white">
