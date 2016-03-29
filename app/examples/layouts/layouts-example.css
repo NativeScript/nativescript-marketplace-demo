@@ -1,36 +1,39 @@
 .layout-container {
-    margin: 6;   
+    margin: 20 10 20 10;
+}
+
+.android-layout-container {
+    margin: 2 10 20 10;
 }
 
 .btn-red {
-    background-color: #9A1813;
-    margin: 6;    
+    background-color: #fe8256;
+    margin: 2;    
 }
 
 .btn-lightblue {
-    background-color: #4695D9;
-    margin: 6;   
+    background-color: #899bfe;
+    margin: 2;   
 }
 
 .btn-lightgreen {
-    background-color: #049A90;
-    margin: 6;   
+    background-color: #455b66;
+    margin: 2;   
 }
 
 .btn-yellow {
-    background-color: #CED910;
-    margin: 6;   
+    background-color: #fed03c;
+    margin: 2;   
 }
 
 .btn-blue {
-    background-color: #1719C0;
-    margin: 6;   
+    background-color: #3c5bfe;
+    margin: 2;   
 }
-
 
 .ios-tab-view {
     background-color: white;
-    color: #929292;
+    color: white;
 }
 
 .android-tab-view {
@@ -38,3 +41,11 @@
     color: white;
 }
 
+.ios-label {
+    visibility: collapse;
+}
+
+.android-label {
+    margin: 10 12 10 12;
+    color: #151f2f;
+}
