@@ -8,7 +8,7 @@ export function onPageLoaded(args: EventData) {
     page = <Page>args.object;
 }
 
-export function navigateBack() {
+export function goBack() {
     navigator.navigateBack();
 }
 

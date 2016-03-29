@@ -1,29 +1,13 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd"
-        xmlns:about="views/about"
-        cssClass="qsf-page"
-        backgroundSpanUnderStatusBar="true"
-        loaded="onPageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded">
     <Page.actionBar>
-        <ActionBar android:title="About">
-            <NavigationButton
-                    ios:text="Back to all"
-                    ios:tap="navigateBack"
-                    ios:icon="res://ic_arrow_back"
-                    android:icon="res://ic_menu"
-                    android:tap="showSlideout" />
+        <ActionBar title="View code">
+            <NavigationButton icon="res://ic_back" tap="goBack" />
         </ActionBar>
     </Page.actionBar>
-    <android xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer" xmlns:sdc="views/side-drawer-content">
-        <drawer:RadSideDrawer id="side-drawer">
-            <drawer:RadSideDrawer.drawerContent>
-                <sdc:side-drawer-content />
-            </drawer:RadSideDrawer.drawerContent>
-            <drawer:RadSideDrawer.mainContent>
-                <about:about-content />
-            </drawer:RadSideDrawer.mainContent>
-        </drawer:RadSideDrawer>
-    </android>
-    <ios>
-        <about:about-content />
-    </ios>
+    <GridLayout class="about-content">
+        <StackLayout>
+            <Image src="res://logo_about" class="about-logo" />
+            <Label class="about-text" textWrap="true" text="NativeScript enables developers to build cross platform native apps while sharing the application code across the platforms." />
+        </StackLayout>
+    </GridLayout>
 </Page>
