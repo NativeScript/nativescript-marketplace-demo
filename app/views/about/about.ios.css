@@ -1,0 +1,15 @@
+@import { url('~/views/about/about-common.css') };
+
+.about-logo {
+    margin: 24 0;
+    horizontal-align: center;
+    width: 99;
+    height: 68;
+}
+
+.about-text {
+    font-size: 15;
+    margin: 0 12;
+    padding: 0;
+    text-align: center;
+}
