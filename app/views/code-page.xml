@@ -1,7 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
     <Page.actionBar>
         <ActionBar title="View code">
-            <NavigationButton icon="res://ic_back" tap="goBack" />
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
         </ActionBar>
     </Page.actionBar>
     <GridLayout rows="44, *">
