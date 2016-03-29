@@ -6,7 +6,11 @@
     </Page.actionBar>
     <GridLayout rows="44, *">
         <GridLayout row="0" class="code-files-menu-background">
-            <Button text="{{ selectedFileName }}" class="code-files-menu" tap="selectFile" />
+            <Button text="{{ selectedFileName }}"
+                    ios:horizontalAlignment="center"
+                    android:horizontalAlignment="left"
+                    class="code-files-menu"
+                    tap="selectFile" />
         </GridLayout>
         <WebView row="1" src="{{ formattedCode }}" />
         <ActivityIndicator row="1" busy="{{ isLoading }}" />
