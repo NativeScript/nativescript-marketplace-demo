@@ -6,7 +6,7 @@
         navigatingFrom="onNavigatingFrom"
         unloaded="onPageUnloaded">
     <examples:ExamplePage.actionBar>
-        <ActionBar>
+        <ActionBar automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionBar.actionItems>
                 <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>

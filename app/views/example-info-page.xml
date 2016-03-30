@@ -2,7 +2,7 @@
       navigatingTo="pageNavigatingTo"
       backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar title="Example information">
+        <ActionBar title="Example information" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
         </ActionBar>
     </Page.actionBar>

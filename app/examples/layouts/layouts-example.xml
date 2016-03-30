@@ -4,7 +4,7 @@
         loaded="pageLoaded"
         navigatingTo="pageNavigatingTo">
     <Page.actionBar>
-        <ActionBar title="Layouts">
+        <ActionBar title="Layouts" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
         </ActionBar>

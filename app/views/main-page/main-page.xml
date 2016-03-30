@@ -9,7 +9,7 @@
         actionBarHidden="true"
         tap="enter">
     <Page.actionBar>
-        <ActionBar>
+        <ActionBar automationText="ActionBar">
             <android>
                 <NavigationButton icon="res://ic_menu_main" tap="showSlideout" automationText="SidebarMenu" />
             </android>

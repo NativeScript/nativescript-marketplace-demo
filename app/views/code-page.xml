@@ -1,6 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
     <Page.actionBar>
-        <ActionBar title="View code">
+        <ActionBar title="View code" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
         </ActionBar>
     </Page.actionBar>

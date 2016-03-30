@@ -4,7 +4,7 @@
         xmlns:examples="examples/example-base-page"
         navigatingTo="pageNavigatingTo">
     <Page.actionBar>
-        <ActionBar title="Recipes">
+        <ActionBar title="Recipes" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionBar.actionItems>
                 <ActionItem icon="{{isLinearActive ? 'res://listview/layouts/icons/list-layout' : 'res://listview/layouts/icons/list-layout-1' }}" tap="onLinearLayoutTap" ios.position="right"/>

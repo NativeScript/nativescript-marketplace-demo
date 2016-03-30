@@ -3,7 +3,7 @@
         xmlns:examples="examples/example-base-page"
         xmlns="http://www.nativescript.org/tns.xsd">
     <Page.actionBar>
-        <ActionBar title="Area series">
+        <ActionBar title="Area series" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
         </ActionBar>

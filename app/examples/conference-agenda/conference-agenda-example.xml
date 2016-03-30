@@ -4,7 +4,7 @@
         navigatingTo="pageNavigatingTo"
         tap="tap">
     <Page.actionBar>
-        <ActionBar title="All Sessions">
+        <ActionBar title="All Sessions" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
         </ActionBar>

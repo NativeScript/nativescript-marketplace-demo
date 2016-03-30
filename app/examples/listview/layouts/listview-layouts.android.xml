@@ -6,7 +6,7 @@
         navigatingTo="pageNavigatingTo"
         navigatedFrom="pageNavigatedFrom">
     <Page.actionBar>
-        <ActionBar title="RECIPES">
+        <ActionBar title="RECIPES" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionBar.actionItems>
                 <ActionItem icon="{{isLinearActive ? 'res://ic_list_view' : 'res://ic_listview_layouts_list_1' }}" tap="onLinearLayoutTap" />

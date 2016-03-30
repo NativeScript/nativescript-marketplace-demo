@@ -6,7 +6,7 @@
         navigatingTo="pageNavigatingTo"
         unloaded="onPageUnloaded">
     <examples:ExamplePage.actionBar>
-        <ActionBar>
+        <ActionBar automationText="ActionBar">
             <ActionBar.navigationButton>
                 <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             </ActionBar.navigationButton>

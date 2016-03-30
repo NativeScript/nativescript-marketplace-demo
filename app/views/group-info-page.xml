@@ -5,7 +5,7 @@
         backgroundColor="{{ tint }}"
         backgroundSpanUnderStatusBar="true">
     <Page.actionBar>
-        <ActionBar android:title="Back to all">
+        <ActionBar android:title="Back to all" automationText="ActionBar">
             <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back" />
         </ActionBar>
     </Page.actionBar>

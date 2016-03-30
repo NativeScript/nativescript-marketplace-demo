@@ -4,7 +4,7 @@
         cssClass="detailPageStyle">
 
      <Page.actionBar>
-        <ActionBar title="Reading list">
+        <ActionBar title="Reading list" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="onBackImageTap" automationText="GoBack" />
             <ActionBar.actionItems>
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="onAddToFavouritesTap" />
