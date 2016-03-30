@@ -1,37 +1,42 @@
-﻿SearchBar {
+﻿.conf-segmented-bar {
+    background-color: #4ac1fa;
+    color: white;
+}
+
+SearchBar {
     background-color: white;
-    margin: 8;
-}
-
-ListView {
-    background-color: white;
-}
-
-.main-content {
-    background-color: #D9D9D9;
-}
-
-.session-title {
-    font-size: 16;
-	color: #555555;
-}
-
-.session-time {
-	font-size: 12;
-	font-weight: bold;
-    color: #034D8D;
-}
-
-.session-room {
-    font-size: 12;
-	color: #AAD7FF;
+    margin: 16;
 }
 
 .session-container {
     padding: 16;
 }
 
-.conf-segmented-bar {
-    background-color: #034D8D;
-    color: white;
+.session-favorite {
+    vertical-align: center;
+    horizontal-align: center;
+    margin-right: 26;
+}
+
+.session-time {
+    font-family: "sans-serif";
+    /*font-weight: 700;*/
+	font-size: 12;
+    color: #4ac1fa;
+}
+
+.session-room {
+    font-family: "sans-serif";
+    /*font-weight: 700;*/
+	font-size: 12;
+	color: white;
+    text-transform: uppercase;
+    margin-left: 4;
+}
+
+.session-title {
+    font-family: "sans-serif";
+    /*font-weight: 300;*/
+	font-size: 20;
+	color: #c3c3c3;
 }

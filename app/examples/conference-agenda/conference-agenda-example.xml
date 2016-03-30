@@ -9,10 +9,10 @@
             <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
         </ActionBar>
     </Page.actionBar>
-    <GridLayout rows="auto, auto, *" columns="*" cssClass="main-content">
+    <GridLayout rows="auto, *" columns="*" cssClass="main-content" id="main-content">
         <!-- Segmented Bar -->
-        <SegmentedBar selectedIndex="{{ selectedDay }}"
-                ios:selectedBackgroundColor="#FBE5AE"
+        <SegmentedBar row="0" selectedIndex="{{ selectedDay }}"
+                ios:selectedBackgroundColor="white"
                 android:selectedBackgroundColor="#FAC950" 
                 cssClass="conf-segmented-bar">
             <SegmentedBar.items>
@@ -21,18 +21,20 @@
                 <SegmentedBarItem title="MAY 5" />
             </SegmentedBar.items>
         </SegmentedBar>
-        <!-- Search -->
-        <SearchBar row="1" text="{{ search }}" hint="Search" id="search" tap="inputTap" />
-        <!-- List -->
-        <ListView row="2" items="{{ sessions }}" id="sessions-list">
-            <ListView.itemTemplate>
-                <GridLayout columns="*, auto" rows="auto, auto, auto" cssClass="session-container">
-					<Image row="1" col="1" src="{{ isFavourite ? 'res://add_to_fav' : 'res://add_to_fav_1' }}" tap="toggleFavourite" />
-                    <Label row="0" text="{{ range }}" cssClass="session-time" />
-                    <Label row="1" text="{{ title }}" textWrap="true" cssClass="session-title" />
-                    <Label row="2" text="{{ room }}" cssClass="session-room" />                    
-                </GridLayout>
-            </ListView.itemTemplate>
-        </ListView>
+        <GridLayout row="1" rows="auto, *" loaded="onBackgroundLoaded">
+            <!-- Search -->
+            <SearchBar row="0" text="{{ search }}" hint="Search" id="search" tap="inputTap" android:loaded="doNotShowAndroidKeyboard"/>
+            <!-- List -->
+            <ListView row="1" items="{{ sessions }}" id="sessions-list" separatorColor="#00000000" ios:itemLoading="changeCellBackground">
+                <ListView.itemTemplate>
+                    <GridLayout columns="auto, auto, *" rows="auto, auto" tap="toggleFavourite" cssClass="session-container" backgroundColor="{{ isFavourite ? '#19FFFFFF' : '#00000000' }}">
+                        <Image row="0" rowSpan="2" col="0" src="{{ isFavourite ? 'res://add_to_fav_1' : 'res://add_to_fav' }}" cssClass="session-favorite"/>
+                        <Label row="0" col="1" text="{{ range }}" cssClass="session-time"/>
+                        <Label row="0" col="2" text="{{ room }}" cssClass="session-room"/>                    
+                        <Label row="1" col="1" colSpan="2" text="{{ title }}" textWrap="true" cssClass="session-title"/>
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </GridLayout>
     </GridLayout>
 </examples:ExamplePage>
