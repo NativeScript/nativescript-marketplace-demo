@@ -20,10 +20,13 @@
     <style name="AppTheme" parent="AppThemeBase">
     </style>
 
-    <style name="NativeScriptToolbarStyleBase" parent="Widget.AppCompat.Toolbar">
+    <style name="NativeScriptToolbarStyleBase"
+            parent="Widget.AppCompat.Toolbar">
         <item name="android:background">@color/ns_primary</item>
         <item name="theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat</item>
+
+        <item name="contentInsetStart">72dip</item>
     </style>
     
 	<style name="NativeScriptToolbarStyle" parent="NativeScriptToolbarStyleBase">
