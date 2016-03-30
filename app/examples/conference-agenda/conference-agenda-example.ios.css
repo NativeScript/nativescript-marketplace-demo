@@ -1,29 +1,47 @@
-﻿.session-title {
-    font-size: 17;
-	color: #555555;
+﻿.main-content {
+    background-color: #4ac1fa;
 }
 
-.session-time {
-	font-size: 12;
-	font-weight: bold;
-    color: #034D8D;
+.conf-segmented-bar {
+    color: white;
+    margin: 12 11 12 11;
 }
 
-.session-room {
-    font-size: 12;
-	color: #AAD7FF;
+SearchBar {
+    background-color: #4ac1fa;
+    padding: -1 0 0 0;
+}
+
+ListView {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .session-container {
     padding: 12;
 }
 
-.conf-segmented-bar {
-    background-color: #034D8D;
-    color: #FBE5AE;
-    margin: 0 12 12 12;
+.session-favorite {
+    vertical-align: center;
+    horizontal-align: center;
+    margin-right: 32;
 }
 
-ListView {
-    background-color: white;
+.session-time {
+    /*font-weight: 500;*/
+	font-size: 11;
+    color: #4ac1fa;
+}
+
+.session-room {
+    /*font-weight: 500;*/
+	font-size: 11;
+	color: white;
+    text-transform: uppercase;
+    margin-left: 4;
+}
+
+.session-title {
+    /*font-weight: 300;*/
+	font-size: 19;
+	color: #c3c3c3;
 }

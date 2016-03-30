@@ -1,47 +1,59 @@
-import observable = require("data/observable");
-import pages = require("ui/page");
-import gestures = require("ui/gestures");
-import conferenceViewModel = require("./conference-view-model");
-import list = require("ui/list-view");
-import utils = require("utils/utils");
-import {View} from "ui/core/view";
+import { EventData, Observable } from "data/observable";
+import { Page } from "ui/page";
+import { View } from "ui/core/view";
+import { Color } from "color";
+import { ListView, ItemEventData } from "ui/list-view";
+import { GestureEventData } from "ui/gestures";
+import { SearchBar } from "ui/search-bar";
+import * as platform from "platform";
 import * as navigator from "../../common/navigator";
+import * as linearGradient from "../../common/linear-gradient";
+import * as conferenceViewModel from "./conference-view-model";
 
-export function pageNavigatingTo(args: observable.EventData) {
-    var page = <pages.Page>args.object;
+export function pageNavigatingTo(args: EventData) {
+    var page = <Page>args.object;
     page.bindingContext = conferenceViewModel.instance;
+}
 
-    // disable selection
-    var sessionsList = <list.ListView>page.getViewById("sessions-list");
-    if (sessionsList.android) {
-        sessionsList.android.setSelector(new android.graphics.drawable.ColorDrawable(0));
-    }
-    if (sessionsList.ios) {
-        sessionsList.ios.allowsSelection = false;
-    }
-
-    // set elevation for android search-bar
-    var search = <View>page.getViewById("search");
-    if (search && search.android) {
-        var compat = <any>android.support.v4.view.ViewCompat;
-        if (compat.setElevation) {
-            // Fix for the elevation glitch of the tab-view
-            compat.setElevation(search.android, 4 * utils.layout.getDisplayDensity());
-        }
+export function doNotShowAndroidKeyboard(args: EventData) {
+    let searchBar = <SearchBar>args.object;
+    if (searchBar.android){
+        searchBar.android.clearFocus();
     }
 }
 
-export function toggleFavourite(args: gestures.GestureEventData) {
+export function onBackgroundLoaded(args: EventData) {
+    let background = <View>args.object;
+    let colors = new Array<Color>(new Color("#67749b"), new Color("#5b677b"));
+    let orientation = linearGradient.Orientation.Top_Bottom;
+    
+    switch (platform.device.os) {
+        case platform.platformNames.android:
+            linearGradient.drawBackground(background, colors, orientation);
+            break;
+        case platform.platformNames.ios:
+            // The iOS view has to be sized in order to apply a background
+            setTimeout(() => {
+                linearGradient.drawBackground(background, colors, orientation);
+            });
+            break;
+    }
+}
+
+export function changeCellBackground(args: ItemEventData) {
+    if (args.ios){
+        var cell = <UITableViewCell>args.ios;
+        cell.backgroundColor = UIColor.clearColor();
+    }
+}
+
+export function toggleFavourite(args: GestureEventData) {
     var session = <conferenceViewModel.Session>args.view.bindingContext;
     session.toggleFavourite();
 }
 
 var closeTimeout: number = 0;
-var lastInput = undefined;
-
 export function inputTap(args) {
-    console.log("Input TAP!");
-    lastInput = args.object;
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
@@ -50,17 +62,16 @@ export function inputTap(args) {
     }, 20);
 }
 
-export function tap(args) {
-    console.log("Page TAP!");
-    var page = args.object.page;
+export function tap(args: EventData) {
+    var page = (<View>args.object).page;
     if (!closeTimeout) {
         closeTimeout = setTimeout(() => {
-            page.getViewById("search").dismissSoftInput();
+            page.getViewById<SearchBar>("search").dismissSoftInput();
             closeTimeout = 0;
         }, 20);
     }
 }
 
-export function goBack(args) {
+export function goBack(args: EventData) {
     navigator.navigateBackFromExample();
 }

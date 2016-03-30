@@ -37,6 +37,7 @@ declare var NSMutableArray: any;
 declare type CAGradientLayer = any;
 declare var CAGradientLayer: any;
 declare function CGPointMake(x: number, y: number): CGPoint;
+declare var UITableViewCellSeparatorStyle: any;
 
 // telerik-ui
 declare var TKSideDrawerShadowMode: any;
