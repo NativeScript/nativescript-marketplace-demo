@@ -2,18 +2,34 @@
     <Label text="Monthly sales revenue, 2016" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadCartesianChart row="1" id="chart" selectionMode="Multiple">
         <chart:RadCartesianChart.horizontalAxis>
-            <chart:CategoricalAxis />
+            <chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1"/>
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.verticalAxis>
-            <chart:LinearAxis />
+            <chart:LinearAxis lineColor="#b0b0b0" lineThickness="1"/>
         </chart:RadCartesianChart.verticalAxis>
         <chart:RadCartesianChart.series>
-            <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series"/>
-            <chart:SplineAreaSeries categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series"/>
+            <chart:SplineAreaSeries seriesName="Area" categoryProperty="Category" items="{{ areaSource }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series"/>
+            <chart:SplineAreaSeries seriesName="Area2" categoryProperty="Category" items="{{ areaSource2 }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series"/>
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.grid>
-            <chart:RadCartesianChartGrid
-                horizontalLinesVisible="true"/>
+            <chart:RadCartesianChartGrid 
+                horizontalLinesVisible="true" 
+                verticalLinesVisible="false" 
+                verticalStripLinesVisible="false"
+                horizontalStripLinesVisible="false"
+                horizontalStrokeColor="#e5e5e5"/>           
         </chart:RadCartesianChart.grid>
+        <chart:RadCartesianChart.palettes>
+            <chart:Palette seriesName="Area">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry android:fillColor="#b2efe6" ios:fillColor="#7fe5faf6" strokeColor="#08caab" />
+                </chart:Palette.entries>
+            </chart:Palette>
+            <chart:Palette seriesName="Area2">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#026968" />
+                </chart:Palette.entries>
+            </chart:Palette>
+        </chart:RadCartesianChart.palettes>
     </chart:RadCartesianChart>
 </GridLayout>

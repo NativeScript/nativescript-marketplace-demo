@@ -1,17 +1,30 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui-pro/chart">
-    <Label text="Performance summary, 2016" cssClass="chart-example-tytle-style" textWrap="true"/>
+    <Label text="Monthly sales revenue, 2016" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.series>
-            <chart:BarSeries categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount" selectionMode="DataPoint" />
+            <chart:BarSeries seriesName="Bar" categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount" selectionMode="DataPoint" />
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.horizontalAxis>
-            <chart:CategoricalAxis />
+            <chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1" />
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.verticalAxis>
-            <chart:LinearAxis />
+            <chart:LinearAxis lineColor="#b0b0b0" lineThickness="1" />
         </chart:RadCartesianChart.verticalAxis>
         <chart:RadCartesianChart.grid>
-            <chart:RadCartesianChartGrid horizontalLinesVisible="true"/>
+            <chart:RadCartesianChartGrid 
+                horizontalLinesVisible="true" 
+                verticalLinesVisible="false" 
+                verticalStripLinesVisible="false"
+                horizontalStrokeColor="#e5e5e5"
+                verticalStripLineColor="#00000000, #00000000"
+                horizontalStripLineColor="#f8f8f8, #00000000"/>
         </chart:RadCartesianChart.grid>
+        <chart:RadCartesianChart.palettes>
+            <chart:Palette seriesName="Bar">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry fillColor="#08caab" strokeWidth="0" />
+                </chart:Palette.entries>
+            </chart:Palette>
+        </chart:RadCartesianChart.palettes>
     </chart:RadCartesianChart>
 </GridLayout>

@@ -61,11 +61,10 @@ export class ChartExamplesDataModel {
             return this._categoricalSource;
         }
         return this._categoricalSource = [
-            { Category: "Greenings", Amount: 65.0 },
-            { Category: "Perfecto", Amount: 62.0 },
-            { Category: "FamilyStore", Amount: 55.0 },
-            { Category: "Fresh&Green", Amount: 71.0 },
-            { Category: "NearBy", Amount: 92.0 }
+            { Category: "Mar", Amount: 65.0 },
+            { Category: "Apr", Amount: 62.0 },
+            { Category: "May", Amount: 55.0 },
+            { Category: "Jun", Amount: 71.0 }
         ];
     }
 
@@ -74,11 +73,10 @@ export class ChartExamplesDataModel {
             return this._categoricalSource2;
         }
         return this._categoricalSource2 = [
-            { Category: "Greenings", Amount: 5 },
-            { Category: "Perfecto", Amount: 15 },
-            { Category: "FamilyStore", Amount: 3 },
-            { Category: "Fresh&Green", Amount: 45 },
-            { Category: "NearBy", Amount: 10 }
+            { Category: "Mar", Amount: 5 },
+            { Category: "Apr", Amount: 15 },
+            { Category: "May", Amount: 3 },
+            { Category: "Jun", Amount: 45 }
         ];
     }
 
@@ -87,11 +85,10 @@ export class ChartExamplesDataModel {
             return this._categoricalSource3;
         }
         return this._categoricalSource3 = [
-            { Category: "Greenings", Amount: 65 },
-            { Category: "Perfecto", Amount: 56 },
-            { Category: "FamilyStore", Amount: 89 },
-            { Category: "Fresh&Green", Amount: 68 },
-            { Category: "NearBy", Amount: 69 }
+            { Category: "Mar", Amount: 65 },
+            { Category: "Apr", Amount: 56 },
+            { Category: "May", Amount: 89 },
+            { Category: "Jun", Amount: 68 }
         ];
     }
 
@@ -100,11 +97,10 @@ export class ChartExamplesDataModel {
             return this._areaSource;
         }
         return this._areaSource = [
-            { Category: "Greenings", Amount: 51 },
-            { Category: "Perfecto", Amount: 81 },
-            { Category: "FamilyStore", Amount: 89 },
-            { Category: "Fresh&Green", Amount: 60 },
-            { Category: "NearBy", Amount: 59 }
+            { Category: "Mar", Amount: 51 },
+            { Category: "Apr", Amount: 81 },
+            { Category: "May", Amount: 89 },
+            { Category: "Jun", Amount: 60 }
         ];
     }
 
@@ -113,11 +109,10 @@ export class ChartExamplesDataModel {
             return this._areaSource2;
         }
         return this._areaSource2 = [
-            { Category: "Greenings", Amount: 60 },
-            { Category: "Perfecto", Amount: 87 },
-            { Category: "FamilyStore", Amount: 91 },
-            { Category: "Fresh&Green", Amount: 95 },
-            { Category: "NearBy", Amount: 89 }
+            { Category: "Mar", Amount: 60 },
+            { Category: "Apr", Amount: 87 },
+            { Category: "May", Amount: 91 },
+            { Category: "Jun", Amount: 95 }
         ];
     }
 
@@ -195,12 +190,12 @@ export class ChartExamplesDataModel {
             return this._barTypes;
         }
         return this._barTypes = [
-            new ChartTypeItem(true, this.getPictureResourcePath("bar", "bar5"), "bar1"),
-            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar7"), "bar2"),
-            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar8"), "bar3"),
-            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar1"), "bar4"),
-            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar3"), "bar5"),
-            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar4"), "bar6")
+            new ChartTypeItem(true, this.getPictureResourcePath("bar", "bar1"), "bar1"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar2"), "bar2"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar3"), "bar3"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar4"), "bar4"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar5"), "bar5"),
+            new ChartTypeItem(false, this.getPictureResourcePath("bar", "bar6"), "bar6")
         ];
     }
 
@@ -210,9 +205,9 @@ export class ChartExamplesDataModel {
         }
         return this._lineTypes = [
             new ChartTypeItem(true, this.getPictureResourcePath("line", "line1"), "line1"),
-            new ChartTypeItem(false, this.getPictureResourcePath("line", "line3"), "line2"),
-            new ChartTypeItem(false, this.getPictureResourcePath("line", "spline1"), "line3"),
-            new ChartTypeItem(false, this.getPictureResourcePath("line", "spline3"), "line4")
+            new ChartTypeItem(false, this.getPictureResourcePath("line", "line2"), "line2"),
+            new ChartTypeItem(false, this.getPictureResourcePath("line", "line3"), "line3"),
+            new ChartTypeItem(false, this.getPictureResourcePath("line", "line4"), "line4")
         ];
     }
 
@@ -223,7 +218,7 @@ export class ChartExamplesDataModel {
         return this._pieTypes = [
             new ChartTypeItem(true, this.getPictureResourcePath("pie", "pie1"), "pie1"),
             new ChartTypeItem(false, this.getPictureResourcePath("pie", "pie2"), "pie2"),
-            new ChartTypeItem(false, this.getPictureResourcePath("pie", "doughnut1"), "pie3"),
+            new ChartTypeItem(false, this.getPictureResourcePath("pie", "pie3"), "pie3"),
         ];
     }
 }

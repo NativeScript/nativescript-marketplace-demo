@@ -17,13 +17,9 @@
                         <StackLayout orientation="horizontal"/>
                     </Repeater.itemsLayout>
                     <Repeater.itemTemplate>
-                        <GridLayout tap="repeaterItemTap">
-                            <GridLayout cssClass="{{ isSelected ? 'chartItemInRepeaterSelectedStyle' : 'chartItemInRepeaterStyle' }}">
-                                <Image src="{{ isSelected ? selectedImageRes : imageRes }}"/>
-                            </GridLayout>
-                            <GridLayout cssClass="{{isSelected ? 'galleryRepeaterItemBottomSelectedBorder' : 'galleryRepeaterItemBottomBorder'}}"/>
-                            <GridLayout cssClass="galleryRepeaterItemRightBorder"/>
-                            <GridLayout cssClass="galleryRepeaterItemLeftBorder"/>
+                        <GridLayout tap="repeaterItemTap" columns="*" rows="*,auto" cssClass="{{ isSelected ? 'chartItemInRepeaterSelectedStyle' : 'chartItemInRepeaterStyle' }}">
+                            <Image src="{{ imageRes }}" col="0" row="0" stretch="none" horizontalAlignment="center" verticalAlignment="center" />
+                            <GridLayout col="0" row="1" cssClass="{{ isSelected ? 'galleryRepeaterItemBottomSelectedBorder' : 'galleryRepeaterItemBottomBorder'}}"/>
                         </GridLayout>
                     </Repeater.itemTemplate>
                 </Repeater>

@@ -2,7 +2,7 @@
     <Label text="Energy consumption, 2016/2017" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
-            <chart:PieSeries showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.8" items="{{ pieSource2 }}" valueProperty="Amount" legendLabelProperty="Company">
+            <chart:PieSeries seriesName="Pie" showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.8" items="{{ pieSource2 }}" valueProperty="Amount" legendLabel="Company">
                 <chart:PieSeries.labelStyle>
                     <chart:PointLabelStyle  margin="-55" textFormat="%3.0f%%" textColor="White" textSize="10"  />
                 </chart:PieSeries.labelStyle>
@@ -12,6 +12,18 @@
         <chart:RadPieChart.legend>
             <chart:RadLegendView position="Top" title="" height="150"/>
         </chart:RadPieChart.legend>
+        
+        <chart:RadCartesianChart.palettes>
+            <chart:Palette seriesName="Pie">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry fillColor="#08caab" strokeWidth="0" />
+                    <chart:PaletteEntry fillColor="#026968" strokeWidth="0" />
+                    <chart:PaletteEntry fillColor="#aee403" strokeWidth="0" />
+                    <chart:PaletteEntry fillColor="#3c5afe" strokeWidth="0" />
+                </chart:Palette.entries>
+            </chart:Palette>
+        </chart:RadCartesianChart.palettes>
+        
         
     </chart:RadPieChart>
 </GridLayout>

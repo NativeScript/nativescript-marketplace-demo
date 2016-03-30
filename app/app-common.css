@@ -89,18 +89,16 @@ Page, ExamplePage {
     background-color: white;
 }
 .chartItemInRepeaterStyle {
-    vertical-align: bottom;
-    padding: 8;
-    background-color: transparent;
+    background-color: #31bcff;
     width: 74;
     height: 66;
+    opacity: 0.5;
 }
 .chartItemInRepeaterSelectedStyle {
-    vertical-align: bottom;
-    padding: 8;
-    background-color: white;
+    background-color: #31bcff;
     width: 74;
     height: 66;
+    opacity: 1;
 }
 
 .repeaterItemsScrollerStyle {
@@ -113,33 +111,31 @@ Page, ExamplePage {
 }
 
 .galleryRepeaterItemRightBorder{
-    background-color: #d6d5d5;
-    width: 1;
-    margin-bottom: -1;
+    background-color: #31bcff;
+    width: 0;
     horizontal-align: right;
 }
 
 .galleryRepeaterStyle {
     margin-bottom: 0;
+    background-color: #31bcff;
 }
 
 .galleryRepeaterItemLeftBorder{
-    background-color: #d6d5d5;
-    width: 1;
-    margin-left: -1;
-    margin-bottom: -1;
+    background-color: #31bcff;
+    width: 0;
     horizontal-align: left;
 }
 
 .galleryRepeaterItemBottomBorder{
-    background-color: #d6d5d5;
-    height: 1;
+    background-color: #31bcff;
+    height: 2;
     vertical-align: bottom;
 }
 
 .galleryRepeaterItemBottomSelectedBorder{
-    background-color: white;
-    height: 1;
+    background-color: #494e4a;
+    height: 2;
     vertical-align: bottom;
 }
 
@@ -163,4 +159,9 @@ Page, ExamplePage {
 
 .example-menu-item:highlighted {
     background-color: #E5E5E5;
+}
+
+.repeaterImage {
+    horizontal-align: center;
+    vertical-align: center;
 }
