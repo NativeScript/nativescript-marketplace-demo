@@ -12,15 +12,15 @@ import { Color } from "color";
 import { View } from "ui/core/view";
 import { grayTouch } from "../../common/effects";
 
-var page;
-
-export function pageLoaded(){
+export function pageLoaded(args){
     prof.stop("main-page");
+    let page = <pages.Page>args.object.page;
+    setTimeout(() => (<any>page).canEnter = true, 3500);
 }
 
 export function onNavigatingTo(args: observable.EventData) {
     // Get the event sender
-    page = <pages.Page>args.object;
+    let page = <pages.Page>args.object.page;
     page.bindingContext = mainPageVM.instance;
 }
 
@@ -30,22 +30,24 @@ export function toggleWrapLayout(e: any) {
 
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
     prof.start("group");
+    let page = <pages.Page>args.object.page;
     page.getViewById("side-drawer").closeDrawer();
     var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup);
     navigator.navigateToExampleGroup(context);
 }
 
-var introPlayed = false;
 export function tileTouch(args: gestures.TouchGestureEventData) {
-    if (!introPlayed) {
+    let page = <pages.Page>args.object.page;
+    if (!(<any>page).introPlayed) {
         return;
     }
     grayTouch(args);
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
-    if (!introPlayed) {
+    let page = <pages.Page>args.object.page;
+    if (!(<any>page).introPlayed) {
         return;
     }
     prof.start("example");
@@ -55,29 +57,36 @@ export function navigateToExample(args: gestures.GestureEventData) {
 }
 
 export function showSlideout(args) {
+    let page = <pages.Page>args.object.page;
     page.getViewById("side-drawer").toggleDrawerState();
 }
 
 export function tapHome(args) {
+    let page = <pages.Page>args.object.page;
     page.getViewById("side-drawer").closeDrawer();
 }
 
 export function tapAbout(args) {
+    let page = <pages.Page>args.object.page;
     page.getViewById("side-drawer").closeDrawer();
     navigator.navigateToAbout();
 }
 
 export function tapDrawerLink(args) {
+    let page = <pages.Page>args.object.page;
     page.getViewById("side-drawer").closeDrawer();
     navigator.openLink(args.object);
 }
 
-var entered = false;
 export function enter(args) {
-    if (entered) {
+    let page = <pages.Page>args.object.page;
+    if (!(<any>page).canEnter) {
         return;
     }
-    entered = true;
+    if ((<any>page).entered) {
+        return;
+    }
+    (<any>page).entered = true;
     let page: pages.Page = args.object.page;
     let content = page.getViewById("content");
     content.isEnabled = true;
@@ -95,7 +104,7 @@ function startExamplesAnimation(page: pages.Page) {
     let examplesList = page.getViewById("examples-wrap-layout");
     let odd = true;
     let timeout = 1000;
-    setTimeout(() => introPlayed = true, timeout);
+    setTimeout(() => (<any>page).introPlayed = true, timeout);
     let classSetterFactory = (child, className) => () => child.className = className;
     examplesList._eachChildView(child => {
         setTimeout(classSetterFactory(child, odd ? "example-odd-enter" : "example-even-enter"), timeout);
