@@ -1,0 +1,15 @@
+.recipeContainer {
+	height: 54;
+    background-color: white;
+    padding: 8 12;
+}
+
+.recipeTitle {
+	font-size: 16;
+    color: #455b66;
+}
+
+.recipeAuthor {
+	font-size: 11;
+    color: #455b66;
+}

@@ -1,45 +1,8 @@
-import {Observable} from 'data/observable';
-
-export class PictureItem {
-	private _pictureUri;
-	private _pictureTitle;
-
-	constructor(uri: string, title: string) {
-		this._pictureUri = uri;
-		this._pictureTitle = title;
-	}
-
-	get pictureUri() {
-		return this._pictureUri;
-	}
-
-	get pictureTitle() {
-		return this._pictureTitle;
-	}
-}
-
-export class PictureGroup {
-	private _groupKey;
-
-	constructor(groupKey: string) {
-		this._groupKey = groupKey;
-	}
-
-	get key() {
-		return this._groupKey;
-	}
-}
+import { Observable } from 'data/observable';
 
 export class ListViewLayoutsModel extends Observable{
-
-	constructor(){
-		super();
-		this.isLinearActive = true;
-		this.isWrapActive = false;
-	}
-	private _source = [
-
-
+    private _isLinearActive: boolean;
+    private _pictures = [
 		{ "title": "Dried Meat with Spices", "author": "Nice to Meat You", "photo": "paleo1", "category": "paleo" },
 		{ "title": "Golden Chicken", "author": "Chicken's Heaven", "photo": "paleo2", "category": "paleo" },
 		{ "title": "Pork Steak with Vegetables", "author": "Nice to Meat You", "photo": "paleo3", "category": "paleo" },
@@ -84,29 +47,23 @@ export class ListViewLayoutsModel extends Observable{
 		{ "title": "Hotdog for Two", "author": "Prince Burger", "photo": "main11", "category": "mains" },
 		{ "title": "Bruschetta with Salmon Fish", "author": "Ron's Fishery", "photo": "main12", "category": "mains" },
 		{ "title": "Chief's Steak", "author": "Nice to Meat You", "photo": "main13", "category": "mains" },
-
 	];
 
-	get pictures(): Array<any> {
-		return this._source;
-	}
-	
-	get isLinearActive(){
-		return this.get("linearActive");
-	}
-	
-	set isLinearActive(value: boolean){
-		this.set("linearActive", value);
-	}
-	
-	get isWrapActive(){
-		return this.get("wrapActive");
-	}
-	
-	set isWrapActive(value: boolean){
-		this.set("wrapActive", value);
+    constructor() {
+		super();
+        this._isLinearActive = true;
 	}
 
-	private preparePictures() {
+	public get pictures(): Array<any> {
+		return this._pictures;
+	}
+	
+	public get isLinearActive(): boolean {
+		return this._isLinearActive;
+	}
+	
+	public set isLinearActive(value: boolean) {
+		this._isLinearActive = value;
+        this.notifyPropertyChange("isLinearActive", value);
 	}
 }
