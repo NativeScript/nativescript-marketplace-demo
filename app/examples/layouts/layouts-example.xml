@@ -12,63 +12,78 @@
   <GridLayout loaded="rootGridLoaded">
     <TabView id="tabView" 
       selectedIndex="{{ selectedIndex }}" 
-      tabsBackgroundColor="#FF034D8D"
+      tabsBackgroundColor="#31bcff"
       android:cssClass="android-tab-view" 
-      android:selectedColor="#CED910"
+      android:selectedColor="#455b66"
       ios:cssClass="ios-tab-view"
       ios:selectedColor="white">
       <TabView.items>
-        <TabViewItem title="Stack" ios:iconSource="{{ selectedIndex == 0 ? 'res://stack-1' : 'res://stack' }}">
+        <TabViewItem ios:title="Stack" iconSource="{{ selectedIndex == 0 ? 'res://stack1' : 'res://stack' }}">
           <TabViewItem.view>
-            <StackLayout cssClass="layout-container">
-              <Button cssClass="btn-red" />
-              <Button cssClass="btn-lightblue" />
-              <Button cssClass="btn-lightgreen" />
-              <Button cssClass="btn-yellow" />
-              <Button cssClass="btn-blue" />
+            <StackLayout>
+                <Label text="Stack" android:cssClass="android-label" ios:cssClass="ios-label"/>
+                <StackLayout ios:cssClass="layout-container" android:cssClass="android-layout-container" vertical-alignment="stretch">
+                    <Button cssClass="btn-red" height="20%"/>
+                    <Button cssClass="btn-lightblue" height="19%"/>
+                    <Button cssClass="btn-lightgreen" height="19%"/>
+                    <Button cssClass="btn-yellow" height="19%"/>
+                    <Button cssClass="btn-blue" height="19%"/>
+                </StackLayout>
             </StackLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <TabViewItem title="Grid" ios:iconSource="{{ selectedIndex == 1 ? 'res://grid-1' : 'res://grid' }}">
+        <TabViewItem ios:title="Grid" iconSource="{{ selectedIndex == 1 ? 'res://grid1' : 'res://grid' }}">
           <TabViewItem.view>
-            <GridLayout columns="*,*,*" rows="*,*,*" cssClass="layout-container">
-              <Button cssClass="btn-red" />
-              <Button col="1" cssClass="btn-lightblue" />
-              <Button col="2" rowSpan="2" cssClass="btn-lightgreen" />
-              <Button row="1" rowSpan="2" colSpan="2" cssClass="btn-yellow" />
-              <Button row="2" col="2" cssClass="btn-blue" />
+            <StackLayout>
+                <Label text="Grid" android:cssClass="android-label" ios:cssClass="ios-label"/>
+                <GridLayout columns="*,*" rows="*,*,*,*,*" ios:cssClass="layout-container" android:cssClass="android-layout-container">
+                    <Button rowSpan="2" cssClass="btn-blue" />
+                    <Button col="1" rowSpan="4" cssClass="btn-lightblue" />
+                    <Button col="0" row="2" cssClass="btn-red" />
+                    <Button col="0" row="3" cssClass="btn-yellow" />
+                    <Button col="0" row="4" colSpan="2" cssClass="btn-lightgreen" /> 
+                </GridLayout>
+            </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem ios:title="Wrap" iconSource="{{ selectedIndex == 2 ? 'res://wrap1' : 'res://wrap' }}">
+          <TabViewItem.view>
+            <StackLayout>
+                <Label text="Wrap" android:cssClass="android-label" ios:cssClass="ios-label"/>
+                <WrapLayout ios:cssClass="layout-container" android:cssClass="android-layout-container" horizontal-alignment="center">
+                    <Button width="150" height="100" cssClass="btn-red" />
+                    <Button width="150" height="100" cssClass="btn-lightblue" />
+                    <Button width="200" height="100" cssClass="btn-lightgreen" />
+                    <Button width="100" height="100" cssClass="btn-yellow" />
+                    <Button width="150" height="100" cssClass="btn-blue" />
+                </WrapLayout>
+            </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem ios:title="Dock" iconSource="{{ selectedIndex == 3 ? 'res://dock1' : 'res://dock' }}">
+          <TabViewItem.view>
+            <GridLayout rows="auto,*">
+                <Label row="0" text="Dock" android:cssClass="android-label" ios:cssClass="ios-label"/>
+                <DockLayout row="1" stretchLastChild="true" ios:cssClass="layout-container" android:cssClass="android-layout-container">
+                    <Button dock="left" cssClass="btn-red" width="80"/>
+                    <Button dock="top" cssClass="btn-lightblue" height="80"/>
+                    <Button dock="right" cssClass="btn-lightgreen" width="80"/>
+                    <Button dock="bottom" cssClass="btn-yellow" height="80"/>
+                    <Button cssClass="btn-blue" />
+                </DockLayout>
             </GridLayout>
           </TabViewItem.view>
         </TabViewItem>
-        <TabViewItem title="Wrap" ios:iconSource="{{ selectedIndex == 2 ? 'res://wrap-1' : 'res://wrap' }}">
+        <TabViewItem ios:title="Absolute" iconSource="{{ selectedIndex == 4 ? 'res://absolute1' : 'res://absolute' }}">
           <TabViewItem.view>
-            <WrapLayout cssClass="layout-container">
-              <Button width="150" height="100" cssClass="btn-red" />
-              <Button width="100" height="150" cssClass="btn-lightblue" />
-              <Button width="200" height="120" cssClass="btn-lightgreen" />
-              <Button width="100" height="50" cssClass="btn-yellow" />
-              <Button width="250" height="100" cssClass="btn-blue" />
-            </WrapLayout>
-          </TabViewItem.view>
-        </TabViewItem>
-        <TabViewItem title="Dock" ios:iconSource="{{ selectedIndex == 3 ? 'res://dock-1' : 'res://dock' }}">
-          <TabViewItem.view>
-            <DockLayout stretchLastChild="true" cssClass="layout-container">
-              <Button dock="left" cssClass="btn-red" />/>
-              <Button dock="top" cssClass="btn-lightblue" />
-              <Button dock="right" cssClass="btn-lightgreen" />
-              <Button dock="bottom" cssClass="btn-yellow" />
-              <Button cssClass="btn-blue" />
-            </DockLayout>
-          </TabViewItem.view>
-        </TabViewItem>
-        <TabViewItem title="Absolute" ios:iconSource="{{ selectedIndex == 4 ? 'res://absolute-1' : 'res://absolute' }}">
-          <TabViewItem.view>
-            <AbsoluteLayout cssClass="layout-container">
-              <Button left="50" top="50" width="100" height="100" cssClass="btn-red" />
-              <Button left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
-              <Button left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />
-            </AbsoluteLayout>
+            <StackLayout>
+                <Label text="Absolute" android:cssClass="android-label" ios:cssClass="ios-label"/>
+                <AbsoluteLayout cssClass=ios:cssClass="layout-container" android:cssClass="android-layout-container">
+                    <Button left="50" top="50" width="100" height="100" cssClass="btn-red" />
+                    <Button left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
+                    <Button left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />
+                </AbsoluteLayout>
+            </StackLayout>
           </TabViewItem.view>
         </TabViewItem>
       </TabView.items>
