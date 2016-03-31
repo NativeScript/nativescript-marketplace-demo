@@ -9,7 +9,11 @@
             <ActionBar.actionItems>
                 <ActionItem icon="{{isLinearActive ? 'res://listview/layouts/icons/list-layout' : 'res://listview/layouts/icons/list-layout-1' }}" tap="onLinearLayoutTap" ios.position="right"/>
                 <ActionItem icon="{{isWrapActive ? 'res://listview/layouts/icons/wrap-layout' : 'res://listview/layouts/icons/wrap-layout-1' }}" tap="onGridLayoutTap" ios.position="right"/>
-                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>

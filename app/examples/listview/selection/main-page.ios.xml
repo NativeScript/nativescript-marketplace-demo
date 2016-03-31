@@ -10,7 +10,11 @@
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <ActionBar.actionItems>
                 <ActionItem text="{{ isReorderActive === true ? 'Done' : 'Edit' }}" tap="{{onActivateReorderTap}}" ios.position="right"/>
-                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">
