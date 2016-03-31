@@ -16,7 +16,7 @@
 
         <item name="android:textAllCaps">false</item>
     </style>
-    
+
     <style name="AppTheme" parent="AppThemeBase">
     </style>
 
@@ -28,7 +28,6 @@
 
         <item name="contentInsetStart">72dip</item>
     </style>
-    
 	<style name="NativeScriptToolbarStyle" parent="NativeScriptToolbarStyleBase">
     </style>
 </resources> 

@@ -14,7 +14,7 @@
                 <ActionItem android:icon="res://ic_listview_selection_reorder" tap="{{onActivateReorderTap}}" visibility="{{(isReorderActive || isSelectionActive) ? 'collapsed' : 'visible' }}" />
                 <ActionItem android:icon="res://ic_listview_selection_fav" tap="{{onAddAllToFavoritesTap}}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />
                 <ActionItem android:icon="res://ic_listview_selection_delete" tap="{{onDeleteAllTap}}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />
-                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
             </ActionBar.actionItems>
             <ActionBar.titleView>
                 <StackLayout orientation="horizontal">

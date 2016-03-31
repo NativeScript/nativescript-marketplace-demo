@@ -4,7 +4,11 @@
      <Page.actionBar >
         <ActionBar title="Reading List" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
-            <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
+            <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                <ActionItem.actionView>
+                    <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                </ActionItem.actionView>
+            </ActionItem>
         </ActionBar>
     </Page.actionBar> 
     <GridLayout rows="auto, *">

@@ -6,7 +6,16 @@
     <Page.actionBar>
         <ActionBar title="User Profile" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
-            <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" ios.position="right" automationText="ExampleMenu" />
+            <Android>
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
+            </Android>
+            <iOS>
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
+            </iOS>
         </ActionBar>
     </Page.actionBar>
     <GridLayout id="example-background" loaded="onBackgroundLoaded">
