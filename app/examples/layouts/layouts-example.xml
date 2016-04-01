@@ -87,7 +87,7 @@
           <TabViewItem.view>
             <StackLayout>
                 <Label text="Absolute" android:cssClass="android-label" ios:cssClass="ios-label"/>
-                <AbsoluteLayout cssClass=ios:cssClass="layout-container" android:cssClass="android-layout-container">
+                <AbsoluteLayout ios:cssClass="layout-container" android:cssClass="android-layout-container">
                     <Button left="50" top="50" width="100" height="100" cssClass="btn-red" />
                     <Button left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
                     <Button left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />
