@@ -5,12 +5,6 @@
         <Button text="Home" tap="tapHome" class="drawer-button" />
         <Button text="About" tap="tapAbout" class="drawer-button" />
 
-        <Repeater items="{{ $value }}" class="drawer-control-groups">
-            <Repeater.itemTemplate>
-                <Button text="{{ title }}" tap="navigateToExampleGroup" class="drawer-button" />
-            </Repeater.itemTemplate>
-        </Repeater>
-
         <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started">
             <GridLayout class="drawer-external-icon">
                 <Label text="Getting started" class="drawer-external-label" />
