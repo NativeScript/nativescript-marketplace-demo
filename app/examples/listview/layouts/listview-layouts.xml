@@ -1,0 +1,47 @@
+<examples:ExamplePage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:lv="nativescript-telerik-ui-pro/listview"
+        xmlns:examples="examples/example-base-page"
+        xmlns:f="fresco/fresco"
+        navigatingTo="pageNavigatingTo">
+    <Page.actionBar>
+        <ActionBar title="Item layouts" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <ActionBar.actionItems>
+                <ActionItem tap="onChangeLayoutTap" ios.position="right" 
+                    android:icon="{{ isLinearActive ? 'res://ic_listview_layouts_wrap' : 'res://ic_list_view' }}"
+                    ios:icon="{{ isLinearActive ? 'res://listview/layouts/icons/wrap-layout' : 'res://listview/layouts/icons/list-layout' }}"/>
+                <Android>
+                    <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
+                </Android>
+                <iOS>
+                    <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                        <ActionItem.actionView>
+                            <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                        </ActionItem.actionView>
+                    </ActionItem>
+                </iOS>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+    <lv:RadListView id="list-view" items="{{ pictures }}">
+        <lv:RadListView.listViewLayout>
+            <lv:ListViewLinearLayout itemHeight="210"/>
+        </lv:RadListView.listViewLayout>
+        <lv:RadListView.itemTemplate>
+            <GridLayout rows="*, auto">
+                <android>
+                    <f:FrescoDrawee imageUri="{{ photo ? 'res://' + photo : 'res://'}}" 
+                        height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}"/>
+                </android>
+                <ios>
+                    <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill" />
+                </ios>
+                <StackLayout row="1" cssClass="recipeContainer">
+                    <Label text="{{ title }}" cssClass="recipeTitle"/>
+                    <Label text="{{ author, 'by ' + author }}" cssClass="recipeAuthor"/>
+                </StackLayout>
+            </GridLayout>
+        </lv:RadListView.itemTemplate>
+    </lv:RadListView>
+</examples:ExamplePage>

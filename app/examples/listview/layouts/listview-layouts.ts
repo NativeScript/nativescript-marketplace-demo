@@ -1,53 +1,36 @@
-import model = require("./layouts-view-model");
-import listViewModule = require("nativescript-telerik-ui-pro/listview");
-import applicationModule = require("application");
-import frame = require("ui/frame");
-import colorModule = require("color");
+import { EventData } from "data/observable";
+import { Page, NavigatedData } from "ui/page";
+import { View } from "ui/core/view";
+import { ListViewLayoutsModel } from "./layouts-view-model";
+import { RadListView, ListViewGridLayout, ListViewLinearLayout } from "nativescript-telerik-ui-pro/listview";
 import * as navigator from "../../../common/navigator";
+import * as application from "application";
 
-var viewModel: model.ListViewLayoutsModel = new model.ListViewLayoutsModel();
-var listView;
+let GRID_LAYOUT = new ListViewGridLayout();
+GRID_LAYOUT.spanCount = 2;
+GRID_LAYOUT.itemHeight = 160;
 
-export function pageNavigatingTo(args: any) {
-    var page = args.object;
-    page.bindingContext = viewModel;
-    listView = page.getViewById("list-view");
-    viewModel.isLinearActive = true;
-    viewModel.isWrapActive = false;
-
-    if (applicationModule.android && android.os.Build.VERSION > 18) {
-        var window = applicationModule.android.foregroundActivity.getWindow();
-        window.addFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-    }
+let LINEAR_LAYOUT = new ListViewLinearLayout();
+LINEAR_LAYOUT.itemHeight = 210;
+if (LINEAR_LAYOUT.ios) {
+    LINEAR_LAYOUT.ios.dynamicItemSize = false;
 }
 
-export function pageNavigatedFrom(args: any) {
-    if (applicationModule.android && android.os.Build.VERSION > 18) {
-        var window = applicationModule.android.foregroundActivity.getWindow();
-        window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-    }
+declare var android;
+
+export function pageNavigatingTo(args: NavigatedData) {
+    var page = <Page>args.object;
+    page.bindingContext = new ListViewLayoutsModel();
 }
 
-export function onLinearLayoutTap(args: any) {
-    var linearLayout = new listViewModule.ListViewLinearLayout();
-    linearLayout.itemHeight = 250;
-    listView.listViewLayout = linearLayout;
-    viewModel.isLinearActive = true;
-    if (linearLayout.ios) {
-        linearLayout.ios.dynamicItemSize = false;
-    }
-    viewModel.isWrapActive = false;
+export function onChangeLayoutTap(args: EventData) {
+    var page = (<View>args.object).page;
+    var listView = page.getViewById<RadListView>("list-view");
+    var viewModel = <ListViewLayoutsModel>page.bindingContext;
+    listView.listViewLayout = viewModel.isLinearActive ? GRID_LAYOUT : LINEAR_LAYOUT;
+    viewModel.isLinearActive = !viewModel.isLinearActive;
 }
 
-export function onGridLayoutTap(args: any) {
-    var gridLayout = new listViewModule.ListViewGridLayout();
-    gridLayout.spanCount = 2;
-    gridLayout.itemHeight = 250;
-    listView.listViewLayout = gridLayout;
-    viewModel.isLinearActive = false;
-    viewModel.isWrapActive = true;
-}
-
-export function goBack(args) {
+export function goBack(args: EventData) {
     navigator.navigateBackFromExample();
 }
