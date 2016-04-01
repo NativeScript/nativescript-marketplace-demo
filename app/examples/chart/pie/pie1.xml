@@ -10,7 +10,7 @@
         </chart:RadPieChart.series>
         
         <chart:RadPieChart.legend>
-            <chart:RadLegendView position="Top" title="" height="150"/>
+            <chart:RadLegendView position="Top" title="" height="70"/>
         </chart:RadPieChart.legend>
         
         <chart:RadCartesianChart.palettes>
