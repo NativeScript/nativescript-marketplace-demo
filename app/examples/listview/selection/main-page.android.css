@@ -1,0 +1,49 @@
+@import { url('~/examples/listview/selection/main-page-common.css') };
+
+.title-view-item {
+    font-size: 20;
+    color: white;
+    margin-left: 12;
+    vertical-align: center;
+}
+
+.modeSelectedButtonStyle {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 14;
+    color: white;
+    padding: 10;
+    text-transform: uppercase;
+}
+
+.modeButtonStyle {
+    color: white;
+    font-size: 14;
+    horizontal-align: center;
+    vertical-align: center;
+    padding: 10;
+    text-transform: uppercase;
+}
+
+.titleStyle {
+    font-family: "sans-serif";
+    font-size: 18;
+    color: #455b66;
+    margin-left: 10;
+}
+
+.contentStyle {
+    font-family: "sans-serif";
+    font-size: 14;
+    color: #677881;
+    margin-top: 4;
+    margin-left: 10;
+    margin-right: 10;
+    margin-bottom: 4;
+}
+
+.reorder-handle {
+    margin: 8 8 8 16;
+    vertical-align: center;
+}
+

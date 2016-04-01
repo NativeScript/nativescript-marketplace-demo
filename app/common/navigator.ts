@@ -127,6 +127,13 @@ export function navigateBack() {
     frame.goBack();
 }
 
+export function navigateBackWithContext(context: any) {
+    var topmostFrame = frame.topmost();
+    var backstackEntry = topmostFrame.backStack[topmostFrame.backStack.length - 1];
+    backstackEntry.entry.context = context;
+    topmostFrame.goBack(backstackEntry);
+}
+
 export function navigateBackFromExample() {
     var topmostFrame = frame.topmost();
     var stack = topmostFrame.backStack;
