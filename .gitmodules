@@ -1,6 +1,3 @@
-[submodule "deps/NativeScript"]
-	path = deps/NativeScript
-	url = git@github.com:NativeScript/NativeScript.git
 [submodule "deps/nativescript-ui"]
 	path = deps/nativescript-ui
 	url = git@github.com:telerik/nativescript-ui.git
