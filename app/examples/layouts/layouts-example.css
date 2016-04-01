@@ -6,29 +6,100 @@
     margin: 2 10 20 10;
 }
 
+@keyframes play {
+    from {
+         opacity: 0.5;
+         transform: scale(0.5, 0.5);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(1.2, 1.2);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1, 1);
+    }
+}
+
 .btn-red {
     background-color: #fe8256;
-    margin: 2;    
+    margin: 2;
+    opacity: 0;
+}
+
+.btn-red-animated {
+    background-color: #fe8256;
+    margin: 2;
+    animation-name: play;
+    animation-duration: 0.3;
+    transform: scale(0.5, 0.5);
 }
 
 .btn-lightblue {
     background-color: #899bfe;
     margin: 2;   
+    opacity: 0;
+}
+
+.btn-lightblue-animated {
+    background-color: #899bfe;
+    margin: 2;   
+    animation-name: play;   
+    animation-duration: 0.3;
+    animation-delay: 0.1;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
 }
 
 .btn-lightgreen {
     background-color: #455b66;
     margin: 2;   
+    opacity: 0;
+}
+
+.btn-lightgreen-animated {
+    background-color: #455b66;
+    margin: 2;   
+    animation-name: play;    
+    animation-duration: 0.3;
+    animation-delay: 0.2;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
 }
 
 .btn-yellow {
     background-color: #fed03c;
     margin: 2;   
+    opacity: 0;
+}
+
+.btn-yellow-animated {
+    background-color: #fed03c;
+    margin: 2;   
+    animation-name: play;    
+    animation-duration: 0.3; 
+    animation-delay: 0.3;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
 }
 
 .btn-blue {
     background-color: #3c5bfe;
     margin: 2;   
+    opacity: 0;
+}
+
+.btn-blue-animated {
+    background-color: #3c5bfe;
+    margin: 2;   
+    animation-name: play;    
+    animation-duration: 0.3;
+    animation-delay: 0.4;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
 }
 
 .ios-tab-view {
