@@ -11,16 +11,20 @@ export class Session extends observable.Observable {
         public start: Date,
         public end: Date,
         public room: string,
-        public isFavourite: boolean) {
+        public isFavourite: boolean,
+        public cssClass: string) {
         super();
+        this.cssClass = this.isFavourite ? "session-favorite-selected" : "session-favorite";
     }
 
     get range(): string {
         return formatTime(this.start) + " - " + formatTime(this.end);
     }
-
+    
     public toggleFavourite() {
-        this.set("isFavourite", !this.get("isFavourite"));
+        let favourite = this.get("isFavourite");
+        this.set("isFavourite", !favourite);
+        this.set("cssClass", !favourite ? "session-favorite-selected" : "session-favorite");
     }
 }
 

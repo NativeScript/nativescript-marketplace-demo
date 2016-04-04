@@ -11,9 +11,10 @@
          opacity: 0.5;
          transform: scale(0.5, 0.5);
     }
-    60% {
+    50% {
         opacity: 0.8;
-        transform: scale(1.2, 1.2);
+        transform: scale(1.1, 1.1);
+        animation-timing-function: ease-out;
     }
     to { 
         opacity: 1; 
@@ -31,7 +32,7 @@
     background-color: #fe8256;
     margin: 2;
     animation-name: play;
-    animation-duration: 0.3;
+    animation-duration: 0.4;
     transform: scale(0.5, 0.5);
 }
 
@@ -45,7 +46,7 @@
     background-color: #899bfe;
     margin: 2;   
     animation-name: play;   
-    animation-duration: 0.3;
+    animation-duration: 0.4;
     animation-delay: 0.1;
     opacity: 0;
     transform: scale(0.5, 0.5);
@@ -61,7 +62,7 @@
     background-color: #455b66;
     margin: 2;   
     animation-name: play;    
-    animation-duration: 0.3;
+    animation-duration: 0.4;
     animation-delay: 0.2;
     animation-fill-mode: forwards;
     opacity: 0;
@@ -78,7 +79,7 @@
     background-color: #fed03c;
     margin: 2;   
     animation-name: play;    
-    animation-duration: 0.3; 
+    animation-duration: 0.4; 
     animation-delay: 0.3;
     animation-fill-mode: forwards;
     opacity: 0;
@@ -95,7 +96,7 @@
     background-color: #3c5bfe;
     margin: 2;   
     animation-name: play;    
-    animation-duration: 0.3;
+    animation-duration: 0.4;
     animation-delay: 0.4;
     animation-fill-mode: forwards;
     opacity: 0;
