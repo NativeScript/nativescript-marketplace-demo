@@ -28,13 +28,27 @@ ListView {
 
 @keyframes session-favorite-selected {
     from { transform: scale(1, 1); opacity: 1; }
-    60% { transform: scale(1.8, 1.8); opacity: 0.3; }
+    60% { transform: scale(2, 2); opacity: 0.3; }
     to { transform: scale(1, 1); opacity: 1; }    
 }
 
 .session-favorite-selected {
     animation-name: session-favorite-selected;
-    animation-duration: 0.4;
+    animation-duration: 0.2;
+    vertical-align: center;
+    horizontal-align: center;
+    margin-right: 32;
+}
+
+@keyframes session-favorite-unselected {
+    from { transform: scale(1, 1); opacity: 1; }
+    60% { transform: scale(2, 2); opacity: 0.3; }
+    to { transform: scale(1, 1); opacity: 1; }    
+}
+
+.session-favorite-unselected {
+    animation-name: session-favorite-unselected;
+    animation-duration: 0.2;
     vertical-align: center;
     horizontal-align: center;
     margin-right: 32;
