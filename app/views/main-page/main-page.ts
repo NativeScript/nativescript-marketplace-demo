@@ -11,11 +11,16 @@ import prof = require("../../common/profiling");
 import { Color } from "color";
 import { View } from "ui/core/view";
 import { grayTouch } from "../../common/effects";
+import { trackEvent } from "../../common/analytics";
 
 export function pageLoaded(args){
     prof.stop("main-page");
     let page = <pages.Page>args.object.page;
     setTimeout(() => (<any>page).canEnter = true, 3500);
+    if (!(<any>page).introStarted) {
+        trackEvent("main-page: play intro");
+        (<any>page).introStarted = true;
+    }
 }
 
 export function onNavigatingTo(args: observable.EventData) {
@@ -78,7 +83,15 @@ export function tapDrawerLink(args) {
     navigator.openLink(args.object);
 }
 
-export function enter(args) {
+export function tapPage(args) {
+    enter(args, "main-page: enter: page tap");
+}
+
+export function tapGetStarted(args) {
+    enter(args, "main-page: enter: get started tap");
+}
+
+export function enter(args, event) {
     let page = <pages.Page>args.object.page;
     if (!(<any>page).canEnter) {
         return;
@@ -86,6 +99,7 @@ export function enter(args) {
     if ((<any>page).entered) {
         return;
     }
+    trackEvent(event);
     (<any>page).entered = true;
     let page: pages.Page = args.object.page;
     let content = page.getViewById("content");

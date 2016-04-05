@@ -7,7 +7,7 @@
         loaded="pageLoaded"
         backgroundSpanUnderStatusBar="true"
         actionBarHidden="true"
-        tap="enter">
+        tap="tapPage">
     <Page.actionBar>
         <ActionBar automationText="ActionBar">
             <android>
@@ -94,7 +94,7 @@
                             height="50"
                             width="234"
                             fontSize="18"
-                            tap="enter"/>
+                            tap="tapGetStarted"/>
                     <Label id="intro-version"
                             class="intro-version-intro"
                             text="version 1.6.2"
