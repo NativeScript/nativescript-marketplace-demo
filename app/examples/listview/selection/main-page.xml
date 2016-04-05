@@ -88,15 +88,15 @@
                         <Label row="0" col="1" text="{{ Title }}" cssClass="titleStyle" textWrap="true"/>
                         <Label row="1" col="1" text="{{ Summary }}" ios.numberOfLines="3" cssClass="contentStyle" textWrap="true"/>
                     </GridLayout>
-                    <lv:ReorderHandle col="2" cssClass="reorder-handle" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}">
-                        <Image src="res://listview/selection/ic_reorder"/>
+                    <lv:ReorderHandle col="2" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                        <Image src="res://listview/selection/ic_reorder" cssClass="reorder-handle" />
                     </lv:ReorderHandle>
                 </GridLayout>
             </ios>
             <android>
                 <GridLayout columns="auto, *">
-                    <lv:ReorderHandle col="0" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" cssClass="reorder-handle">
-                        <Image src="res://ic_reorder" />
+                    <lv:ReorderHandle col="0" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                        <Image src="res://ic_reorder" cssClass="reorder-handle"/>
                     </lv:ReorderHandle>
                     <GridLayout col="1" columns="auto, *" rows="auto,*" cssClass="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" >
                         <Image row="0" col="0" margin="5" src="res://ic_fav" opacity="{{ IsFavourite ? '1' : '0' }}" />

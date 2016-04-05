@@ -6,17 +6,14 @@
 }
 
 .modeSelectedButtonStyle {
-    /*background-color: #30BCFF;*/
     horizontal-align: center;
     vertical-align: center;
     font-size: 15;
-    /*font-weight: bold;*/
     color: white;
     padding: 10;
 }
 
 .modeButtonStyle{
-    /*background-color: #30BCFF;*/
     color: white;
     font-size: 15;
     horizontal-align: center;
@@ -48,8 +45,6 @@
 
 .reorder-handle {
     margin: 16;
-    vertical-align: center;
-    
 }
 
 .check-box {
