@@ -1,0 +1,30 @@
+.blue-background{
+     background-color: #30BCFF;
+     padding: 8 0;
+}
+
+.white-background{
+     background-color: white;
+}
+
+.detailTitle {
+    font-family: "Georgia";
+    font-size: 20;
+    margin-top: 10;
+    margin-left: 10;
+    margin-right: 10;
+    padding: 10;
+}
+
+.detailContent {
+    font-size: 15;
+    margin-top: 15;
+    margin-left: 18;
+    margin-right: 10;
+}
+
+.blue-button {
+    horizontal-align: center;
+    vertical-align: center;
+    margin: 8 0;    
+} 

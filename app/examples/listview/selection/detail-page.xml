@@ -1,0 +1,31 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+        loaded="pageLoaded"
+        navigatedTo="pageNavigatedTo">
+     <Page.actionBar >
+        <ActionBar title="Selection" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <android>
+                <ActionBar.actionItems>
+                    <ActionItem icon="res://ic_add_to_fav" tap="onToggleFavouriteTap" />
+                    <ActionItem icon="res://ic_delete" tap="onDeleteTap" />
+                </ActionBar.actionItems>
+            </android>
+        </ActionBar>
+    </Page.actionBar> 
+    <GridLayout rows="*, auto" cssClass="white-background">
+        <StackLayout rows="auto, *" orientation="vertical" >
+            <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
+            <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
+        </StackLayout>
+        <ios>
+            <GridLayout row="1" columns="*, *" cssClass="blue-background" verticalAlignment="bottom" horizontalAlignment="stretch" >
+                <GridLayout col="0" tap="onToggleFavouriteTap" verticalAlignment="center">
+                    <Image src="res://listview/selection/ic_add_to_fav" stretch="none" cssClass="blue-button" />
+                </GridLayout>
+                <GridLayout col="1" tap="onDeleteTap" verticalAlignment="center">
+                    <Image src="res://listview/selection/ic_delete" stretch="none" cssClass="blue-button" />
+                </GridLayout>
+            </GridLayout>
+        </ios>
+    </GridLayout>
+</Page>

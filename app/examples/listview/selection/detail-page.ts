@@ -1,35 +1,29 @@
-import frame = require("ui/frame");
-import observable = require("data/observable");
-import platform = require("platform");
-import application = require("application")
-import detailPage = require("./detail-page")
-import mainPage = require("./main-page");
-import pages = require("Page");
-import viewModelModule = require("./main-page-model");
+import { SelectionViewModel, BlogPostItemData } from "./selection-view-model";
+import { EventData } from "data/observable";
+import { Page, NavigatedData } from "ui/page";
+import { View } from "ui/core/view";
+import { topmost as topmostFrame } from "ui/frame";
+import * as navigator from "../../../common/navigator";
 
-var viewModel: viewModelModule.ListView_ViewModel;
-
-// Event handler for Page "loaded" event attached in main-page.xml
-export function pageLoaded(args: observable.EventData) {
+export function pageNavigatedTo(args: NavigatedData) {
+    var page = <Page>args.object;
+    var item = <BlogPostItemData>args.context;
+    page.bindingContext = item;
 }
 
-export function pageNavigatedTo(args: observable.EventData) {
-    var page = <pages.Page>args.object;
-    viewModel = page.navigationContext;
-    page.bindingContext = viewModel.CurrentItem;
-
+export function onToggleFavouriteTap(args: EventData){
+    var page = <Page>(<View>args.object).page;
+    var item = <BlogPostItemData>page.bindingContext;
+    navigator.navigateBackWithContext({ action: "favorite", item: item });
 }
 
-export function onBackImageTap(args: observable.EventData) {
-    frame.goBack();
+export function onDeleteTap(args: EventData){
+    var page = <Page>(<View>args.object).page;
+    var item = <BlogPostItemData>page.bindingContext;
+    navigator.navigateBackWithContext({ action: "delete", item: item });
 }
 
-export function onAddToFavouritesTap(args:any){
-    viewModel.onTap_SetAsFavourite(args);
-    frame.goBack();
+export function goBack(args: EventData) {
+    navigator.navigateBack();
 }
 
-export function onDeleteTap(args:any){
-    viewModel.onTap_DeletePost(args);
-    frame.goBack();
-}
