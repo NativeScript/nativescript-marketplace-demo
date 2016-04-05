@@ -66,6 +66,10 @@ export class ListViewReorderModel extends Observable{
         this._todoItems.push(new ListItem("Ask Jonah if he will take care of the dog", false, false));
         this._todoItems.push(new ListItem("Reschedule airplane tickets for the next month's flight to Hawaii", false, false));
         this._todoItems.push(new ListItem("Bills due: Alissa's ballet class fee", false, false));
+        this._todoItems.push(new ListItem("Get Alisse from school", false, false));
+        this._todoItems.push(new ListItem("Call Jessie", false, false));
+        this._todoItems.push(new ListItem("Pay Electricity Bill", false, false));
+        this._todoItems.push(new ListItem("Check out the restaurant", false, false));
 
     }
 

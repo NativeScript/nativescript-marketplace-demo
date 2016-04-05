@@ -24,7 +24,7 @@ export class Session extends observable.Observable {
     public toggleFavourite() {
         let favourite = this.get("isFavourite");
         this.set("isFavourite", !favourite);
-        this.set("cssClass", !favourite ? "session-favorite-selected" : "session-favorite");
+        this.set("cssClass", !favourite ? "session-favorite-selected" : "session-favorite-unselected");
     }
 }
 

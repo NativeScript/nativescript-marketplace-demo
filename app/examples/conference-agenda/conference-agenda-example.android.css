@@ -32,6 +32,20 @@ SearchBar {
     margin-right: 26;
 }
 
+@keyframes session-favorite-unselected {
+    from { transform: scale(1, 1); opacity: 1; }
+    60% { transform: scale(2, 2); opacity: 0.3; }
+    to { transform: scale(1, 1); opacity: 1; }    
+}
+
+.session-favorite-unselected {
+    animation-name: session-favorite-unselected;
+    animation-duration: 0.2;
+    vertical-align: center;
+    horizontal-align: center;
+    margin-right: 32;
+}
+
 .session-time {
     font-family: "sans-serif";
     /*font-weight: 700;*/
