@@ -37,8 +37,9 @@
             <ListView row="1" items="{{ sessions }}" id="sessions-list" separatorColor="#00000000" ios:itemLoading="changeCellBackground">
                 <ListView.itemTemplate>
                     <GridLayout columns="auto, auto, *" rows="auto, auto" tap="toggleFavourite" cssClass="session-container" backgroundColor="{{ isFavourite ? '#19FFFFFF' : '#00000000' }}">
-                        <Image row="0" rowSpan="2" col="0" src="{{ isFavourite ? 'res://add_to_fav_1' : 'res://add_to_fav' }}" cssClass="session-favorite"/>
+                        <Image row="0" rowSpan="2" col="0" src="{{ isFavourite ? 'res://add_to_fav_1' : 'res://add_to_fav' }}" cssClass="{{ cssClass }}"/>
                         <Label row="0" col="1" text="{{ range }}" cssClass="session-time"/>
+                        
                         <Label row="0" col="2" text="{{ room }}" cssClass="session-room"/>                    
                         <Label row="1" col="1" colSpan="2" text="{{ title }}" textWrap="true" cssClass="session-title"/>
                     </GridLayout>

@@ -36,6 +36,8 @@ export function onBackgroundLoaded(args: EventData) {
             setTimeout(() => {
                 linearGradient.drawBackground(background, colors, orientation);
             });
+            let search = background.getViewById("search");
+            search.ios.backgroundImage = UIImage.alloc().init();
             break;
     }
 }
