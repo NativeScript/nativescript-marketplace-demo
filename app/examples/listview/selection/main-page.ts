@@ -23,6 +23,7 @@ export function pageNavigatedTo(args: NavigatedData) {
         switch (args.context.action) {
             case "delete":
                 viewModel.deleteItem(args.context.item);
+                page.getViewById<RadListView>("list-view").refresh();
                 break;
             case "favorite":
                 var item = <BlogPostItemData>args.context.item; 
