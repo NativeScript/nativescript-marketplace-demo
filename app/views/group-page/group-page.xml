@@ -30,6 +30,6 @@
 		</drawer:RadSideDrawer>
 	</android>
 	<ios>
-		<content:group-page-content />
+		<!--<content:group-page-content />-->
 	</ios>
 </Page>

@@ -105,7 +105,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "Pie charts are used to display the contribution of franctional parts to a whole. Each data point is a pie slice with arc size proportional to the magnitude of the point's value.",
                 controls: "chart",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             }
         ]
     },
@@ -119,12 +119,12 @@ export var groups: Array<ExampleGroup> = [
         examples: [
              {
                 title: "Item layouts",
-                image: applicationModule.ios ? "res://screen_listview_layouts.jpg" : "res://screen_listview_layouts",
+                image: "res://screen_listview_layouts",
                 path: "examples/listview/layouts/listview-layouts",
                 info: "ListView for NativeScript supports different item layouts that are UI virtualized and optimized for mobile.",
                 controls: "listview",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
             {
                 title: "Item reorder",
@@ -133,7 +133,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "Item reorder allows you to change the position of an item in ListView by dragging it.",
                 controls: "listview",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             },
             {
                 title: "Selection",
@@ -142,7 +142,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "ListView supports two selection modes: single and miltiple. It also exposes convenient API for managing selection. You can programmatically select, deselect and query the currently selected items.",
                 controls: "listview",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             }
         ]
     }

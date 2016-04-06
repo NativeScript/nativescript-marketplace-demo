@@ -14,7 +14,7 @@ export class Session extends observable.Observable {
         public isFavourite: boolean,
         public cssClass: string) {
         super();
-        this.cssClass = this.isFavourite ? "session-favorite-selected" : "session-favorite";
+       this.cssClass = "session-favorite";
     }
 
     get range(): string {
@@ -119,12 +119,16 @@ export class ConferenceViewModel extends observable.Observable {
     }
 
     private filter() {
-        var day = this.selectedDay + 3;
-        var textFilter = this.search ? this.search.toLocaleLowerCase() : this.search;
+        let day = this.selectedDay + 3;
+        let textFilter = this.search ? this.search.toLocaleLowerCase() : this.search;
 
-        var filteredSessions = allSessions.filter((session) => {
-            return (session.start.getDate() === day) &&
+        let filteredSessions = allSessions.filter((session) => {
+            let include = (session.start.getDate() === day) &&
                 (!textFilter || session.title.toLocaleLowerCase().indexOf(textFilter) >= 0);
+            if (include) {
+                session.cssClass = "session-favorite";
+            }
+            return include;
         });
 
         this.set("sessions", filteredSessions)

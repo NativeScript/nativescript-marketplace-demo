@@ -12,6 +12,7 @@ import { Color } from "color";
 import { View } from "ui/core/view";
 import { grayTouch } from "../../common/effects";
 import { trackEvent } from "../../common/analytics";
+import { Image } from "ui/image";
 
 export function pageLoaded(args){
     prof.stop("main-page");
@@ -21,6 +22,19 @@ export function pageLoaded(args){
         trackEvent("main-page: play intro");
         (<any>page).introStarted = true;
     }
+    let odd = true;
+    let examplesList = page.getViewById("examples-wrap-layout");
+    examplesList._eachChildView(child => {
+        if (!odd) {
+            child._eachChildView(subchild => {
+                if (subchild instanceof Image) {
+                    let view: View = subchild;
+                    view.marginRight = 1;
+                }
+            });
+        }
+        odd = !odd;
+    });
 }
 
 export function onNavigatingTo(args: observable.EventData) {
