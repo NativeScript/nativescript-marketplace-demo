@@ -109,7 +109,7 @@
     </lv:RadListView>
     
     <ios>
-        <GridLayout row="2" columns="*, *" cssClass="blue-background" verticalAlignment="bottom" horizontalAlignment="stretch" visibility="{{ isReorderActive === true ? 'visible' : 'collapsed'}}" >
+        <GridLayout row="2" columns="*, *" cssClass="blue-background" visibility="{{ isReorderActive === true ? 'visible' : 'collapsed'}}" >
             <GridLayout col="0" tap="{{ onToggleSelectedFavoriteTap }}" verticalAlignment="center">
                 <Image src="res://listview/selection/ic_add_to_fav" stretch="none" cssClass="blue-button"/>
             </GridLayout>

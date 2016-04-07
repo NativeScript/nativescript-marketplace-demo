@@ -46,6 +46,7 @@ export class CodePageViewModel extends observable.Observable {
 
         var folder = fs.Folder.fromPath(path);
         folder.getEntities().then((entities) => {
+            entities = entities.filter((e) => (e instanceof fs.File));
             this.set("files", entities);
             this.selectFile(initialSelectedFile);
         });
