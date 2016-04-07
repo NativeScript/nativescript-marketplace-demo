@@ -102,7 +102,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Pie series",
                 image: "res://screen_pie_chart",
                 path: "examples/chart/pie-series",
-                info: "Pie charts are used to display the contribution of franctional parts to a whole. Each data point is a pie slice with arc size proportional to the magnitude of the point's value.",
+                info: "Pie charts are used to display the contribution of frantional parts to a whole. Each data point is a pie slice with arc size proportional to the magnitude of the point's value.",
                 controls: "chart",
                 isFeatured: true,
                 isNew: false
