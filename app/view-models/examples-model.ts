@@ -43,7 +43,7 @@ export var groups: Array<ExampleGroup> = [
             },
 
             {
-                title: "User Profile",
+                title: "User profile",
                 image: "res://screen_user_profile",
                 controls: "scroll-view stack-layout label text-field text-view image button switch action-bar",
                 path: "examples/user-profile/user-profile-example",
@@ -53,7 +53,7 @@ export var groups: Array<ExampleGroup> = [
             },
 
             {
-                title: "Conference Agenda",
+                title: "Conference agenda",
                 image: "res://screen_conference_agenda",
                 controls: "list-view segmented-bar search-bar action-bar label",
                 path: "examples/conference-agenda/conference-agenda-example",

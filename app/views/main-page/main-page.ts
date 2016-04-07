@@ -33,6 +33,11 @@ export function pageLoaded(args){
                 }
             });
         }
+        child.ios.backgroundColor = UIColor.whiteColor();
+        child.ios.layer.masksToBounds = false;
+        child.ios.layer.shadowColor = UIColor.colorWithRedGreenBlueAlpha(0.0824, 0.122, 0.184, 1.0).CGColor;
+        child.ios.layer.shadowOffset = CGSizeMake(0.0, 1.0);
+        child.ios.layer.shadowOpacity = 0.5;
         odd = !odd;
     });
 }
