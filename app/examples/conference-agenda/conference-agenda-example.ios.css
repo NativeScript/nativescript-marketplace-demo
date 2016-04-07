@@ -27,28 +27,28 @@ ListView {
 }
 
 @keyframes session-favorite-selected {
-    from { transform: scale(1, 1); opacity: 1; }
-    60% { transform: scale(2, 2); opacity: 0.3; }
-    to { transform: scale(1, 1); opacity: 1; }    
+    from { transform: scale(1, 1) rotate(-120); opacity: 0; animation-timing-function: linear; }
+    50% { transform: scale(2, 2) rotate(-60); opacity: 0.3; animation-timint-function: ease-in; }
+    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
 }
 
 .session-favorite-selected {
     animation-name: session-favorite-selected;
-    animation-duration: 0.2;
+    animation-duration: 0.4;
     vertical-align: center;
     horizontal-align: center;
     margin-right: 32;
 }
 
 @keyframes session-favorite-unselected {
-    from { transform: scale(1, 1); opacity: 1; }
-    60% { transform: scale(2, 2); opacity: 0.3; }
-    to { transform: scale(1, 1); opacity: 1; }    
+    from { transform: scale(1, 1) rotate(120); opacity: 0; animation-timing-function: linear; }
+    60% { transform: scale(2, 2) rotate(60); opacity: 0.3; animation-timint-function: ease-in; }
+    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
 }
 
 .session-favorite-unselected {
     animation-name: session-favorite-unselected;
-    animation-duration: 0.2;
+    animation-duration: 0.4;
     vertical-align: center;
     horizontal-align: center;
     margin-right: 32;

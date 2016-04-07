@@ -21,14 +21,26 @@ export function onPageNavigatingTo(args: EventData) {
         showPassword: false
     });
     page.bindingContext = viewModel;
-    
+}
+
+export function onContentLoaded(args: EventData) {
+    let view = <View>args.object;
+
+    // if (platform.device.os === platform.platformNames.ios) {
+    //     view.ios.backgroundColor = UIColor.whiteColor();
+    //     view.ios.layer.masksToBounds = false;
+    //     view.ios.layer.shadowColor = UIColor.blackColor().CGColor;
+    //     view.ios.layer.shadowOffset = CGSizeMake(5.0, 5.0);
+    //     view.ios.layer.shadowOpacity = 0.5;
+    //     view.ios.layer.bord
+    // }
 }
 
 export function onBackgroundLoaded(args: EventData) {
     let background = <View>args.object;
     let colors = new Array<Color>(new Color("#667297"), new Color("#5C687C"));
     let orientation = linearGradient.Orientation.Top_Bottom;
-    
+
     switch (platform.device.os) {
         case platform.platformNames.android:
             linearGradient.drawBackground(background, colors, orientation);

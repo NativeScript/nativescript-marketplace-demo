@@ -4,7 +4,7 @@
         navigatingTo="onPageNavigatingTo"
         tap="onPageTapped">
     <Page.actionBar>
-        <ActionBar title="User Profile" automationText="ActionBar">
+        <ActionBar title="User profile" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <Android>
                 <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
@@ -19,7 +19,7 @@
         </ActionBar>
     </Page.actionBar>
     <GridLayout id="example-background" loaded="onBackgroundLoaded">
-        <GridLayout cssClass="form-content" rows="auto,*,auto">
+        <GridLayout id="form-content" cssClass="form-content" rows="auto,*,auto" loaded="onContentLoaded">
             <StackLayout cssClass="top-border" row="0"/>
             <ScrollView row="1" cssClass="fields-section">
                 <StackLayout>
@@ -62,6 +62,6 @@
             <Button text="Update" cssClass="update" tap="onUpdateButtonTapped" row="2"/>
         </GridLayout>
         <!-- Picture -->
-        <Image src="res://user" cssClass="profile-picture" tap="onProfilePictureTapped"/>
+        <Image id="image" src="res://user" cssClass="profile-picture" tap="onProfilePictureTapped"/>
     </GridLayout>
 </examples:ExamplePage>
