@@ -24,23 +24,9 @@ export function pageLoaded(args){
         (<any>page).introStarted = true;
     }
     if (platform.device.os === platform.platformNames.ios) {
-        let odd = true;
         let examplesList = page.getViewById("examples-wrap-layout");
         examplesList._eachChildView(child => {
-            if (!odd) {
-                child._eachChildView(subchild => {
-                    if (subchild instanceof Image) {
-                        let view: View = subchild;
-                        view.marginRight = 1;
-                    }
-                });
-            }
-            child.ios.backgroundColor = UIColor.whiteColor();
-            child.ios.layer.masksToBounds = false;
-            child.ios.layer.shadowColor = UIColor.colorWithRedGreenBlueAlpha(0.0824, 0.122, 0.184, 1.0).CGColor;
-            child.ios.layer.shadowOffset = CGSizeMake(0.0, 1.0);
-            child.ios.layer.shadowOpacity = 0.5;
-            odd = !odd;
+            child.ios.layer.masksToBounds = true;
         });
     }
 }
