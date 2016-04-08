@@ -15,8 +15,7 @@
 	"nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-telerik-analytics": "*",
     "nativescript-telerik-ui-pro": "*",
-    "tns-core-modules": "*",
-    "tns-core-modules-widgets": "*"
+    "tns-core-modules": "*"
   },
   "devDependencies": {
     "nativescript-dev-typescript": "^0.2.2",
