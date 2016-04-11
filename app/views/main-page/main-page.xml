@@ -77,7 +77,7 @@
                             textAlignment="center" />
                     <Label id="intro-text-two"
                             class="intro-text-two-intro"
-                            text="Develop native iOS and Android&#xA;apps from a single code base"
+                            text="Develop native cross platform&#xA;apps from a single code base"
                             fontSize="19"
                             horizontalAlignment="center"
                             verticalAlignment="center"
