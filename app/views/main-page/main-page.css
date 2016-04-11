@@ -49,20 +49,20 @@
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         opacity: 1;
     }
-    51% { transform: scale(0.56, 0.56), translate(0, -220); }
-    100% { transform: scale(0.56, 0.56), translate(0, -220); }
+    51% { transform: scale(0.56, 0.56), translate(0, -205); }
+    100% { transform: scale(0.56, 0.56), translate(0, -205); }
 }
 @keyframes intro-logo-n-enter {
     0% {
-        transform: scale(0.56, 0.56), translate(0, -220);
+        transform: scale(0.56, 0.56), translate(0, -205);
         opacity: 1;
     }
     24% {
-        transform: scale(0.56, 0.56), translate(0, -220);
+        transform: scale(0.56, 0.56), translate(0, -205);
         opacity: 0;
     }
     100% {
-        transform: scale(0.56, 0.56), translate(0, -220);
+        transform: scale(0.56, 0.56), translate(0, -205);
         opacity: 0;
     }
 }
@@ -88,24 +88,24 @@
     }
     53% {
         opacity: 1;
-        transform:  scale(0.56, 0.56), translate(0, -250);
+        transform:  scale(0.56, 0.56), translate(0, -240);
     }
     100% {
         opacity: 1;
-        transform:  scale(0.56, 0.56), translate(0, -250);
+        transform:  scale(0.56, 0.56), translate(0, -240);
     }
 }
 @keyframes intro-logo-ns-enter {
     0% {
-        transform:  scale(0.56, 0.56), translate(0, -250);
+        transform:  scale(0.56, 0.56), translate(0, -240);
         opacity: 1;
     }
     24% {
-        transform:  scale(0.56, 0.56), translate(0, -250);
+        transform:  scale(0.56, 0.56), translate(0, -240);
         opacity: 0;
     }
     100% {
-        transform:  scale(0.56, 0.56), translate(0, -250);
+        transform:  scale(0.56, 0.56), translate(0, -240);
         opacity: 0;
     }
 }
@@ -122,21 +122,21 @@
     }
     62% {
         opacity: 1;
-        transform: translate(0, -60);
+        transform: translate(0, -55);
     }
     100% {
         opacity: 1;
-        transform: translate(0, -60);
+        transform: translate(0, -55);
     }
 }
 @keyframes intro-text-one-enter {
     0% {
         opacity: 1;
-        transform: translate(0, -60);
+        transform: translate(0, -55);
     }
     53.6% {
         opacity: 1;
-        transform: translate(0, -60);
+        transform: translate(0, -55);
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     100% {
@@ -157,21 +157,21 @@
     }
     66.25% {
         opacity: 1;
-        transform: translate(0, 65);
+        transform: translate(0, 70);
     }
     100% {
         opacity: 1;
-        transform: translate(0, 65);
+        transform: translate(0, 70);
     }
 }
 @keyframes intro-text-two-enter {
     0% {
         opacity: 1;
-        transform: translate(0, 65);
+        transform: translate(0, 70);
     }
     48.8% {
         opacity: 1;
-        transform: translate(0, 65);
+        transform: translate(0, 70);
     }
     91.2% {
         opacity: 0;
