@@ -16,19 +16,6 @@ export function pageNavigatingTo(args: any) {
     }
     page.bindingContext = viewModel;
     todoList = page.getViewById("todo-list");
-
-    if (application.android) {
-        let window = application.android.foregroundActivity.getWindow();
-        if (android.os.Build.VERSION.SDK_INT > 18) {
-            window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            console.log("Adding flags");
-        }
-
-        if (android.os.Build.VERSION.SDK_INT >= 21) {
-            window.addFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(android.graphics.Color.BLACK);
-        }
-    }
 }
 
 export function pageNavigatedFrom(args: any) {
