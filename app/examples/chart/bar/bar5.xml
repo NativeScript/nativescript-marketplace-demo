@@ -9,7 +9,7 @@
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.series>
             <chart:BarSeries seriesName="Bar" categoryProperty="Category" items="{{ categoricalSource }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series" />
-            <chart:BarSeries seriesName="Bar2" categoryProperty="Category" items="{{ categoricalSource3 }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series" />
+            <chart:BarSeries seriesName="Bar" categoryProperty="Category" items="{{ categoricalSource3 }}" stackMode="Stack" valueProperty="Amount" selectionMode="Series" />
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.grid>
             <chart:RadCartesianChartGrid horizontalLinesVisible="true" 
@@ -23,10 +23,6 @@
             <chart:Palette seriesName="Bar">
                 <chart:Palette.entries>
                     <chart:PaletteEntry fillColor="#08caab" strokeWidth="0" />
-                </chart:Palette.entries>
-            </chart:Palette>
-            <chart:Palette seriesName="Bar2">
-                <chart:Palette.entries>
                     <chart:PaletteEntry fillColor="#026968" strokeWidth="0" />
                 </chart:Palette.entries>
             </chart:Palette>
