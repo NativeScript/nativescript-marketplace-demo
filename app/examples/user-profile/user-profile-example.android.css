@@ -5,6 +5,17 @@
     margin-top: 20;
     vertical-align: top;
     horizontal-align: center;
+    transform: scale(0.8, 0.8);
+    animation-name: picture;
+    animation-duration: 0.3;
+    opacity: 0;
+    animation-delay: 0.7;
+    animation-fill-mode: forwards;
+}
+
+@keyframes picture {
+    from { opacity: 0; transform: scale(2, 2); animation-timing-function: ease-in; }
+    to { opacity: 1; transform: scale(1, 1); }
 }
 
 .top-border {
@@ -13,12 +24,33 @@
     margin-bottom: 40;
 }
 
+@keyframes play {
+    from {
+         opacity: 0.3;
+         transform: scale(0.6, 0.6);
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(1.1, 1.1);
+        animation-timing-function: ease-in;
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1, 1);
+    }
+}
+
 .form-content {
     background-color: white;
     margin-top: 60;
     margin-left: 42;
     margin-right: 42;
     margin-bottom: 30;
+    opacity: 0.6;
+    transform: scale(0.8, 0.8);
+    animation-name: play;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6;
 }
 
 .fields-section {
