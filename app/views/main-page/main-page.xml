@@ -33,7 +33,7 @@
         </ActionBar>
     </Page.actionBar>
     <GridLayout>
-        <drawer:RadSideDrawer id="side-drawer" android:margin="88 0 0 0">
+        <drawer:RadSideDrawer id="side-drawer" android:margin="88 0 0 0" android:showOverNavigation="true">
             <drawer:RadSideDrawer.drawerContent>
                 <sdc:side-drawer-content />
             </drawer:RadSideDrawer.drawerContent>
