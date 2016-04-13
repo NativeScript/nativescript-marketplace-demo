@@ -8,20 +8,20 @@ SearchBar {
     margin: 16;
 }
 
-.session-container {
+/*.session-container {
     padding: 16;
-}
+}*/
 
 .session-favorite {
     vertical-align: center;
     horizontal-align: center;
-    margin-right: 26;
+    margin: 0 26 0 16;
 }
 
 @keyframes session-favorite-selected {
-    from { transform: scale(1, 1); opacity: 1; }
-    60% { transform: scale(1.8, 1.8); opacity: 0.7; }
-    to { transform: scale(1, 1); opacity: 1; }    
+    from { transform: scale(1, 1) rotate(-120); opacity: 0; animation-timing-function: linear; }
+    50% { transform: scale(2, 2) rotate(-60); opacity: 0.3; animation-timint-function: ease-in; }
+    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
 }
 
 .session-favorite-selected {
@@ -29,13 +29,13 @@ SearchBar {
     animation-duration: 0.4;
     vertical-align: center;
     horizontal-align: center;
-    margin-right: 26;
+    margin: 0 26 0 16;
 }
 
 @keyframes session-favorite-unselected {
-    from { transform: scale(1, 1); opacity: 1; }
-    60% { transform: scale(2, 2); opacity: 0.3; }
-    to { transform: scale(1, 1); opacity: 1; }    
+    from { transform: scale(1, 1) rotate(120); opacity: 0; animation-timing-function: linear; }
+    60% { transform: scale(2, 2) rotate(60); opacity: 0.3; animation-timint-function: ease-in; }
+    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
 }
 
 .session-favorite-unselected {
@@ -43,7 +43,7 @@ SearchBar {
     animation-duration: 0.2;
     vertical-align: center;
     horizontal-align: center;
-    margin-right: 32;
+    margin: 0 26 0 16;
 }
 
 .session-time {
@@ -51,6 +51,7 @@ SearchBar {
     /*font-weight: 700;*/
 	font-size: 12;
     color: #4ac1fa;
+    margin-top: 16;
 }
 
 .session-room {
@@ -67,4 +68,5 @@ SearchBar {
     /*font-weight: 300;*/
 	font-size: 20;
 	color: #c3c3c3;
+    margin-bottom: 16;
 }

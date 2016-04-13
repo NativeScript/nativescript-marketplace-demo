@@ -14,6 +14,7 @@ import { grayTouch } from "../../common/effects";
 import { trackEvent } from "../../common/analytics";
 import { Image } from "ui/image";
 import * as platform from "platform";
+import { GridLayout } from "ui/layouts/grid-layout";
 
 export function pageLoaded(args){
     prof.stop("main-page");
@@ -29,6 +30,10 @@ export function pageLoaded(args){
             child.ios.layer.masksToBounds = true;
         });
     }
+    
+    // To allow the intro things to appear under the ActionBar:
+    GridLayout.setRow(page.content, 0);
+    GridLayout.setRowSpan(page.content, 2);
 }
 
 export function onNavigatingTo(args: observable.EventData) {
@@ -144,10 +149,13 @@ function showActionBar(page: pages.Page) {
             introElements.margin = "-44 0 0 0";
             page.actionBarHidden = false;
         }, 300);
-    } else {
+    }
+    else {
         setTimeout(() => {
-            introElements.margin = "-88 0 0 0";
-            page.actionBarHidden = false;
-        }, 500);
+            page.actionBar.animate({
+                opacity: 1,
+                duration: 200
+            });
+        }, 300);
     }
 }
