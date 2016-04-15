@@ -2,7 +2,7 @@
     <Label text="Spending on education" cssClass="chart-example-tytle-style" textWrap="true"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>
-            <chart:DonutSeries showPercentage="false" seriesName="Pie" showLabels="true" selectionMode="DataPoint" expandRadius="1.1" outerRadiusFactor="0.8" items="{{ pieSource3 }}" valueProperty="Amount" legendLabel="Level">
+            <chart:DonutSeries showPercentage="false" seriesName="Pie" showLabels="true" selectionMode="DataPoint" expandRadius="0.1" outerRadiusFactor="0.8" items="{{ pieSource3 }}" valueProperty="Amount" legendLabel="Level">
                 <chart:DonutSeries.labelStyle>
                     <chart:PointLabelStyle  margin="-40" textFormat="$%.0f"  textColor="White" textSize="10"/>
                 </chart:DonutSeries.labelStyle>
@@ -20,6 +20,14 @@
                     <chart:PaletteEntry fillColor="#026968" strokeWidth="0" />
                     <chart:PaletteEntry fillColor="#aee403" strokeWidth="0" />
                     <chart:PaletteEntry fillColor="#3c5afe" strokeWidth="0" />
+                </chart:Palette.entries>
+            </chart:Palette>
+            <chart:Palette seriesName="Pie" seriesState="Selected">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry fillColor="#08caab" strokeWidth="2" strokeColor="#026555" />
+                    <chart:PaletteEntry fillColor="#026968" strokeWidth="2" strokeColor="#003434" />
+                    <chart:PaletteEntry fillColor="#aee403" strokeWidth="2" strokeColor="#577202"/>
+                    <chart:PaletteEntry fillColor="#3c5afe" strokeWidth="2" strokeColor="#1e2d7f" />
                 </chart:Palette.entries>
             </chart:Palette>
         </chart:RadCartesianChart.palettes>

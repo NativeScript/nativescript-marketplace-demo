@@ -1,6 +1,6 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui-pro/chart">
     <Label text="Monthly sales revenue, 2016" cssClass="chart-example-tytle-style" textWrap="true"/>
-    <chart:RadCartesianChart row="1" id="chart">
+    <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.verticalAxis>
             <chart:LinearAxis lineColor="#b0b0b0" lineThickness="1"/>
         </chart:RadCartesianChart.verticalAxis>
@@ -8,8 +8,8 @@
             <chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1"/>
         </chart:RadCartesianChart.horizontalAxis>
         <chart:RadCartesianChart.series>
-            <chart:SplineSeries seriesName="Line" categoryProperty="Category" items="{{ categoricalSource }}"  valueProperty="Amount"></chart:SplineSeries>
-            <chart:SplineSeries seriesName="Line" categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount"></chart:SplineSeries>
+            <chart:SplineSeries seriesName="Line" categoryProperty="Category" items="{{ categoricalSource }}"  valueProperty="Amount" selectionMode="Series"/>
+            <chart:SplineSeries seriesName="Line" categoryProperty="Category" items="{{ categoricalSource2 }}" valueProperty="Amount" selectionMode="Series"/>
         </chart:RadCartesianChart.series>
         <chart:RadCartesianChart.grid>
             <chart:RadCartesianChartGrid 
@@ -27,6 +27,12 @@
                     <chart:PaletteEntry strokeColor="#026968" />
                 </chart:Palette.entries>
             </chart:Palette>
+            <chart:Palette seriesName="Line" seriesState="Selected">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry strokeColor="#026555" />
+                    <chart:PaletteEntry strokeColor="#003434" />
+                </chart:Palette.entries>
+            </chart:Palette> 
         </chart:RadCartesianChart.palettes>
     </chart:RadCartesianChart>
 </GridLayout>

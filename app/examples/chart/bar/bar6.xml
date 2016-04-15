@@ -26,6 +26,12 @@
                     <chart:PaletteEntry fillColor="#026968" strokeWidth="0" />
                 </chart:Palette.entries>
             </chart:Palette>
+            <chart:Palette seriesName="Bar" seriesState="Selected">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry fillColor="#08caab" strokeColor="#026555" strokeWidth="2" />
+                    <chart:PaletteEntry fillColor="#026968" strokeColor="#003434" strokeWidth="2" />
+                </chart:Palette.entries>
+            </chart:Palette> 
         </chart:RadCartesianChart.palettes>
     </chart:RadCartesianChart>
 </GridLayout>
