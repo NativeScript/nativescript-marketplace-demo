@@ -26,6 +26,12 @@
                     <chart:PaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#026968" />
                 </chart:Palette.entries>
             </chart:Palette>
+            <chart:Palette seriesName="Area" seriesState="Selected">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry android:fillColor="#b2efe6" ios:fillColor="#7fe5faf6" strokeColor="#026555" strokeWidth="2"/>
+                    <chart:PaletteEntry android:fillColor="#b2d2d1" ios:fillColor="#7fe5f0f0" strokeColor="#003434" strokeWidth="2"/>
+                </chart:Palette.entries>
+            </chart:Palette>
         </chart:RadCartesianChart.palettes>
     </chart:RadCartesianChart>
 </GridLayout>
