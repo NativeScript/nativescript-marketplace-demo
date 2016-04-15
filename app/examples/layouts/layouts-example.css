@@ -36,6 +36,14 @@
     transform: scale(0.5, 0.5);
 }
 
+.btn-red-animated2 {
+    background-color: #fe8256;
+    margin: 2;
+    animation-name: play;
+    animation-duration: 0.4;
+    transform: scale(0.5, 0.5);
+}
+
 .btn-lightblue {
     background-color: #899bfe;
     margin: 2;   
@@ -52,6 +60,15 @@
     transform: scale(0.5, 0.5);
 }
 
+.btn-lightblue-animated2 {
+    background-color: #899bfe;
+    margin: 2;   
+    animation-name: play;   
+    animation-duration: 0.4;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+
 .btn-lightgreen {
     background-color: #455b66;
     margin: 2;   
@@ -64,6 +81,16 @@
     animation-name: play;    
     animation-duration: 0.4;
     animation-delay: 0.2;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+
+.btn-lightgreen-animated2 {
+    background-color: #455b66;
+    margin: 2;   
+    animation-name: play;    
+    animation-duration: 0.4;
     animation-fill-mode: forwards;
     opacity: 0;
     transform: scale(0.5, 0.5);
@@ -86,6 +113,16 @@
     transform: scale(0.5, 0.5);
 }
 
+.btn-yellow-animated2 {
+    background-color: #fed03c;
+    margin: 2;   
+    animation-name: play;    
+    animation-duration: 0.4; 
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+
 .btn-blue {
     background-color: #3c5bfe;
     margin: 2;   
@@ -102,6 +139,17 @@
     opacity: 0;
     transform: scale(0.5, 0.5);
 }
+
+.btn-blue-animated2 {
+    background-color: #3c5bfe;
+    margin: 2;   
+    animation-name: play;    
+    animation-duration: 0.4;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+
 
 .ios-tab-view {
     background-color: white;

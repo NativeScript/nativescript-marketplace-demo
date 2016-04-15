@@ -48,3 +48,10 @@ export function selectedIndexChanged(args) {
         }
     }
 }
+
+export function buttonTap(args: observable.EventData) {
+    let button = args.object;
+    let className = button.className.replace("-animated", "").replace("2", "");
+    button.className = className;
+    button.className = className + "-animated2";
+}

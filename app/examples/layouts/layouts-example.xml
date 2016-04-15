@@ -32,11 +32,11 @@
             <StackLayout>
                 <Label text="Stack" android:cssClass="android-label" ios:cssClass="ios-label"/>
                 <StackLayout ios:cssClass="layout-container" android:cssClass="android-layout-container" vertical-alignment="stretch">
-                    <Button id="0btn-red" cssClass="btn-red" height="20%"/>
-                    <Button id="0btn-lightblue" cssClass="btn-lightblue" height="19%"/>
-                    <Button id="0btn-lightgreen" cssClass="btn-lightgreen" height="19%"/>
-                    <Button id="0btn-yellow" cssClass="btn-yellow" height="19%"/>
-                    <Button id="0btn-blue" cssClass="btn-blue" height="19%"/>
+                    <Button id="0btn-red" cssClass="btn-red" height="20%" tap="buttonTap"/>
+                    <Button id="0btn-lightblue" cssClass="btn-lightblue" height="19%" tap="buttonTap"/>
+                    <Button id="0btn-lightgreen" cssClass="btn-lightgreen" height="19%" tap="buttonTap"/>
+                    <Button id="0btn-yellow" cssClass="btn-yellow" height="19%" tap="buttonTap"/>
+                    <Button id="0btn-blue" cssClass="btn-blue" height="19%" tap="buttonTap"/>
                 </StackLayout>
             </StackLayout>
           </TabViewItem.view>
@@ -46,11 +46,11 @@
             <StackLayout>
                 <Label text="Grid" android:cssClass="android-label" ios:cssClass="ios-label"/>
                 <GridLayout columns="*,*" rows="*,*,*,*,*" ios:cssClass="layout-container" android:cssClass="android-layout-container">
-                    <Button id="1btn-blue" rowSpan="2" cssClass="btn-blue" />
-                    <Button id="1btn-lightblue" col="1" rowSpan="4" cssClass="btn-lightblue" />
-                    <Button id="1btn-red" col="0" row="2" cssClass="btn-red" />
-                    <Button id="1btn-yellow" col="0" row="3" cssClass="btn-yellow" />
-                    <Button id="1btn-lightgreen" col="0" row="4" colSpan="2" cssClass="btn-lightgreen" /> 
+                    <Button id="1btn-blue" rowSpan="2" cssClass="btn-blue" tap="buttonTap"/>
+                    <Button id="1btn-lightblue" col="1" rowSpan="4" cssClass="btn-lightblue" tap="buttonTap"/>
+                    <Button id="1btn-red" col="0" row="2" cssClass="btn-red" tap="buttonTap"/>
+                    <Button id="1btn-yellow" col="0" row="3" cssClass="btn-yellow" tap="buttonTap"/>
+                    <Button id="1btn-lightgreen" col="0" row="4" colSpan="2" cssClass="btn-lightgreen" tap="buttonTap"/> 
                 </GridLayout>
             </StackLayout>
           </TabViewItem.view>
@@ -60,11 +60,11 @@
             <StackLayout>
                 <Label text="Wrap" android:cssClass="android-label" ios:cssClass="ios-label"/>
                 <WrapLayout ios:cssClass="layout-container" android:cssClass="android-layout-container" horizontal-alignment="center">
-                    <Button id="2btn-red" width="150" height="100" cssClass="btn-red" />
-                    <Button id="2btn-lightblue" width="150" height="100" cssClass="btn-lightblue" />
-                    <Button id="2btn-lightgreen" width="200" height="100" cssClass="btn-lightgreen" />
-                    <Button id="2btn-yellow" width="100" height="100" cssClass="btn-yellow" />
-                    <Button id="2btn-blue" width="150" height="100" cssClass="btn-blue" />
+                    <Button id="2btn-red" width="150" height="100" cssClass="btn-red" tap="buttonTap"/>
+                    <Button id="2btn-lightblue" width="150" height="100" cssClass="btn-lightblue" tap="buttonTap"/>
+                    <Button id="2btn-lightgreen" width="200" height="100" cssClass="btn-lightgreen" tap="buttonTap"/>
+                    <Button id="2btn-yellow" width="100" height="100" cssClass="btn-yellow" tap="buttonTap"/>
+                    <Button id="2btn-blue" width="150" height="100" cssClass="btn-blue" tap="buttonTap"/>
                 </WrapLayout>
             </StackLayout>
           </TabViewItem.view>
@@ -74,10 +74,10 @@
             <GridLayout rows="auto,*">
                 <Label row="0" text="Dock" android:cssClass="android-label" ios:cssClass="ios-label"/>
                 <DockLayout row="1" stretchLastChild="true" ios:cssClass="layout-container" android:cssClass="android-layout-container">
-                    <Button id="3btn-red" dock="left" cssClass="btn-red" width="80"/>
-                    <Button id="3btn-lightblue" dock="top" cssClass="btn-lightblue" height="80"/>
-                    <Button id="3btn-lightgreen" dock="right" cssClass="btn-lightgreen" width="80"/>
-                    <Button id="3btn-yellow" dock="bottom" cssClass="btn-yellow" height="80"/>
+                    <Button id="3btn-red" dock="left" cssClass="btn-red" width="80" tap="buttonTap"/>
+                    <Button id="3btn-lightblue" dock="top" cssClass="btn-lightblue" height="80" tap="buttonTap"/>
+                    <Button id="3btn-lightgreen" dock="right" cssClass="btn-lightgreen" width="80" tap="buttonTap"/>
+                    <Button id="3btn-yellow" dock="bottom" cssClass="btn-yellow" height="80" tap="buttonTap"/>
                     <Button id="3btn-blue" cssClass="btn-blue" />
                 </DockLayout>
             </GridLayout>
@@ -88,9 +88,9 @@
             <StackLayout>
                 <Label text="Absolute" android:cssClass="android-label" ios:cssClass="ios-label"/>
                 <AbsoluteLayout ios:cssClass="layout-container" android:cssClass="android-layout-container">
-                    <Button id="4btn-red" left="50" top="50" width="100" height="100" cssClass="btn-red" />
-                    <Button id="4btn-lightblue" left="200" top="100" width="100" height="300" cssClass="btn-lightblue" />
-                    <Button id="4btn-lightgreen" left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" />
+                    <Button id="4btn-red" left="50" top="50" width="100" height="100" cssClass="btn-red" tap="buttonTap"/>
+                    <Button id="4btn-lightblue" left="200" top="100" width="100" height="300" cssClass="btn-lightblue" tap="buttonTap"/>
+                    <Button id="4btn-lightgreen" left="50" top="280" width="200" height="100" cssClass="btn-lightgreen" tap="buttonTap"/>
                 </AbsoluteLayout>
             </StackLayout>
           </TabViewItem.view>
