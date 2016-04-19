@@ -32,7 +32,7 @@
             </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar>
-    <drawer:RadSideDrawer id="side-drawer" android:margin="88 0 0 0" showOverNavigation="true">
+    <drawer:RadSideDrawer id="side-drawer" showOverNavigation="true">
         <drawer:RadSideDrawer.drawerContent>
             <sdc:side-drawer-content />
         </drawer:RadSideDrawer.drawerContent>
@@ -40,7 +40,7 @@
 
             <GridLayout>
 
-                <GridLayout class="page-content">
+                <GridLayout class="page-content" android:margin="88 0 0 0">
                     <ScrollView id="content" opacity="0">
                         <GridLayout>
                             <Repeater items="{{ featuredExamples }}" android:margin="10" ios:margin="6">
