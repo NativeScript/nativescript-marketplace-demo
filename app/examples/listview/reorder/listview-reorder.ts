@@ -19,20 +19,8 @@ export function pageNavigatingTo(args: any) {
 }
 
 export function pageNavigatedFrom(args: any) {
-
     if (args.isBackNavigation) {
         viewModel = undefined;
-    }
-
-    if (application.android) {
-        let window = application.android.foregroundActivity.getWindow();
-        if (android.os.Build.VERSION.SDK_INT > 18) {
-            window.addFlags(android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-
-        if (android.os.Build.VERSION.SDK_INT >= 21) {
-            window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        }
     }
 }
 

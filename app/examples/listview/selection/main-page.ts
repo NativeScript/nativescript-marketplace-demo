@@ -43,6 +43,6 @@ export function goBack(args: EventData) {
         return;
     }
 
-    page.bindingContext = null;
+    page.bindingContext = undefined;
     navigator.navigateBackFromExample();
 }
