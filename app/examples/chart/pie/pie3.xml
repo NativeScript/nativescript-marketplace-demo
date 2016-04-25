@@ -4,7 +4,7 @@
         <chart:RadPieChart.series>
             <chart:DonutSeries showPercentage="false" seriesName="Pie" showLabels="true" selectionMode="DataPoint" expandRadius="0.1" outerRadiusFactor="0.8" items="{{ pieSource3 }}" valueProperty="Amount" legendLabel="Level">
                 <chart:DonutSeries.labelStyle>
-                    <chart:PointLabelStyle  margin="-40" textFormat="$%.0f"  textColor="White" textSize="10"/>
+                    <chart:PointLabelStyle  margin="-40" ios:textFormat="$%.0f" android:textFormat="$%d" textColor="White" textSize="10"/>
                 </chart:DonutSeries.labelStyle>
             </chart:DonutSeries>
         </chart:RadPieChart.series>
