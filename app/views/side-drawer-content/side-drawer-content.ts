@@ -5,6 +5,7 @@ import * as gestures from "ui/gestures";
 import { groups } from "../../view-models/examples-model"
 import { topmost } from "ui/frame"
 import { grayTouch } from "../../common/effects";
+import * as application from "application";
 
 export function onLoaded(args) {
     args.object.bindingContext = groups;
@@ -50,7 +51,11 @@ export function tapHome(args) {
 
 export function tapAbout(args) {
     closeDrawer();
-    navigator.navigateToAbout();
+    if (application.android) {
+        setTimeout(() => navigator.navigateToAbout(), 600);
+    } else {
+        navigator.navigateToAbout()
+    }
 }
 
 export function tapDrawerLink(args) {
