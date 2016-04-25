@@ -22,8 +22,8 @@
          <chart:RadCartesianChart.palettes>
             <chart:Palette seriesName="Bar">
                 <chart:Palette.entries>
-                    <chart:PaletteEntry fillColor="#08caab" strokeWidth="0" />
-                    <chart:PaletteEntry fillColor="#026968" strokeWidth="0" />
+                    <chart:PaletteEntry fillColor="#08caab" strokeWidth="0" android:strokeColor="#08caab" />
+                    <chart:PaletteEntry fillColor="#026968" strokeWidth="0" android:strokeColor="#026968" />
                 </chart:Palette.entries>
             </chart:Palette>
             <chart:Palette seriesName="Bar" seriesState="Selected">
