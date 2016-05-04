@@ -37,6 +37,11 @@ export function pageNavigatingTo(args: observable.EventData) {
     loadItem(page, itemToLoad);
 }
 
+export function pageNavigatingFrom(args: observable.EventData) {
+    var page = <pages.Page>args.object;
+    page.bindingContext.clearCache();
+}
+
 export function scrollViewLoaded(args) {
     if (args.object.android) {
         args.object.android.setHorizontalScrollBarEnabled(false);

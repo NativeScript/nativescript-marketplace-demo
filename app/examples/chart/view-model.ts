@@ -21,10 +21,14 @@ export class ChartExamplesDataModel {
     private _lineTypes;
     private _barTypes;
     private selectedItem: ChartTypeItem;
-    //private _views;
+    private _views;
 
     constructor() {
-        //this._views = {};
+        this.clearCache();
+    }
+
+    public clearCache() {
+        this._views = {};
     }
 
     public loadGalleryFragment(item: ChartTypeItem, viewHolder, pathToModuleXML: string, exampleXmlName: string) {
@@ -36,21 +40,21 @@ export class ChartExamplesDataModel {
         item.isSelected = true;
         this.selectedItem = item;
 
-    //    var exampleView = this._views[pathToModuleXML + exampleXmlName];
-    var exampleView;
-    //    if (!exampleView) {
+        var exampleView = viewHolder.android ? this._views[pathToModuleXML + exampleXmlName] : null;
+        if (!exampleView) {
             exampleView = builder.load({
                 path: pathToModuleXML,
                 name: exampleXmlName
             });
-        //    this._views[pathToModuleXML + exampleXmlName] = exampleView;
-    //    }
+            if (viewHolder.android) {
+                this._views[pathToModuleXML + exampleXmlName] = exampleView;
+            }
+        }
 
         if (viewHolder.getChildrenCount() > 0) {
             var child = viewHolder.getChildAt(0);
             viewHolder.removeChild(child);
             child = null;
-            utils.GC();
         }
 
         viewHolder.addChild(exampleView);
