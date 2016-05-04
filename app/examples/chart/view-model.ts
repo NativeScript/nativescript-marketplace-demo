@@ -21,10 +21,19 @@ export class ChartExamplesDataModel {
     private _lineTypes;
     private _barTypes;
     private selectedItem: ChartTypeItem;
-    //private _views;
+    private _views;
+    private _useCache;
 
-    constructor() {
-        //this._views = {};
+    constructor(useCache: boolean) {
+        this._useCache = useCache;
+        this._views = {};
+    }
+
+    public clearCache() {
+        for (var i = 0; i<this._views.length; i++) {
+            delete this._views[i];
+        }
+        this._views = {};
     }
 
     public loadGalleryFragment(item: ChartTypeItem, viewHolder, pathToModuleXML: string, exampleXmlName: string) {
@@ -36,21 +45,25 @@ export class ChartExamplesDataModel {
         item.isSelected = true;
         this.selectedItem = item;
 
-    //    var exampleView = this._views[pathToModuleXML + exampleXmlName];
-    var exampleView;
-    //    if (!exampleView) {
+        var useCache = this._useCache && viewHolder.android !== undefined;
+        var exampleView = useCache ? this._views[pathToModuleXML + exampleXmlName] : null;
+        if (!exampleView) {
             exampleView = builder.load({
                 path: pathToModuleXML,
                 name: exampleXmlName
             });
-        //    this._views[pathToModuleXML + exampleXmlName] = exampleView;
-    //    }
+            if (useCache) {
+                this._views[pathToModuleXML + exampleXmlName] = exampleView;
+            }
+        }
 
         if (viewHolder.getChildrenCount() > 0) {
             var child = viewHolder.getChildAt(0);
             viewHolder.removeChild(child);
             child = null;
-            utils.GC();
+            if (viewHolder.ios) {
+                utils.GC();
+            }
         }
 
         viewHolder.addChild(exampleView);

@@ -25,7 +25,7 @@ function loadItem(page, item: models.ChartTypeItem) {
     dataModel.loadGalleryFragment(item, page.getViewById("exampleHolder"), "~/examples/chart/pie", item.exampleXml);
 }
 
-var dataModel = new models.ChartExamplesDataModel();
+var dataModel = new models.ChartExamplesDataModel(false);
 export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
     page.bindingContext = dataModel;

@@ -29,12 +29,17 @@ function loadItem(page, item: models.ChartTypeItem) {
     }
 }
 
-var dataModel = new models.ChartExamplesDataModel();
+var dataModel = new models.ChartExamplesDataModel(true);
 export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.lineTypes[0];
     loadItem(page, itemToLoad);
+}
+
+export function pageNavigatingFrom(args: observable.EventData) {
+    var page = <pages.Page>args.object;
+    page.bindingContext.clearCache();
 }
 
 export function scrollViewLoaded(args) {
