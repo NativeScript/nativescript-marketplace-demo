@@ -22,21 +22,15 @@ export function rootGridLoaded(args: observable.EventData) {
 
 function loadItem(page, item: models.ChartTypeItem) {
     var dataModel = page.bindingContext;
-    dataModel.clearCache();
     dataModel.loadGalleryFragment(item, page.getViewById("exampleHolder"), "~/examples/chart/pie", item.exampleXml);
 }
 
-var dataModel = new models.ChartExamplesDataModel();
+var dataModel = new models.ChartExamplesDataModel(false);
 export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
     page.bindingContext = dataModel;
     var itemToLoad = dataModel.pieTypes[0];
     loadItem(page, itemToLoad);
-}
-
-export function pageNavigatingFrom(args: observable.EventData) {
-    var page = <pages.Page>args.object;
-    page.bindingContext.clearCache();
 }
 
 export function scrollViewLoaded(args) {

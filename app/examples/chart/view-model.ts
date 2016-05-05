@@ -22,12 +22,17 @@ export class ChartExamplesDataModel {
     private _barTypes;
     private selectedItem: ChartTypeItem;
     private _views;
+    private _useCache;
 
-    constructor() {
-        this.clearCache();
+    constructor(useCache: boolean) {
+        this._useCache = useCache;
+        this._views = {};
     }
 
     public clearCache() {
+        for (var i = 0; i<this._views.length; i++) {
+            delete this._views[i];
+        }
         this._views = {};
     }
 
@@ -40,13 +45,14 @@ export class ChartExamplesDataModel {
         item.isSelected = true;
         this.selectedItem = item;
 
-        var exampleView = viewHolder.android ? this._views[pathToModuleXML + exampleXmlName] : null;
+        var useCache = this._useCache && viewHolder.android !== undefined;
+        var exampleView = useCache ? this._views[pathToModuleXML + exampleXmlName] : null;
         if (!exampleView) {
             exampleView = builder.load({
                 path: pathToModuleXML,
                 name: exampleXmlName
             });
-            if (viewHolder.android) {
+            if (useCache) {
                 this._views[pathToModuleXML + exampleXmlName] = exampleView;
             }
         }

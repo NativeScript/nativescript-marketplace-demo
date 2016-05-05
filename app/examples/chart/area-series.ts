@@ -29,7 +29,7 @@ function loadItem(page, item: models.ChartTypeItem) {
     }
 }
 
-var dataModel = new models.ChartExamplesDataModel();
+var dataModel = new models.ChartExamplesDataModel(true);
 export function pageNavigatingTo(args: observable.EventData) {
     var page = <pages.Page>args.object;
     page.bindingContext = dataModel;
