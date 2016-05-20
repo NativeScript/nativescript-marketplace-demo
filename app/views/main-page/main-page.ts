@@ -78,7 +78,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
 
 export function showSlideout(args) {
     let page = <pages.Page>(<View>args.object).page;
-    (<RadSideDrawer>page.getViewById("side-drawer")).toggleDrawerOpenState();
+    (<RadSideDrawer>page.getViewById("side-drawer")).toggleDrawerState();
 }
 
 export function tapHome(args) {
