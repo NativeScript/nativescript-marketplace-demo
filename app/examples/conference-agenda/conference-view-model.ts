@@ -12,9 +12,9 @@ export class Session extends observable.Observable {
         public end: Date,
         public room: string,
         public isFavourite: boolean,
-        public cssClass: string) {
+        public cssClass?: string) {
         super();
-       this.cssClass = "session-favorite";
+        this.cssClass = "session-favorite";
     }
 
     get range(): string {

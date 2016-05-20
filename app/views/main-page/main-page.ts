@@ -15,20 +15,22 @@ import { trackEvent } from "../../common/analytics";
 import { Image } from "ui/image";
 import * as platform from "platform";
 import { GridLayout } from "ui/layouts/grid-layout";
+import { LayoutBase } from "ui/layouts/layout-base";
+import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
 
 export function pageLoaded(args){
     prof.stop("main-page");
-    let page = <pages.Page>args.object.page;
+    let page = <pages.Page>(<View>args.object).page;
     setTimeout(() => (<any>page).canEnter = true, 3500);
     if (!(<any>page).introStarted) {
         trackEvent("main-page: play intro");
         (<any>page).introStarted = true;
     }
     if (platform.device.os === platform.platformNames.ios) {
-        let examplesList = page.getViewById("examples-wrap-layout");
-        examplesList._eachChildView(child => {
-            child.ios.layer.masksToBounds = true;
-        });
+        let examplesList = <LayoutBase>page.getViewById("examples-wrap-layout");
+        for (let i = 0, length = examplesList.getChildrenCount(); i < length; i++){
+             examplesList.getChildAt(i).ios.layer.masksToBounds = true;
+        }
     }
     
     // To allow the intro things to appear under the ActionBar:
@@ -38,7 +40,7 @@ export function pageLoaded(args){
 
 export function onNavigatingTo(args: observable.EventData) {
     // Get the event sender
-    let page = <pages.Page>args.object.page;
+    let page = <pages.Page>(<View>args.object).page;
     page.bindingContext = mainPageVM.instance;
 }
 
@@ -48,15 +50,15 @@ export function toggleWrapLayout(e: any) {
 
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
     prof.start("group");
-    let page = <pages.Page>args.object.page;
-    page.getViewById("side-drawer").closeDrawer();
+    let page = <pages.Page>(<View>args.object).page;
+    (<RadSideDrawer>page.getViewById("side-drawer")).closeDrawer();
     var exampleGroup = <examplesVM.ExampleGroup>(<any>args).object.bindingContext;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup);
     navigator.navigateToExampleGroup(context);
 }
 
 export function tileTouch(args: gestures.TouchGestureEventData) {
-    let page = <pages.Page>args.object.page;
+    let page = <pages.Page>(<View>args.object).page;
     if (!(<any>page).introPlayed) {
         return;
     }
@@ -64,35 +66,35 @@ export function tileTouch(args: gestures.TouchGestureEventData) {
 }
 
 export function navigateToExample(args: gestures.GestureEventData) {
-    let page = <pages.Page>args.object.page;
+    let page = <pages.Page>(<View>args.object).page;
     if (!(<any>page).introPlayed) {
         return;
     }
     prof.start("example");
-    page.getViewById("side-drawer").closeDrawer();
+    (<RadSideDrawer>page.getViewById("side-drawer")).closeDrawer();
     var example = <examplesVM.Example>(<any>args).object.bindingContext;
     navigator.navigateToExample(example, examplesVM.featuredExamples);
 }
 
 export function showSlideout(args) {
-    let page = <pages.Page>args.object.page;
-    page.getViewById("side-drawer").toggleDrawerState();
+    let page = <pages.Page>(<View>args.object).page;
+    (<RadSideDrawer>page.getViewById("side-drawer")).toggleDrawerOpenState();
 }
 
 export function tapHome(args) {
-    let page = <pages.Page>args.object.page;
-    page.getViewById("side-drawer").closeDrawer();
+    let page = <pages.Page>(<View>args.object).page;
+    (<RadSideDrawer>page.getViewById("side-drawer")).closeDrawer();
 }
 
 export function tapAbout(args) {
-    let page = <pages.Page>args.object.page;
-    page.getViewById("side-drawer").closeDrawer();
+    let page = <pages.Page>(<View>args.object).page;
+    (<RadSideDrawer>page.getViewById("side-drawer")).closeDrawer();
     navigator.navigateToAbout();
 }
 
 export function tapDrawerLink(args) {
-    let page = <pages.Page>args.object.page;
-    page.getViewById("side-drawer").closeDrawer();
+    let page = <pages.Page>(<View>args.object).page;
+    (<RadSideDrawer>page.getViewById("side-drawer")).closeDrawer();
     navigator.openLink(args.object);
 }
 
@@ -105,7 +107,7 @@ export function tapGetStarted(args) {
 }
 
 export function enter(args, event) {
-    let page = <pages.Page>args.object.page;
+    let page = <pages.Page>(<View>args.object).page;
     if (!(<any>page).canEnter) {
         return;
     }
@@ -114,7 +116,6 @@ export function enter(args, event) {
     }
     trackEvent(event);
     (<any>page).entered = true;
-    let page: pages.Page = args.object.page;
     let content = page.getViewById("content");
     content.isEnabled = true;
     content.opacity = 1;
@@ -128,19 +129,20 @@ function startEnterAnimation(page: pages.Page) {
         .forEach(id => page.getViewById(id).className = id + "-enter");
 }
 function startExamplesAnimation(page: pages.Page) {
-    let examplesList = page.getViewById("examples-wrap-layout");
+    let examplesList = <LayoutBase>page.getViewById("examples-wrap-layout");
     let odd = true;
     let timeout = 1000;
     setTimeout(() => (<any>page).introPlayed = true, timeout);
     let classSetterFactory = (child, className) => () => child.className = className;
-    examplesList._eachChildView(child => {
+    
+    for (let i = 0, length = examplesList.getChildrenCount(); i < length; i++){
+        let child = examplesList.getChildAt(i);
         setTimeout(classSetterFactory(child, odd ? "example-odd-enter" : "example-even-enter"), timeout);
         setTimeout(classSetterFactory(child, ""), timeout + 400);
         if (odd = !odd) {
             timeout += 220;
         }
-        return true;
-    });
+    }
 }
 function showActionBar(page: pages.Page) {
     var introElements = page.getViewById("intro-elements");

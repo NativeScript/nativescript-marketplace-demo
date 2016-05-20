@@ -4,7 +4,7 @@ import utils = require("utils/utils");
 import {Page} from "ui/page";
 import {Color} from "color";
 import * as navigator from "../../common/navigator";
-import viewModule = require("ui/core/view");
+import { View } from "ui/core/view";
 import tabViewModule = require("ui/tab-view");
 
 let page: Page;
@@ -40,7 +40,7 @@ export function selectedIndexChanged(args) {
         let index = tabView.selectedIndex;
         let names = [ "btn-red", "btn-yellow", "btn-blue", "btn-lightblue", "btn-lightgreen" ];
         for (let name of names) {
-            let view = page.getViewById<viewModule.View>("" + index + name);
+            let view = page.getViewById<View>("" + index + name);
             if (view !== undefined) {
                 view.className = name;
                 view.className = name + "-animated";
@@ -50,7 +50,7 @@ export function selectedIndexChanged(args) {
 }
 
 export function buttonTap(args: observable.EventData) {
-    let button = args.object;
+    let button = <View>args.object;
     let className = button.className.replace("-animated", "").replace("2", "");
     button.className = className;
     button.className = className + "-animated2";

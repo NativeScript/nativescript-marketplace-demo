@@ -28,7 +28,7 @@ export class ExamplePage extends pages.Page {
                 var root = this.content;
                 var originalRootBindingContext = root.bindingContext;
                 var menufragment = <View>builder.load(__dirname + "/example-menu.xml", require("./example-menu"));
-                this.sidedrawer = menufragment.getViewById("example-menu-drawer");
+                this.sidedrawer = <RadSideDrawer>menufragment.getViewById("example-menu-drawer");
                 this.content = menufragment;
                 this.sidedrawer.mainContent = root;
                 if (root.bindingContext !== originalRootBindingContext){
