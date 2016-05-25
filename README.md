@@ -13,8 +13,9 @@ The application also serves as a demo for the paid UI components created by Tele
 You can use the application to see NativeScript in action, but also as a learning purpose since the entire source code is available in this repo.
 
 # Install the app on your device directly from the store
-[![See NativeScript in Action on Android](https://www.telerik.com/sfimages/default-source/app-store-buttons/googleplay.png?sfvrsn=2)](https://play.google.com/store/apps/details?id=org.nativescript.nativescriptmarketplacedemo&amp;hl=en)
-[![See NativeScript in Action on iOS](https://www.telerik.com/sfimages/default-source/app-store-buttons/appstore.png?sfvrsn=2)](https://itunes.apple.com/us/app/examples-nativescript/id1046772499?ls=1&mt=8)
+[![See NativeScript in Action on Android](https://www.telerik.com/sfimages/default-source/app-store-buttons/googleplay.png?sfvrsn=2)](https://play.google.com/store/apps/details?id=org.nativescript.nativescriptmarketplacedemo&amp;hl=en) | [![See NativeScript in Action on iOS](https://www.telerik.com/sfimages/default-source/app-store-buttons/appstore.png?sfvrsn=2)](https://itunes.apple.com/us/app/examples-nativescript/id1046772499?ls=1&mt=8)
+:---: | :---:
+![](android_qrcode.png) | ![](ios_qrcode.png)
 
 # Run the app from source code
 As a prerequisite you should setup [the NativeScript CLI](https://docs.nativescript.org/setup/quick-setup) with its dependencies.
