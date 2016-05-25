@@ -79,7 +79,8 @@ export class ListViewReorderModel extends Observable{
     }
 
     public onItemReordered(args:any){
-        let todoItem = this.todoItems.getItem(args.data.targetIndex);
+        let index = (args.data.targetIndex > -1) ? args.data.targetIndex : args.itemIndex; 
+        let todoItem = this.todoItems.getItem(index);
         todoItem.isReordered = false;
     }
 }
