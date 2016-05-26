@@ -29,7 +29,7 @@
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"
 			android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait">
+            android:screenOrientation="sensorPortrait">
 
 				<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
