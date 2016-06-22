@@ -65,9 +65,9 @@
                 </GridLayout>
 
                 <GridLayout id="intro-elements" tap="enter">
-                    <GridLayout id="intro-background" class="intro-background-intro" backgroundColor="#151F2F" originY="0" />
-
-                    <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" scaleX="18" scaleY="18" />
+                    <GridLayout id="intro-background" class="intro-background-intro" originY="0"/>
+                    
+                    <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
                     <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
                     <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
 

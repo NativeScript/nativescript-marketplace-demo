@@ -299,7 +299,12 @@
     animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+.intro-background-intro {
+    background-color: #151F2F;
+}
+
 .intro-background-enter {
+    background-color: #151F2F;
     animation-name: intro-background-enter;
     animation-duration: 1.25;
     animation-fill-mode: forwards;
