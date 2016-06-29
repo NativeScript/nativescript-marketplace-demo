@@ -2,23 +2,19 @@ var Analytics = require("nativescript-telerik-analytics");
 var enabled: boolean = false;
 
 export function start(): void {
-    //TODO: inject analyticsAppId via the webpack config and enable analytics
-    // when bundled
-    if (!global.TNS_WEBPACK) {
-        var packageJson = require("../package.json");
-        if (packageJson.analyticsAppId) {
-            var Analytics = require("nativescript-telerik-analytics");
-            Analytics.init({
-                appId: packageJson.analyticsAppId,
-                logger: {
-                    info: msg => console.info("Analytics: " + msg),
-                    error: msg => console.error("Analytics: " + msg)
-                }
-            });
+    var packageJson = require("../package.json");
+    if (packageJson.analyticsAppId) {
+        var Analytics = require("nativescript-telerik-analytics");
+        Analytics.init({
+            appId: packageJson.analyticsAppId,
+            logger: {
+                info: msg => console.info("Analytics: " + msg),
+                error: msg => console.error("Analytics: " + msg)
+            }
+        });
 
-            Analytics.start();
-            enabled = true;
-        }
+        Analytics.start();
+        enabled = true;
     }
 }
 
