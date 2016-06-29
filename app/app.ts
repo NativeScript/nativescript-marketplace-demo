@@ -8,6 +8,8 @@ import application = require("application");
 import prof = require("./common/profiling");
 import * as trace from "trace";
 import * as analytics from "./common/analytics";
+import "./bundle-modules";
+
  
 application.on("uncaughtError", args => {
     var error = args.android || args.ios;
