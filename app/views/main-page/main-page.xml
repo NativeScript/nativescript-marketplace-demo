@@ -32,7 +32,7 @@
             </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar>
-    <drawer:RadSideDrawer id="side-drawer" showOverNavigation="true">
+    <drawer:RadSideDrawer id="side-drawer" ios:showOverNavigation="true">
         <drawer:RadSideDrawer.drawerContent>
             <sdc:side-drawer-content />
         </drawer:RadSideDrawer.drawerContent>
