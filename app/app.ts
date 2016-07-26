@@ -48,7 +48,7 @@ if (application.android) {
             console.log("onStarted");
             var window = activity.getWindow();
             if (window) {
-                window.setBackgroundDrawable(null);
+                window.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(0xFF151F2F));
                 
                 // Prevent the soft keyboard from hiding EditText's while typing.
                 window.setSoftInputMode(32); //android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
