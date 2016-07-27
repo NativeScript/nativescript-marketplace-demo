@@ -10,6 +10,7 @@ import platform = require("platform");
 import prof = require("../common/profiling");
 import builder = require("ui/builder");
 import { View } from "ui/core/view"
+import {knownFolders} from "file-system";
 import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
 
 var OVERLAY_ELEVATION = 12;
@@ -27,7 +28,8 @@ export class ExamplePage extends pages.Page {
             if (!this.sidedrawer) {
                 var root = this.content;
                 var originalRootBindingContext = root.bindingContext;
-                var menufragment = <View>builder.load(__dirname + "/example-menu.xml", require("./example-menu"));
+                var menuPath = knownFolders.currentApp().path + "/examples/example-menu.xml";
+                var menufragment = <View>builder.load(menuPath, require("./example-menu"));
                 this.sidedrawer = <RadSideDrawer>menufragment.getViewById("example-menu-drawer");
                 this.content = menufragment;
                 this.sidedrawer.mainContent = root;
