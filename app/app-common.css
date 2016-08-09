@@ -13,7 +13,7 @@ ActionBar {
     background-position: 0 0;
 }
 
-Page, ExamplePage {
+Page, ExamplePage, DrawerPage {
     background-color: #151F2F;
 }
 

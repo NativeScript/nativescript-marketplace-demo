@@ -39,9 +39,7 @@ export function pageLoaded(args){
 }
 
 export function onNavigatingTo(args: observable.EventData) {
-    // Get the event sender
-    let page = <pages.Page>(<View>args.object).page;
-    page.bindingContext = mainPageVM.instance;
+    (<View>args.object).bindingContext = mainPageVM.instance;
 }
 
 export function toggleWrapLayout(e: any) {
