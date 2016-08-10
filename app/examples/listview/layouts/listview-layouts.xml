@@ -29,10 +29,12 @@
             <lv:ListViewLinearLayout itemHeight="210"/>
         </lv:RadListView.listViewLayout>
         <lv:RadListView.itemTemplate>
-            <GridLayout rows="*, auto" height="210">
+            <GridLayout rows="*, auto">
                 <android>
-                    <!-- To use built in async: <Image src="{{ photo ? 'res://' + photo : 'res://'}}" loadMode="async" stretch="aspectFill" />-->
-                    <f:FrescoDrawee imageUri="{{ photo ? 'res://' + photo : 'res://'}}" height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}" />
+                    <!-- To use built in async: <Image src="{{ photo ? 'res://' + photo : 'res://'}}" loadMode="async" stretch="aspectFill" /> -->
+                    <f:FrescoDrawee
+                            imageUri="{{ photo ? 'res://' + photo : 'res://'}}"
+                            height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}" />
                 </android>
                 <ios>
                     <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill" loadMode="async" />

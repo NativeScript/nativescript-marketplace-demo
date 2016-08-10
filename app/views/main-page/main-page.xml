@@ -9,8 +9,9 @@
         backgroundSpanUnderStatusBar="true"
         ios:actionBarHidden="true"
         tap="tapPage">
+
     <sdp:DrawerPage.sideDrawer>
-        <rsd:RadSideDrawer id="side-drawer">
+        <rsd:RadSideDrawer id="side-drawer" drawerSize="260">
             <rsd:RadSideDrawer.drawerContent>
                 <sdc:side-drawer-content />
             </rsd:RadSideDrawer.drawerContent>
