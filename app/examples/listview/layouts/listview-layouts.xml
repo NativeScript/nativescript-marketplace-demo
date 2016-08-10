@@ -29,13 +29,13 @@
             <lv:ListViewLinearLayout itemHeight="210"/>
         </lv:RadListView.listViewLayout>
         <lv:RadListView.itemTemplate>
-            <GridLayout rows="*, auto">
+            <GridLayout rows="*, auto" height="210">
                 <android>
-                    <f:FrescoDrawee imageUri="{{ photo ? 'res://' + photo : 'res://'}}" 
-                        height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}"/>
+                    <!-- To use built in async: <Image src="{{ photo ? 'res://' + photo : 'res://'}}" loadMode="async" stretch="aspectFill" />-->
+                    <f:FrescoDrawee imageUri="{{ photo ? 'res://' + photo : 'res://'}}" height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}" />
                 </android>
                 <ios>
-                    <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill" />
+                    <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill" loadMode="async" />
                 </ios>
                 <StackLayout row="1" cssClass="recipeContainer">
                     <Label text="{{ title }}" cssClass="recipeTitle"/>
