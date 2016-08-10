@@ -1,14 +1,23 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd"
-        xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
+<sdp:DrawerPage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:sdp="nativescript-telerik-ui-pro/sidedrawer/drawerpage"
+        xmlns:rsd="nativescript-telerik-ui-pro/sidedrawer/sidedrawer"
         xmlns:sdc="views/side-drawer-content"
-        xmlns:mainpage="views/main-page"
         class="qsf-page"
         navigatingTo="onNavigatingTo"
         loaded="pageLoaded"
         backgroundSpanUnderStatusBar="true"
         ios:actionBarHidden="true"
         tap="tapPage">
-    <Page.actionBar>
+    <sdp:DrawerPage.sideDrawer>
+        <rsd:RadSideDrawer id="side-drawer">
+            <rsd:RadSideDrawer.drawerContent>
+                <sdc:side-drawer-content />
+            </rsd:RadSideDrawer.drawerContent>
+        </rsd:RadSideDrawer>
+    </sdp:DrawerPage.sideDrawer>
+
+    <sdp:DrawerPage.actionBar>
         <ActionBar automationText="ActionBar" android:opacity="0">
             <android>
                 <NavigationButton icon="res://ic_menu_main" tap="showSlideout" automationText="SidebarMenu" />
@@ -31,87 +40,80 @@
                 </GridLayout>
             </ActionBar.titleView>
         </ActionBar>
-    </Page.actionBar>
-    <drawer:RadSideDrawer id="side-drawer" ios:showOverNavigation="true">
-        <drawer:RadSideDrawer.drawerContent>
-            <sdc:side-drawer-content />
-        </drawer:RadSideDrawer.drawerContent>
-        <drawer:RadSideDrawer.mainContent>
+    </sdp:DrawerPage.actionBar>
 
-            <GridLayout>
+    <GridLayout>
 
-                <GridLayout class="page-content" android:margin="88 0 0 0">
-                    <ScrollView id="content" opacity="0">
-                        <GridLayout>
-                            <Repeater items="{{ featuredExamples }}" android:margin="10" ios:margin="6">
-                                <Repeater.itemsLayout>
-                                    <WrapLayout id="examples-wrap-layout"
-                                        horizontalAlignment="left"
-                                        android:itemWidth="{{ (screenWidth - 20) / 2 }}"
-                                        android:itemHeight="{{ (screenWidth - 20) * 0.5 + 50 }}"
-                                        ios:itemWidth="{{ (screenWidth - 12) / 2 }}"
-                                        ios:itemHeight="{{ (screenWidth - 12) * 0.5 + 50 }}"/>
-                                </Repeater.itemsLayout>
-                                <Repeater.itemTemplate>
-                                    <GridLayout class="example-intro" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" tap="navigateToExample" automationText="{{ title }}">
-                                        <Image src="{{ image }}" stretch="aspectFill" />
-                                        <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
-                                        <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" class="example-new" />
-                                    </GridLayout>
-                                </Repeater.itemTemplate>
-                            </Repeater>
-                        </GridLayout>
-                    </ScrollView>
+        <GridLayout class="page-content" android:margin="88 0 0 0">
+            <ScrollView id="content" opacity="0">
+                <GridLayout>
+                    <Repeater items="{{ featuredExamples }}" android:margin="10" ios:margin="6">
+                        <Repeater.itemsLayout>
+                            <WrapLayout id="examples-wrap-layout"
+                                horizontalAlignment="left"
+                                android:itemWidth="{{ (screenWidth - 20) / 2 }}"
+                                android:itemHeight="{{ (screenWidth - 20) * 0.5 + 50 }}"
+                                ios:itemWidth="{{ (screenWidth - 12) / 2 }}"
+                                ios:itemHeight="{{ (screenWidth - 12) * 0.5 + 50 }}"/>
+                        </Repeater.itemsLayout>
+                        <Repeater.itemTemplate>
+                            <GridLayout class="example-intro" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" tap="navigateToExample" automationText="{{ title }}">
+                                <Image src="{{ image }}" stretch="aspectFill" />
+                                <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
+                                <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" class="example-new" />
+                            </GridLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
                 </GridLayout>
+            </ScrollView>
+        </GridLayout>
 
-                <GridLayout id="intro-elements" tap="enter">
-                    <GridLayout id="intro-background" class="intro-background-intro" originY="0"/>
-                    
-                    <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
-                    <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
-                    <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
+        <GridLayout id="intro-elements" tap="enter">
+            <GridLayout id="intro-background" class="intro-background-intro" originY="0"/>
+            
+            <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
+            <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
+            <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
 
-                    <Label id="intro-text-one"
-                            class="intro-text-one-intro"
-                            text="Build truly&#xA;native apps with&#xA;JavaScript"
-                            fontSize="37"
-                            horizontalAlignment="center"
-                            verticalAlignment="center"
-                            textWrap="true"
-                            color="white"
-                            textAlignment="center" />
-                    <Label id="intro-text-two"
-                            class="intro-text-two-intro"
-                            text="Develop native cross platform&#xA;apps from a single code base"
-                            fontSize="19"
-                            horizontalAlignment="center"
-                            verticalAlignment="center"
-                            textWrap="true"
-                            color="#8DA1AB"
-                            textAlignment="center" />
+            <Label id="intro-text-one"
+                    class="intro-text-one-intro"
+                    text="Build truly&#xA;native apps with&#xA;JavaScript"
+                    fontSize="37"
+                    horizontalAlignment="center"
+                    verticalAlignment="center"
+                    textWrap="true"
+                    color="white"
+                    textAlignment="center" />
+            <Label id="intro-text-two"
+                    class="intro-text-two-intro"
+                    text="Develop native cross platform&#xA;apps from a single code base"
+                    fontSize="19"
+                    horizontalAlignment="center"
+                    verticalAlignment="center"
+                    textWrap="true"
+                    color="#8DA1AB"
+                    textAlignment="center" />
 
-                    <Button id="intro-get-started"
-                            class="intro-get-started-intro"
-                            text="GET STARTED"
-                            backgroundColor="#1DBE67"
-                            color="white"
-                            borderRadius="25"
-                            height="50"
-                            width="234"
-                            fontSize="18"
-                            tap="tapGetStarted"/>
-                    <Label id="intro-version"
-                            class="intro-version-intro"
-                            text="version 2.0.0"
-                            fontSize="14"
-                            horizontalAlignment="center"
-                            verticalAlignment="center"
-                            color="white"
-                            textAlignment="center" />
-                </GridLayout>
+            <Button id="intro-get-started"
+                    class="intro-get-started-intro"
+                    text="GET STARTED"
+                    backgroundColor="#1DBE67"
+                    color="white"
+                    borderRadius="25"
+                    height="50"
+                    width="234"
+                    fontSize="18"
+                    tap="tapGetStarted"/>
+            <Label id="intro-version"
+                    class="intro-version-intro"
+                    text="version 2.0.0"
+                    fontSize="14"
+                    horizontalAlignment="center"
+                    verticalAlignment="center"
+                    color="white"
+                    textAlignment="center" />
+        </GridLayout>
 
-            </GridLayout>
+    </GridLayout>
 
-        </drawer:RadSideDrawer.mainContent>
-    </drawer:RadSideDrawer>
-</Page>
+</sdp:DrawerPage>
