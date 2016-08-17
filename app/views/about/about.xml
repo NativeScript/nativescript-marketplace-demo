@@ -7,7 +7,7 @@
     <GridLayout class="about-content">
         <StackLayout>
             <Image src="res://logo_about" class="about-logo" />
-            <Label class="about-text" textWrap="true" text="NativeScript is how you build cross-platform, native iOS and Android apps without web views. Use Angular, TypeScript or modern JavaScript to get truly native UI and performance while sharing skills and code with the web. Get 100% access to native APIs via JavaScript and reuse of packages from NPM, CocoaPods and Gradle. Open source and backed by Telerik." />
+            <Label class="about-text" textWrap="true" text="NativeScript is how you build cross-platform, native apps without web views. Use Angular, TypeScript or modern JavaScript to get truly native UI and performance while sharing skills and code with the web. Get 100% access to native APIs via JavaScript and reuse of packages from NPM, CocoaPods and Gradle. Open source and backed by Telerik." />
         </StackLayout>
     </GridLayout>
 </Page>
