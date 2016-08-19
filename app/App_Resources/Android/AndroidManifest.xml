@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="__PACKAGE__"
     android:versionCode="16"
-    android:versionName="2.2.0">
+    android:versionName="2.2.2">
 
 	<supports-screens
 		android:smallScreens="true"
