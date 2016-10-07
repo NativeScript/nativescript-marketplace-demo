@@ -1,19 +1,6 @@
 ## Working With The Repo
 The following is information for the core NativeScript team members.
 
-### Clone the Repo, all Submodules and Rebuild
-To make a full clone and update the submodules.
-```
-git clone git@github.com:NativeScript/nativescript-marketplace-demo.git
-git submodule update --init
-```
-
-Build the core NativeScript Module from source.
-```
-grunt prepare
-```
-This will regenerate the `deps/tns-core-modules.tgz`.
-
 ### Adding Examples
 All examples are defined in the `view-models\examples-model.ts`. The main model is defined in 3 arrays:
  - `controlInfos` - information about each compnent - name, description, link to docs, etc.

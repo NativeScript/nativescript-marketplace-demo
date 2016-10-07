@@ -25,7 +25,7 @@
 		"json-loader": "^0.5.4",
 		"lazy": "1.0.11",
 		"nativescript-dev-typescript": "^0.2.2",
-		"nativescript-dev-webpack": "0.0.19",
+		"nativescript-dev-webpack": "0.0.20",
 		"shelljs": "^0.5.3",
 		"typescript": "^1.8.10"
 	},
