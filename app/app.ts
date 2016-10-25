@@ -9,7 +9,7 @@ import prof = require("./common/profiling");
 import * as trace from "trace";
 import * as analytics from "./common/analytics";
 import "./bundle-modules";
-
+import * as utils from "utils/utils";
  
 application.on("uncaughtError", args => {
     var error = args.android || args.ios;
@@ -69,9 +69,9 @@ if (application.android) {
 if (application.ios) {
     application.on("launch", args => {
         // TODO: It would be nice if this was ios-specific property on the action bar and static property on application.ios.
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.UIStatusBarStyleLightContent;
+        utils.ios.getter(UIApplication, UIApplication.sharedApplication).statusBarStyle = UIStatusBarStyle.UIStatusBarStyleLightContent;
         setTimeout(() => {
-            UIApplication.sharedApplication().keyWindow.backgroundColor = UIColor.blackColor();
+            utils.ios.getter(UIApplication, UIApplication.sharedApplication).keyWindow.backgroundColor = utils.ios.getter(UIColor, UIColor.blackColor);
         }, 1);
     });
 }

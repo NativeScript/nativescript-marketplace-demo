@@ -6,6 +6,7 @@
 /app/**/*.map
 !/app/tns_modules/**/*.js
 /node_modules/
+hooks/
 
 *.tgz
 

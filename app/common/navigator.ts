@@ -6,6 +6,7 @@ import viewModule = require("ui/core/view");
 import platform = require("platform");
 import prof = require("../common/profiling");
 import * as analytics from "./analytics";
+import * as utils from "utils/utils";
 
 var isIOS: boolean = platform.device.os === platform.platformNames.ios;
 var isAndroid: boolean = platform.device.os === platform.platformNames.android;
@@ -151,7 +152,7 @@ export function openLink(view: any) {
     if (url) {
         if (isIOS) {
             var nsUrl = NSURL.URLWithString(url);
-            var sharedApp = UIApplication.sharedApplication();
+            var sharedApp = utils.ios.getter(UIApplication, UIApplication.sharedApplication);
             if (sharedApp.canOpenURL(nsUrl)) {
                 sharedApp.openURL(nsUrl);
             }
