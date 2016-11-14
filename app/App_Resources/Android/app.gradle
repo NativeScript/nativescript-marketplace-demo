@@ -2,6 +2,7 @@
 android {  
     defaultConfig {
         generatedDensities = []
+        applicationId = "org.nativescript.examples"
     }
     aaptOptions {
         additionalParameters "--no-version-vectors"

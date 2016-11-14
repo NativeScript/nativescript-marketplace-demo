@@ -17,6 +17,7 @@ import * as platform from "platform";
 import { GridLayout } from "ui/layouts/grid-layout";
 import { LayoutBase } from "ui/layouts/layout-base";
 import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
+import {onAfterIntro} from "../../common/firebase";
 
 export function pageLoaded(args){
     prof.stop("main-page");
@@ -119,7 +120,11 @@ export function enter(args, event) {
     content.opacity = 1;
     startEnterAnimation(page);
     startExamplesAnimation(page);
-    setTimeout(() => page.getViewById("intro-elements").visibility = "collapsed", 1500);
+    setTimeout(() => {
+        page.getViewById("intro-elements").visibility = "collapsed";
+
+        onAfterIntro();
+    }, 1500);
     showActionBar(page);
 }
 function startEnterAnimation(page: pages.Page) {

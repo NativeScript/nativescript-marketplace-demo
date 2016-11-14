@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="__PACKAGE__"
-    android:versionCode="17"
-    android:versionName="2.4.0">
+	android:versionCode="17"
+	android:versionName="2.4.0">
 
 	<supports-screens
 		android:smallScreens="true"
@@ -29,14 +29,25 @@
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"
 			android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="sensorPortrait">
+			android:screenOrientation="sensorPortrait">
 
-				<intent-filter>
+			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
 		<activity android:name="com.tns.ErrorReportActivity"/>
+
+		<service android:name="org.nativescript.plugins.firebase.MyFirebaseInstanceIDService">
+			<intent-filter>
+				<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+			</intent-filter>
+		</service>
+		<service android:name="org.nativescript.plugins.firebase.MyFirebaseMessagingService">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+			</intent-filter>
+		</service>
 	</application>
 </manifest>
