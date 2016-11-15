@@ -9,6 +9,7 @@ import * as platform from "platform";
 import * as navigator from "../../common/navigator";
 import * as linearGradient from "../../common/linear-gradient";
 import * as conferenceViewModel from "./conference-view-model";
+import * as utils from "utils/utils";
 
 export function pageNavigatingTo(args: EventData) {
     var page = <Page>args.object;
@@ -45,7 +46,7 @@ export function onBackgroundLoaded(args: EventData) {
 export function changeCellBackground(args: ItemEventData) {
     if (args.ios){
         var cell = <UITableViewCell>args.ios;
-        cell.backgroundColor = UIColor.clearColor();
+        cell.backgroundColor = utils.ios.getter(UIColor, UIColor.clearColor);
     }
 }
 
