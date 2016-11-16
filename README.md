@@ -34,14 +34,14 @@ tns emulate ios
 tns run android
 ```
 
-If you have any questions of feebdack please [open an issue](https://github.com/NativeScript/nativescript-marketplace-demo/issues).
+If you have any questions or feedback, please [open an issue](https://github.com/NativeScript/nativescript-marketplace-demo/issues).
 
 Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
 
-For more news about NativeScript please [follow our twitter account](http://twitter.com/nativescript).
+For more news about NativeScript, please [follow our Twitter account](http://twitter.com/nativescript).
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
 
 # Enable Analytics
-Analytics is set in place but requires api key to be enabled.
+Analytics is set in place but requires an API key to be enabled.
 Just place an `"analyticsAppId": "****************"` key in the `app/package.json`.
-For more information check the plugin in npmjs.org: https://www.npmjs.com/package/nativescript-telerik-analytics
+For more information check the plugin in npmjs.com: https://www.npmjs.com/package/nativescript-telerik-analytics
