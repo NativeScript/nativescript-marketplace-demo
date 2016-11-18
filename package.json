@@ -2,20 +2,20 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-ios": {
-      "version": "2.3.0"
+      "version": "2.4.0"
     },
     "tns-android": {
-      "version": "next"
+      "version": "2.4.0"
     }
   },
   "dependencies": {
     "acra-telerik-analytics": "*",
-    "nativescript-fresco": "1.0.11",
+    "nativescript-fresco": "1.0.12",
     "highlight.js": "^8.7.0",
     "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-telerik-analytics": "*",
     "nativescript-telerik-ui-pro": "*",
-    "tns-core-modules": "next"
+    "tns-core-modules": "2.4.0"
   },
   "devDependencies": {
     "babel-traverse": "6.9.0",
@@ -27,7 +27,7 @@
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-typescript": "^0.2.2",
     "shelljs": "^0.5.3",
-    "typescript": "^2.0.9"
+    "typescript": "^2.0.10"
   },
   "license": "Apache-2.0"
 }
