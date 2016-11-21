@@ -62,5 +62,7 @@
 		<string>Icon-40@2x.png</string>
 		<string>Icon-40.png</string>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This app would like to access your calendar.</string>
 </dict>
 </plist>
