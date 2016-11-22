@@ -35,5 +35,11 @@
             </GridLayout>
         </GridLayout>
 
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-sdk-examples-ng">
+            <GridLayout class="drawer-external-icon">
+                <Label text="Code samples" class="drawer-external-label" />
+            </GridLayout>
+        </GridLayout>
+
     </StackLayout>
 </ScrollView>
