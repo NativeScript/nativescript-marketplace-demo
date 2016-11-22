@@ -64,5 +64,9 @@
 	</array>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This app would like to access your calendar.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
