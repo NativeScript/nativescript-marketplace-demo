@@ -45,3 +45,13 @@ For more news about NativeScript, please [follow our Twitter account](http://twi
 Analytics is set in place but requires an API key to be enabled.
 Just place an `"analyticsAppId": "****************"` key in the `app/package.json`.
 For more information check the plugin in npmjs.com: https://www.npmjs.com/package/nativescript-telerik-analytics
+
+# Performance 
+
+Start for latest version published on GooglePlay and AppStore.
+
+## App Size
+Android APK: 27.8 MB
+
+## Fist start
+Android (Nexus5): 2.8s
