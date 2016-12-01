@@ -14,6 +14,8 @@
     color: white;
     padding: 10;
     text-transform: uppercase;
+    border-width: 1;
+    border-color: #30BCFF;
 }
 
 .modeButtonStyle {
@@ -23,6 +25,8 @@
     vertical-align: center;
     padding: 10;
     text-transform: uppercase;
+    border-width: 1;
+    border-color: #30BCFF;
 }
 
 .titleStyle {
