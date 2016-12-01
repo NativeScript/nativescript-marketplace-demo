@@ -5,6 +5,8 @@
 .drawer-button-external {
     color: white;
     height: 44;
+    border-width: 1;
+    border-color: #3D5AFE;
     background-color: #003751E4;
 }
 .drawer-button-external {
@@ -16,6 +18,8 @@
 .drawer-button-external:highlighted {
     color: white;
     background-color: #FF3751E4;
+    border-width: 1;
+    border-color: #3D5AFE;
 }
 
 .drawer-external-link {

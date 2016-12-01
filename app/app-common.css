@@ -155,6 +155,8 @@ Page, ExamplePage, DrawerPage {
     color: #151F2F;
     height: 44;
     vertical-align: center;
+    border-width: 1;
+    border-color: white;
 }
 
 .example-menu-item:highlighted {

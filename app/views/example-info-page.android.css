@@ -20,6 +20,8 @@
     horizontal-align: left;
     color: #3C5AFD;
     text-align: left;
+    border-width: 1;
+    border-color: white;
 }
 
 .info-link-button-documentation {

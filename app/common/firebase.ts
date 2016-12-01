@@ -24,6 +24,10 @@ if (enabled) {
 }
 
 export function onAfterIntro() {
+    if (!enabled) {
+        return;
+    }
+
     // iOS asks for permissions so ask after the intro has played the first time.
     if (isIOS && !settings.getBoolean("user-granted-push", false)) {
         firebaseInit();
@@ -31,46 +35,47 @@ export function onAfterIntro() {
 }
 
 function firebaseInit() {
-    console.log("Firebase init!!!");
-    // This will call FIRApp.configure(), it is important to happen early so we can register
-    // for remote notifications that we receive while the app is not running (the common case for push notification)
-    //setTimeout(() => {
-        firebase.init({
-            onMessageReceivedCallback(message) {
-                console.log("Got message!");
-                console.log(JSON.stringify(message));
+    if (!enabled) {
+        return;
+    }
 
-                let url = (<any>message).url;
-                if (url) {
-                    if (message.foreground) {
-                        dialogs.confirm({
-                            title: (<any>message).inAppTitle,
-                            message: (<any>message).inAppBody,
-                            okButtonText: "Open",
-                            cancelButtonText: "Close"
-                        }).then(result => {
-                            if (result) {
-                                utils.openUrl(url);
-                            }
-                        });
-                    } else {
-                        if (lastHandledData != url) {
+    console.log("Firebase init!!!");
+
+    firebase.init({
+        onMessageReceivedCallback(message) {
+            console.log("Got message!");
+            console.log(JSON.stringify(message));
+
+            let url = (<any>message).url;
+            if (url) {
+                if (message.foreground) {
+                    dialogs.confirm({
+                        title: (<any>message).inAppTitle,
+                        message: (<any>message).inAppBody,
+                        okButtonText: "Open",
+                        cancelButtonText: "Close"
+                    }).then(result => {
+                        if (result) {
                             utils.openUrl(url);
-                            lastHandledData = url;
                         }
+                    });
+                } else {
+                    if (lastHandledData != url) {
+                        utils.openUrl(url);
+                        lastHandledData = url;
                     }
                 }
-            },
-            onPushTokenReceivedCallback(token) {
-                console.log("Got token");
-                console.log("token: " + token);
-                settings.setBoolean("user-granted-push", true);
             }
-        }).then(value => {
-            console.log("Firebase init done!");
-        }).catch(e => {
-            console.log("Failed to init firebase. " + e);
-            console.log("stack:\n" + e.stack);
-        });
-    //}, 0);
+        },
+        onPushTokenReceivedCallback(token) {
+            console.log("Got token");
+            console.log("token: " + token);
+            settings.setBoolean("user-granted-push", true);
+        }
+    }).then(value => {
+        console.log("Firebase init done!");
+    }).catch(e => {
+        console.log("Failed to init firebase. " + e);
+        console.log("stack:\n" + e.stack);
+    });
 }
