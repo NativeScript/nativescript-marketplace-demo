@@ -3,12 +3,20 @@ import { GroupPageViewModel } from "../../view-models/group-page-view-model"
 import * as navigator from "../../common/navigator"
 import * as gestures from "ui/gestures";
 import { groups } from "../../view-models/examples-model"
+import * as firebase from "../../common/firebase";
 import { topmost } from "ui/frame"
 import { grayTouch } from "../../common/effects";
 import * as application from "application";
+import * as applicationSettings from "application-settings";
+import { Observable } from "data/observable";
+
+class SidedrawerViewModel extends Observable {
+    public groups = groups;
+    public firebase = firebase.viewModel;
+}
 
 export function onLoaded(args) {
-    args.object.bindingContext = groups;
+    args.object.bindingContext = new SidedrawerViewModel();
 }
 
 export function tileTouch(args: gestures.TouchGestureEventData) {
@@ -55,6 +63,15 @@ export function tapAbout(args) {
         setTimeout(() => navigator.navigateToAbout(), 600);
     } else {
         navigator.navigateToAbout()
+    }
+}
+
+export function tapWhatIsNew() {
+    closeDrawer();
+    if (application.android) {
+        setTimeout(() => navigator.navigateToWhatIsNew(), 600);
+    } else {
+        navigator.navigateToWhatIsNew();
     }
 }
 

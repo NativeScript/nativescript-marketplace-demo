@@ -124,6 +124,13 @@ export function navigateToAbout() {
     }
 }
 
+export function navigateToWhatIsNew() {
+    var topmost = frame.topmost();
+    if (topmost.currentEntry.moduleName !== "views/what-is-new") {
+        frame.topmost().navigate(traceNavigateTo("views/what-is-new"));
+    }
+}
+
 export function navigateBack() {
     frame.goBack();
 }

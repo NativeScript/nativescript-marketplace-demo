@@ -1,9 +1,16 @@
 <ScrollView class="drawer-content">
-    <StackLayout loaded="onLoaded">
+    <StackLayout loaded="onLoaded" unloaded="onUnloaded">
         <Image src="res://logo_main_nav" margin="40 0 24 0" horizontalAlignment="center" stretch="none" />
 
         <Button text="Home" tap="tapHome" class="drawer-button" />
         <Button text="About" tap="tapAbout" class="drawer-button" />
+
+        <GridLayout class="drawer-news-link" tap="tapWhatIsNew">
+            <GridLayout class="drawer-news-icon">
+                <Image src="res://ic_outside_link" visibility="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'visible' : 'collapse' }}" width="22" height="22" horizontalAlignment="left" />
+                <Label text="What's new" class="drawer-news-label" margin="0 22" />
+            </GridLayout>
+        </GridLayout>
 
         <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started">
             <GridLayout class="drawer-external-icon">

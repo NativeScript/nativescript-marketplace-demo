@@ -21,16 +21,16 @@
     <sdp:DrawerPage.actionBar>
         <ActionBar automationText="ActionBar" android:opacity="0">
             <android>
-                <NavigationButton icon="res://ic_menu_main" tap="showSlideout" automationText="SidebarMenu" />
+                <NavigationButton icon="{{ firebase.hasUnreadNews ? 'res://ic_new' : 'res://ic_menu_main' }}" tap="showSlideout" automationText="SidebarMenu" />
             </android>
-            <iOS>
+            <!--<iOS>
                 <NavigationButton icon="res://ic_back" />
-            </iOS>
+            </iOS>-->
             <ActionBar.actionItems>
                 <iOS>
                     <ActionItem id="actionbar-menu" ios.position="left" tap="showSlideout" automationText="SidebarMenu">
                         <ActionItem.actionView>
-                            <Image src="res://ic_menu_main" width="22" height="22" margin="0, 8, 0, -8" />
+                            <Image src="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_new' : 'res://ic_menu_main' }}" width="22" height="22" margin="0, 8, 0, -8" />
                         </ActionItem.actionView>
                     </ActionItem>
                 </iOS>
