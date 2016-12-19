@@ -53,5 +53,5 @@ Start for latest version published on GooglePlay and AppStore.
 ## App Size
 Android APK: 27.8 MB
 
-## Fist start
+## First start
 Android (Nexus5): 2.8s
