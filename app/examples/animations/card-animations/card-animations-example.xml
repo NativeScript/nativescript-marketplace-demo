@@ -1,0 +1,46 @@
+<examples:ExamplePage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:examples="examples/example-base-page"
+        xmlns:f="nativescript-fresco/nativescript-fresco"
+        loaded="pageLoaded">
+    <Page.actionBar>
+        <ActionBar title="Item animations" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <Android>
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
+            </Android>
+            <iOS>
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
+            </iOS>
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout rows="auto auto auto auto" class="background-grid">
+       <Label id="label1" class="label1" text="CHOOSE CREDIT CARD" horizontalAlignment="center" verticalAlignment="center"/> 
+       
+       <GridLayout id="visa-card" class="card" row="1" tap="onCardTap" >
+             <Image src="res://visa_logo" stretch="aspectFit" class="card-logo" />
+       </GridLayout>
+       <GridLayout id="master-card" class="card" row="2" tap="onCardTap">
+            <Image src="res://mastercard_logo" stretch="aspectFit" class="card-logo" />
+       </GridLayout>
+        <GridLayout id="amex-card" class="card" row="3" tap="onCardTap" >
+             <Image src="res://amex_logo" stretch="aspectFit" class="card-logo"/>
+        </GridLayout>
+
+        <StackLayout id="card-details-grid" class="card-details" row="2" verticalAlignment="center" >
+            <TextField id="card-number-txt" hint="Card Number" />
+            <TextField id="exp-date-txt" hint="Expiration Date (mm/yy)" />
+            <TextField id="cvs-txt" hint="Security Code (CSC)"/>
+        </StackLayout>
+
+        <StackLayout id="check-out-layout" class="check-out-layout" row="3" verticalAlignment="top" tap="onTap">
+            <Label id="check-out-label" android:text="CHECK OUT" ios:text="Check out" class="check-out-label" tap="onTap" horizontalAlignment="center" />
+            <Button id="button-done" backgroundImage="res://ic_checkmark" class="button-done" tap="onTap" />
+        </StackLayout>
+       
+    </GridLayout>
+</examples:ExamplePage>

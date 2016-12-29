@@ -1,0 +1,279 @@
+@import { url('~/examples/animations/card-animations/card-animations-common.css') };
+
+.label1 {
+    color: white;
+    height: 50;
+    opacity: 1;
+    margin: 20 10 10 10;
+    font-size: 14;
+}
+
+TextField {
+    background-color:  #BAC0DF;
+    color: #44486C;
+    opacity: 0;
+    margin: 1 16 0 16;
+    padding: 10;
+    font-size: 12;
+} 
+
+.text-fields-fade-in {
+    animation-name: fade-in;
+    animation-duration: 0.3;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    background-color:  #BAC0DF;
+    color: #44486C;
+    opacity: 0;
+    margin: 1 16 0 16;
+    padding: 5 10 5 10;
+    font-weight: 500;
+    font-family: sans-serif;
+    height: 44;
+}
+
+@keyframes visa-card-up {
+    0% {
+        transform: translate(0, 0);
+    }
+    
+    100% {
+        transform: translate(0, -60);
+    }
+}
+
+.visa-card-up {
+    height: 34%;
+    border-bottom-width: 1;
+    border-color: #434A72;
+    background-color: white;
+    animation-name: visa-card-up;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes master-card-up {
+    0% {
+        transform: translate(0, 0);
+    }
+    
+    100% {
+        transform: translate(0, -217); 
+    }
+}
+
+.master-card-up {
+    height: 34%;
+    border-bottom-width: 1;
+    border-color: #434A72;
+    background-color: white;
+    animation-name: master-card-up;
+    animation-duration: 0.4;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes amex-card-up {
+    0% {
+        transform: translate(0, 0);
+    }
+    
+    100% {
+        transform: translate(0, -365);
+    }
+}
+
+.amex-card-up {
+    height: 34%;
+    border-bottom-width: 1;
+    border-color: #434A72;
+    background-color: white;
+    animation-name: amex-card-up;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.visa-card-details-up {
+    height: 30%;
+    opacity: 0;
+    animation-name: visa-card-details-up;
+    animation-duration: 0.6s;
+    animation-delay: 0.3;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes visa-card-details-up {
+    from { 
+        opacity: 0; 
+        }
+    10% {
+        transform: translate(0, -47);
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+.master-card-details-up {
+    height: 30%;
+    opacity: 0;
+    animation-name: master-card-details-up;
+    animation-duration: 0.6s;
+    animation-delay: 0.3;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes master-card-details-up {
+    from { 
+        opacity: 0; 
+        }
+    10% {
+        transform: translate(0, -42);
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+.amex-card-details-up {
+    height: 30%;
+    opacity: 0; 
+    animation-name: amex-card-details-up;
+    animation-duration: 0.6s;
+    animation-delay: 0.3;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes amex-card-details-up {
+    from { 
+        opacity: 0; 
+        }
+    10% {
+        transform: translate(0, -20);
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+.visa-card-check-out-layout-up, .master-card-check-out-layout-up {
+    background-color: #1BC157;
+    color: white;
+    margin: 10 16 0 16;
+    padding: 9 5 2 9;
+    height: 40;
+    font-weight: 500;
+    opacity: 0;
+    font-family: sans-serif;
+    animation-name: check-out-layout-up;
+    animation-duration: 0.3;
+    animation-delay: 0.3;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes check-out-layout-up {
+  from {
+    opacity: 0; 
+    transform: translateY(-67);
+  }
+  10% {
+    opacity: 0; 
+    transform: scale(0.8, 0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+.amex-card-check-out-layout-up {
+    background-color: #1BC157;
+    color: white;
+    margin: 10 16 0 16;
+    padding: 9 5 2 9;
+    height: 40;
+    opacity: 0;
+    font-weight: 500;
+    font-family: sans-serif;
+    animation-name: amex-card-check-out-layout-up;
+    animation-duration: 0.3;
+    animation-delay: 0.3;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes amex-card-check-out-layout-up {
+  from {
+    opacity: 0; 
+    transform: translateY(-35);
+  }
+  10% {
+    opacity: 0; 
+    transform: scale(0.8, 0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+.button-done-visible {
+    height: 50;
+    width: 50;
+    opacity: 0;
+    background-repeat: no-repeat;
+    animation-name: button-done-visible;
+    animation-fill-mode: forwards;
+    animation-duration: 1;
+    animation-delay: 0.5;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes button-done-visible {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0;
+    }
+    33% {
+         transform: scale(0.05, 0.05), translate(0, -16);  
+         opacity: 0;
+    } 
+    60% {
+        opacity: 0.5;
+    }
+    85% {
+        transform: scale(0.05, 0.05), rotate(360);
+        opacity: 1;
+    }
+    95% {
+        transform: scale(0.1, 0.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.05, 0.05);
+        opacity: 1;
+    }
+}
+
+.accept-card {
+    background-color: #1BC157;
+    animation-name: accept-card;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes accept-card {
+    0% {
+        transform: scale(0, 0);
+    }
+    100% {
+        transform: scale(20, 20), translate(0, -50);  
+    }
+}
