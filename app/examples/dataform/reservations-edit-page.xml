@@ -1,0 +1,124 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd"
+        loaded="pageLoaded"
+        xmlns:df="nativescript-telerik-ui-pro/dataform"
+        navigatedTo="pageNavigatedTo">
+     <Page.actionBar >
+        <ActionBar title="{{ isNew ? 'New reservation' : 'Edit reservation' }}" automationText="ActionBar">
+            <NavigationButton icon="res://ic_close1" tap="goBack" automationText="GoBack" />
+            <ActionBar.actionItems>
+                <ActionItem tap="saveChanges" padding="20" margin="30" android:text="DONE" ios:text="Done" ios.position="right" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar> 
+    <GridLayout rows="auto, *" backgroundColor="#FFFFFF">
+            <df:RadDataForm row="1" id="reservationForm" source="{{ currentReservation }}" 
+                    propertyCommitted="dfPropertyCommitted" commitMode="Manual"
+                    editorSetup="dfEditorSetup" editorUpdate="dfEditorUpdate" groupUpdate="dfGroupUpdate">
+
+                <df:RadDataForm.groups>
+                    <df:PropertyGroup name="RESERVATION DETAILS">
+                        <df:PropertyGroup.titleStyle>
+                            <df:GroupTitleStyle labelTextColor="#989595" labelTextSize="12" />
+                        </df:PropertyGroup.titleStyle>
+                        <df:PropertyGroup.properties>
+                            <df:EntityProperty name="name" displayName="" android:index="0" hintText="Name" imageResource="res://ic_dataform_guest">
+                                <df:EntityProperty.validators>
+                                    <df:NonEmptyValidator errorMessage="Please fill in guest name" /> 
+                                </df:EntityProperty.validators> 
+                            </df:EntityProperty>
+                            <df:EntityProperty name="phone" displayName="" android:index="1" hintText="Phone" imageResource="res://ic_dataform_phone">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="Phone" />
+                                </df:EntityProperty.editor>
+                                <df:EntityProperty.validators>
+                                    <df:PhoneValidator errorMessage="Please fill in a valid number" /> 
+                                </df:EntityProperty.validators> 
+                            </df:EntityProperty>
+                        </df:PropertyGroup.properties>
+                    </df:PropertyGroup>
+                    <df:PropertyGroup name="Reservation Date" titleHidden="true">
+                        <android>
+                            <df:PropertyGroup.layout>		
+                                <df:DataFormGridLayout />			
+                            </df:PropertyGroup.layout>
+                        </android>
+                        <df:PropertyGroup.properties>
+                            <df:EntityProperty name="date" android:index="2" android:columnIndex="0" imageResource="res://ic_dataform_calendar">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="DatePicker" />
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                            <df:EntityProperty name="time" android:index="2" android:columnIndex="1" ios:imageResource="res://ic_dataform_time">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="TimePicker" />
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                        </df:PropertyGroup.properties>
+                    </df:PropertyGroup>
+                    <df:PropertyGroup name="Group3" titleHidden="true">
+                        <df:PropertyGroup.properties>
+                            <df:EntityProperty name="guests" android:index="3" android:displayName="" imageResource="res://ic_dataform_guests_number">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="Stepper">
+                                        <df:PropertyEditor.params>
+                                            <df:PropertyEditorParams minimum="1" maximum="10"/>
+                                        </df:PropertyEditor.params>
+                                    </df:PropertyEditor>
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                        </df:PropertyGroup.properties>
+                    </df:PropertyGroup>
+                    <df:PropertyGroup name="TABLE DETAILS">
+                        <df:PropertyGroup.titleStyle>
+                            <df:GroupTitleStyle labelTextColor="#989595" labelTextSize="12" />
+                        </df:PropertyGroup.titleStyle>
+                        <android>
+                            <df:PropertyGroup.layout>		
+                                <df:DataFormGridLayout orientation="horizontal" />			
+                            </df:PropertyGroup.layout>
+                        </android>
+                        <df:PropertyGroup.properties>
+                            <df:EntityProperty name="section" android:imageResource="res://ic_dataform_table" android:index="4" android:columnIndex="0" valuesProvider="{{ sectionOptions }}">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="Picker">
+                                        <df:PropertyEditor.style>
+                                            <df:PropertyEditorStyle labelTextColor="#FFFFFF" />
+                                        </df:PropertyEditor.style>
+                                    </df:PropertyEditor>
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                            <df:EntityProperty name="table" android:index="4" android:columnIndex="1" valuesProvider="{{ tableOptions }}" ios:imageResource="res://ic_dataform_table">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="Picker" >
+                                        <df:PropertyEditor.style>
+                                            <df:PropertyEditorStyle labelTextColor="#FFFFFF" />
+                                        </df:PropertyEditor.style>
+                                    </df:PropertyEditor>
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                        </df:PropertyGroup.properties>
+                    </df:PropertyGroup>
+                    <df:PropertyGroup name="ORIGIN" android:titleHidden="true">
+                        <df:PropertyGroup.titleStyle>
+                            <df:GroupTitleStyle labelTextColor="#989595" labelTextSize="12" />
+                        </df:PropertyGroup.titleStyle>
+                        <df:PropertyGroup.properties>
+                            <df:EntityProperty name="origin" valuesProvider="{{ originOptions }}" android:index="5">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor android:type="Picker" ios:type="SegmentedEditor" />
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                            <df:EntityProperty name="cancelled" displayName="" android:index="6">
+                                <df:EntityProperty.editor>
+                                    <df:CustomPropertyEditor 
+                                        editorNeedsView="editorNeedsView" 
+                                        editorHasToApplyValue="editorHasToApplyValue" 
+                                        editorNeedsValue="editorNeedsValue"/>
+                                </df:EntityProperty.editor>
+                            </df:EntityProperty>
+                        </df:PropertyGroup.properties>
+                    </df:PropertyGroup>
+                </df:RadDataForm.groups>
+            </df:RadDataForm>
+	</GridLayout>
+</Page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Spinner android:id="@+id/data_form_spinner_editor"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.AppCompat.Spinner.Underlined"
+    android:textSize="@dimen/data_form_editor_text_size"
+    android:background="@drawable/reservation_spinner_background"
+    android:paddingTop="4dp"
+    android:paddingBottom="12dp"
+    android:tint="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>

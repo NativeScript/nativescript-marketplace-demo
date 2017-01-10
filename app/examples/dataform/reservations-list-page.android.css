@@ -1,0 +1,92 @@
+
+.date-icon {
+    margin-left: 74;
+    vertical-align: center;
+}
+
+.date-text {
+    margin-left: 12;
+    color: #FFFFFF;
+    vertical-align: center;
+    font-size: 16;
+}
+
+.title-container {
+    background-image: url("res://dataform_wood_pattern");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-left: 72;
+    padding-right: 72;
+    padding-top: 16;
+}
+
+.title-view-item {
+    font-size: 30;
+    color: white;    
+}
+
+.subtitle-view-item {
+    color: #C4C4C4;
+    font-weight: bold;
+    margin-top: 2;
+}
+
+.button-add {
+    margin-left: 10;
+    margin-top: 132;
+    vertical-align: top;
+    horizontal-align: left;
+}
+
+.reservation_info_time_container {
+    margin: 16;
+    width: 40;
+    height: 40;
+}
+
+.reservation_info_time_background {
+    width: 40;
+    height: 40;
+}
+
+.reservation_info_time_inner_container {
+    vertical-align: center;
+}
+
+.reservation_info_time {
+    font-size: 11;
+    color: white;
+    text-align: center;
+}
+
+.reservation_info_time_ampm {
+    font-size: 11;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin-top: -2;
+}
+
+.reservation_info_container {
+    vertical-align: center;
+}
+
+.reservation_info_name {
+    font-size: 15;
+    color: black;
+}
+
+.reservation_info_details {
+    font-size: 12;
+    font-weight: bold;
+    color: #BF3136;
+}
+
+.reservation_info_phone {
+    text-decoration: underline;
+    padding-right: 15;
+    font-size: 12;
+    color: #8F8C8B;
+    vertical-align: center;
+}
