@@ -79,7 +79,8 @@ export class BlogPostItemData extends Observable {
 
 export class SelectionViewModel extends Observable {
     private _owner: RadListView;
-        
+    private _isSwipeEnded: boolean;
+
     constructor(owner: RadListView) {
         super();
         this._owner = owner;
@@ -205,7 +206,7 @@ export class SelectionViewModel extends Observable {
 
     //Event handlers
     onItemTap(args: ListViewEventData) {
-        if (this.isSelectionActive === true || this.isReorderActive === true) {
+        if ((this.isSelectionActive === true || this.isReorderActive === true) || !this._isSwipeEnded) {
             return;
         }
         this.CurrentItem = (<ObservableArray<BlogPostItemData>>this._owner.items).getItem(args.itemIndex);
@@ -218,18 +219,20 @@ export class SelectionViewModel extends Observable {
     }
 
     onStartSwipeCell(args: ListViewEventData) {
-        var density = utils.layout.getDisplayDensity();
-        var delta = Math.floor(density) !== density ? 1.1 : DELTA;
-
-        args.data.swipeLimits.top = 0;
-        args.data.swipeLimits.left = Math.round(density * 100);
-        args.data.swipeLimits.bottom = 0;
-        args.data.swipeLimits.right = Math.round(density * 100);
-        args.data.swipeLimits.threshold = Math.round(density * 50);
+        this._isSwipeEnded = false;
+        var swipeLimits = args.data.swipeLimits;
+        var swipeView = args['object'];
+        var leftItem = swipeView.getViewById('fav-view');
+        var rightItem = swipeView.getViewById('del-view');
+        swipeLimits.left = leftItem.getMeasuredWidth();
+        swipeLimits.right = rightItem.getMeasuredWidth();
+        swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
+        this._currentItemIndex = args.itemIndex;
     }
 
+
     onCellSwiped(args: ListViewEventData) {
-        this._currentItemIndex = args.itemIndex;
+        this._isSwipeEnded = true;
     }
 
     onTap_SetAsFavourite(args: any) {
@@ -272,7 +275,7 @@ export class SelectionViewModel extends Observable {
             this.updateCurrentState();
         }
     }
-    
+
     public onItemSelected(args) {
         if (this.isSelectionActive === true) {
             this.selectedItemsCount = this._owner.getSelectedItems().length;
@@ -289,7 +292,7 @@ export class SelectionViewModel extends Observable {
         if (this.isReorderActive || this.isSelectionActive) {
             return;
         }
-        
+
         if (platform.device.os === platform.platformNames.android && this.isSelectionActive === false) {
             this.toggleSelection(args.itemIndex);
         }

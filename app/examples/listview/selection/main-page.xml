@@ -60,9 +60,9 @@
             reorderMode="Drag"
             itemSwipeProgressStarted="{{onStartSwipeCell}}"
             itemSwipeProgressEnded="{{onCellSwiped}}"
+            swipeActions="{{isReorderActive ? false : true}}"
             itemTap="{{ onItemTap }}"
-            itemHold="{{ onItemHold }}"
-            itemSwipe="{{isReorderActive ? false : true}}">
+            itemHold="{{ onItemHold }}">
 
         <lv:RadListView.listViewLayout>
             <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"/>
@@ -70,10 +70,10 @@
         
         <lv:RadListView.itemSwipeTemplate>
             <GridLayout columns="100, *, 100" >
-                <GridLayout tap="{{ onTap_SetAsFavourite }}" cssClass="swipe-fav">
+                <GridLayout id="fav-view" tap="{{ onTap_SetAsFavourite }}" cssClass="swipe-fav">
                     <Image ios:src="res://listview/selection/ic_add_to_fav" android:src="res://ic_add_to_fav" stretch="none" cssClass="swipedImageStyle" />
                 </GridLayout>
-                <GridLayout col="2" tap="{{ onTap_DeletePost }}" cssClass="swipe-del">
+                <GridLayout id="del-view" col="2" tap="{{ onTap_DeletePost }}" cssClass="swipe-del">
                     <Image ios:src="res://listview/selection/ic_delete" android:src="res://ic_delete" stretch="none" cssClass="swipedImageStyle"/>
                 </GridLayout>
             </GridLayout>
@@ -94,8 +94,8 @@
                 </GridLayout>
             </ios>
             <android>
-                <GridLayout columns="auto, *">
-                    <lv:ReorderHandle col="0" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                <GridLayout columns="auto, *" backgroundColor="white">
+                    <lv:ReorderHandle col="0" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center" >
                         <Image src="res://ic_reorder" cssClass="reorder-handle"/>
                     </lv:ReorderHandle>
                     <GridLayout col="1" columns="auto, *" rows="auto,*" cssClass="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" >
