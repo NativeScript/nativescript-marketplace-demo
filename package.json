@@ -19,16 +19,41 @@
     "tns-core-modules": "2.4.0"
   },
   "devDependencies": {
+    "awesome-typescript-loader": "~3.0.0-beta.9",
     "babel-traverse": "6.9.0",
     "babel-types": "6.9.0",
     "babylon": "6.8.0",
+    "copy-webpack-plugin": "~3.0.1",
+    "extract-text-webpack-plugin": "~2.0.0-beta.4",
     "filewalker": "0.1.2",
     "json-loader": "^0.5.4",
     "lazy": "1.0.11",
+    "nativescript-css-loader": "~0.26.0",
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-typescript": "^0.2.2",
+    "nativescript-dev-webpack": "^0.3.1",
+    "raw-loader": "~0.5.1",
+    "resolve-url-loader": "~1.6.0",
     "shelljs": "^0.5.3",
-    "typescript": "^2.0.10"
+    "typescript": "~2.0.10",
+    "webpack": "~2.1.0-beta.27",
+    "webpack-sources": "~0.1.3"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "scripts": {
+    "clean-android": "tns clean-app android",
+    "clean-ios": "tns clean-app ios",
+    "prewebpack-android": "npm run clean-android",
+    "prewebpack-ios": "npm run clean-ios",
+    "webpack-android": "webpack --config=webpack.android.js --progress",
+    "webpack-ios": "webpack --config=webpack.ios.js --progress",
+    "prestart-android-bundle": "npm run webpack-android",
+    "prestart-ios-bundle": "npm run webpack-ios",
+    "start-android-bundle": "tns run android --bundle --disable-npm-install",
+    "start-ios-bundle": "tns run ios --bundle --disable-npm-install",
+    "prebuild-android-bundle": "npm run webpack-android",
+    "prebuild-ios-bundle": "npm run webpack-ios",
+    "build-android-bundle": "tns build android --bundle --disable-npm-install",
+    "build-ios-bundle": "tns build ios --bundle --disable-npm-install"
+  }
 }
