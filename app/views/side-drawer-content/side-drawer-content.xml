@@ -7,8 +7,8 @@
 
         <GridLayout class="drawer-news-link" tap="tapWhatIsNew">
             <GridLayout class="drawer-news-icon">
-                <Image src="res://ic_outside_link" visibility="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'visible' : 'collapse' }}" width="22" height="22" horizontalAlignment="left" />
-                <Label text="What's new" class="drawer-news-label" margin="0 22" />
+                <Image src="res://ic_notification" visibility="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'visible' : 'collapse' }}" width="10" height="10" horizontalAlignment="left" />
+                <Label text="What's new" class="drawer-news-label" margin="0 18" />
             </GridLayout>
         </GridLayout>
 

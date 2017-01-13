@@ -96,7 +96,7 @@ export class ViewModel extends Observable {
     }
 
     updateNews(updates: FirebaseArticle[]) {
-        this.news = updates.map(fb => new Article(fb));
+        this.news = updates.filter(fb => !!fb).map(fb => new Article(fb));
         this.updateHasNews();
         this.updateHasUnreadNews();
         this.notifyPropertyChange("news", this.news);
@@ -163,6 +163,7 @@ function firebaseInit() {
             console.log(JSON.stringify(message));
 
             let url = (<any>message).url;
+            let id = (<any>message).id;
             if (url) {
                 if (message.foreground) {
                     dialogs.confirm({
@@ -173,7 +174,10 @@ function firebaseInit() {
                     }).then(result => {
                         if (result) {
                             utils.openUrl(url);
-                            // TODO: Mark as read!!!
+                            if (id) {
+                                markAsRead(id);
+                                viewModel.news.filter(a => a.id === a.id).forEach(a => a.isRead = true);
+                            }
                             navigator.navigateToWhatIsNew();
                         }
                     });

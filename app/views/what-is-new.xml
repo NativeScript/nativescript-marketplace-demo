@@ -18,6 +18,6 @@
             </ListView.itemTemplate>
         </ListView>
         <!-- New line char: &#xA; -->
-        <Label visibility="{{ hasNews ? 'collapse' : 'visible' }}" text="Stay tuned for the latest NativeScript news here!" class="empty-placeholder" />
+        <Label visibility="{{ hasNews ? 'collapse' : 'visible' }}" text="You need an internet access to see what's new." class="empty-placeholder" />
     </GridLayout>
 </Page>
