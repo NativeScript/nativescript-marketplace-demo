@@ -1,0 +1,23 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <Page.actionBar>
+        <ActionBar title="What's new" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout class="news-background">
+        <ListView visibility="{{ hasNews ? 'visible' : 'collapse' }}" class="news-list" items="{{ news }}" separatorColor="transparent" padding="20" itemTap="itemTap" itemLoading="listViewItemLoading">
+            <ListView.itemTemplate>
+                <GridLayout class="news-background">
+                    <GridLayout class="{{ isRead ? 'news-card read' : 'news-card unread' }}" rows="auto, auto, auto">
+                        <Label class="title" text="{{ title }}" />
+                        <Label row="1" class="body" text="{{ body }}" />
+                        <Label row="2" horizontalAlignment="left" class="learn-more" android:text="LEARN MORE" ios:text="Learn more" />
+                        <Label row="2" horizontalAlignment="right" class="date" text="11/30/2016" />
+                    </GridLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        <!-- New line char: &#xA; -->
+        <Label visibility="{{ hasNews ? 'collapse' : 'visible' }}" text="You need an internet access to see what's new." class="empty-placeholder" />
+    </GridLayout>
+</Page>

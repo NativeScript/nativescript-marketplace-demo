@@ -15,3 +15,6 @@ hooks/
 *.ipa
 
 Telerik.keystore
+
+GoogleService-Info.plist
+google-services.json

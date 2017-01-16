@@ -208,7 +208,7 @@ export class SelectionViewModel extends Observable {
         if (this.isSelectionActive === true || this.isReorderActive === true) {
             return;
         }
-        this.CurrentItem = (<ObservableArray<BlogPostItemData>>this._owner.items).getItem(args.itemIndex);
+        this.CurrentItem = (<any>this._owner.items).getItem(args.itemIndex);
         this._currentItemIndex = args.itemIndex;
         topmostFrame().navigate({
             moduleName: "examples/listview/selection/detail-page",

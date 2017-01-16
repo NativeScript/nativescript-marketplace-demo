@@ -22,10 +22,13 @@
     border-color: #3D5AFE;
 }
 
-.drawer-external-link {
+.drawer-external-link,
+.drawer-news-link {
     height: 44;
 }
-.drawer-external-link:highlighted {
+
+.drawer-external-link:highlighted,
+.drawer-news-link:highlighted {
     background-color: #516BFE;
 }
 .drawer-external-icon {
@@ -35,6 +38,14 @@
     horizontal-align: center;
     padding: 0 36;
 }
+.drawer-news-icon {
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    horizontal-align: center;
+    padding: 0 36;
+}
+
+.drawer-news-label,
 .drawer-external-label {
     font-size: 13;
     color: white;

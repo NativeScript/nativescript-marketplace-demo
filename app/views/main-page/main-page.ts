@@ -19,7 +19,7 @@ import { LayoutBase } from "ui/layouts/layout-base";
 import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
 import {onAfterIntro} from "../../common/firebase";
 
-export function pageLoaded(args){
+export function pageLoaded(args) {
     prof.stop("main-page");
     let page = <pages.Page>(<View>args.object).page;
     setTimeout(() => (<any>page).canEnter = true, 3500);

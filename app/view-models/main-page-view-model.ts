@@ -1,8 +1,14 @@
 import examplesVM = require("./examples-model");
 import observable = require("data/observable");
 import paltfrom = require("platform");
+import { viewModel } from "../common/firebase";
 
 export class MainPageViewModel extends observable.Observable {
+
+	get firebase() {
+		return viewModel;
+	}
+
 	get exampleGroups(): Array<examplesVM.ExampleGroup> {
 		return examplesVM.groups;
 	}
