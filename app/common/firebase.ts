@@ -16,6 +16,7 @@ interface FirebaseArticle {
     readonly date: string;
 }
 
+const FIREBASE_NEWS_INITAL = "firebase:news:inital";
 const FIREBASE_NEWS_READ_KEY = "firebase:news:read";
 let _readArticles;
 function loadReadArticles() {
@@ -50,9 +51,23 @@ function markAsRead(id: string) {
     loadReadArticles()[id] = true;
     saveReadArticles();
 }
+function markAllAsRead() {
+    let readArticles = loadReadArticles();
+    viewModel.news.filter(n => n && n.id).forEach(n => readArticles[n.id] = true);
+    console.log("Maked as read: " + JSON.stringify(readArticles));
+    saveReadArticles();
+    viewModel.updateHasUnreadNews();
+}
 function markAsUnread(id: string) {
     loadReadArticles()[id] = false;
     saveReadArticles();
+}
+function markAllAsReadOnFirstRun() {
+    const isInitalRun = settings.getBoolean(FIREBASE_NEWS_INITAL, true);
+    if (isInitalRun) {
+        markAllAsRead();
+        settings.setBoolean(FIREBASE_NEWS_INITAL, false);
+    }
 }
 
 export class Article extends Observable {
@@ -199,6 +214,7 @@ function firebaseInit() {
             if (!result.error) {
                 console.log("Update news: " + JSON.stringify(result.value))
                 viewModel.updateNews(result.value || []);
+                markAllAsReadOnFirstRun();
             } else {
                 console.log(JSON.stringify(result));
             }

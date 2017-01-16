@@ -21,7 +21,7 @@
     <sdp:DrawerPage.actionBar>
         <ActionBar automationText="ActionBar" android:opacity="0">
             <android>
-                <NavigationButton icon="{{ firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" tap="showSlideout" automationText="SidebarMenu" />
+                <NavigationButton icon="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" tap="showSlideout" automationText="SidebarMenu" />
             </android>
             <ActionBar.actionItems>
                 <iOS>

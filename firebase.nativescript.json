@@ -3,6 +3,7 @@
     "using_android": true,
     "remote_config": false,
     "messaging": true,
+    "crash_reporting": false,
     "storage": true,
     "facebook_auth": false,
     "google_auth": false
