@@ -1,0 +1,18 @@
+{
+    "news": [
+        {
+            "id": "welcome",
+            "title": "Welcome",
+            "body": "To NativeScript",
+            "url": "https://www.nativescript.org/",
+            "date": "01/01/2017"
+        },
+        {
+            "id": "v2.1",
+            "title": "NativeScript theme just released",
+            "body": "Beatiful by default UI with the new NativeScript theme.",
+            "url": "https://www.nativescript.org/",
+            "date": "11/30/2016"
+        }
+    ]
+}

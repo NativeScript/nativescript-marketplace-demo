@@ -1,0 +1,22 @@
+@import { url('~/views/what-is-new-common.css') };
+
+.news-card {
+    margin: 12 16 0 16;
+}
+
+.title {
+    font-size: 15;
+}
+.body {
+    font-size: 15;
+}
+.learn-more {
+    font-size: 14;
+}
+.date {
+    font-size: 12;
+}
+
+.empty-placeholder {
+    vertical-align: top;
+}
