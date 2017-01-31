@@ -1,18 +1,25 @@
 {
     "news": [
         {
-            "id": "welcome",
-            "title": "Welcome",
-            "body": "To NativeScript",
-            "url": "https://www.nativescript.org/",
-            "date": "01/01/2017"
+            "id": "n03",
+            "title": "Introducing the Official Plugins Hub for NativeScript",
+            "body": "We are delighted today to unveil a new tool that we hope will become invaluable to the NativeScript community: the new Plugins Hub.",
+            "url": "https://www.nativescript.org/blog/introducing-the-official-plugins-hub-for-nativescript",
+            "date": "01/30/2017"
         },
         {
-            "id": "v2.1",
-            "title": "NativeScript theme just released",
-            "body": "Beatiful by default UI with the new NativeScript theme.",
-            "url": "https://www.nativescript.org/",
-            "date": "11/30/2016"
+            "id": "n02",
+            "title": "A Deep Dive into Telerik UI for NativeScript's SideDrawer",
+            "body": "When planning your mobile app, how soon in the process are you considering your user interface? Do you have the plans and designs in place to build not only a robust app, but one which delights and engages your customers?",
+            "url": "https://www.nativescript.org/blog/a-deep-dive-into-telerik-ui-for-nativescripts-sidedrawer",
+            "date": "01/25/2017"
+        },
+        {
+            "id": "n01",
+            "title": "A Deep Dive into Telerik UI for NativeScript's ListView",
+            "body": "Let's face it developers, creating an engaging user experience is hard. When the web was in its infancy we could amaze users with the <marquee> tag, but today our customers are more critical and more demanding. They want an app that is not only useful, but immersive and gorgeous.",
+            "url": "https://www.nativescript.org/blog/a-deep-dive-into-telerik-ui-for-nativescripts-listview",
+            "date": "01/24/2017"
         }
     ]
 }
