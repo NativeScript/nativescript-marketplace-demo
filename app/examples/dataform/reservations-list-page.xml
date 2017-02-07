@@ -1,0 +1,77 @@
+<examples:ExamplePage 
+        xmlns:examples="examples/example-base-page"
+        xmlns="http://schemas.nativescript.org/tns.xsd"
+        xmlns:lv="nativescript-telerik-ui-pro/listview"
+        navigatingTo="pageNavigatingTo"
+        navigatedFrom="pageNavigatedFrom">
+    <Page.actionBar>
+        <ActionBar title="DataForm" automationText="ActionBar">            
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <Android>
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />              
+            </Android>
+            <iOS>
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
+            </iOS>
+        </ActionBar>
+    </Page.actionBar>
+    
+    <GridLayout>
+            <GridLayout android:rows="56, 100, *" ios:rows="80, 40, *" horizontalAlignment="stretch" backgroundColor="#EBEBEB">
+                <GridLayout android:row="0" ios:row="1" columns="auto,auto,*" orientation="horizontal" backgroundColor="#772C2E">
+                    <Image col="0" src="res://ic_dataform_calendar_white" stretch="none" class="date-icon"/>
+                    <Label col="1" text="{{ todayDate }}" verticalAlignment="center" class="date-text" />
+                    <Image col="2" ios:src="res://arrow-right-white" stretch="none" class="arrow-right" android:visibility="collapsed"/>
+                </GridLayout>
+
+                <StackLayout android:row="1" ios:row="0" orientation="vertical" class="title-container">
+                    <Label text="Reservations" class="title-view-item" />
+                    <Label text="23 tables left" class="subtitle-view-item" />        
+                </StackLayout>
+                            
+                <lv:RadListView row="2" id="list-view" loaded="listViewLoaded" class="reservations-list"
+                    items="{{ reservations }}" 
+                    android:marginTop="36"
+                    itemTap="onItemTap">
+
+                    <lv:RadListView.listViewLayout>
+                        <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" />
+                    </lv:RadListView.listViewLayout>
+
+                    <lv:RadListView.itemTemplate>
+                        <GridLayout columns="auto, *, auto">
+                            <GridLayout class="reservation_info_time_container">
+                                <android>
+                                    <Image android:src="res://reservation_time_background" stretch="fill" class="reservation_info_time_background"/>
+                                    <StackLayout class="reservation_info_time_inner_container">
+                                        <Label text="{{ time | timeConverter }}" class="reservation_info_time"/>
+                                        <Label text="{{ time | ampmConverter }}" class="reservation_info_time_ampm"/>
+                                    </StackLayout>
+                                </android>
+                                <ios>
+                                    <Border borderRadius="5" borderWidth="2" borderColor="#000000" backgroundColor="#000000">
+                                        <StackLayout class="reservation_info_time_inner_container">
+                                            <Label text="{{ time | timeConverter }}" class="reservation_info_time"/>
+                                            <Label text="{{ time | ampmConverter }}" class="reservation_info_time_ampm"/>
+                                        </StackLayout>
+                                    </Border>
+                                </ios>
+                            </GridLayout>
+                            <StackLayout col="1" orientation="vertical" class="reservation_info_container">
+                                <Label text="{{ name }}" textWrap="true" class="reservation_info_name"/>  
+                                <Label text="{{ 'Table #' + table + ' for ' + guests }}" textWrap="true" class="reservation_info_details"/>  
+                            </StackLayout> 
+                            <Label col="2" text="{{ phone }}" class="reservation_info_phone" textWrap="true"/>  
+                        </GridLayout>                
+                    </lv:RadListView.itemTemplate>
+                </lv:RadListView>
+            </GridLayout>
+
+        <Image ios:right="15" src="res://dataform_add" stretch="none" class="button-add" tap="onImageTap"/>
+        
+    </GridLayout>
+</examples:ExamplePage>

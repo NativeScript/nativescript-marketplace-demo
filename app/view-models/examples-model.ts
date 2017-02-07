@@ -145,6 +145,25 @@ export var groups: Array<ExampleGroup> = [
                 isNew: false
             }
         ]
+    },
+    {
+        id: "dataform",
+        title: "DataForm",
+        isNew: true,
+        url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/DataForm/dataform-overview",
+        info: "DataForm for NativeScript helps you edit the properties of a business object during runtime and build a mobile form fast and easy. ",
+        tint: "#ff6e40",
+        examples: [
+             {
+                title: "Reservations",
+                image: "res://screen_dataform",
+                path: "examples/dataform/reservations-list-page",
+                info: "DataForm for NativeScript can be used in various scenarios where a business object has to be edited. This example demonstrates how to edit the information about reservations in a restaurant.",
+                controls: "dataform",
+                isFeatured: true,
+                isNew: true
+            }
+        ]
     }
     // { title: "Side Drawer", isNew: true, controls: ["side-drawer"], tint: "teal", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." }
     // { title: "Calendar", isNew: false, controls: ["calendar"], tint: "purple", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
