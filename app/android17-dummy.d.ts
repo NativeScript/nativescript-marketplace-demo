@@ -40,7 +40,13 @@ declare module android {
                 constructor();
             }
         }
-        
+
+        export module View {
+            class OnClickListener {
+                constructor(impl);
+            }
+        }
+
         export type View = any;
         export module inputmethod {
             export type InputMethodManager = any;
@@ -49,12 +55,26 @@ declare module android {
 
     export module widget {
         export type Button = any;
-        export type TextView = any;
         export type Switch = any;
         export type EditText = any;
         export type ListView = any;
         export type ImageView = any;
         export type Toast = any;
+        class TextView {
+            constructor(context);
+            setTextColor(value): void;
+            setLayoutParams(params): void;
+            setPadding(left, top, right, bottom): void;
+            setOnClickListener(listener);
+        }
+        module FrameLayout {
+            class LayoutParams {
+                constructor(param1, param2);
+                setMargins(left, top, right, bottom);
+            }
+        }
+        class FrameLayout {
+        }
     }
 
     export module graphics {
@@ -68,16 +88,16 @@ declare module android {
                 constructor();
             }
             export module GradientDrawable {
-				export enum Orientation {
-					TOP_BOTTOM,
-					TR_BL,
-					RIGHT_LEFT,
-					BR_TL,
-					BOTTOM_TOP,
-					BL_TR,
-					LEFT_RIGHT,
-					TL_BR
-				}
+                export enum Orientation {
+                    TOP_BOTTOM,
+                    TR_BL,
+                    RIGHT_LEFT,
+                    BR_TL,
+                    BOTTOM_TOP,
+                    BL_TR,
+                    LEFT_RIGHT,
+                    TL_BR
+                }
             }
         }
     }
