@@ -30,5 +30,8 @@
     "typescript": "~2.1.5",
     "shelljs": "^0.5.3"
   },
+  "scripts": {
+    "postinstall" : "(cd node_modules/nativescript-plugin-firebase && npm run setup)"
+  },
   "license": "Apache-2.0"
 }
