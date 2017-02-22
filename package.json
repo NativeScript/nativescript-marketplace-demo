@@ -13,7 +13,7 @@
     "highlight.js": "^8.7.0",
     "nativescript-fresco": "1.0.12",
     "nativescript-iqkeyboardmanager": "^1.0.1",
-    "nativescript-plugin-firebase": "^3.8.5",
+    "nativescript-plugin-firebase": "https://github.com/EddyVerbruggen/nativescript-plugin-firebase/tarball/master",
     "nativescript-telerik-analytics": "*",
     "nativescript-telerik-ui-pro": "*",
     "tns-core-modules": "2.5.0"
@@ -31,7 +31,7 @@
     "shelljs": "^0.5.3"
   },
   "scripts": {
-    "postinstall" : "(cd node_modules/nativescript-plugin-firebase && npm run setup)"
+    "postinstall": "(cd node_modules/nativescript-plugin-firebase && npm run setup)"
   },
   "license": "Apache-2.0"
 }
