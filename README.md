@@ -36,7 +36,7 @@ tns run android
 
 If you have any questions or feedback, please [open an issue](https://github.com/NativeScript/nativescript-marketplace-demo/issues).
 
-Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
+Want to see more samples like this one? Check our [NativeScript samples list](https://www.nativescript.org/app-samples-with-code).
 
 For more news about NativeScript, please [follow our Twitter account](http://twitter.com/nativescript).
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
