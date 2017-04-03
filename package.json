@@ -16,7 +16,7 @@
     "nativescript-plugin-firebase": "https://github.com/EddyVerbruggen/nativescript-plugin-firebase/tarball/master",
     "nativescript-telerik-analytics": "*",
     "nativescript-telerik-ui-pro": "*",
-    "tns-core-modules": "2.5.0"
+    "tns-core-modules": "rc"
   },
   "devDependencies": {
     "babel-traverse": "6.9.0",
@@ -26,8 +26,8 @@
     "json-loader": "^0.5.4",
     "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "~0.0.6",
-    "nativescript-dev-typescript": "~0.3.7",
-    "typescript": "~2.1.5",
+    "nativescript-dev-typescript": "~0.4.2",
+    "typescript": "~2.2.1",
     "shelljs": "^0.5.3"
   },
   "scripts": {
