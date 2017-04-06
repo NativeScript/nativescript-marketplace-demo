@@ -6,10 +6,7 @@
         "noImplicitUseStrict": true,
         "noEmitHelpers": true,
         "experimentalDecorators": true,
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "baseUrl": ".",
         "paths": {
             "*": [

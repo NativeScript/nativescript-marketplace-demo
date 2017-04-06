@@ -16,13 +16,16 @@ import {isIOS} from "platform";
 import "./common/firebase";
 
 application.on("uncaughtError", args => {
-    var error = args.android || args.ios;
-    if (error.nativeException){
+    let error: Error;
+    let nativescriptError = args.android || args.ios;
+    if (nativescriptError.nativeError){
         error = {
-            name: error.name,
-            message: error.message,
-            stack: error.stackTrace
+            name: nativescriptError.name,
+            message: nativescriptError.message,
+            stack: (<any>nativescriptError).stackTrace
         };
+    } else {
+        error = nativescriptError;
     }
     analytics.trackException(error, `Uncaught application error`);
 });
@@ -50,7 +53,7 @@ if (application.android) {
     application.on("launch", args => {
         console.log("onLaunch");
         com.facebook.drawee.backends.pipeline.Fresco.initialize(application.android.context);
-        application.android.onActivityStarted = function (activity) {
+        application.android.on("activityStarted", ({activity}) => {
             console.log("onStarted");
             var window = activity.getWindow();
             if (window) {
@@ -59,7 +62,7 @@ if (application.android) {
                 // Prevent the soft keyboard from hiding EditText's while typing.
                 window.setSoftInputMode(32); //android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
             }
-        }
+        });
         
         // Enable ACRA Telerik Analytics crash reporting
         var packageJson = require("./package.json");
@@ -81,6 +84,5 @@ if (application.ios) {
 }
 
 prof.start("main-page");
-application.mainModule = "views/main-page/main-page";
 // application.mainModule = "profile-main";
-application.start();
+application.start("views/main-page/main-page");

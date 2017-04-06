@@ -6,7 +6,7 @@ import * as settings from "application-settings";
 import { Observable } from "data/observable";
 import * as navigator from "../common/navigator";
 
-const enabled = true;
+const enabled = false;
 
 interface FirebaseArticle {
     readonly id: string;
