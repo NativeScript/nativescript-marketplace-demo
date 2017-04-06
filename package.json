@@ -15,7 +15,7 @@
     "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-plugin-firebase": "https://github.com/EddyVerbruggen/nativescript-plugin-firebase/tarball/master",
     "nativescript-telerik-analytics": "*",
-    "nativescript-telerik-ui-pro": "file:nativescript-ui-debug-trial-pro.tar",
+    "nativescript-telerik-ui-pro": "1.7.0-2017.4.4.1",
     "tns-core-modules": "rc"
   },
   "devDependencies": {
