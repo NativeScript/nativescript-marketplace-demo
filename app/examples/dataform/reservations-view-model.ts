@@ -57,8 +57,8 @@ export class ReservationsViewModel extends Observable {
         sOptions.push("Patio");
         this.sectionOptions = sOptions;
 
-        appModule.resources["timeConverter"] = timeConverter;
-        appModule.resources["ampmConverter"] = ampmConverter;
+        appModule.getResources()["timeConverter"] = timeConverter;
+        appModule.getResources()["ampmConverter"] = ampmConverter;
     }
 
     get isNew(): Boolean {

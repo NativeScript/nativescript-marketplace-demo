@@ -115,14 +115,13 @@ export function enter(args, event) {
     }
     trackEvent(event);
     (<any>page).entered = true;
-    let content = page.getViewById("content");
+    let content = page.getViewById<View>("content");
     content.isEnabled = true;
     content.opacity = 1;
     startEnterAnimation(page);
     startExamplesAnimation(page);
     setTimeout(() => {
-        page.getViewById("intro-elements").visibility = "collapsed";
-
+        page.getViewById<View>("intro-elements").visibility = "collapse";
         onAfterIntro();
     }, 1500);
     showActionBar(page);
@@ -138,7 +137,7 @@ function startExamplesAnimation(page: pages.Page) {
     setTimeout(() => (<any>page).introPlayed = true, timeout);
     let classSetterFactory = (child, className) => () => child.className = className;
     
-    for (let i = 0, length = examplesList.getChildrenCount(); i < length; i++){
+    for (let i = 0, length = examplesList.getChildrenCount(); i < length; i++) {
         let child = examplesList.getChildAt(i);
         setTimeout(classSetterFactory(child, odd ? "example-odd-enter" : "example-even-enter"), timeout);
         setTimeout(classSetterFactory(child, ""), timeout + 400);
@@ -148,7 +147,7 @@ function startExamplesAnimation(page: pages.Page) {
     }
 }
 function showActionBar(page: pages.Page) {
-    var introElements = page.getViewById("intro-elements");
+    var introElements = page.getViewById<View>("intro-elements");
     if (introElements.ios) {
         setTimeout(() => {
             introElements.margin = "-44 0 0 0";

@@ -24,7 +24,7 @@ export function rootGridLoaded(args: observable.EventData) {
 // TODO: This should be in "pageNavigatingTo" but that method is defined in the Page base class
 export function pageNavigatingTo(args: observable.EventData) {
     page = <Page>args.object;
-    page.bindingContext = new observable.Observable({
+    page.bindingContext = observable.fromObject({
         selectedIndex: 0
     });
     selectedIndexChanged(null);

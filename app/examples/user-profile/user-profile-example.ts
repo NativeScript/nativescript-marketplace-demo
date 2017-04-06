@@ -1,4 +1,5 @@
 import { EventData, Observable } from "data/observable";
+import * as observable from "data/observable";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
 import { EditableTextBase } from "ui/editable-text-base";
@@ -12,7 +13,7 @@ declare var android: any;
 
 export function onPageNavigatingTo(args: EventData) {
     let page = <Page>args.object;
-    let viewModel = new Observable({
+    let viewModel = observable.fromObject({
         username: "ILoveNS",
         email: "team@mail.com",
         password: "password",

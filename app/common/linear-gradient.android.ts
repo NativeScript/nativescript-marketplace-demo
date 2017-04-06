@@ -6,7 +6,7 @@ import * as common from "./linear-gradient-common";
 global.moduleMerge(common, exports);
 
 export function drawBackground(view: View, colors: Array<Color>, orientation?: common.Orientation) {
-    let nativeView = (<any>view)._nativeView; 
+    let nativeView = (<any>view).nativeView; 
     if (!nativeView)
     {
         throw new Error("Native view is not created yet!");

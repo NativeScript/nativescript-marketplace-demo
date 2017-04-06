@@ -15,7 +15,7 @@
     "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-plugin-firebase": "https://github.com/EddyVerbruggen/nativescript-plugin-firebase/tarball/master",
     "nativescript-telerik-analytics": "*",
-    "nativescript-telerik-ui-pro": "*",
+    "nativescript-telerik-ui-pro": "file:nativescript-ui-debug-trial-pro.tar",
     "tns-core-modules": "rc"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "~0.0.6",
     "nativescript-dev-typescript": "~0.4.2",
-    "typescript": "~2.2.1",
+    "typescript": "^2.2.2",
     "shelljs": "^0.5.3"
   },
   "scripts": {
