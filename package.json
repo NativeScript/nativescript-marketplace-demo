@@ -2,10 +2,10 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-ios": {
-      "version": "2.5.0"
+      "version": "3.0.0-rc.1"
     },
     "tns-android": {
-      "version": "2.5.0"
+      "version": "3.0.0-rc.1"
     }
   },
   "dependencies": {
@@ -27,7 +27,7 @@
     "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "~0.0.6",
     "nativescript-dev-typescript": "~0.4.2",
-    "typescript": "^2.2.2",
+    "typescript": "~2.2.2",
     "shelljs": "^0.5.3"
   },
   "scripts": {
