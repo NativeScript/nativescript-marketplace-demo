@@ -2,6 +2,7 @@
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:examples="examples/example-base-page"
         navigatingTo="onPageNavigatingTo"
+        cssFile="~/examples/layouts/layouts-example.css"
         tap="onPageTapped">
     <Page.actionBar>
         <ActionBar title="User profile" automationText="ActionBar">
