@@ -1,5 +1,5 @@
 <GridLayout rows="auto, *" xmlns:chart="nativescript-telerik-ui-pro/chart">
-    <Label text="Monthly sales revenue, 2016" cssClass="chart-example-tytle-style" textWrap="true"/>
+    <Label text="Monthly sales revenue, 2016" class="chart-example-tytle-style" textWrap="true"/>
     <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.verticalAxis>
             <chart:LinearAxis lineColor="#b0b0b0" lineThickness="1"/>

@@ -39,9 +39,9 @@
                 <ios>
                     <Image src="{{ photo ? 'res://listview/layouts/' + photo + '.jpg' : 'res://'}}" stretch="aspectFill" loadMode="async" />
                 </ios>
-                <StackLayout row="1" cssClass="recipeContainer">
-                    <Label text="{{ title }}" cssClass="recipeTitle"/>
-                    <Label text="{{ author, 'by ' + author }}" cssClass="recipeAuthor"/>
+                <StackLayout row="1" class="recipeContainer">
+                    <Label text="{{ title }}" class="recipeTitle"/>
+                    <Label text="{{ author, 'by ' + author }}" class="recipeAuthor"/>
                 </StackLayout>
             </GridLayout>
         </lv:RadListView.itemTemplate>

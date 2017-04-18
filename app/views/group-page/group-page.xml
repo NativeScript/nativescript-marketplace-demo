@@ -1,6 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
 		xmlns:content="views/group-page"
-		cssClass="qsf-page"
+		class="qsf-page"
 		backgroundColor="{{ group.tint }}"
 		color="{{ group.tint }}"
 		navigatingTo="pageNavigatingTo"

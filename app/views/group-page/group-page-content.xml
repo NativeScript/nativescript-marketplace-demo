@@ -1,7 +1,7 @@
-<GridLayout rows="44, *" columns="*" cssClass="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
+<GridLayout rows="44, *" columns="*" class="content-background" backgroundImage="{{ 'res://bg_' + group.id }}">
 
     <!-- Show New filter -->
-    <Button cssClass="group-show-new-btn" tap="{{ toggleShowNew }}" ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}" />
+    <Button class="group-show-new-btn" tap="{{ toggleShowNew }}" ios:text="{{ showOnlyNew ? 'Show all' : 'Show only new' }}" android:text="{{ showOnlyNew ? 'SHOW ALL' : 'SHOW ONLY NEW' }}" />
 
     <!-- Examples list -->
     <GridLayout row="1" columns="*" rows="*">
@@ -11,24 +11,24 @@
                     <WrapLayout horizontalAlignment="left" itemWidth="{{ useListLayout ? (screenWidth - 1) : (screenWidth - 1) / 2 }}" />
                 </Repeater.itemsLayout>
                 <Repeater.itemTemplate>
-                    <StackLayout touch="tileTouch" tap="navigateToExample" cssClass="example-item"
+                    <StackLayout touch="tileTouch" tap="navigateToExample" class="example-item"
                         automationText="{{ title }}" 
                         orientation="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'horizontal' : 'vertical' }}" 
                         visibility="{{ $parents['Repeater'].showOnlyNew, (!$parents['Repeater'].showOnlyNew || isNew) ? 'visible' : 'collapsed' }}">
 
                         <GridLayout horizontalAlignment="center" columns="*" rows="*" 
-                            cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
-                            <Image src="{{ image }}" cssClass="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}"
+                            class="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-img-list' : 'example-img-wrap' }}">
+                            <Image src="{{ image }}" class="{{ isNew ? 'list-example-image-new' : 'list-example-image' }}"
                                 borderColor="{{ $parents['Repeater'].group.tint }}"
                                 stretch="aspectFit" />
-                            <Image src="{{ $parents['Page'].group.id, 'res://ic_new_' + $parents['Repeater'].group.id }}" cssClass="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
+                            <Image src="{{ $parents['Page'].group.id, 'res://ic_new_' + $parents['Repeater'].group.id }}" class="new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" />
                         </GridLayout>
 
                         <StackLayout>
                             <Label text="{{ title }}" 
-                                cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-title-list' : 'example-title-wrap' }}" />
+                                class="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'example-title-list' : 'example-title-wrap' }}" />
                             <Label text="{{ controls }}" textWrap="true" 
-                                cssClass="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'used-controls-list' : 'used-controls-wrap' }}" />
+                                class="{{ $parents['Repeater'].useListLayout, $parents['Repeater'].useListLayout ? 'used-controls-list' : 'used-controls-wrap' }}" />
                         </StackLayout>
                     </StackLayout>
                 </Repeater.itemTemplate>

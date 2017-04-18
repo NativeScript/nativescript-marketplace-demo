@@ -12,18 +12,18 @@
             </android>
         </ActionBar>
     </Page.actionBar> 
-    <GridLayout rows="*, auto" cssClass="white-background">
+    <GridLayout rows="*, auto" class="white-background">
         <StackLayout row="0" rows="auto, *" orientation="vertical" >
-            <Label text="{{ Title }}" cssClass="detailTitle" textWrap="true" />
-            <Label text="{{ Content }}" cssClass="detailContent" textWrap="true"/>
+            <Label text="{{ Title }}" class="detailTitle" textWrap="true" />
+            <Label text="{{ Content }}" class="detailContent" textWrap="true"/>
         </StackLayout>
         <ios>
-            <GridLayout row="1" columns="*, *" cssClass="blue-background">
+            <GridLayout row="1" columns="*, *" class="blue-background">
                 <GridLayout col="0" tap="onToggleFavouriteTap" verticalAlignment="center">
-                    <Image src="res://listview/selection/ic_add_to_fav" stretch="none" cssClass="blue-button" />
+                    <Image src="res://listview/selection/ic_add_to_fav" stretch="none" class="blue-button" />
                 </GridLayout>
                 <GridLayout col="1" tap="onDeleteTap" verticalAlignment="center">
-                    <Image src="res://listview/selection/ic_delete" stretch="none" cssClass="blue-button" />
+                    <Image src="res://listview/selection/ic_delete" stretch="none" class="blue-button" />
                 </GridLayout>
             </GridLayout>
         </ios>

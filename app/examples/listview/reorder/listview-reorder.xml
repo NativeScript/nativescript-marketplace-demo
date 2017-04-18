@@ -37,8 +37,8 @@
 				<lv:RadListView.itemTemplate>
 					<StackLayout paddingBottom="1" backgroundColor="#151f2f">
 						<StackLayout backgroundColor="{{isReordered === false ? '#08caab' : '#026968'}}" padding="12">
-							<Label text="{{ title }}" color="white" ios:cssClass="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
-												  android:cssClass="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
+							<Label text="{{ title }}" color="white" ios:class="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
+												  android:class="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
 						</StackLayout>
 					</StackLayout>
 				</lv:RadListView.itemTemplate>

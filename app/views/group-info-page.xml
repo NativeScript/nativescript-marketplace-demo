@@ -1,5 +1,5 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
-        cssClass="qsf-page"
+        class="qsf-page"
         navigatingTo="pageNavigatingTo"
         color="{{ tint }}"
         backgroundColor="{{ tint }}"
@@ -9,10 +9,10 @@
             <NavigationButton text="Back to all" tap="navigateBack" icon="res://ic_arrow_back" />
         </ActionBar>
     </Page.actionBar>
-    <GridLayout cssClass="content-background" backgroundImage="{{ 'res://bg_' + id }}">
-        <StackLayout cssClass="marginated-content">
-            <TextView text="{{ info }}" editable="false" cssClass="info-text" />
-            <Button ios:text="Documentation" android:text="DOCUMENTATION" cssClass="info-link-button" tag="{{ url }}" tap="openLink" />
+    <GridLayout class="content-background" backgroundImage="{{ 'res://bg_' + id }}">
+        <StackLayout class="marginated-content">
+            <TextView text="{{ info }}" editable="false" class="info-text" />
+            <Button ios:text="Documentation" android:text="DOCUMENTATION" class="info-link-button" tag="{{ url }}" tap="openLink" />
         </StackLayout>
     </GridLayout>
 </Page>
