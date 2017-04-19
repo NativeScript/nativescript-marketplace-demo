@@ -1,4 +1,5 @@
 <examples:ExamplePage
+        cssFile="~/examples/chart/pie-series.css"
         navigatingTo="pageNavigatingTo"
         xmlns:examples="examples/example-base-page"
         xmlns="http://www.nativescript.org/tns.xsd">

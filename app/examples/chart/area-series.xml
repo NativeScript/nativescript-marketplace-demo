@@ -1,4 +1,5 @@
 <examples:ExamplePage
+        cssFile="~/examples/chart/area-series.css"
         navigatingTo="pageNavigatingTo"
         navigatingFrom="pageNavigatingFrom"
         xmlns:examples="examples/example-base-page"
