@@ -34,7 +34,7 @@
                 <android>
                     <!-- To use built in async: <Image src="{{ photo ? 'res://' + photo : 'res://'}}" loadMode="async" stretch="aspectFill" /> -->
                     <f:FrescoDrawee
-                            imageUri="{{ photo ? 'res://' + photo : 'res://'}}"
+                            imageUri="{{ photo ? 'res://' + photo : null }}"
                             height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}" />
                 </android>
                 <ios>

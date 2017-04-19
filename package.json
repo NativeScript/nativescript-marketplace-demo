@@ -11,7 +11,7 @@
   "dependencies": {
     "acra-telerik-analytics": "*",
     "highlight.js": "^8.7.0",
-    "nativescript-fresco": "1.0.12",
+    "nativescript-fresco": "^3.0.2",
     "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-plugin-firebase": "https://github.com/EddyVerbruggen/nativescript-plugin-firebase/tarball/master",
     "nativescript-telerik-analytics": "*",
