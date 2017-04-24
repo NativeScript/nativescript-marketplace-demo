@@ -34,6 +34,7 @@
     animation-name: play;
     animation-duration: 0.4;
     transform: scale(0.5, 0.5);
+    animation-fill-mode: forwards;
 }
 
 .btn-red-animated2 {
@@ -42,6 +43,7 @@
     animation-name: play;
     animation-duration: 0.4;
     transform: scale(0.5, 0.5);
+    animation-fill-mode: forwards;
 }
 
 .btn-lightblue {
@@ -56,6 +58,7 @@
     animation-name: play;   
     animation-duration: 0.4;
     animation-delay: 0.1;
+    animation-fill-mode: forwards;
     opacity: 0;
     transform: scale(0.5, 0.5);
 }
@@ -65,6 +68,7 @@
     margin: 2;   
     animation-name: play;   
     animation-duration: 0.4;
+    animation-fill-mode: forwards;
     opacity: 0;
     transform: scale(0.5, 0.5);
 }
