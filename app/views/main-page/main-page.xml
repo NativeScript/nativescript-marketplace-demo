@@ -23,9 +23,7 @@
                 </iOS>
             </ActionBar.actionItems>
             <ActionBar.titleView>
-                <GridLayout>
-                    <Image id="actionbar-logo" src="res://logo_main" stretch="none" horizontalAlignment="center" android:margin="0 60 0 0" />
-                </GridLayout>
+                <Image id="actionbar-logo" src="res://logo_main" stretch="none" horizontalAlignment="center" verticalAlignment="center" />
             </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar>
