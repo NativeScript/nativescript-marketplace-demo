@@ -20,13 +20,13 @@
     </Page.actionBar>
   <GridLayout loaded="rootGridLoaded">
     <TabView id="tabView" 
-      selectedIndexChanged="selectedIndexChanged"
-      selectedIndex="{{ selectedIndex }}" 
-      tabsBackgroundColor="#31bcff"
-      android:class="android-tab-view" 
-      android:selectedColor="#455b66"
-      ios:class="ios-tab-view"
-      ios:selectedColor="white">
+        selectedIndexChanged="selectedIndexChanged"
+        selectedIndex="{{ selectedIndex }}" 
+        tabBackgroundColor="#31bcff"
+        android:class="android-tab-view" 
+        android:androidSelectedTabHighlightColor="#455b66"
+        ios:class="ios-tab-view"
+        ios:selectedTabTextColor="white">
       <TabView.items>
         <TabViewItem ios:title="Stack" iconSource="{{ selectedIndex == 0 ? 'res://stack1' : 'res://stack' }}">
           <TabViewItem.view>
