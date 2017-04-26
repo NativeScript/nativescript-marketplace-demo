@@ -33,7 +33,7 @@
         </SegmentedBar>
         <GridLayout row="1" rows="auto, *" loaded="onBackgroundLoaded">
             <!-- Search -->
-            <SearchBar row="0" text="{{ search }}" hint="Search" id="search" tap="inputTap" android:loaded="doNotShowAndroidKeyboard"/>
+            <SearchBar row="0" text="{{ search }}" hint="Search" id="search" tap="inputTap" android:loaded="doNotShowAndroidKeyboard" android:height="40" />
             <!-- List -->
             <ListView row="1" items="{{ sessions }}" id="sessions-list" separatorColor="#00000000" ios:itemLoading="changeCellBackground">
                 <ListView.itemTemplate>
