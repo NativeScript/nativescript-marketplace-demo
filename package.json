@@ -2,21 +2,21 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-ios": {
-      "version": "3.0.0-rc.1"
+      "version": "3.0.0"
     },
     "tns-android": {
-      "version": "3.0.0-rc.1"
+      "version": "3.0.0"
     }
   },
   "dependencies": {
-    "acra-telerik-analytics": "*",
-    "highlight.js": "^8.7.0",
-    "nativescript-fresco": "^3.0.2",
-    "nativescript-iqkeyboardmanager": "^1.0.1",
+    "acra-telerik-analytics": "~0.0.3",
+    "highlight.js": "~8.7.0",
+    "nativescript-fresco": "~3.0.2",
+    "nativescript-iqkeyboardmanager": "~1.0.1",
     "nativescript-plugin-firebase": "https://github.com/EddyVerbruggen/nativescript-plugin-firebase/tarball/master",
-    "nativescript-telerik-analytics": "*",
-    "nativescript-telerik-ui-pro": "1.7.0-2017.4.4.1",
-    "tns-core-modules": "rc"
+    "nativescript-telerik-analytics": "~1.0.8",
+    "nativescript-telerik-ui-pro": "~2.0.1",
+    "tns-core-modules": "~3.0.0"
   },
   "devDependencies": {
     "babel-traverse": "6.9.0",
@@ -25,10 +25,10 @@
     "filewalker": "0.1.2",
     "json-loader": "^0.5.4",
     "lazy": "1.0.11",
-    "nativescript-dev-android-snapshot": "~0.0.6",
-    "nativescript-dev-typescript": "~0.4.2",
-    "typescript": "~2.2.2",
-    "shelljs": "^0.5.3"
+    "nativescript-dev-android-snapshot": "~0.0.9",
+    "nativescript-dev-typescript": "~0.4.3",
+    "shelljs": "^0.5.3",
+    "typescript": "^2.3.2"
   },
   "scripts": {
     "postinstall": "(cd node_modules/nativescript-plugin-firebase && npm run setup)"
