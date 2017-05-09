@@ -25,21 +25,17 @@ As a prerequisite you should setup [the NativeScript CLI](https://docs.nativescr
 git clone --depth 1 https://github.com/NativeScript/nativescript-marketplace-demo.git
 ```
 2.Build and run using the NativeScript CLI commands like:  
-*for iOS:*
 ```
-tns emulate ios 
-```
-*for Android, you will need to update to the latest Android SDKs (type ```android``` on your console and then update everything that is reported). After that execute:*
-```
-tns run android
+tns run android|ios
 ```
 
 If you have any questions or feedback, please [open an issue](https://github.com/NativeScript/nativescript-marketplace-demo/issues).
 
-Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/samples).
+Want to see more samples like this one? Check our [NativeScript samples list](http://docs.nativescript.org/http://docs.nativescript.org/angular/code-samples/overview).
 
 For more news about NativeScript, please [follow our Twitter account](http://twitter.com/nativescript).
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
+
 
 # Enable Analytics
 Analytics is set in place but requires an API key to be enabled.
