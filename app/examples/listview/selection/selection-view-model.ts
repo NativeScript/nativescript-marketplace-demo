@@ -208,8 +208,8 @@ export class SelectionViewModel extends Observable {
         if (this.isSelectionActive === true || this.isReorderActive === true) {
             return;
         }
-        this.CurrentItem = (<any>this._owner.items).getItem(args.itemIndex);
-        this._currentItemIndex = args.itemIndex;
+        this.CurrentItem = (<any>this._owner.items).getItem(args.index);
+        this._currentItemIndex = args.index;
         topmostFrame().navigate({
             moduleName: "examples/listview/selection/detail-page",
             animated: true,
@@ -229,7 +229,7 @@ export class SelectionViewModel extends Observable {
     }
 
     onCellSwiped(args: ListViewEventData) {
-        this._currentItemIndex = args.itemIndex;
+        this._currentItemIndex = args.index;
     }
 
     onTap_SetAsFavourite(args: any) {
@@ -276,13 +276,13 @@ export class SelectionViewModel extends Observable {
     public onItemSelected(args) {
         if (this.isSelectionActive === true) {
             this.selectedItemsCount = this._owner.getSelectedItems().length;
-            this.lvItems.getItem(args.itemIndex).isSelected = true;
+            this.lvItems.getItem(args.index).isSelected = true;
         }
     }
 
     public onItemDeselected(args) {
         this.selectedItemsCount = this._owner.getSelectedItems().length;
-        this.lvItems.getItem(args.itemIndex).isSelected = false;
+        this.lvItems.getItem(args.index).isSelected = false;
     }
 
     public onItemHold(args) {
@@ -291,7 +291,7 @@ export class SelectionViewModel extends Observable {
         }
         
         if (platform.device.os === platform.platformNames.android && this.isSelectionActive === false) {
-            this.toggleSelection(args.itemIndex);
+            this.toggleSelection(args.index);
         }
     }
 

@@ -74,12 +74,12 @@ export class ListViewReorderModel extends Observable{
     }
 
     public onItemReorderStarted(args:any){
-        let todoItem = this.todoItems.getItem(args.itemIndex);
+        let todoItem = this.todoItems.getItem(args.index);
         todoItem.isReordered = true;
     }
 
     public onItemReordered(args:any){
-        let index = (args.data.targetIndex > -1) ? args.data.targetIndex : args.itemIndex; 
+        let index = (args.data.targetIndex > -1) ? args.data.targetIndex : args.index; 
         let todoItem = this.todoItems.getItem(index);
         todoItem.isReordered = false;
     }
