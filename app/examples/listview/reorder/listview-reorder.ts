@@ -49,9 +49,9 @@ export function onItemSwipeProgressChanged(args: any) {
 
 export function onItemSwipeProgressEnded(args: listViewModule.ListViewEventData) {
     if ((args.data.x * utils.layout.getDisplayDensity()) < -args.data.swipeLimits.threshold / 5) {
-        viewModel.todoItems.splice(args.itemIndex, 1);
+        viewModel.todoItems.splice(args.index, 1);
     } else if ((args.data.x * utils.layout.getDisplayDensity()) > args.data.swipeLimits.threshold / 5) {
-        let completedItem: model.ListItem = <model.ListItem>viewModel.todoItems.getItem(args.itemIndex);
+        let completedItem: model.ListItem = <model.ListItem>viewModel.todoItems.getItem(args.index);
         completedItem.isDone = !completedItem.isDone;
         console.log("TODO DONE: " + completedItem.isDone);
     }

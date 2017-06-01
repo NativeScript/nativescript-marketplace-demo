@@ -29,7 +29,7 @@ export function goBack(args) {
 }
 
 export function onItemTap(args: ListViewEventData) {
-    var item: model.Reservation = viewModel.reservations.getItem(args.itemIndex);
+    var item: model.Reservation = viewModel.reservations.getItem(args.index);
     navigateToEditPage(item, false);
 }
 

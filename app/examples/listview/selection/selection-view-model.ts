@@ -208,8 +208,8 @@ export class SelectionViewModel extends Observable {
         if (this.isSelectionActive === true || this.isReorderActive === true) {
             return;
         }
-        this.CurrentItem = (<any>this._owner.items).getItem(args.itemIndex);
-        this._currentItemIndex = args.itemIndex;
+        this.CurrentItem = (<any>this._owner.items).getItem(args.index);
+        this._currentItemIndex = args.index;
         topmostFrame().navigate({
             moduleName: "examples/listview/selection/detail-page",
             animated: true,
@@ -229,7 +229,7 @@ export class SelectionViewModel extends Observable {
     }
 
     onCellSwiped(args: ListViewEventData) {
-        this._currentItemIndex = args.itemIndex;
+        this._currentItemIndex = args.index;
     }
 
     onTap_SetAsFavourite(args: any) {
