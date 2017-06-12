@@ -7,29 +7,29 @@
 
 @keyframes intro-logo-bg-intro {
     0% {
-        transform: scale(18, 18), translate(0, 0);
+        transform: scale(18, 18) translate(0, 0);
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     21.25% {
-        transform: scale(1, 1), translate(0, -60);
+        transform: scale(1, 1) translate(0, -60);
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     22% {
-        transform: scale(0, 0), translate(0, -60);
+        transform: scale(0, 0) translate(0, -60);
         opacity: 0;
     }
     100% {
-        transform: scale(0, 0), translate(0, -60);
+        transform: scale(0, 0) translate(0, -60);
         opacity: 0;
     }
 }
 @keyframes intro-logo-bg-enter {
     0% {
-        transform: scale(0, 0), translate(0, -60);
+        transform: scale(0, 0) translate(0, -60);
         opacity: 0;
     }
     100% {
-        transform: scale(0, 0), translate(0, -60);
+        transform: scale(0, 0) translate(0, -60);
         opacity: 0;
     }
 }
@@ -49,20 +49,20 @@
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         opacity: 1;
     }
-    51% { transform: scale(0.56, 0.56), translate(0, -205); }
-    100% { transform: scale(0.56, 0.56), translate(0, -205); }
+    51% { transform: scale(0.56, 0.56) translate(0, -205); }
+    100% { transform: scale(0.56, 0.56) translate(0, -205); }
 }
 @keyframes intro-logo-n-enter {
     0% {
-        transform: scale(0.56, 0.56), translate(0, -205);
+        transform: scale(0.56, 0.56) translate(0, -205);
         opacity: 1;
     }
     24% {
-        transform: scale(0.56, 0.56), translate(0, -205);
+        transform: scale(0.56, 0.56) translate(0, -205);
         opacity: 0;
     }
     100% {
-        transform: scale(0.56, 0.56), translate(0, -205);
+        transform: scale(0.56, 0.56) translate(0, -205);
         opacity: 0;
     }
 }
@@ -88,24 +88,24 @@
     }
     53% {
         opacity: 1;
-        transform:  scale(0.56, 0.56), translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -240);
     }
     100% {
         opacity: 1;
-        transform:  scale(0.56, 0.56), translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -240);
     }
 }
 @keyframes intro-logo-ns-enter {
     0% {
-        transform:  scale(0.56, 0.56), translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -240);
         opacity: 1;
     }
     24% {
-        transform:  scale(0.56, 0.56), translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -240);
         opacity: 0;
     }
     100% {
-        transform:  scale(0.56, 0.56), translate(0, -240);
+        transform:  scale(0.56, 0.56) translate(0, -240);
         opacity: 0;
     }
 }
