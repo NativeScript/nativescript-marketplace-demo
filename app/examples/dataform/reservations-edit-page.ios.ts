@@ -1,12 +1,12 @@
 import { ReservationsViewModel, Reservation } from "./reservations-view-model";
 import { EventData } from "data/observable";
 import { Page, NavigatedData } from "ui/page";
-import viewModule = require("ui/core/view");
+import * as viewModule from "ui/core/view";
 import { topmost as topmostFrame } from "ui/frame";
 import * as navigator from "../../common/navigator";
-import dataFormModule = require("nativescript-telerik-ui-pro/dataform");
+import * as dataFormModule from "nativescript-telerik-ui-pro/dataform";
 import { Color } from "color";
-import platform = require("platform");
+import * as platform from "platform";
 
 var colorAccent: Color = new Color("#BF3136");
 var model: ReservationsViewModel;

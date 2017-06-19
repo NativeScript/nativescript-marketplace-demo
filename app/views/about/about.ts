@@ -1,6 +1,6 @@
 import { Page } from "ui/page";
 import { EventData } from "data/observable";
-import navigator = require("../../common/navigator");
+import * as navigator from "../../common/navigator";
 
 var page;
 

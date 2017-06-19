@@ -1,8 +1,8 @@
 /// <reference path="../typings/highlightjs.d.ts" />
-import observable = require("data/observable");
-import fs = require("file-system");
-import examplesVM = require("./examples-model");
-import hljs = require("highlight.js/lib/index");
+import * as observable from "data/observable";
+import * as fs from "file-system";
+import * as examplesVM from "./examples-model";
+import * as hljs from "highlight.js/lib/index";
 hljs.configure({
     tabReplace: "  ",
     useBR: true

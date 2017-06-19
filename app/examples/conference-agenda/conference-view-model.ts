@@ -1,4 +1,4 @@
-import observable = require("data/observable");
+import * as observable from "data/observable";
 function formatTime(time: Date) {
     var hour: number = time.getHours();
     var min: string = time.getMinutes() + "";

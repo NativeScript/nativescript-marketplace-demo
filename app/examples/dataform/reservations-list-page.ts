@@ -1,5 +1,5 @@
-import dataFormModule = require("nativescript-telerik-ui-pro/dataform");
-import model = require("./reservations-view-model");
+import * as dataFormModule from "nativescript-telerik-ui-pro/dataform";
+import * as model from "./reservations-view-model";
 import * as navigator from "../../common/navigator";
 import { ObservableArray } from "data/observable-array";
 import { RadListView, ListViewEventData } from "nativescript-telerik-ui-pro/listview";

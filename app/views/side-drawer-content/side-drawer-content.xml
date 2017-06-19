@@ -1,5 +1,5 @@
-<ScrollView class="drawer-content">
-    <StackLayout loaded="onLoaded" unloaded="onUnloaded">
+<ScrollView class="drawer-content" horizontalAlignment="left">
+    <StackLayout loaded="onLoaded" unloaded="onUnloaded" width="260" horizontalAlignment="left">
         <Image src="res://logo_main_nav" margin="40 0 24 0" horizontalAlignment="center" stretch="none" />
 
         <Button text="Home" tap="tapHome" class="drawer-button" />

@@ -1,6 +1,6 @@
 import { Observable } from "data/observable";
 import { ObservableArray } from "data/observable-array";
-import appModule = require("application");
+import * as appModule from "application";
 
 export class ReservationsViewModel extends Observable {
 

@@ -1,5 +1,5 @@
-import observable = require("data/observable");
-import examplesVM = require("./examples-model");
+import * as observable from "data/observable";
+import * as examplesVM from "./examples-model";
 
 export class ExampleViewModel extends observable.Observable implements examplesVM.Example {
     isSelected: boolean;

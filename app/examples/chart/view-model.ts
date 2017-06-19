@@ -1,9 +1,9 @@
 
-import bindable = require("ui/core/bindable");
-import observable = require("data/observable");
-import builder = require("ui/builder");
-import app = require("application");
-import utils = require("utils/utils");
+import * as bindable from "ui/core/bindable";
+import * as observable from "data/observable";
+import * as builder from "ui/builder";
+import * as app from "application";
+import * as utils from "utils/utils";
 
 
 export class ChartExamplesDataModel {
