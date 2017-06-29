@@ -74,7 +74,7 @@ function getPlatform(env) {
         () => { throw new Error("You need to provide a target platform!") };
 }
 
-var excludes = {
+const excludes = {
     ios: [/\.android\./, /App_Resources/],
     android: [/\.ios\./, /App_Resources/]
 }
@@ -138,6 +138,7 @@ function getPlugins(platform, env) {
         ]),
 
         new CopyWebpackPlugin([
+            // This should rarly be used, in the examples the users can "view code" so we need the source copied
             { from: "examples/**/*.js" }
         ])
     ];

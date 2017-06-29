@@ -47,5 +47,4 @@ if (application.ios) {
 
 prof.start("main-page");
 
-console.log("ABOUT TO CALL APPLICATION START!!!");
 application.start("views/main-page/main-page");
