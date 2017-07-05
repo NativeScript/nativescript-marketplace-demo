@@ -1,8 +1,8 @@
-import model = require("./listview-reorder-model");
-import listViewModule = require("nativescript-telerik-ui-pro/listview");
-import viewModule = require('ui/core/view');
-import utils = require("utils/utils");
-import application = require("application");
+import * as model from "./listview-reorder-model";
+import * as listViewModule from "nativescript-telerik-ui-pro/listview";
+import * as viewModule from 'ui/core/view';
+import * as utils from "utils/utils";
+import * as application from "application";
 import * as navigator from "../../../common/navigator";
 
 let viewModel = new model.ListViewReorderModel();

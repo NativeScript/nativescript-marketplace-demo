@@ -1,11 +1,11 @@
-import observable = require("data/observable");
-import gridModule = require("ui/layouts/grid-layout");
-import utils = require("utils/utils");
+import * as observable from "data/observable";
+import * as gridModule from "ui/layouts/grid-layout";
+import * as utils from "utils/utils";
 import {Page} from "ui/page";
 import {Color} from "color";
 import * as navigator from "../../common/navigator";
 import { View } from "ui/core/view";
-import tabViewModule = require("ui/tab-view");
+import * as tabViewModule from "ui/tab-view";
 
 let page: Page;
 

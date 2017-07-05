@@ -1,12 +1,12 @@
-import view = require("ui/core/view")
-import pages = require("ui/page")
-import gestures = require("ui/gestures");
-import observable = require("data/observable");
-import examplesVM = require("../../view-models/examples-model");
-import navigator = require("../../common/navigator");
-import groupVM = require("../../view-models/group-page-view-model");
-import examplePageVM = require("../../view-models/example-info-page-view-model");
-import prof = require("../../common/profiling");
+import * as view from "ui/core/view"
+import * as pages from "ui/page"
+import * as gestures from "ui/gestures";
+import * as observable from "data/observable";
+import * as examplesVM from "../../view-models/examples-model";
+import * as navigator from "../../common/navigator";
+import * as groupVM from "../../view-models/group-page-view-model";
+import * as examplePageVM from "../../view-models/example-info-page-view-model";
+import * as prof from "../../common/profiling";
 import { grayTouch } from "../../common/effects";
 
 var page;

@@ -1,11 +1,11 @@
-import observable = require("data/observable");
-import gridModule = require("ui/layouts/grid-layout");
-import utils = require("utils/utils");
-import models = require("./view-model");
-import frame = require("ui/frame");
-import pages = require("ui/page");
-import gestures = require("ui/gestures");
-import app = require("application");
+import * as observable from "data/observable";
+import * as gridModule from "ui/layouts/grid-layout";
+import * as utils from "utils/utils";
+import * as models from "./view-model";
+import * as frame from "ui/frame";
+import * as pages from "ui/page";
+import * as gestures from "ui/gestures";
+import * as app from "application";
 import * as navigator from "../../common/navigator";
 
 export function rootGridLoaded(args: observable.EventData) {

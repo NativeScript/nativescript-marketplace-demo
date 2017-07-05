@@ -1,7 +1,7 @@
-import pages = require("ui/page");
-import frame = require("ui/frame");
-import button = require("ui/button");
-import prof = require("./common/profiling");
+import * as pages from "ui/page";
+import * as frame from "ui/frame";
+import * as button from "ui/button";
+import * as prof from "./common/profiling";
 export function createPage() {
     var page = new pages.Page();
     var btn = new button.Button();

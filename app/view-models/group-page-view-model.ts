@@ -1,6 +1,6 @@
-import examplesVM = require("./examples-model");
-import observable = require("data/observable");
-import paltfrom = require("platform");
+import * as examplesVM from "./examples-model";
+import * as observable from "data/observable";
+import * as paltfrom from "platform";
 
 export class GroupPageViewModel extends observable.Observable {
     public group: examplesVM.ExampleGroup;

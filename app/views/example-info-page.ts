@@ -1,18 +1,18 @@
-import pages = require("ui/page");
-import view = require("ui/core/view");
-import label = require("ui/label");
-import repeater = require("ui/repeater");
-import gestures = require("ui/gestures");
-import grid = require("ui/layouts/grid-layout");
-import observable = require("data/observable");
-import animations = require("ui/animation");
-import frame = require("ui/frame");
-import builder = require("ui/builder");
-import navigator = require("../common/navigator");
-import examplesVM = require("../view-models/examples-model")
-import examplePageVM = require("../view-models/example-info-page-view-model")
-import platform = require("platform")
-import prof = require("../common/profiling");
+import * as pages from "ui/page";
+import * as view from "ui/core/view";
+import * as label from "ui/label";
+import * as repeater from "ui/repeater";
+import * as gestures from "ui/gestures";
+import * as grid from "ui/layouts/grid-layout";
+import * as observable from "data/observable";
+import * as animations from "ui/animation";
+import * as frame from "ui/frame";
+import * as builder from "ui/builder";
+import * as navigator from "../common/navigator";
+import * as examplesVM from "../view-models/examples-model"
+import * as examplePageVM from "../view-models/example-info-page-view-model"
+import * as platform from "platform"
+import * as prof from "../common/profiling";
 
 var exampleContainerID = "examples-container";
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.DecelerateInterpolator(1) : UIViewAnimationCurve.UIViewAnimationCurveEaseIn;

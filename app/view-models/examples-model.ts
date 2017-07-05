@@ -1,4 +1,4 @@
-import applicationModule = require("application");
+import * as applicationModule from "application";
 
 export interface Example {
     title: string;

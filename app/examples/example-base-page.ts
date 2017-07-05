@@ -1,14 +1,14 @@
-import pages = require("ui/page");
-import buttonModule = require("ui/button");
-import imageModule = require("ui/image");
-import imageSourceModule = require("image-source");
-import utils = require("utils/utils");
-import gridModule = require("ui/layouts/grid-layout");
-import navigator = require("../common/navigator");
-import view = require("ui/core/view");
-import platform = require("platform");
-import prof = require("../common/profiling");
-import builder = require("ui/builder");
+import * as pages from "ui/page";
+import * as buttonModule from "ui/button";
+import * as imageModule from "ui/image";
+import * as imageSourceModule from "image-source";
+import * as utils from "utils/utils";
+import * as gridModule from "ui/layouts/grid-layout";
+import * as navigator from "../common/navigator";
+import * as view from "ui/core/view";
+import * as platform from "platform";
+import * as prof from "../common/profiling";
+import * as builder from "ui/builder";
 import { View } from "ui/core/view"
 import {knownFolders} from "file-system";
 import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";

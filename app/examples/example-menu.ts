@@ -1,5 +1,5 @@
-import utils = require("utils/utils");
-import platform = require("platform");
+import * as utils from "utils/utils";
+import * as platform from "platform";
 import * as navigator from "../common/navigator";
 import { loadedGuard } from "../common/effects";
 import { View } from "ui/core/view";

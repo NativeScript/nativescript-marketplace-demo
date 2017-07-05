@@ -1,11 +1,11 @@
-import pages = require("ui/page");
-import view = require("ui/core/view");
-import gestures = require("ui/gestures");
-import navigator = require("../common/navigator");
-import examplesVM = require("../view-models/examples-model")
-import codePageVM = require("../view-models/code-page-view-model")
-import dialogs = require("ui/dialogs");
-import observable = require("data/observable");
+import * as pages from "ui/page";
+import * as view from "ui/core/view";
+import * as gestures from "ui/gestures";
+import * as navigator from "../common/navigator";
+import * as examplesVM from "../view-models/examples-model"
+import * as codePageVM from "../view-models/code-page-view-model"
+import * as dialogs from "ui/dialogs";
+import * as observable from "data/observable";
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatingTo(args: pages.NavigatedData) {
