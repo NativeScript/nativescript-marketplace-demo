@@ -96,7 +96,7 @@
                             tap="tapGetStarted"/>
                     <Label id="intro-version"
                             class="intro-version-intro"
-                            text="version 3.1.1"
+                            text="version 3.2.0"
                             fontSize="14"
                             horizontalAlignment="center"
                             verticalAlignment="center"
