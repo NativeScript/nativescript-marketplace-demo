@@ -25,7 +25,7 @@
 		<GridLayout rows="*" row="1">
                     
         <!--ToDo list-->
-			<lv:RadListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" itemSwipe="true" itemReorder="true" reorderMode="HoldAndDrag"
+			<lv:RadListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" swipeActions="true" itemReorder="true" reorderMode="HoldAndDrag"
                                     itemReorderStarted="{{onItemReorderStarted}}"
                                     itemReordered="{{onItemReordered}}"
                                     itemSwipeProgressStarted="onItemSwipeProgressStarted"
@@ -46,12 +46,12 @@
 				
 				<lv:RadListView.itemSwipeTemplate>
 					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="1" verticalAlignment="stretch" backgroundColor="#151f2f"> 
-						<GridLayout id="complete-view" backgroundColor="#fed03c" verticalAlignment="stretch">
+						<StackLayout id="complete-view" backgroundColor="#fed03c" verticalAlignment="stretch">
 							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</GridLayout>
-						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
+						</StackLayout>
+						<StackLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
 							<Image android:src="res://ic_listview_reorder_delete" ios:src="res://listview/reorder/reorder-delete-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</GridLayout>
+						</StackLayout>
 					</GridLayout>
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>

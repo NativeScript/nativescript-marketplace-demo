@@ -8,6 +8,8 @@ import * as navigator from "../../../common/navigator";
 let viewModel = new model.ListViewReorderModel();
 let todoList;
 let reorderedItem;
+var leftThresholdPassed = false;
+var rightThresholdPassed = false;
 
 export function pageNavigatingTo(args: any) {
     let page = args.object;
@@ -31,30 +33,44 @@ export function onItemSwipeProgressStarted(args: listViewModule.ListViewEventDat
 }
 
 export function onItemSwipeProgressChanged(args: any) {
-    let itemView = args.object;
+    let itemView = args.swipeView;
+    let mainView = args.mainView;
     let currentView;
 
     if (args.data.x >= 0) {
         currentView = itemView.getViewById("complete-view");
-        let dimensions = viewModule.View.measureChild(currentView.parent, currentView, utils.layout.makeMeasureSpec(args.data.x, utils.layout.EXACTLY), utils.layout.makeMeasureSpec(currentView.getMeasuredHeight(), utils.layout.EXACTLY));
-        viewModule.View.layoutChild(currentView.parent, currentView, 0, 0, dimensions.measuredWidth, dimensions.measuredHeight);
-
+        var dimensions = viewModule.View.measureChild(
+            <viewModule.View>currentView.parent,
+            currentView,
+            utils.layout.makeMeasureSpec(Math.abs(args.data.x), utils.layout.EXACTLY),
+            utils.layout.makeMeasureSpec(itemView.getMeasuredHeight(), utils.layout.EXACTLY));
+        viewModule.View.layoutChild(<viewModule.View>currentView.parent, currentView, 0, 0, dimensions.measuredWidth, dimensions.measuredHeight);
+        if (args.data.x > mainView.getMeasuredWidth() / 3) {
+            leftThresholdPassed = true;
+        }
     } else {
         currentView = itemView.getViewById("delete-view");
-
-        let dimensions = viewModule.View.measureChild(currentView.parent, currentView, utils.layout.makeMeasureSpec(Math.abs(args.data.x), utils.layout.EXACTLY), utils.layout.makeMeasureSpec(currentView.getMeasuredHeight(), utils.layout.EXACTLY));
-        viewModule.View.layoutChild(currentView.parent, currentView, itemView.getMeasuredWidth() - dimensions.measuredWidth, 0, itemView.getMeasuredWidth(), dimensions.measuredHeight);
+        var dimensions = viewModule.View.measureChild(
+            <viewModule.View>currentView.parent,
+            currentView,
+            utils.layout.makeMeasureSpec(Math.abs(args.data.x), utils.layout.EXACTLY),
+            utils.layout.makeMeasureSpec(mainView.getMeasuredHeight(), utils.layout.EXACTLY));
+        viewModule.View.layoutChild(<viewModule.View>currentView.parent, currentView, mainView.getMeasuredWidth() - dimensions.measuredWidth, 0, mainView.getMeasuredWidth(), dimensions.measuredHeight);
+        if (Math.abs(args.data.x) > mainView.getMeasuredWidth() / 3) {
+            rightThresholdPassed = true;
+        }
     }
 }
 
 export function onItemSwipeProgressEnded(args: listViewModule.ListViewEventData) {
-    if ((args.data.x * utils.layout.getDisplayDensity()) < -args.data.swipeLimits.threshold / 5) {
+    if (rightThresholdPassed) {
         viewModel.todoItems.splice(args.index, 1);
-    } else if ((args.data.x * utils.layout.getDisplayDensity()) > args.data.swipeLimits.threshold / 5) {
+    } else if (leftThresholdPassed) {
         let completedItem: model.ListItem = <model.ListItem>viewModel.todoItems.getItem(args.index);
         completedItem.isDone = !completedItem.isDone;
-        console.log("TODO DONE: " + completedItem.isDone);
     }
+    leftThresholdPassed = false;
+    rightThresholdPassed = false;
 }
 
 export function goBack(args) {
