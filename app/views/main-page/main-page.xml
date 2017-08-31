@@ -34,7 +34,7 @@
         </drawer:RadSideDrawer.drawerContent>
         <drawer:RadSideDrawer.mainContent>
             <GridLayout>
-                <GridLayout class="page-content" android:margin="24 0 0 0">
+                <GridLayout class="page-content">
                     <ScrollView id="content" opacity="0">
                         <GridLayout>
                             <Repeater items="{{ featuredExamples }}" android:margin="10" ios:margin="6">
