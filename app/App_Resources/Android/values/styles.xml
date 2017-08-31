@@ -27,6 +27,7 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat</item>
 
         <item name="contentInsetStart">72dip</item>
+        <item name="android:paddingTop">24dp</item>
     </style>
 	<style name="NativeScriptToolbarStyle" parent="NativeScriptToolbarStyleBase">
     </style>
