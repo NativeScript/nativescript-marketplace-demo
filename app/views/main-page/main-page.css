@@ -49,20 +49,20 @@
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         opacity: 1;
     }
-    51% { transform: scale(0.56, 0.56) translate(0, -205); }
-    100% { transform: scale(0.56, 0.56) translate(0, -205); }
+    51% { transform: scale(0.56, 0.56) translate(0, -181); }
+    100% { transform: scale(0.56, 0.56) translate(0, -181); }
 }
 @keyframes intro-logo-n-enter {
     0% {
-        transform: scale(0.56, 0.56) translate(0, -205);
+        transform: scale(0.56, 0.56) translate(0, -181);
         opacity: 1;
     }
     24% {
-        transform: scale(0.56, 0.56) translate(0, -205);
+        transform: scale(0.56, 0.56) translate(0, -181);
         opacity: 0;
     }
     100% {
-        transform: scale(0.56, 0.56) translate(0, -205);
+        transform: scale(0.56, 0.56) translate(0, -181);
         opacity: 0;
     }
 }
@@ -88,24 +88,24 @@
     }
     53% {
         opacity: 1;
-        transform: scale(0.56, 0.56) translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -216);
     }
     100% {
         opacity: 1;
-        transform: scale(0.56, 0.56) translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -216);
     }
 }
 @keyframes intro-logo-ns-enter {
     0% {
-        transform: scale(0.56, 0.56) translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -216);
         opacity: 1;
     }
     24% {
-        transform: scale(0.56, 0.56) translate(0, -240);
+        transform: scale(0.56, 0.56) translate(0, -216);
         opacity: 0;
     }
     100% {
-        transform:  scale(0.56, 0.56) translate(0, -240);
+        transform:  scale(0.56, 0.56) translate(0, -216);
         opacity: 0;
     }
 }
@@ -122,56 +122,56 @@
     }
     62% {
         opacity: 1;
-        transform: translate(0, -55);
+        transform: translate(0, -31);
     }
     100% {
         opacity: 1;
-        transform: translate(0, -55);
+        transform: translate(0, -31);
     }
 }
 @keyframes intro-text-one-enter {
     0% {
         opacity: 1;
-        transform: translate(0, -55);
+        transform: translate(0, -31);
     }
     53.6% {
         opacity: 1;
-        transform: translate(0, -55);
+        transform: translate(0, -31);
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     100% {
         opacity: 0;
-        transform: translate(0, 20);
+        transform: translate(0, 44);
     }
 }
 
 @keyframes intro-text-two-intro {
     0% {
         opacity: 0;
-        transform: translate(0, 280);
+        transform: translate(0, 304);
     }
     47.5% {
         opacity: 0;
-        transform: translate(0, 280);
+        transform: translate(0, 304);
         animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     66.25% {
         opacity: 1;
-        transform: translate(0, 70);
+        transform: translate(0, 94);
     }
     100% {
         opacity: 1;
-        transform: translate(0, 70);
+        transform: translate(0, 94);
     }
 }
 @keyframes intro-text-two-enter {
     0% {
         opacity: 1;
-        transform: translate(0, 70);
+        transform: translate(0, 94);
     }
     48.8% {
         opacity: 1;
-        transform: translate(0, 70);
+        transform: translate(0, 94);
     }
     91.2% {
         opacity: 0;
@@ -186,33 +186,33 @@
 @keyframes intro-get-started-intro {
     0% {
         opacity: 0;
-        transform: translate(0, 175);
+        transform: translate(0, 187);
     }
     66.25% {
         opacity: 0;
-        transform: translate(0, 175);
+        transform: translate(0, 187);
     }
     86.75% {
         opacity: 1;
-        transform: translate(0, 175);
+        transform: translate(0, 187);
     }
 }
 @keyframes intro-get-started-enter {
     0% {
         opacity: 1;
-        transform: translate(0, 175);
+        transform: translate(0, 187);
     }
     12% {
         opacity: 1;
-        transform: translate(0, 175);
+        transform: translate(0, 187);
     }
     75.2% {
         opacity: 0;
-        transform: translate(0, 300);
+        transform: translate(0, 312);
     }
     100% {
         opacity: 0;
-        transform: translate(0, 300);
+        transform: translate(0, 312);
     }
 }
 
