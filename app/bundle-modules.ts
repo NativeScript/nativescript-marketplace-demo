@@ -63,10 +63,10 @@ if (global.TNS_WEBPACK) {
     global.registerModule("text/span", () => require("text/span"))
     global.registerModule("ui/proxy-view-container", () => require("ui/proxy-view-container"))
 
-    global.registerModule("nativescript-telerik-ui-pro/sidedrawer", () => require("nativescript-telerik-ui-pro/sidedrawer"))
-    global.registerModule("nativescript-telerik-ui-pro/chart", () => require("nativescript-telerik-ui-pro/chart"))
-    global.registerModule("nativescript-telerik-ui-pro/listview", () => require("nativescript-telerik-ui-pro/listview"))
-    global.registerModule("nativescript-telerik-ui-pro/dataform", () => require("nativescript-telerik-ui-pro/dataform"))
+    global.registerModule("nativescript-pro-ui/sidedrawer", () => require("nativescript-pro-ui/sidedrawer"))
+    global.registerModule("nativescript-pro-ui/chart", () => require("nativescript-pro-ui/chart"))
+    global.registerModule("nativescript-pro-ui/listview", () => require("nativescript-pro-ui/listview"))
+    global.registerModule("nativescript-pro-ui/dataform", () => require("nativescript-pro-ui/dataform"))
 
     global.registerModule("nativescript-fresco/nativescript-fresco", () => require("nativescript-fresco/nativescript-fresco"))
 }

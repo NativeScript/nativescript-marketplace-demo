@@ -75,14 +75,14 @@ function getPlatform(env) {
 }
 
 const excludes = {
-    ios: [/\.android\./, /App_Resources/],
-    android: [/\.ios\./, /App_Resources/]
+    ios: [/\.android\./, /App_Resources/, /app\.ios\.css/, /app\.android\.css/, /app-common\.css/],
+    android: [/\.ios\./, /App_Resources/, /app\.ios\.css/, /app\.android\.css/, /app-common\.css/]
 }
 
 function getRules(platform) {
     return [
         {
-            test: /\.html$|\.xml|(\.css|\.xml)$/,
+            test: /\.(html|xml|css|xml)$/,
             loader: "file-loader",
             exclude: [excludes[platform]],
             query: {
@@ -91,6 +91,10 @@ function getRules(platform) {
                 outputPath: "",
                 publicPath: ""
             }
+        },
+        {
+            test: /(app\.ios\.css|app\.android\.css|app-common\.css)$/,
+            use: "raw-loader"
         },
         // SASS support
         {
@@ -164,5 +168,7 @@ function getExtensions(platform) {
         `.${platform}.js`,
         ".ts",
         ".js",
+        `.${platform}.css`,
+        `.css`,
     ]);
 }

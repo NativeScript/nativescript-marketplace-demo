@@ -1,4 +1,4 @@
-@import { url('~/app-common.css') };
+@import url('app-common.css');
 
 .drawer-item {
     padding: 16;

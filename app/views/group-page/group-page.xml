@@ -19,7 +19,7 @@
 			</ActionBar.actionItems>
 		</ActionBar>
 	</Page.actionBar>
-	<android xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer" xmlns:sdc="views/side-drawer-content">
+	<android xmlns:drawer="nativescript-pro-ui/sidedrawer" xmlns:sdc="views/side-drawer-content">
 		<drawer:RadSideDrawer id="side-drawer">
 			<drawer:RadSideDrawer.drawerContent>
 				<sdc:side-drawer-content />

@@ -16,7 +16,7 @@ import { Image } from "ui/image";
 import * as platform from "platform";
 import { GridLayout } from "ui/layouts/grid-layout";
 import { LayoutBase } from "ui/layouts/layout-base";
-import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
+import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import {onAfterIntro} from "../../common/firebase";
 
 export function pageLoaded(args) {

@@ -1,8 +1,8 @@
-import * as dataFormModule from "nativescript-telerik-ui-pro/dataform";
+import * as dataFormModule from "nativescript-pro-ui/dataform";
 import * as model from "./reservations-view-model";
 import * as navigator from "../../common/navigator";
 import { ObservableArray } from "data/observable-array";
-import { RadListView, ListViewEventData } from "nativescript-telerik-ui-pro/listview";
+import { RadListView, ListViewEventData } from "nativescript-pro-ui/listview";
 import { topmost as topmostFrame } from "ui/frame";
 
 let viewModel;
