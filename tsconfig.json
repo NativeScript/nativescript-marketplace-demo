@@ -9,6 +9,8 @@
             "es6",
             "dom"
         ],
+        "jsx": "react",
+        "reactNamespace": "UIBuilder",
         "baseUrl": ".",
         "paths": {
             "*": [
