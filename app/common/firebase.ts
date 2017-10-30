@@ -139,7 +139,11 @@ export const viewModel = new ViewModel();
 var firebase;
 var lastHandledData;
 
-if (enabled) {
+export function init() {
+    if (!enabled) {
+        return;
+    }
+
     firebase = require("nativescript-plugin-firebase");
     var userGrantedPush = settings.getBoolean("user-granted-push", false);
     if (isAndroid) {

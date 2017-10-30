@@ -107,7 +107,7 @@ function getRules(platform) {
         },
         // Compile TypeScript files, replace templateUrl and styleUrls.
         {
-            test: /\.ts$/,
+            test: /\.(ts|tsx)$/,
             loaders: [
                 "awesome-typescript-loader",
             ]
@@ -164,6 +164,8 @@ function getPlugins(platform, env) {
 // Resolve platform-specific modules like module.android.js
 function getExtensions(platform) {
     return Object.freeze([
+        `.${platform}.tsx`,
+        `.tsx`,
         `.${platform}.ts`,
         `.${platform}.js`,
         ".ts",

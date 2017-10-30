@@ -2,10 +2,10 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-ios": {
-      "version": "3.4.0-2017-10-25-1"
+      "version": "next"
     },
     "tns-android": {
-      "version": "3.4.0-2017-10-27-1"
+      "version": "next"
     }
   },
   "dependencies": {
@@ -14,9 +14,9 @@
     "nativescript-fresco": "~3.0.2",
     "nativescript-iqkeyboardmanager": "~1.0.1",
     "nativescript-plugin-firebase": "^4.2.1",
-    "nativescript-pro-ui": "^3.1.4",
+    "nativescript-pro-ui": "next",
     "nativescript-telerik-analytics": "~1.0.8",
-    "nativescript-tsx": "0.0.4",
+    "nativescript-tsx": "0.0.7",
     "tns-core-modules": "next"
   },
   "devDependencies": {

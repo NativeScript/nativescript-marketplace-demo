@@ -1,5 +1,10 @@
 @import url('app-common.css');
 
+.drawer-button,
+.drawer-button-external {
+    font-size: 14;
+}
+
 .drawer-item {
     padding: 16;
     font-size: 14;

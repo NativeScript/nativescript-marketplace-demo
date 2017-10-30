@@ -20,35 +20,31 @@ import { WrapLayout } from "ui/layouts/wrap-layout";
 import { LayoutBase } from "ui/layouts/layout-base";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { onAfterIntro } from "../../common/firebase";
-import { ActionBar } from "ui/action-bar";
+import { ActionBar, NavigationButton, ActionItem } from "ui/action-bar";
 import { UIBuilder } from "nativescript-tsx";
 import { isIOS, isAndroid } from "platform";
 import { ScrollView } from "ui/scroll-view";
 import { Repeater } from "ui/repeater";
 import { Button } from "ui/button";
+import { load } from "ui/builder";
 
-export function loaded(args) {
+export function onLoaded(args) {
     prof.stop("main-page");
     let page = (args.object as View).page as Page;
-    setTimeout(() => (page as any).canEnter = true, 3500);
+
+    setTimeout(() => {
+        createExamplesContent(page);
+        (page as any).canEnter = true;
+    }, 3500);
+
     if (!(page as any).introStarted) {
         trackEvent("main-page: play intro");
         (page as any).introStarted = true;
     }
-    if (platform.device.os === platform.platformNames.ios) {
-        let examplesList = page.getViewById("examples-wrap-layout") as LayoutBase;
-        for (let i = 0, length = examplesList.getChildrenCount(); i < length; i++){
-             examplesList.getChildAt(i).ios.layer.masksToBounds = true;
-        }
-    }
-    
-    // To allow the intro things to appear under the ActionBar:
-    GridLayout.setRow(page.content, 0);
-    GridLayout.setRowSpan(page.content, 2);
 }
 
-export function navigatingTo(args: observable.EventData) {
-    (args.object as View).bindingContext = mainPageVM.instance;
+export function onNavigatingTo(args: observable.EventData) {
+    (args.object as View).bindingContext = mainPageVM.getInstance();
 }
 
 export function toggleWrapLayout(e: any) {
@@ -156,7 +152,7 @@ function startExamplesAnimation(page: Page) {
 }
 function showActionBar(page: Page) {
     var introElements = page.getViewById<View>("intro-elements");
-    if (introElements.ios) {
+    if (isIOS) {
         setTimeout(() => {
             introElements.margin = "-44 0 0 0";
             page.actionBarHidden = false;
@@ -164,6 +160,7 @@ function showActionBar(page: Page) {
     }
     else {
         setTimeout(() => {
+            console.log("Animate android actionbar...");
             page.actionBar.animate({
                 opacity: 1,
                 duration: 200
@@ -172,28 +169,42 @@ function showActionBar(page: Page) {
     }
 }
 
-export const createPage = () => {
+function createExamplesContent(page: Page) {
     const itemsLayout = <WrapLayout id="examples-wrap-layout"
-        horizontalAlignment="left"
-        itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" : "{{ (screenWidth - 12) / 2 }}"}
-        itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" : "{{ (screenWidth - 12) * 0.5 + 50 }}"} />
+    horizontalAlignment="left"
+    itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" : "{{ (screenWidth - 12) / 2 }}"}
+    itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" : "{{ (screenWidth - 12) * 0.5 + 50 }}"} />
 
-    const itemTemplate = () => <GridLayout className="example-intro" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" tap="navigateToExample" automationText="{{ title }}">
-            <Image src="{{ image }}" stretch="aspectFill" />
-            <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" className="example-label" />
-            <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" className="example-new" />
+    const itemTemplate = () => <GridLayout class="example-intro" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" onTap={navigateToExample} automationText="{{ title }}">
+            <Image src="{{ image }}" stretch="aspectFill" loadMode="async" />
+            <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
+            <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" class="example-new" loadMode="async" />
         </GridLayout>;
 
-    const mainContent = <GridLayout>
-        <GridLayout className="page-content">
-            <ScrollView id="content" opacity={0}>
-                <GridLayout>
-                    <Repeater items="{{ featuredExamples }}" margin={isAndroid ? 10 : 6} itemsLayout itemTemplate />
-                </GridLayout>
-            </ScrollView>
-        </GridLayout>
+    const examples = <GridLayout class="page-content" margin={isAndroid ? "74 0 0 0" : "0"}>
+        <ScrollView id="content" opacity={0}>
+            <GridLayout>
+                <Repeater items="{{ featuredExamples }}" margin={isAndroid ? 10 : 6} itemsLayout={itemsLayout} itemTemplate={itemTemplate} />
+            </GridLayout>
+        </ScrollView>
+    </GridLayout>;
+    let grid = page.getViewById<GridLayout>("content-root");
+    grid.insertChild(examples, 0);
+}
 
-        <GridLayout id="intro-elements" tap="enter">
+function createDrawerContent(args) {
+    const radSideDrawer = args.object as RadSideDrawer;
+    const radSideDrawerGrid = radSideDrawer.drawerContent as GridLayout;
+    if (!radSideDrawerGrid["lateContentAdded"]) {
+        const radSideDrawerContent = load({ path: "~/views/side-drawer-content", name: "side-drawer-content", page: radSideDrawer.page });
+        radSideDrawerGrid.addChild(radSideDrawerContent);
+        radSideDrawerGrid["lateContentAdded"] = true;
+    }
+}
+
+export const createPage = () => {
+    const mainContent = <GridLayout id="content-root">
+        <GridLayout id="intro-elements" onTap={enter}>
             <GridLayout id="intro-background" class="intro-background-intro" originY="0"/>
             
             <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
@@ -228,7 +239,7 @@ export const createPage = () => {
                     height="50"
                     width="234"
                     fontSize="18"
-                    tap="tapGetStarted"/>
+                    tap={tapGetStarted}/>
             <Label id="intro-version"
                     class="intro-version-intro"
                     text="version 3.2.0"
@@ -240,17 +251,46 @@ export const createPage = () => {
         </GridLayout>
     </GridLayout>;
 
-    const page = <Page
-            className="qsf-page"
-            navigatingTo
-            loaded
-            backgroundSpanUnderStatusBar="true"
-            actionBarHidden={isIOS}
-            tap={tapPage}>
-        <ActionBar automationText="ActionBar" opacity={isAndroid ? 0 : 1}>
+    let actionBar;
+    if (isAndroid) {
+        const navigationButton = <NavigationButton
+            icon="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}"
+            automationText="SidebarMenu" />
+        navigationButton.on("tap", showSlideout);
+        actionBar = <ActionBar automationText="ActionBar" opacity={0} navigationButton={navigationButton}>
             <Image id="actionbar-logo" src="res://logo_main" stretch="none" horizontalAlignment="center" verticalAlignment="center" />
         </ActionBar>
-        <RadSideDrawer drawerContent mainContent />
+    } else {
+        actionBar = <ActionBar automationText="ActionBar">
+            <GridLayout>
+                <Image id="actionbar-logo" src="res://logo_main" stretch="none" width="130" height="32" margin="6 0 0 0" />
+            </GridLayout>
+        </ActionBar>; 
+        actionBar.actionItems.addItem(<ActionItem id="actionbar-menu" position="left" automationText="SidebarMenu">
+            <Image src="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" width="22" height="22" margin="0, 8, 0, -8" />
+        </ActionItem>);
+        actionBar.actionItems.getItemAt(0).on("tap", showSlideout);
+    }
+
+    const drawerContent = <GridLayout margin={isAndroid ? "74 0 0 0" : "0"} />;
+
+    const page = <Page
+            class="qsf-page"
+            onNavigatingTo={onNavigatingTo}
+            onLoaded={onLoaded}
+            backgroundSpanUnderStatusBar="true"
+            actionBarHidden={isIOS}
+            onTap={tapPage}
+            actionBar={actionBar}>
+        <RadSideDrawer id="side-drawer"
+            margin={isAndroid ? "-74 0 0 0" : "0"}
+            mainContent={mainContent}
+            drawerContent={drawerContent}
+            showOverNavigation={true}
+            drawerSize={260}
+            onDrawerOpening={createDrawerContent}
+            drawerPan={createDrawerContent}/>
     </Page>;
+
     return page;
 }

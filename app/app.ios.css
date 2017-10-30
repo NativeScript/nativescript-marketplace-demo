@@ -49,3 +49,8 @@
 .example-menu-item {
     font-size: 15;
 }
+
+.drawer-button,
+.drawer-button-external {
+    font-size: 13;
+}
