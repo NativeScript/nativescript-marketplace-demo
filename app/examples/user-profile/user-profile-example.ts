@@ -86,7 +86,7 @@ export function onTextInputTapped(args: EventData) {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
-    closeTimeout = setTimeout(() => {
+    closeTimeout = <any>setTimeout(() => {
         closeTimeout = 0;
     }, 20);
 }
@@ -94,7 +94,7 @@ export function onTextInputTapped(args: EventData) {
 export function onPageTapped(args: EventData) {
     var page = <Page>args.object;
     if (!closeTimeout) {
-        closeTimeout = setTimeout(() => {
+        closeTimeout = <any>setTimeout(() => {
             page.getViewById<EditableTextBase>("username").dismissSoftInput();
             page.getViewById<EditableTextBase>("email").dismissSoftInput();
             page.getViewById<EditableTextBase>("password").dismissSoftInput();
