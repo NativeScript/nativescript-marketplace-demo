@@ -14,8 +14,8 @@
     "nativescript-fresco": "~3.0.2",
     "nativescript-iqkeyboardmanager": "~1.0.1",
     "nativescript-plugin-firebase": "^3.12.0",
+    "nativescript-pro-ui": "next",
     "nativescript-telerik-analytics": "~1.0.8",
-    "nativescript-telerik-ui-pro": "next",
     "tns-core-modules": "next"
   },
   "devDependencies": {
@@ -38,7 +38,9 @@
     "typescript": "2.3.4",
     "webpack": "^3.0.0",
     "webpack-bundle-analyzer": "^2.8.2",
-    "webpack-sources": "~1.0.1"
+    "webpack-sources": "~1.0.1",
+    "css-loader": "~0.28.7",
+    "nativescript-worker-loader": "~0.8.1"
   },
   "scripts": {
     "postinstall": "(cd node_modules/nativescript-plugin-firebase && npm run setup)",

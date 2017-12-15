@@ -4,8 +4,8 @@ require("highlight.js");
 
 require("nativescript-plugin-firebase");
 
-require("nativescript-telerik-ui-pro/chart");
-require("nativescript-telerik-ui-pro/dataform");
-require("nativescript-telerik-ui-pro/listview");
-require("nativescript-telerik-ui-pro/sidedrawer");
+require("nativescript-pro-ui/chart");
+require("nativescript-pro-ui/dataform");
+require("nativescript-pro-ui/listview");
+require("nativescript-pro-ui/sidedrawer");
 
