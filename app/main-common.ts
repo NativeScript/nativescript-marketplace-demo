@@ -8,16 +8,18 @@ import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
 
 import * as json from "~/package.json";
-console.log("App config is: " + JSON.stringify(json));
 
-application.on("displayed", () => {
-  var now = time();
-  var started = now - uptime();
-  console.log("Timeline: Startup time...  (" + started + "ms. - " + now + "ms.)");
-});
+import { init as initFirebase } from "./common/firebase";
+
+// console.log("App config is: " + JSON.stringify(json));
+// application.on("displayed", () => {
+//   var now = time();
+//   var started = now - uptime();
+//   console.log("Timeline: Startup time...  (" + started + "ms. - " + now + "ms.)");
+// });
 
 // The location of this import is important. iOS swizzles the app delegate.
-import "./common/firebase";
+initFirebase();
 
 if (application.android) {
     application.on("launch", args => {

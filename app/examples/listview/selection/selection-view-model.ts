@@ -1,6 +1,6 @@
 import { EventData, Observable } from "data/observable";
 import { ObservableArray } from "data/observable-array";
-import { RadListView, ListViewEventData } from "nativescript-telerik-ui-pro/listview";
+import { RadListView, ListViewEventData } from "nativescript-pro-ui/listview";
 import { topmost as topmostFrame } from "ui/frame";
 import * as utils from "utils/utils";
 import * as platform from "platform";

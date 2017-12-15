@@ -75,14 +75,14 @@ function getPlatform(env) {
 }
 
 const excludes = {
-    ios: [/\.android\./, /App_Resources/],
-    android: [/\.ios\./, /App_Resources/]
+    ios: [/\.android\./, /App_Resources/, /app\.ios\.css/, /app\.android\.css/, /app-common\.css/],
+    android: [/\.ios\./, /App_Resources/, /app\.ios\.css/, /app\.android\.css/, /app-common\.css/]
 }
 
 function getRules(platform) {
     return [
         {
-            test: /\.html$|\.xml|(\.css|\.xml)$/,
+            test: /\.(html|xml|css|xml)$/,
             loader: "file-loader",
             exclude: [excludes[platform]],
             query: {
@@ -91,6 +91,10 @@ function getRules(platform) {
                 outputPath: "",
                 publicPath: ""
             }
+        },
+        {
+            test: /(app\.ios\.css|app\.android\.css|app-common\.css)$/,
+            use: "raw-loader"
         },
         // SASS support
         {
@@ -103,7 +107,7 @@ function getRules(platform) {
         },
         // Compile TypeScript files, replace templateUrl and styleUrls.
         {
-            test: /\.ts$/,
+            test: /\.(ts|tsx)$/,
             loaders: [
                 "awesome-typescript-loader",
             ]
@@ -160,9 +164,13 @@ function getPlugins(platform, env) {
 // Resolve platform-specific modules like module.android.js
 function getExtensions(platform) {
     return Object.freeze([
+        `.${platform}.tsx`,
+        `.tsx`,
         `.${platform}.ts`,
         `.${platform}.js`,
         ".ts",
         ".js",
+        `.${platform}.css`,
+        `.css`,
     ]);
 }

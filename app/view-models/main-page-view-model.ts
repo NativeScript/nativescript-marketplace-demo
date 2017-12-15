@@ -38,4 +38,7 @@ export class MainPageViewModel extends observable.Observable {
 	}
 }
 
-export var instance = new MainPageViewModel();
+let instance;
+export function getInstance() {
+	return instance || (instance = new MainPageViewModel());
+}

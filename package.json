@@ -13,9 +13,10 @@
     "highlight.js": "~8.7.0",
     "nativescript-fresco": "~3.0.2",
     "nativescript-iqkeyboardmanager": "~1.0.1",
-    "nativescript-plugin-firebase": "^3.12.0",
+    "nativescript-plugin-firebase": "^4.2.1",
+    "nativescript-pro-ui": "next",
     "nativescript-telerik-analytics": "~1.0.8",
-    "nativescript-telerik-ui-pro": "next",
+    "nativescript-tsx": "0.0.7",
     "tns-core-modules": "next"
   },
   "devDependencies": {
@@ -24,6 +25,7 @@
     "babel-types": "6.9.0",
     "babylon": "6.8.0",
     "copy-webpack-plugin": "~4.0.1",
+    "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "~2.1.0",
     "file-loader": "^0.11.2",
     "filewalker": "0.1.2",
@@ -32,6 +34,7 @@
     "nativescript-css-loader": "~0.26.0",
     "nativescript-dev-typescript": "~0.4.3",
     "nativescript-dev-webpack": "next",
+    "nativescript-worker-loader": "~0.8.1",
     "raw-loader": "~0.5.1",
     "resolve-url-loader": "~2.0.2",
     "shelljs": "^0.5.3",

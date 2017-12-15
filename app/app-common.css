@@ -167,3 +167,472 @@ Page, ExamplePage, DrawerPage {
     horizontal-align: center;
     vertical-align: center;
 }
+
+/* Main page and intro styles */
+@keyframes intro-background-enter {
+    0% { transform: scale(1, 1); }
+    22.4% { transform: scale(1, 1); }
+    46.77% { transform: scale(1, 0); }
+    100% { transform: scale(1, 0); }
+}
+
+@keyframes intro-logo-bg-intro {
+    0% {
+        transform: scale(18, 18) translate(0, 0);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    21.25% {
+        transform: scale(1, 1) translate(0, -60);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    22% {
+        transform: scale(0, 0) translate(0, -60);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0, 0) translate(0, -60);
+        opacity: 0;
+    }
+}
+@keyframes intro-logo-bg-enter {
+    0% {
+        transform: scale(0, 0) translate(0, -60);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0, 0) translate(0, -60);
+        opacity: 0;
+    }
+}
+
+@keyframes intro-logo-n-intro {
+    0% {
+        transform: translate(0, 0);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+        opacity: 0;
+    }
+    21% {
+        transform: translate(0, -60);
+        opacity: 1;
+    }
+    30% {
+        transform: translate(0, -60);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+        opacity: 1;
+    }
+    51% { transform: scale(0.56, 0.56) translate(0, -181); }
+    100% { transform: scale(0.56, 0.56) translate(0, -181); }
+}
+@keyframes intro-logo-n-enter {
+    0% {
+        transform: scale(0.56, 0.56) translate(0, -181);
+        opacity: 1;
+    }
+    24% {
+        transform: scale(0.56, 0.56) translate(0, -181);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.56, 0.56) translate(0, -181);
+        opacity: 0;
+    }
+}
+
+@keyframes intro-logo-ns-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 80);
+    }
+    9.25% {
+        opacity: 0;
+        transform: translate(0, 80);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(0, -60);
+    }
+    32% {
+        opacity: 1;
+        transform: translate(0, -60);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    53% {
+        opacity: 1;
+        transform: scale(0.56, 0.56) translate(0, -216);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(0.56, 0.56) translate(0, -216);
+    }
+}
+@keyframes intro-logo-ns-enter {
+    0% {
+        transform: scale(0.56, 0.56) translate(0, -216);
+        opacity: 1;
+    }
+    24% {
+        transform: scale(0.56, 0.56) translate(0, -216);
+        opacity: 0;
+    }
+    100% {
+        transform:  scale(0.56, 0.56) translate(0, -216);
+        opacity: 0;
+    }
+}
+
+@keyframes intro-text-one-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 210);
+    }
+    40.5% {
+        opacity: 0;
+        transform: translate(0, 210);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    62% {
+        opacity: 1;
+        transform: translate(0, -31);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, -31);
+    }
+}
+@keyframes intro-text-one-enter {
+    0% {
+        opacity: 1;
+        transform: translate(0, -31);
+    }
+    53.6% {
+        opacity: 1;
+        transform: translate(0, -31);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 44);
+    }
+}
+
+@keyframes intro-text-two-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 304);
+    }
+    47.5% {
+        opacity: 0;
+        transform: translate(0, 304);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    66.25% {
+        opacity: 1;
+        transform: translate(0, 94);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 94);
+    }
+}
+@keyframes intro-text-two-enter {
+    0% {
+        opacity: 1;
+        transform: translate(0, 94);
+    }
+    48.8% {
+        opacity: 1;
+        transform: translate(0, 94);
+    }
+    91.2% {
+        opacity: 0;
+        transform: translate(0, 300);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 300);
+    }
+}
+
+@keyframes intro-get-started-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 187);
+    }
+    66.25% {
+        opacity: 0;
+        transform: translate(0, 187);
+    }
+    86.75% {
+        opacity: 1;
+        transform: translate(0, 187);
+    }
+}
+@keyframes intro-get-started-enter {
+    0% {
+        opacity: 1;
+        transform: translate(0, 187);
+    }
+    12% {
+        opacity: 1;
+        transform: translate(0, 187);
+    }
+    75.2% {
+        opacity: 0;
+        transform: translate(0, 312);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 312);
+    }
+}
+
+@keyframes intro-version-intro {
+    0% {
+        opacity: 0;
+        transform: translate(0, 260);
+    }
+    88.25% {
+        opacity: 0;
+        transform: translate(0, 260);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translate(0, 260);
+    }
+}
+@keyframes intro-version-enter {
+    0% {
+        opacity: 0.8;
+        transform: translate(0, 260);
+    }
+    12% {
+        opacity: 0;
+        transform: translate(0, 260);
+    }
+    75.2% {
+        opacity: 0;
+        transform: translate(0, 260);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 260);
+    }
+}
+
+.intro-logo-bg-intro {
+    animation-name: intro-logo-bg-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-logo-n-intro {
+    animation-name: intro-logo-n-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-logo-ns-intro {
+    animation-name: intro-logo-ns-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-text-one-intro {
+    animation-name: intro-text-one-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-text-two-intro {
+    animation-name: intro-text-two-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-get-started-intro {
+    animation-name: intro-get-started-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-version-intro {
+    animation-name: intro-version-intro;
+    animation-duration: 4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.intro-background-intro {
+    background-color: #151F2F;
+}
+
+.intro-background-enter {
+    background-color: #151F2F;
+    animation-name: intro-background-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-logo-bg-enter {
+    animation-name: intro-logo-bg-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-logo-n-enter {
+    animation-name: intro-logo-n-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-logo-ns-enter {
+    animation-name: intro-logo-ns-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-text-one-enter {
+    animation-name: intro-text-one-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-text-two-enter {
+    animation-name: intro-text-two-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-get-started-enter {
+    animation-name: intro-get-started-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.intro-version-enter {
+    animation-name: intro-version-enter;
+    animation-duration: 1.25;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes example-odd-enter {
+    0% {
+        opacity: 0;
+        transform: translate(-200, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes example-even-enter {
+    0% {
+        opacity: 0;
+        transform: translate(200, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.example-intro {
+    opacity: 0;
+}
+.example-odd-enter {
+    animation-name: example-odd-enter;
+    animation-duration: 0.4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.example-even-enter {
+    animation-name: example-even-enter;
+    animation-duration: 0.4;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.example-label {
+    margin: 0 8;
+    text-align: center;
+}
+
+.example-new {
+    margin: 10;
+    horizontal-align: left;
+    vertical-align: top;
+}
+
+/* drawer */
+.drawer-content {
+    background-color: #3D5AFE;
+}
+.drawer-button,
+.drawer-button-external {
+    color: white;
+    height: 44;
+    border-width: 1;
+    border-color: #3D5AFE;
+    background-color: #003751E4;
+}
+.drawer-button-external {
+    background-image: url("res://ic_outside_link");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+}
+.drawer-button:highlighted,
+.drawer-button-external:highlighted {
+    color: white;
+    background-color: #FF3751E4;
+    border-width: 1;
+    border-color: #3D5AFE;
+}
+
+.drawer-external-link,
+.drawer-news-link {
+    height: 44;
+}
+
+.drawer-external-link:highlighted,
+.drawer-news-link:highlighted {
+    background-color: #516BFE;
+}
+.drawer-external-icon {
+    background-image: url("res://ic_outside_link");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    horizontal-align: center;
+    padding: 0 36;
+}
+.drawer-news-icon {
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    horizontal-align: center;
+    padding: 0 36;
+}
+
+.drawer-news-label,
+.drawer-external-label {
+    font-size: 13;
+    color: white;
+    vertical-align: center;
+}
