@@ -1,6 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
         class="qsf-page"
-        xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
+        xmlns:drawer="nativescript-pro-ui/sidedrawer"
         xmlns:sdc="views/side-drawer-content"
         navigatingTo="onNavigatingTo"
         loaded="pageLoaded"

@@ -1,6 +1,6 @@
 <drawer:RadSideDrawer
         xmlns="http://www.nativescript.org/tns.xsd"
-        xmlns:drawer="nativescript-telerik-ui-pro/sidedrawer"
+        xmlns:drawer="nativescript-pro-ui/sidedrawer"
         id="example-menu-drawer"
         drawerLocation="Bottom"
         loaded="drawerLoaded"

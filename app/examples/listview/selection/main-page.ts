@@ -1,7 +1,7 @@
 import { EventData } from "data/observable";
 import { Page, NavigatedData } from "ui/page";
 import { View } from "ui/core/view";
-import { RadListView } from "nativescript-telerik-ui-pro/listview";
+import { RadListView } from "nativescript-pro-ui/listview";
 import { SelectionViewModel, BlogPostItemData } from "./selection-view-model";
 import * as navigator from "../../../common/navigator";
 import * as platform from "platform";
