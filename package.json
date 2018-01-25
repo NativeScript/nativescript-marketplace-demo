@@ -2,7 +2,7 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-ios": {
-      "version": "next"
+      "version": "4.0.0-2018-01-24-03"
     },
     "tns-android": {
       "version": "next"
@@ -41,7 +41,8 @@
     "typescript": "2.3.4",
     "webpack": "^3.0.0",
     "webpack-bundle-analyzer": "^2.8.2",
-    "webpack-sources": "~1.0.1"
+    "webpack-sources": "~1.0.1",
+    "uglifyjs-webpack-plugin": "~1.1.6"
   },
   "scripts": {
     "postinstall": "(cd node_modules/nativescript-plugin-firebase && npm run setup)",

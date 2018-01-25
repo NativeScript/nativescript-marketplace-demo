@@ -172,8 +172,8 @@ function showActionBar(page: Page) {
 function createExamplesContent(page: Page) {
     const itemsLayout = <WrapLayout id="examples-wrap-layout"
     horizontalAlignment="left"
-    itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" : "{{ (screenWidth - 12) / 2 }}"}
-    itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" : "{{ (screenWidth - 12) * 0.5 + 50 }}"} />
+    itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" : "{{ (screenWidth - 13) / 2 }}"}
+    itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" : "{{ (screenWidth - 13) * 0.5 + 50 }}"} />
 
     const itemTemplate = () => <GridLayout class="example-intro" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" onTap={navigateToExample} automationText="{{ title }}">
             <Image src="{{ image }}" stretch="aspectFill" loadMode="async" />
