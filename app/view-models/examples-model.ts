@@ -63,6 +63,25 @@ export var groups: Array<ExampleGroup> = [
             }]
 
     },
+     {
+        id: "animations",
+        title: "Animations",
+        isNew: true,
+        url: "https://docs.nativescript.org/ui/animation",
+        info: "NativeScript exposes a simple and easy, but powerful enough API to allow animating almost every native element in your application.",
+        tint: "#ff6e40",
+        examples: [
+             {
+                title: "Item animations",
+                image: "res://screen_animations",
+                path: "examples/animations/card-animations/card-animations-example",
+                info: "NativeScript exposes a simple and easy, but powerful enough API to allow animating almost every native element in your application.",
+                controls: "listview",
+                isFeatured: true,
+                isNew: false
+            }
+        ]
+    },
     {
         id: "chart",
         title: "Chart",

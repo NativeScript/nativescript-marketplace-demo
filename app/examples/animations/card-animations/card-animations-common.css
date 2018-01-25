@@ -1,0 +1,111 @@
+.background-grid {
+    background-color: #6675CA;
+}
+
+.card-details {
+    visibility: collapse;
+    margin: 16;
+}
+
+.card-logo {
+  height: 75%;
+  width: 70%;
+}
+
+.card {
+    height: 25%;
+    background-color: white;
+    border-radius: 3;
+    opacity: 0;
+}
+
+.card-collapsed {
+    opacity: 0;
+}
+
+.check-out-layout {
+    background-color: #1BC157;
+    height:40;
+    opacity: 0;
+}
+
+.visa-card-enter {
+    opacity: 0;
+    height: 25%;
+    background-color: white;
+    border-radius: 3;
+    margin: 10 16 5 16;
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.master-card-enter {
+    opacity: 0;  
+    height: 25%;
+    background-color: white;
+    border-radius: 3;
+    margin: 5 16 5 16;
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.amex-card-enter { 
+    opacity: 0;
+    height: 25%;
+    background-color: white;
+    border-radius: 3;
+    margin: 5 16 5 16; 
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+    animation-delay: 0.7;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.label-collapsed {
+    color: white;
+    opacity: 0;
+    height: 60;
+}
+
+.check-out-label-out {
+    opacity: 0;
+}
+
+.button-done {
+    visibility: collapse;
+}
+
+.accept-card {
+    background-color: #1BC157;
+    animation-name: accept-card;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes accept-card {
+    0% {
+        transform: scale(0, 0);
+    }
+    100% {
+        transform: scale(2, 20), translate(0, -50); 
+    }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; 
+    transform: scale(0.8, 0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1), translateY(-10); ;
+  }
+}
