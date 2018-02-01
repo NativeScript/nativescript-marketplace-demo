@@ -9,7 +9,6 @@
     }
   },
   "dependencies": {
-    "acra-telerik-analytics": "~0.0.3",
     "highlight.js": "~8.7.0",
     "nativescript-fresco": "~3.0.2",
     "nativescript-iqkeyboardmanager": "~1.0.1",
