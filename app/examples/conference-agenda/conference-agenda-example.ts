@@ -60,7 +60,7 @@ export function inputTap(args) {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
-    closeTimeout = <any>setTimeout(() => {
+    closeTimeout = setTimeout(() => {
         closeTimeout = 0;
     }, 20);
 }
@@ -68,7 +68,7 @@ export function inputTap(args) {
 export function tap(args: EventData) {
     var page = (<View>args.object).page;
     if (!closeTimeout) {
-        closeTimeout = <any>setTimeout(() => {
+        closeTimeout = setTimeout(() => {
             page.getViewById<SearchBar>("search").dismissSoftInput();
             closeTimeout = 0;
         }, 20);
