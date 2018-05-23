@@ -18,7 +18,7 @@ import { Label } from "ui/label";
 import { GridLayout } from "ui/layouts/grid-layout";
 import { WrapLayout } from "ui/layouts/wrap-layout";
 import { LayoutBase } from "ui/layouts/layout-base";
-import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { onAfterIntro } from "../../common/firebase";
 import { ActionBar, NavigationButton, ActionItem } from "ui/action-bar";
 import { UIBuilder } from "nativescript-tsx";

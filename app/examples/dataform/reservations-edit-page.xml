@@ -1,6 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
         loaded="pageLoaded"
-        xmlns:df="nativescript-pro-ui/dataform"
+        xmlns:df="nativescript-ui-dataform"
         navigatedTo="pageNavigatedTo">
      <Page.actionBar >
         <ActionBar title="{{ isNew ? 'New reservation' : 'Edit reservation' }}" automationText="ActionBar">

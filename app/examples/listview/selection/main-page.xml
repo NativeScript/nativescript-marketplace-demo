@@ -2,7 +2,7 @@
         cssFile="~/examples/listview/selection/main-page.css"
         xmlns="http://www.nativescript.org/tns.xsd" 
         xmlns:examples="examples/example-base-page" 
-        xmlns:lv="nativescript-pro-ui/listview"
+        xmlns:lv="nativescript-ui-listview"
         navigatedTo="pageNavigatedTo">
     <examples:ExamplePage.actionBar>
         <ActionBar automationText="ActionBar" android:class="{{ (isReorderActive || isSelectionActive) ? 'blue-background' : ''}}">

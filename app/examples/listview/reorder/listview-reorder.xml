@@ -2,7 +2,7 @@
         cssFile="~/examples/listview/reorder/listview-reorder.css"
         xmlns:examples="examples/example-base-page"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        xmlns:lv="nativescript-pro-ui/listview"
+        xmlns:lv="nativescript-ui-listview"
         navigatingTo="pageNavigatingTo"
         navigatedFrom="pageNavigatedFrom">
     <Page.actionBar>
