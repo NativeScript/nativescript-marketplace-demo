@@ -242,7 +242,7 @@ export const createPage = () => {
                     tap={tapGetStarted}/>
             <Label id="intro-version"
                     class="intro-version-intro"
-                    text="version 3.2.0"
+                    text="version 4.0.0"
                     fontSize="14"
                     horizontalAlignment="center"
                     verticalAlignment="center"
