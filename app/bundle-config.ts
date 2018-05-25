@@ -4,7 +4,7 @@ if ((<any>global).TNS_WEBPACK) {
 
     // Register application modules
     // This will register each `root`, `page`, `fragment` postfixed xml, css, js, ts, scss file in the app/ folder
-    const context = (<any>require).context("~/", true, /(root|page|fragment)\.(xml|css|js|ts|scss|less|sass)$/);
+    const context = (<any>require).context("~/", true, /(root|page|fragment|common)\.(xml|css|js|ts|scss|less|sass)$/);
     global.registerWebpackModules(context);
 
     global.registerModule("examples/chart/area-series", () => require("./examples/chart/area-series"));
@@ -28,7 +28,6 @@ if ((<any>global).TNS_WEBPACK) {
     global.registerModule("examples/listview/selection/selection-view-model", () => require("./examples/listview/selection/selection-view-model"));
     global.registerModule("examples/user-profile/user-profile-example", () => require("./examples/user-profile/user-profile-example"));
     global.registerModule("views/what-is-new", () => require("./views/what-is-new"));
-    global.registerModule("views/about/about", () => require("./views/about/about"));
     global.registerModule("views/code-page", () => require("./views/code-page"));
     global.registerModule("views/example-info-page", () => require("./views/example-info-page"));
     global.registerModule("views/group-info-page", () => require("./views/group-info-page"));
