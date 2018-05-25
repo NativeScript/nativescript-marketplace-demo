@@ -20,7 +20,6 @@ if ((<any>global).TNS_WEBPACK) {
     global.registerModule("examples/listview/reorder/listview-reorder-model", () => require("./examples/listview/reorder/listview-reorder-model"));
     global.registerModule("examples/listview/reorder/listview-reorder", () => require("./examples/listview/reorder/listview-reorder"));
     global.registerModule("examples/listview/selection/selection-view-model", () => require("./examples/listview/selection/selection-view-model"));
-    global.registerModule("examples/user-profile/user-profile-example", () => require("./examples/user-profile/user-profile-example"));
 
     global.registerModule("views/side-drawer-content/side-drawer-content", () => require("./views/side-drawer-content/side-drawer-content"));
 

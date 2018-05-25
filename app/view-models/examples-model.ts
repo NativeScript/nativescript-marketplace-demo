@@ -46,7 +46,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "User profile",
                 image: "res://screen_user_profile",
                 controls: "scroll-view stack-layout label text-field text-view image button switch action-bar",
-                path: "examples/user-profile/user-profile-example",
+                path: "examples/user-profile/user-profile-page",
                 info: "This example demonstrates how you can use the different NativeScript layouts together to achieve a data input form behavior.",
                 isFeatured: true,
                 isNew: false

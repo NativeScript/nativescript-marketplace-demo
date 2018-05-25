@@ -8,7 +8,6 @@ hljs.configure({
     useBR: true
 });
 
-var cssPath = "styles/code-highlight.css"
 var style: string;
 var extensionToLanguage = {
     ".js": "javascript",
@@ -17,19 +16,6 @@ var extensionToLanguage = {
     ".xml": "xml",
     ".json": "json"
 };
-
-function loadStyles() {
-    var path = fs.path.join(fs.knownFolders.currentApp().path, cssPath);
-
-    if (!fs.File.exists(path)) {
-        throw new Error("Could not find code-highlight.css. Lookup path: " + path);
-    }
-
-    style = fs.File.fromPath(path).readTextSync((error) => {
-        console.log("Error loading style file: " + error);
-    });
-};
-loadStyles();
 
 export class CodePageViewModel extends observable.Observable {
     public files: Array<fs.FileSystemEntity>;
