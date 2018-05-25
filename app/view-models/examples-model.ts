@@ -56,7 +56,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Conference agenda",
                 image: "res://screen_conference_agenda",
                 controls: "list-view segmented-bar search-bar action-bar label",
-                path: "examples/conference-agenda/conference-agenda-example",
+                path: "examples/conference-agenda/conference-agenda-page",
                 info: "This example demonstrates how you can create a ListView item template using the GridLayout.",
                 isFeatured: true,
                 isNew: false
@@ -74,7 +74,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Bar series",
                 image: "res://screen_bar_chart",
-                path: "examples/chart/bar-series",
+                path: "examples/chart/bar-series-page",
                 info: "Bar charts are one of the most common types of graph used to display data. They are mostly used to show amounts or the number of times a value occurs.",
                 controls: "chart",
                 isFeatured: true,
@@ -83,7 +83,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Line series",
                 image: "res://screen_line_chart",
-                path: "examples/chart/line-series",
+                path: "examples/chart/line-series-page",
                 info: "Line charts are often used to plot changes in data over time, such as monthly temperature changes or daily changes in stock market prices.",
                 controls: "chart",
                 isFeatured: true,
@@ -92,7 +92,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Area series",
                 image: "res://screen_area_chart",
-                path: "examples/chart/area-series",
+                path: "examples/chart/area-series-page",
                 info: "Area charts are much like line charts, but they display different colors in the areas below the lines. This colorful and visual display distinguishes the data more clearly.",
                 controls: "chart",
                 isFeatured: true,
@@ -101,7 +101,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Pie series",
                 image: "res://screen_pie_chart",
-                path: "examples/chart/pie-series",
+                path: "examples/chart/pie-series-page",
                 info: "Pie charts are used to display the contribution of frantional parts to a whole. Each data point is a pie slice with arc size proportional to the magnitude of the point's value.",
                 controls: "chart",
                 isFeatured: true,

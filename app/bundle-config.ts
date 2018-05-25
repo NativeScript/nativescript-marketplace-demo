@@ -7,13 +7,9 @@ if ((<any>global).TNS_WEBPACK) {
     const context = (<any>require).context("~/", true, /(root|page|fragment|common)\.(xml|css|js|ts|scss|less|sass)$/);
     global.registerWebpackModules(context);
 
-    global.registerModule("examples/chart/area-series", () => require("./examples/chart/area-series"));
-    global.registerModule("examples/chart/bar-series", () => require("./examples/chart/bar-series"));
-    global.registerModule("examples/chart/line-series", () => require("./examples/chart/line-series"));
-    global.registerModule("examples/chart/pie-series", () => require("./examples/chart/pie-series"));
     global.registerModule("examples/chart/view-model", () => require("./examples/chart/view-model"));
-    global.registerModule("examples/conference-agenda/conference-agenda-example", () => require("./examples/conference-agenda/conference-agenda-example"));
     global.registerModule("examples/conference-agenda/conference-view-model", () => require("./examples/conference-agenda/conference-view-model"));
+    
     global.registerModule("examples/example-menu", () => require("./examples/example-menu"));
     global.registerModule("examples/listview/layouts/layouts-view-model", () => require("./examples/listview/layouts/layouts-view-model"));
     global.registerModule("examples/listview/layouts/listview-layouts", () => require("./examples/listview/layouts/listview-layouts"));
