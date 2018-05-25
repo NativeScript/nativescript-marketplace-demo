@@ -1,5 +1,4 @@
 <examples:ExamplePage
-        cssFile="~/examples/listview/layouts/listview-layouts.css"
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:lv="nativescript-ui-listview"
         xmlns:examples="examples/example-base-page"

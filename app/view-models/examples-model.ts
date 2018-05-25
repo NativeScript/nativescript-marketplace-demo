@@ -120,7 +120,7 @@ export var groups: Array<ExampleGroup> = [
              {
                 title: "Item layouts",
                 image: "res://screen_listview_layouts",
-                path: "examples/listview/layouts/listview-layouts",
+                path: "examples/listview/layouts/listview-layouts-page",
                 info: "ListView for NativeScript supports different item layouts that are UI virtualized and optimized for mobile.",
                 controls: "listview",
                 isFeatured: true,
@@ -129,7 +129,7 @@ export var groups: Array<ExampleGroup> = [
             {
                 title: "Item reorder",
                 image: "res://screen_reorder",
-                path: "examples/listview/reorder/listview-reorder",
+                path: "examples/listview/reorder/listview-reorder-page",
                 info: "Item reorder allows you to change the position of an item in ListView by dragging it.",
                 controls: "listview",
                 isFeatured: true,

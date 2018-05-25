@@ -1,5 +1,4 @@
 <examples:ExamplePage 
-        cssFile="~/examples/listview/reorder/listview-reorder.css"
         xmlns:examples="examples/example-base-page"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:lv="nativescript-ui-listview"

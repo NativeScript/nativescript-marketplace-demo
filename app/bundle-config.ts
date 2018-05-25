@@ -11,10 +11,9 @@ if ((<any>global).TNS_WEBPACK) {
     global.registerModule("examples/conference-agenda/conference-view-model", () => require("./examples/conference-agenda/conference-view-model"));
     
     global.registerModule("examples/example-menu", () => require("./examples/example-menu"));
+    
     global.registerModule("examples/listview/layouts/layouts-view-model", () => require("./examples/listview/layouts/layouts-view-model"));
-    global.registerModule("examples/listview/layouts/listview-layouts", () => require("./examples/listview/layouts/listview-layouts"));
     global.registerModule("examples/listview/reorder/listview-reorder-model", () => require("./examples/listview/reorder/listview-reorder-model"));
-    global.registerModule("examples/listview/reorder/listview-reorder", () => require("./examples/listview/reorder/listview-reorder"));
     global.registerModule("examples/listview/selection/selection-view-model", () => require("./examples/listview/selection/selection-view-model"));
 
     global.registerModule("views/side-drawer-content/side-drawer-content", () => require("./views/side-drawer-content/side-drawer-content"));
