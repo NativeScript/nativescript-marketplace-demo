@@ -1,0 +1,101 @@
+<examples:ExamplePage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:examples="examples/example-base-page"
+        navigatingTo="pageNavigatingTo">
+    <Page.actionBar>
+        <ActionBar title="Layouts" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <Android>
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
+            </Android>
+            <iOS>
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
+            </iOS>
+        </ActionBar>
+    </Page.actionBar>
+  <GridLayout loaded="rootGridLoaded">
+    <TabView id="tabView" 
+        selectedIndexChanged="selectedIndexChanged"
+        selectedIndex="{{ selectedIndex }}" 
+        tabBackgroundColor="#31bcff"
+        android:class="android-tab-view" 
+        android:androidSelectedTabHighlightColor="#455b66"
+        ios:class="ios-tab-view"
+        ios:selectedTabTextColor="white">
+      <TabView.items>
+        <TabViewItem ios:title="Stack" iconSource="{{ selectedIndex == 0 ? 'res://stack1' : 'res://stack' }}">
+          <TabViewItem.view>
+            <StackLayout>
+                <Label text="Stack" android:class="android-label" ios:class="ios-label"/>
+                <StackLayout ios:class="layout-container" android:class="android-layout-container" vertical-alignment="stretch">
+                    <Button id="0btn-red" class="btn-red" height="20%" tap="buttonTap"/>
+                    <Button id="0btn-lightblue" class="btn-lightblue" height="19%" tap="buttonTap"/>
+                    <Button id="0btn-lightgreen" class="btn-lightgreen" height="19%" tap="buttonTap"/>
+                    <Button id="0btn-yellow" class="btn-yellow" height="19%" tap="buttonTap"/>
+                    <Button id="0btn-blue" class="btn-blue" height="19%" tap="buttonTap"/>
+                </StackLayout>
+            </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem ios:title="Grid" iconSource="{{ selectedIndex == 1 ? 'res://grid1' : 'res://grid' }}">
+          <TabViewItem.view>
+            <StackLayout>
+                <Label text="Grid" android:class="android-label" ios:class="ios-label"/>
+                <GridLayout columns="*,*" rows="*,*,*,*,*" ios:class="layout-container" android:class="android-layout-container">
+                    <Button id="1btn-blue" rowSpan="2" class="btn-blue" tap="buttonTap"/>
+                    <Button id="1btn-lightblue" col="1" rowSpan="4" class="btn-lightblue" tap="buttonTap"/>
+                    <Button id="1btn-red" col="0" row="2" class="btn-red" tap="buttonTap"/>
+                    <Button id="1btn-yellow" col="0" row="3" class="btn-yellow" tap="buttonTap"/>
+                    <Button id="1btn-lightgreen" col="0" row="4" colSpan="2" class="btn-lightgreen" tap="buttonTap"/> 
+                </GridLayout>
+            </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem ios:title="Wrap" iconSource="{{ selectedIndex == 2 ? 'res://wrap1' : 'res://wrap' }}">
+          <TabViewItem.view>
+            <StackLayout>
+                <Label text="Wrap" android:class="android-label" ios:class="ios-label"/>
+                <WrapLayout ios:class="layout-container" android:class="android-layout-container" horizontal-alignment="center">
+                    <Button id="2btn-red" width="150" height="100" class="btn-red" tap="buttonTap"/>
+                    <Button id="2btn-lightblue" width="150" height="100" class="btn-lightblue" tap="buttonTap"/>
+                    <Button id="2btn-lightgreen" width="200" height="100" class="btn-lightgreen" tap="buttonTap"/>
+                    <Button id="2btn-yellow" width="100" height="100" class="btn-yellow" tap="buttonTap"/>
+                    <Button id="2btn-blue" width="150" height="100" class="btn-blue" tap="buttonTap"/>
+                </WrapLayout>
+            </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem ios:title="Dock" iconSource="{{ selectedIndex == 3 ? 'res://dock1' : 'res://dock' }}">
+          <TabViewItem.view>
+            <GridLayout rows="auto,*">
+                <Label row="0" text="Dock" android:class="android-label" ios:class="ios-label"/>
+                <DockLayout row="1" stretchLastChild="true" ios:class="layout-container" android:class="android-layout-container">
+                    <Button id="3btn-red" dock="left" class="btn-red" width="80" tap="buttonTap"/>
+                    <Button id="3btn-lightblue" dock="top" class="btn-lightblue" height="80" tap="buttonTap"/>
+                    <Button id="3btn-lightgreen" dock="right" class="btn-lightgreen" width="80" tap="buttonTap"/>
+                    <Button id="3btn-yellow" dock="bottom" class="btn-yellow" height="80" tap="buttonTap"/>
+                    <Button id="3btn-blue" class="btn-blue" />
+                </DockLayout>
+            </GridLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem ios:title="Absolute" iconSource="{{ selectedIndex == 4 ? 'res://absolute1' : 'res://absolute' }}">
+          <TabViewItem.view>
+            <StackLayout>
+                <Label text="Absolute" android:class="android-label" ios:class="ios-label"/>
+                <AbsoluteLayout ios:class="layout-container" android:class="android-layout-container">
+                    <Button id="4btn-red" left="50" top="50" width="100" height="100" class="btn-red" tap="buttonTap"/>
+                    <Button id="4btn-lightblue" left="200" top="100" width="100" height="300" class="btn-lightblue" tap="buttonTap"/>
+                    <Button id="4btn-lightgreen" left="50" top="280" width="200" height="100" class="btn-lightgreen" tap="buttonTap"/>
+                </AbsoluteLayout>
+            </StackLayout>
+          </TabViewItem.view>
+        </TabViewItem>
+      </TabView.items>
+    </TabView>
+  </GridLayout>
+</examples:ExamplePage>

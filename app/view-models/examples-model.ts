@@ -36,7 +36,7 @@ export var groups: Array<ExampleGroup> = [
                 title: "Layouts",
                 image: "res://screen_layouts",
                 controls: "stack-layout grid-layout wrap-layout dock-layout absolute-layout",
-                path: "examples/layouts/layouts-example",
+                path: "examples/layouts/layouts-example-page",
                 info: "NativeScript provides a recursive layout system which sizes and positions views on the screen. The supported layouts are stack, grid, wrap, dock and absolute.",
                 isFeatured: true,
                 isNew: false
