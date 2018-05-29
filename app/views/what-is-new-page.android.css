@@ -1,4 +1,44 @@
-@import url('./what-is-new-common.css');
+.title {
+    color: #151f2f;
+}
+.body {
+    white-space: normal;
+    margin: 6 0;
+    color: #455b66;
+}
+.learn-more {
+    vertical-align: bottom;
+    color: #3c5afd;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+.date {
+    vertical-align: bottom;
+    color: #969da1;
+}
+
+.news-list,
+.news-background {
+    background-color: #455B66;
+}
+
+.news-card {
+    padding: 10;
+}
+.news-card.read {
+    background-color: #BCC3C7;
+}
+
+.news-card.unread {
+    background-color: white;
+}
+
+.empty-placeholder {
+    margin: 16;
+    color: #b2b9bd;
+    white-space: normal;
+    font-size: 17;
+}
 
 .news-card {
     margin: 12 16 0 16;

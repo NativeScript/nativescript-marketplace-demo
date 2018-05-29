@@ -1,4 +1,6 @@
-@import url('./about-common.css');
+.about-content {
+    background-color: white;
+}
 
 .about-logo {
     margin: 24 0;

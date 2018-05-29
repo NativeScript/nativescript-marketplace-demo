@@ -1,4 +1,10 @@
-@import url('./example-info-page-common.css');
+.info-background {
+    background-color: white;
+}
+
+.info-link-button {
+    height: 44;
+}
 
 .info-title {
     font-size: 26;

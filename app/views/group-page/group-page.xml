@@ -1,11 +1,13 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
+		xmlns:drawer="nativescript-ui-sidedrawer" 
 		xmlns:content="views/group-page"
-		class="qsf-page"
+		xmlns:sdc="views/side-drawer-content"
 		backgroundColor="{{ group.tint }}"
-		color="{{ group.tint }}"
-		navigatingTo="pageNavigatingTo"
 		backgroundSpanUnderStatusBar="true"
-		loaded="pageLoaded">
+		class="qsf-page"
+		color="{{ group.tint }}"
+		loaded="pageLoaded" 
+		navigatingTo="pageNavigatingTo">
 	<Page.actionBar>
 		<ActionBar title="{{ group.title }}" automationText="ActionBar">
 			<NavigationButton
@@ -19,7 +21,7 @@
 			</ActionBar.actionItems>
 		</ActionBar>
 	</Page.actionBar>
-	<android xmlns:drawer="nativescript-ui-sidedrawer" xmlns:sdc="views/side-drawer-content">
+	<android>
 		<drawer:RadSideDrawer id="side-drawer">
 			<drawer:RadSideDrawer.drawerContent>
 				<sdc:side-drawer-content />
