@@ -6,7 +6,7 @@ android {
   defaultConfig {  
     generatedDensities = []
     multiDexEnabled true
-    applicationId = "org.nativescript.examples"
+    applicationId = "org.nativescript.curiosity"
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
