@@ -153,7 +153,7 @@ module.exports = env => {
                     ].filter(loader => !!loader)
                 },
 
-                { test: /\.(html|xml)$/, use: "nativescript-dev-webpack/xml-namespace-loader"},
+                { test: /\.(html|xml)$/, use: "raw-loader"},
 
                 {
                     test: /\.css$/,
@@ -197,6 +197,7 @@ module.exports = env => {
                 { from: "fonts/**" },
                 { from: "**/*.jpg" },
                 { from: "**/*.png" },
+                { from: "**/*.xml" },
             ], { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }),
             // Generate a bundle starter script and activate it in package.json
             new nsWebpack.GenerateBundleStarterPlugin([
