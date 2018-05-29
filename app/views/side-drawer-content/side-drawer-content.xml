@@ -24,7 +24,7 @@
             </GridLayout>
         </GridLayout>
 
-        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript">
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://market.nativescript.org">
             <GridLayout class="drawer-external-icon">
                 <Label text="Verified plugins" class="drawer-external-label" />
             </GridLayout>
@@ -42,7 +42,7 @@
             </GridLayout>
         </GridLayout>
 
-        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-sdk-examples-ng">
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-sdk-examples-js">
             <GridLayout class="drawer-external-icon">
                 <Label text="Code samples" class="drawer-external-label" />
             </GridLayout>

@@ -1,4 +1,4 @@
-<GridLayout rows="auto, *" xmlns:chart="nativescript-pro-ui/chart">
+<GridLayout rows="auto, *" xmlns:chart="nativescript-ui-chart">
     <Label class="chart-example-tytle-style" text="Monthly sales revenue, 2016" textWrap="true"/>
     <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
         <chart:RadCartesianChart.series>

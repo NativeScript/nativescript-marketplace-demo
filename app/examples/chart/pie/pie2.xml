@@ -1,4 +1,4 @@
-<GridLayout rows="auto, *" xmlns:chart="nativescript-pro-ui/chart">
+<GridLayout rows="auto, *" xmlns:chart="nativescript-ui-chart">
     <Label text="Energy consumption, 2016/2017" class="chart-example-tytle-style" textWrap="true"/>
     <chart:RadPieChart row="1" selectionMode="Single" margin="20">
         <chart:RadPieChart.series>

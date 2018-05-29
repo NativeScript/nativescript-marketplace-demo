@@ -7,7 +7,8 @@
         "experimentalDecorators": true,
         "lib": [
             "es6",
-            "dom"
+            "dom",
+            "es2015.iterable"
         ],
         "jsx": "react",
         "reactNamespace": "UIBuilder",
@@ -16,6 +17,9 @@
             "*": [
                 "./node_modules/tns-core-modules/*",
                 "./node_modules/*"
+            ],
+            "~/*": [
+                "app/*"
             ]
         }
     },

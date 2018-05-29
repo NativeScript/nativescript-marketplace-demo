@@ -1,10 +1,11 @@
+import "./bundle-config";
 import * as application from "application";
-import * as frame from "ui/frame";
-import * as exampleBase from "./examples/example-base-page";
-import * as prof from "./common/profiling";
-import * as trace from "trace";
+// import * as frame from "ui/frame";
+// import * as exampleBase from "./examples/example-base-page";
+// import * as prof from "./common/profiling";
+// import * as trace from "trace";
 import * as utils from "utils/utils";
-import { time, uptime } from "profiling";
+// import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
 
 import * as json from "~/package.json";
@@ -47,6 +48,6 @@ if (application.ios) {
     });
 }
 
-prof.start("main-page");
+// prof.start("main-page");
 
-application.start("views/main-page/main-page");
+application.run("app-root");

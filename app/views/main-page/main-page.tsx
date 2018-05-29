@@ -18,7 +18,7 @@ import { Label } from "ui/label";
 import { GridLayout } from "ui/layouts/grid-layout";
 import { WrapLayout } from "ui/layouts/wrap-layout";
 import { LayoutBase } from "ui/layouts/layout-base";
-import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { onAfterIntro } from "../../common/firebase";
 import { ActionBar, NavigationButton, ActionItem } from "ui/action-bar";
 import { UIBuilder } from "nativescript-tsx";
@@ -242,7 +242,7 @@ export const createPage = () => {
                     tap={tapGetStarted}/>
             <Label id="intro-version"
                     class="intro-version-intro"
-                    text="version 3.2.0"
+                    text="version 4.0.0"
                     fontSize="14"
                     horizontalAlignment="center"
                     verticalAlignment="center"
