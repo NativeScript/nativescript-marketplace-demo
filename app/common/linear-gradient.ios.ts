@@ -1,11 +1,11 @@
 import { View } from "ui/core/view";
 import { Color } from "color";
 import * as platform from "platform";
-import * as common from "./linear-gradient-common";
+import { Orientation } from "./linear-gradient-common";
 
-global.moduleMerge(common, exports);
+export * from "./linear-gradient-common";
 
-export function drawBackground(view: View, colors: Array<Color>, orientation?: common.Orientation) {
+export function drawBackground(view: View, colors: Array<Color>, orientation?: Orientation) {
     let nativeView = (<any>view).nativeView; 
     if (!nativeView)
     {
@@ -24,30 +24,30 @@ export function drawBackground(view: View, colors: Array<Color>, orientation?: c
     nativeView.layer.insertSublayerAtIndex(gradientLayer, 0);
 }
 
-function setStartAndEndPoints(gradientLayer: CAGradientLayer, orientation?: common.Orientation){
+function setStartAndEndPoints(gradientLayer: CAGradientLayer, orientation?: Orientation){
      switch (orientation) {
-        case common.Orientation.TopLeft_BottomRight:
+        case Orientation.TopLeft_BottomRight:
             gradientLayer.startPoint =  CGPointMake(0, 0);
             gradientLayer.endPoint   =  CGPointMake(1, 1);
-        case common.Orientation.Left_Right:
+        case Orientation.Left_Right:
             gradientLayer.startPoint =  CGPointMake(0, 0.5);
             gradientLayer.endPoint   =  CGPointMake(1, 0.5);
-        case common.Orientation.BottomLeft_TopRight:
+        case Orientation.BottomLeft_TopRight:
             gradientLayer.startPoint =  CGPointMake(0, 1);
             gradientLayer.endPoint   =  CGPointMake(1, 0);
-        case common.Orientation.Bottom_Top:
+        case Orientation.Bottom_Top:
             gradientLayer.startPoint =  CGPointMake(0.5, 1);
             gradientLayer.endPoint   =  CGPointMake(0.5, 0);
-        case common.Orientation.BottomRight_TopLeft:
+        case Orientation.BottomRight_TopLeft:
             gradientLayer.startPoint =  CGPointMake(1, 1);
             gradientLayer.endPoint   =  CGPointMake(0, 0);
-        case common.Orientation.Right_Left:
+        case Orientation.Right_Left:
             gradientLayer.startPoint =  CGPointMake(1, 0.5);
             gradientLayer.endPoint   =  CGPointMake(0, 0.5);
-        case common.Orientation.TopRight_BottomLeft:
+        case Orientation.TopRight_BottomLeft:
             gradientLayer.startPoint =  CGPointMake(1, 0);
             gradientLayer.endPoint   =  CGPointMake(0, 1);
-        case common.Orientation.Top_Bottom:
+        case Orientation.Top_Bottom:
             gradientLayer.startPoint =  CGPointMake(0.5, 0);
             gradientLayer.endPoint   =  CGPointMake(0.5, 1);
     }
