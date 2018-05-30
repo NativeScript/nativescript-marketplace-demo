@@ -1,6 +1,6 @@
 {
   "nativescript": {
-    "id": "org.nativescript.curiosity",
+    "id": "org.nativescript.examples",
     "tns-android": {
       "version": "4.2.0-2018-05-29-02"
     }
