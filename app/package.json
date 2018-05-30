@@ -24,8 +24,5 @@
     "bugs": {
         "url": "https://github.com/NativeScript/template-hello-world/issues"
     },
-    "homepage": "https://github.com/NativeScript/template-hello-world",
-    "analyticsAppId": "8j1r6y3d6fnd5yeo",
-    "analyticsProductKeyAndroid": "8c086e8562544cc9b378eb4b0505da4a",
-    "_test_analyticsProductKeyAndroid": "ce16628c49a54cd69bcd606ccc1db42e"
+    "homepage": "https://github.com/NativeScript/template-hello-world"
 }

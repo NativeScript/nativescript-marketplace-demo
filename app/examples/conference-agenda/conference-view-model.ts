@@ -78,8 +78,6 @@ var allSessions: Array<Session> = [
     new Session("Using Kendo UI in SharePoint/Office 365",
         new Date(2015, 5, 5, 10, 45), new Date(2015, 5, 5, 11, 30), "room 2", false),
 
-    new Session("Improving Applications with Telerik Analytics",
-        new Date(2015, 5, 5, 11, 45), new Date(2015, 5, 5, 12, 30), "room 1", true),
     new Session("Building Offline Ready Mobile Apps",
         new Date(2015, 5, 5, 11, 45), new Date(2015, 5, 5, 12, 30), "room 2", false),
 

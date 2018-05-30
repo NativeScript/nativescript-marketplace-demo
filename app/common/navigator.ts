@@ -5,14 +5,11 @@ import * as frame from "ui/frame";
 import * as viewModule from "ui/core/view";
 import * as platform from "platform";
 import * as prof from "../common/profiling";
-import * as analytics from "./analytics";
 import * as utils from "utils/utils";
 import { isIOS, isAndroid } from "platform";
 
 function traceNavigateTo(to: string, context?: string): string {
-    var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : "");
-    console.log("Track: " + eventText);
-    analytics.trackEvent(eventText);
+    var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : ""); // this can be used for analytics
     return to;
 }
 

@@ -8,7 +8,7 @@ You will find here the most common mobile use cases implemented - Data visualiza
 ![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/01-2-home-wrapview.png?sfvrsn=0)
 ![](https://d2odgkulk9w7if.cloudfront.net/images/default-source/default-album/03-1-layouts-ios.png?sfvrsn=0)
 
-The application also serves as a demo for the paid UI components created by Telerik called "[UI for NativeScript](https://www.npmjs.com/package/nativescript-telerik-ui)".
+The application also serves as a demo for the paid UI components created by Telerik called "[UI for NativeScript](https://docs.telerik.com/devtools/nativescript-ui/introduction)".
 
 You can use the application to see NativeScript in action, but also as a learning purpose since the entire source code is available in this repo.
 
@@ -37,17 +37,11 @@ For more news about NativeScript, please [follow our Twitter account](http://twi
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
 
 
-# Enable Analytics
-Analytics is set in place but requires an API key to be enabled.
-Just place an `"analyticsAppId": "****************"` key in the `app/package.json`.
-For more information check the plugin in npmjs.com: https://www.npmjs.com/package/nativescript-telerik-analytics
-
 # Performance 
-
 Start for latest version published on GooglePlay and AppStore.
 
 ## App Size
-Android APK: 27.8 MB
+Android APK: ~27.8 MB
 
 ## First start
-Android (Nexus5): 2.8s
+Android (Nexus 5x): ~1.4s
