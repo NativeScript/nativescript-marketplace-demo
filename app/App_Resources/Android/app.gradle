@@ -1,10 +1,23 @@
-// http://android-developers.blogspot.bg/2016/02/android-support-library-232.html
-android {  
-    defaultConfig {
-        generatedDensities = []
-        applicationId = "org.nativescript.examples"
-    }
-    aaptOptions {
-        additionalParameters "--no-version-vectors"
-    }
+dependencies {
+  compile "com.google.android.gms:play-services-base:15.0.1"
 }
+
+android {  
+  defaultConfig {  
+    generatedDensities = []
+    multiDexEnabled true
+    applicationId = "org.nativescript.examples"
+  }  
+  aaptOptions {  
+    additionalParameters "--no-version-vectors"  
+  }
+
+  project.ext {
+    googlePlayServicesVersion = "15.0.1"
+  } 
+
+  dexOptions {
+    jumboMode true
+    javaMaxHeapSize "4g"
+  }
+} 

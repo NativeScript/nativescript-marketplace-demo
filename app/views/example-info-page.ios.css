@@ -1,4 +1,4 @@
-@import { url('~/views/example-info-page-common.css') };
+@import url('./example-info-page-common.css');
 
 .info-title {
     font-size: 22;

@@ -5,14 +5,11 @@ import * as frame from "ui/frame";
 import * as viewModule from "ui/core/view";
 import * as platform from "platform";
 import * as prof from "../common/profiling";
-import * as analytics from "./analytics";
 import * as utils from "utils/utils";
 import { isIOS, isAndroid } from "platform";
 
 function traceNavigateTo(to: string, context?: string): string {
-    var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : "");
-    console.log("Track: " + eventText);
-    analytics.trackEvent(eventText);
+    var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : ""); // this can be used for analytics
     return to;
 }
 
@@ -117,15 +114,15 @@ export function navigateToHome() {
 
 export function navigateToAbout() {
     var topmost = frame.topmost();
-    if (topmost.currentEntry.moduleName !== "views/about/about") {
-        frame.topmost().navigate(traceNavigateTo("views/about/about"));
+    if (topmost.currentEntry.moduleName !== "views/about/about-page") {
+        frame.topmost().navigate(traceNavigateTo("views/about/about-page"));
     }
 }
 
 export function navigateToWhatIsNew() {
     var topmost = frame.topmost();
-    if (topmost.currentEntry.moduleName !== "views/what-is-new") {
-        frame.topmost().navigate(traceNavigateTo("views/what-is-new"));
+    if (topmost.currentEntry.moduleName !== "views/what-is-new-page") {
+        frame.topmost().navigate(traceNavigateTo("views/what-is-new-page"));
     }
 }
 

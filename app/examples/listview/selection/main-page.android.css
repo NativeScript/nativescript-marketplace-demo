@@ -1,4 +1,4 @@
-@import { url('~/examples/listview/selection/main-page-common.css') };
+@import url('./main-page-common.css');
 
 .title-view-item {
     font-size: 20;

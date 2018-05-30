@@ -5,7 +5,7 @@
         <Button text="Home" tap="tapHome" class="drawer-button" />
         <Button text="About" tap="tapAbout" class="drawer-button" />
 
-        <GridLayout class="drawer-news-link" tap="tapWhatIsNew">
+        <GridLayout class="drawer-news-link" tap="tapWhatIsNew" visibility="{{ firebase.hasUnreadNews, (firebase && firebase.hasUnreadNews) ? 'visible' : 'collapse' }}">
             <GridLayout class="drawer-news-icon">
                 <Image src="res://ic_notification" opacity="{{ firebase.hasUnreadNews, (firebase && firebase.hasUnreadNews) ? 1 : 0 }}" width="10" height="10" horizontalAlignment="left" />
                 <Label text="What's new" class="drawer-news-label" margin="0 18" />
@@ -24,7 +24,7 @@
             </GridLayout>
         </GridLayout>
 
-        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://plugins.telerik.com/nativescript">
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://market.nativescript.org">
             <GridLayout class="drawer-external-icon">
                 <Label text="Verified plugins" class="drawer-external-label" />
             </GridLayout>
@@ -42,7 +42,7 @@
             </GridLayout>
         </GridLayout>
 
-        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-sdk-examples-ng">
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://github.com/NativeScript/nativescript-sdk-examples-js">
             <GridLayout class="drawer-external-icon">
                 <Label text="Code samples" class="drawer-external-label" />
             </GridLayout>

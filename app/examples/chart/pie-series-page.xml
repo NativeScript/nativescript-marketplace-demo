@@ -1,11 +1,9 @@
 <examples:ExamplePage
-        cssFile="~/examples/chart/area-series.css"
         navigatingTo="pageNavigatingTo"
-        navigatingFrom="pageNavigatingFrom"
         xmlns:examples="examples/example-base-page"
         xmlns="http://www.nativescript.org/tns.xsd">
     <Page.actionBar>
-        <ActionBar title="Area series" automationText="ActionBar">
+        <ActionBar title="Pie series" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <Android>
                 <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
@@ -23,15 +21,13 @@
         <GridLayout class="repeaterItemsScrollerStyle" rows="*">
             <GridLayout class="repeaterBottomBorderStyle" row="1"/>
             <ScrollView id="scrollView" orientation="horizontal" ios.showsHorizontalScrollIndicator="false" class="galleryRepeaterStyle" loaded="scrollViewLoaded">
-                <Repeater items="{{ areaTypes }}" >
+                <Repeater items="{{ pieTypes }}" >
                     <Repeater.itemsLayout>
                         <StackLayout orientation="horizontal"/>
                     </Repeater.itemsLayout>
                     <Repeater.itemTemplate>
                         <GridLayout tap="repeaterItemTap" columns="*" rows="*,auto" class="{{ isSelected ? 'chartItemInRepeaterSelectedStyle' : 'chartItemInRepeaterStyle' }}">
-                            <GridLayout col="0" row="0" height="38" horizontalAlignment="center" verticalAlignment="center">
-                                <Image src="{{ imageRes }}" col="0" row="0" stretch="none" horizontalAlignment="center" verticalAlignment="bottom"/>
-                            </GridLayout>
+                            <Image src="{{ imageRes }}" col="0" row="0" stretch="none" horizontalAlignment="center" verticalAlignment="center" />
                             <GridLayout col="0" row="1" class="{{ isSelected ? 'galleryRepeaterItemBottomSelectedBorder' : 'galleryRepeaterItemBottomBorder'}}"/>
                         </GridLayout>
                     </Repeater.itemTemplate>

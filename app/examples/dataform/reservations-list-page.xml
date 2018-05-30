@@ -1,8 +1,7 @@
 <examples:ExamplePage
-        cssFile="~/examples/dataform/reservations-list-page.css"
         xmlns:examples="examples/example-base-page"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        xmlns:lv="nativescript-pro-ui/listview"
+        xmlns:lv="nativescript-ui-listview"
         navigatingTo="pageNavigatingTo"
         navigatedFrom="pageNavigatedFrom">
     <Page.actionBar>

@@ -1,11 +1,11 @@
 import { View } from "ui/core/view";
 import { Color } from "color";
 import * as platform from "platform";
-import * as common from "./linear-gradient-common";
+import { Orientation } from "./linear-gradient-common";
 
-global.moduleMerge(common, exports);
+export * from "./linear-gradient-common";
 
-export function drawBackground(view: View, colors: Array<Color>, orientation?: common.Orientation) {
+export function drawBackground(view: View, colors: Array<Color>, orientation?: Orientation) {
     let nativeView = (<any>view).nativeView; 
     if (!nativeView)
     {
@@ -31,23 +31,23 @@ export function drawBackground(view: View, colors: Array<Color>, orientation?: c
     }
 }
 
-function getAndroidOrientation(orientation?: common.Orientation){
+function getAndroidOrientation(orientation?: Orientation){
     switch (orientation) {
-        case common.Orientation.TopLeft_BottomRight:
+        case Orientation.TopLeft_BottomRight:
             return android.graphics.drawable.GradientDrawable.Orientation.TL_BR;
-        case common.Orientation.Left_Right:
+        case Orientation.Left_Right:
             return android.graphics.drawable.GradientDrawable.Orientation.LEFT_RIGHT;
-        case common.Orientation.BottomLeft_TopRight:
+        case Orientation.BottomLeft_TopRight:
             return android.graphics.drawable.GradientDrawable.Orientation.BL_TR;
-        case common.Orientation.Bottom_Top:
+        case Orientation.Bottom_Top:
             return android.graphics.drawable.GradientDrawable.Orientation.BOTTOM_TOP;
-        case common.Orientation.BottomRight_TopLeft:
+        case Orientation.BottomRight_TopLeft:
             return android.graphics.drawable.GradientDrawable.Orientation.BR_TL;
-        case common.Orientation.Right_Left:
+        case Orientation.Right_Left:
             return android.graphics.drawable.GradientDrawable.Orientation.RIGHT_LEFT;
-        case common.Orientation.TopRight_BottomLeft:
+        case Orientation.TopRight_BottomLeft:
             return android.graphics.drawable.GradientDrawable.Orientation.TR_BL;
-        case common.Orientation.Top_Bottom:
+        case Orientation.Top_Bottom:
             return android.graphics.drawable.GradientDrawable.Orientation.TOP_BOTTOM;
     }
 }

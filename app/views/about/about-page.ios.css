@@ -1,4 +1,4 @@
-@import { url('~/views/about/about-common.css') };
+@import url('./about-common.css');
 
 .about-logo {
     margin: 24 0;

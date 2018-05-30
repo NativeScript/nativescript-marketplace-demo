@@ -2,7 +2,7 @@ import { EventData } from "data/observable";
 import { Page, NavigatedData } from "ui/page";
 import { View } from "ui/core/view";
 import { ListViewLayoutsModel } from "./layouts-view-model";
-import { RadListView, ListViewGridLayout, ListViewLinearLayout } from "nativescript-pro-ui/listview";
+import { RadListView, ListViewGridLayout, ListViewLinearLayout } from "nativescript-ui-listview";
 import * as navigator from "../../../common/navigator";
 import * as application from "application";
 

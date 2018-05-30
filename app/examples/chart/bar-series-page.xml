@@ -1,11 +1,10 @@
 <examples:ExamplePage
-        cssFile="~/examples/chart/line-series.css"
         navigatingTo="pageNavigatingTo"
         navigatingFrom="pageNavigatingFrom"
         xmlns:examples="examples/example-base-page"
         xmlns="http://www.nativescript.org/tns.xsd">
     <Page.actionBar>
-        <ActionBar title="Line series" automationText="ActionBar">
+        <ActionBar title="Bar series" automationText="ActionBar">
             <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
             <Android>
                 <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
@@ -23,7 +22,7 @@
         <GridLayout class="repeaterItemsScrollerStyle" rows="*">
             <GridLayout class="repeaterBottomBorderStyle" row="1"/>
             <ScrollView id="scrollView" orientation="horizontal" ios.showsHorizontalScrollIndicator="false" class="galleryRepeaterStyle" loaded="scrollViewLoaded">
-                <Repeater items="{{ lineTypes }}" >
+                <Repeater items="{{ barTypes }}" >
                     <Repeater.itemsLayout>
                         <StackLayout orientation="horizontal"/>
                     </Repeater.itemsLayout>

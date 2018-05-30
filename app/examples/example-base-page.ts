@@ -11,7 +11,7 @@ import * as prof from "../common/profiling";
 import * as builder from "ui/builder";
 import { View } from "ui/core/view"
 import {knownFolders} from "file-system";
-import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 var OVERLAY_ELEVATION = 12;
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;

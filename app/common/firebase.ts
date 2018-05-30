@@ -1,7 +1,7 @@
 import * as application from "application";
 import * as utils from "utils/utils";
 import * as dialogs from "ui/dialogs";
-import {isAndroid, isIOS} from "platform";
+import { isAndroid, isIOS } from "platform";
 import * as settings from "application-settings";
 import { Observable } from "data/observable";
 import * as navigator from "../common/navigator";
