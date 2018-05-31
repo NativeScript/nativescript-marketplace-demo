@@ -1,7 +1,4 @@
 {
-    "android": {
-        "markingMode": "none"
-    },
     "name": "tns-template-hello-world",
     "main": "app.js",
     "version": "1.2.0",
