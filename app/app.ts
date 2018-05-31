@@ -25,7 +25,7 @@ initFirebase();
 if (application.android) {
     application.on("launch", args => {
         console.log("onLaunch");
-        com.facebook.drawee.backends.pipeline.Fresco.initialize(application.android.context);
+
         application.android.on("activityStarted", ({activity}) => {
             console.log("onStarted");
             var window = activity.getWindow();

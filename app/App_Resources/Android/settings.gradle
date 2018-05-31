@@ -1,0 +1,51 @@
+import groovy.json.JsonSlurper
+
+task replaceSettings {
+    description "Replaces configuration settings."
+    def jsonSlurper = new JsonSlurper()
+    def pathToSettingsJson
+
+    if (project.hasProperty("appResourcesPath")) {
+        pathToSettingsJson = "$project.appResourcesPath/Android/settings.json";
+    } else {
+        pathToSettingsJson = "$rootDir/../../app/App_Resources/Android/settings.json";
+    }
+
+    def settingsJsonFile = file(pathToSettingsJson);
+    def settingsResolvedPath = settingsJsonFile.getAbsolutePath();
+
+    if(settingsJsonFile.exists())
+    {
+        println "\t Applying settings from $settingsResolvedPath"
+        String settingsGradleTemplate = """android {
+            defaultConfig {
+                applicationId = "__appId__"
+
+                if (__minSdkVersion__) {
+                    minSdkVersion = __minSdkVersion__
+                }
+
+                if (__targetSdkVersion__) {
+                    targetSdkVersion = __targetSdkVersion__
+                }
+            }
+        }"""
+
+        def settingsJsonContent = settingsJsonFile.getText("UTF-8");
+        def settingsMap = jsonSlurper.parseText(settingsJsonContent);
+
+        for ( setting in settingsMap ) {
+            def placeholder = "__${setting.key}__";
+            def settingValue = setting.value;
+
+            if (settingValue == null) {
+                settingValue = false
+            }
+
+            settingsGradleTemplate = settingsGradleTemplate.replaceAll( placeholder, settingValue as String);
+        }
+
+        new File( "$rootDir/temp_setting.gradle" ).write( settingsGradleTemplate, 'UTF-8');
+        apply from: "$rootDir/temp_setting.gradle";
+    }
+}
