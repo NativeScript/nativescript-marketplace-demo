@@ -12,7 +12,6 @@ if ((<any>global).TNS_WEBPACK) {
 
     global.registerModule("views/side-drawer-content/side-drawer-content", () => require("./views/side-drawer-content/side-drawer-content"));
 
-
     global.registerModule("nativescript-ui-sidedrawer", () => require("nativescript-ui-sidedrawer"))
     global.registerModule("nativescript-ui-chart", () => require("nativescript-ui-chart"))
     global.registerModule("nativescript-ui-listview", () => require("nativescript-ui-listview"))
@@ -20,3 +19,6 @@ if ((<any>global).TNS_WEBPACK) {
 
     global.registerModule("nativescript-fresco/nativescript-fresco", () => require("nativescript-fresco/nativescript-fresco"))
 }
+
+
+// views/side-drawer-content

@@ -21,7 +21,9 @@ export class MainPageViewModel extends observable.Observable {
 		super();
 		this.set("showOnlyNew", false);
 		this.set("selectedScreen", 0);
-        this.set("useListLayout", false);
+		this.set("useListLayout", false);
+
+		this.set("screenWidth", paltfrom.screen.mainScreen.widthDIPs)
 	}
 
     public toggleShowNew() {
