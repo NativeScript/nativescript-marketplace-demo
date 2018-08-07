@@ -1,31 +1,27 @@
-import * as observable from "data/observable";
-import { Page } from "ui/page";
-import * as frame from "ui/frame";
-import * as gestures from "ui/gestures";
+import * as observable from "tns-core-modules/data/observable";
+import { Page } from "tns-core-modules/ui/page";
+import * as gestures from "tns-core-modules/ui/gestures";
 import * as examplesVM from "../../view-models/examples-model"
 import * as mainPageVM from "../../view-models/main-page-view-model";
 import * as groupPageVM from "../../view-models/group-page-view-model";
-import * as examplePageVM from "../../view-models/example-info-page-view-model";
 import * as navigator from "../../common/navigator";
 import * as prof from "../../common/profiling";
-import { Color } from "color";
-import { View } from "ui/core/view";
+import { View } from "tns-core-modules/ui/core/view";
 import { grayTouch } from "../../common/effects";
-import * as platform from "platform";
-import { Image } from "ui/image";
-import { Label } from "ui/label";
-import { GridLayout } from "ui/layouts/grid-layout";
-import { WrapLayout } from "ui/layouts/wrap-layout";
-import { LayoutBase } from "ui/layouts/layout-base";
+import { Image } from "tns-core-modules/ui/image";
+import { Label } from "tns-core-modules/ui/label";
+import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout";
+import { WrapLayout } from "tns-core-modules/ui/layouts/wrap-layout";
+import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { onAfterIntro } from "../../common/firebase";
-import { ActionBar, NavigationButton, ActionItem } from "ui/action-bar";
+import { ActionBar, NavigationButton, ActionItem } from "tns-core-modules/ui/action-bar";
 import { UIBuilder } from "nativescript-tsx";
-import { isIOS, isAndroid } from "platform";
-import { ScrollView } from "ui/scroll-view";
-import { Repeater } from "ui/repeater";
-import { Button } from "ui/button";
-import { load } from "ui/builder";
+import { isIOS, isAndroid } from "tns-core-modules/platform";
+import { ScrollView } from "tns-core-modules/ui/scroll-view";
+import { Repeater } from "tns-core-modules/ui/repeater";
+import { Button } from "tns-core-modules/ui/button";
+import { load } from "tns-core-modules/ui/builder";
 
 export function onLoaded(args) {
     prof.stop("main-page");
