@@ -171,7 +171,7 @@ module.exports = env => {
                     test: /\.ts$/,
                     use: {
                         loader: "awesome-typescript-loader",
-                        options: { configFileName: "tsconfig.esm.json" },
+                        options: { configFileName: "tsconfig.tns.json" },
                     }
                 },
             ]

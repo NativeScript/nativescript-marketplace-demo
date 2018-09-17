@@ -12,7 +12,7 @@
             </GridLayout>
         </GridLayout>
 
-        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="http://docs.nativescript.org/getting-started">
+        <GridLayout class="drawer-external-link" tap="tapDrawerLink" tag="https://docs.nativescript.org/start/introduction">
             <GridLayout class="drawer-external-icon">
                 <Label text="Getting started" class="drawer-external-label" />
             </GridLayout>
