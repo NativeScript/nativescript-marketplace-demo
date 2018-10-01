@@ -9,7 +9,7 @@
     "highlight.js": "~9.12.0",
     "nativescript-fresco": "~4.0.0",
     "nativescript-iqkeyboardmanager": "~1.3.0",
-    "nativescript-plugin-firebase": "^6.8.1",
+    "nativescript-plugin-firebase": "~7.1.0",
     "nativescript-tsx": "0.0.7",
     "nativescript-ui-chart": "~3.9.0",
     "nativescript-ui-dataform": "~3.7.1",
