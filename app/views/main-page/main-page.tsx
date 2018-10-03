@@ -164,7 +164,7 @@ function createExamplesContent(page: Page) {
         itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" : "{{ (screenWidth - 13) / 2 }}"}
         itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" : "{{ (screenWidth - 13) * 0.5 + 50 }}"} />
 
-    const itemTemplate = () => <GridLayout class="example-intro" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" onTap={navigateToExample} automationText="{{ title }}">
+    const itemTemplate = () => <GridLayout class="example-intro" iosOverflowSafeArea="false" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" onTap={navigateToExample} automationText="{{ title }}">
         <Image src="{{ image }}" stretch="aspectFill" loadMode="async" />
         <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
         <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" class="example-new" loadMode="async" />
@@ -196,9 +196,9 @@ export const createPage = () => {
         <GridLayout id="intro-elements" onTap={enter}>
             <GridLayout id="intro-background" class="intro-background-intro" originY="0" />
 
-            <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
-            <GridLayout id="intro-logo-n" class="intro-logo-n-intro" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
-            <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
+            <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" iosOverflowSafeArea="false" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
+            <GridLayout id="intro-logo-n" class="intro-logo-n-intro" iosOverflowSafeArea="false" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
+            <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" iosOverflowSafeArea="false" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
 
             <Label id="intro-text-one"
                 class="intro-text-one-intro"
