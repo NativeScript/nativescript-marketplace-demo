@@ -1,22 +1,23 @@
-import * as pages from "ui/page";
-import * as buttonModule from "ui/button";
-import * as imageModule from "ui/image";
+import * as pages from "tns-core-modules/ui/page";
+import { Page } from "tns-core-modules/ui/page";
+import * as buttonModule from "tns-core-modules/ui/button";
+import * as imageModule from "tns-core-modules/ui/image";
 import * as imageSourceModule from "image-source";
 import * as utils from "utils/utils";
 import * as gridModule from "ui/layouts/grid-layout";
 import * as navigator from "../common/navigator";
-import * as view from "ui/core/view";
+import * as view from "tns-core-modules/ui/core/view";
 import * as platform from "platform";
 import * as prof from "../common/profiling";
-import * as builder from "ui/builder";
-import { View } from "ui/core/view"
+import * as builder from "tns-core-modules/ui/builder";
+import { View } from "tns-core-modules/ui/core/view"
 import {knownFolders} from "file-system";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 var OVERLAY_ELEVATION = 12;
 var CURVE = (platform.device.os === platform.platformNames.android) ? new android.view.animation.AccelerateDecelerateInterpolator() : UIViewAnimationCurve.UIViewAnimationCurveEaseInOut;
 
-export class ExamplePage extends pages.Page {
+export class ExamplePage extends Page {
 
     private sidedrawer: RadSideDrawer;
 

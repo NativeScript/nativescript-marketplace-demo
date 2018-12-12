@@ -1,5 +1,7 @@
-import * as observable from "tns-core-modules/data/observable";
+import { EventData } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { LayoutBase, Color, Length, VerticalAlignment, Visibility } from "tns-core-modules/ui/layouts/layout-base";
 import * as gestures from "tns-core-modules/ui/gestures";
 import * as examplesVM from "../../view-models/examples-model"
 import * as mainPageVM from "../../view-models/main-page-view-model";
@@ -12,16 +14,14 @@ import { Image } from "tns-core-modules/ui/image";
 import { Label } from "tns-core-modules/ui/label";
 import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout";
 import { WrapLayout } from "tns-core-modules/ui/layouts/wrap-layout";
-import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { onAfterIntro } from "../../common/firebase";
 import { ActionBar, NavigationButton, ActionItem } from "tns-core-modules/ui/action-bar";
-import { UIBuilder } from "nativescript-tsx";
 import { isIOS, isAndroid } from "tns-core-modules/platform";
 import { ScrollView } from "tns-core-modules/ui/scroll-view";
 import { Repeater } from "tns-core-modules/ui/repeater";
 import { Button } from "tns-core-modules/ui/button";
 import { load } from "tns-core-modules/ui/builder";
+import { UIBuilder } from "nativescript-tsx";
 
 export function onLoaded(args) {
     prof.stop("main-page");
@@ -33,7 +33,7 @@ export function onLoaded(args) {
     }, 3500);
 }
 
-export function onNavigatingTo(args: observable.EventData) {
+export function onNavigatingTo(args: EventData) {
     (args.object as View).bindingContext = mainPageVM.getInstance();
 }
 
@@ -161,19 +161,18 @@ function showActionBar(page: Page) {
 function createExamplesContent(page: Page) {
     const itemsLayout = <WrapLayout id="examples-wrap-layout"
         horizontalAlignment="left"
-        itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" : "{{ (screenWidth - 13) / 2 }}"}
-        itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" : "{{ (screenWidth - 13) * 0.5 + 50 }}"} />
-
-    const itemTemplate = () => <GridLayout class="example-intro" iosOverflowSafeArea="false" margin="6" rows="* 54" backgroundColor="white" touch="tileTouch" onTap={navigateToExample} automationText="{{ title }}">
+        itemWidth={isAndroid ? "{{ (screenWidth - 20) / 2 }}" as Length : "{{ (screenWidth - 13) / 2 }}" as Length}
+        itemHeight={isAndroid ? "{{ (screenWidth - 20) * 0.5 + 50 }}" as Length : "{{ (screenWidth - 13) * 0.5 + 50 }}" as Length} />
+    const itemTemplate = () => <GridLayout class="example-intro" iosOverflowSafeArea={false} margin="6" rows="* 54" backgroundColor="white" touch={tileTouch} onTap={navigateToExample} automationText="{{ title }}">
         <Image src="{{ image }}" stretch="aspectFill" loadMode="async" />
-        <Label row="1" textWrap="true" horizontalAlignment="center" verticalAlignment="center" text="{{ title }}" class="example-label" />
-        <Image src="res://ic_new" visibility="{{ isNew ? 'visible' : 'collapsed' }}" stretch="none" class="example-new" loadMode="async" />
+        <Label row={1} textWrap={true} horizontalAlignment="center" verticalAlignment={"center" as VerticalAlignment} text="{{ title }}" class="example-label" />
+        <Image src="res://ic_new" visibility={"{{ isNew ? 'visible' : 'collapsed' }}" as Visibility} stretch="none" class="example-new" loadMode="async" />
     </GridLayout>;
 
     const examples = <GridLayout class="page-content" margin={isAndroid ? "74 0 0 0" : "0"}>
         <ScrollView id="content" opacity={0}>
             <GridLayout>
-                <Repeater items="{{ featuredExamples }}" margin={isAndroid ? 10 : 6} itemsLayout={itemsLayout} itemTemplate={itemTemplate} />
+                <Repeater items={["{{ featuredExamples }}"]} margin={isAndroid ? 10 : 6} itemsLayout={itemsLayout} itemTemplate={itemTemplate} />
             </GridLayout>
         </ScrollView>
     </GridLayout>;
@@ -194,48 +193,48 @@ function createDrawerContent(args) {
 export const createPage = () => {
     const mainContent = <GridLayout id="content-root">
         <GridLayout id="intro-elements" onTap={enter}>
-            <GridLayout id="intro-background" class="intro-background-intro" originY="0" />
+            <GridLayout id="intro-background" class="intro-background-intro" originY={0} />
 
-            <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" iosOverflowSafeArea="false" backgroundColor="#3C5AFD" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" borderRadius="20" />
-            <GridLayout id="intro-logo-n" class="intro-logo-n-intro" iosOverflowSafeArea="false" backgroundImage="res://logo_blue_bg" width="93" height="93" horizontalAlignment="center" verticalAlignment="center" />
-            <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" iosOverflowSafeArea="false" backgroundImage="res://logo_text" width="199" height="31" horizontalAlignment="center" verticalAlignment="center" margin="160 0 0 0" />
+            <GridLayout id="intro-logo-bg" class="intro-logo-bg-intro" iosOverflowSafeArea={false} backgroundColor="#3C5AFD" width={93} height={93} horizontalAlignment="center" verticalAlignment={"center" as VerticalAlignment} borderRadius="20" />
+            <GridLayout id="intro-logo-n" class="intro-logo-n-intro" iosOverflowSafeArea={false} backgroundImage="res://logo_blue_bg" width={93} height={93} horizontalAlignment="center" verticalAlignment={"center" as VerticalAlignment} />
+            <GridLayout id="intro-logo-ns" class="intro-logo-ns-intro" iosOverflowSafeArea={false} backgroundImage="res://logo_text" width={199} height={31} horizontalAlignment="center" verticalAlignment={"center" as VerticalAlignment} margin="160 0 0 0" />
 
             <Label id="intro-text-one"
                 class="intro-text-one-intro"
                 text="Build truly&#xA;native apps with&#xA;JavaScript"
-                fontSize="37"
+                fontSize={37}
                 horizontalAlignment="center"
-                verticalAlignment="center"
-                textWrap="true"
-                color="white"
+                verticalAlignment={"center" as VerticalAlignment}
+                textWrap={true}
+                color={new Color("white")}
                 textAlignment="center" />
             <Label id="intro-text-two"
                 class="intro-text-two-intro"
                 text="Develop native cross platform&#xA;apps from a single code base"
-                fontSize="19"
+                fontSize={19}
                 horizontalAlignment="center"
-                verticalAlignment="center"
-                textWrap="true"
-                color="#8DA1AB"
+                verticalAlignment={"center" as VerticalAlignment}
+                textWrap={true}
+                color={new Color("#8DA1AB")}
                 textAlignment="center" />
 
             <Button id="intro-get-started"
                 class="intro-get-started-intro"
                 text="GET STARTED"
                 backgroundColor="#1DBE67"
-                color="white"
+                color={new Color("white")}
                 borderRadius="25"
-                height="50"
-                width="234"
-                fontSize="18"
+                height={50}
+                width={234}
+                fontSize={18}
                 tap={tapGetStarted} />
             <Label id="intro-version"
                 class="intro-version-intro"
                 text="version 4.0.0"
-                fontSize="14"
+                fontSize={14}
                 horizontalAlignment="center"
-                verticalAlignment="center"
-                color="white"
+                verticalAlignment={"center" as VerticalAlignment}
+                color={new Color("white")}
                 textAlignment="center" />
         </GridLayout>
     </GridLayout>;
@@ -247,16 +246,16 @@ export const createPage = () => {
             automationText="SidebarMenu" />
         navigationButton.on("tap", showSlideout);
         actionBar = <ActionBar automationText="ActionBar" opacity={0} navigationButton={navigationButton}>
-            <Image id="actionbar-logo" src="res://logo_main" stretch="none" horizontalAlignment="center" verticalAlignment="center" />
+            <Image id="actionbar-logo" src="res://logo_main" stretch="none" horizontalAlignment="center" verticalAlignment={"center" as VerticalAlignment} />
         </ActionBar>
     } else {
         actionBar = <ActionBar automationText="ActionBar">
             <GridLayout>
-                <Image id="actionbar-logo" src="res://logo_main" stretch="none" width="130" height="32" margin="6 0 0 0" />
+                <Image id="actionbar-logo" src="res://logo_main" stretch="none" width={130} height={32} margin="6 0 0 0" />
             </GridLayout>
         </ActionBar>;
         actionBar.actionItems.addItem(<ActionItem id="actionbar-menu" position="left" automationText="SidebarMenu">
-            <Image src="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" width="22" height="22" margin="0, 8, 0, -8" />
+            <Image src="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" width={22} height={22} margin="0, 8, 0, -8" />
         </ActionItem>);
         actionBar.actionItems.getItemAt(0).on("tap", showSlideout);
     }
@@ -267,7 +266,7 @@ export const createPage = () => {
         class="qsf-page"
         onNavigatingTo={onNavigatingTo}
         onLoaded={onLoaded}
-        backgroundSpanUnderStatusBar="true"
+        backgroundSpanUnderStatusBar={true}
         actionBarHidden={isIOS}
         onTap={tapPage}
         actionBar={actionBar}>
