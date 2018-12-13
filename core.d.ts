@@ -30,7 +30,7 @@ declare module "tns-core-modules/ui/page" {
 
 declare module "tns-core-modules/ui/button" {
     interface Button {
-        props: Optional<this>, tap(args?:any);
+        props: Optional<this>, tap(args?: any);
     }
 }
 
@@ -42,7 +42,7 @@ declare module "tns-core-modules/ui/layouts/wrap-layout" {
 
 declare module "tns-core-modules/ui/layouts/grid-layout" {
     interface GridLayout {
-        props: Optional<this>, rows, onTap(args?:any, event?: any), touch(args?:any);
+        props: Optional<this>, rows, onTap(args?: any, event?: any), touch(args?: any);
     }
 }
 

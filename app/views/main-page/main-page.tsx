@@ -172,7 +172,7 @@ function createExamplesContent(page: Page) {
     const examples = <GridLayout class="page-content" margin={isAndroid ? "74 0 0 0" : "0"}>
         <ScrollView id="content" opacity={0}>
             <GridLayout>
-                <Repeater items={["{{ featuredExamples }}"]} margin={isAndroid ? 10 : 6} itemsLayout={itemsLayout} itemTemplate={itemTemplate} />
+                <Repeater items={page.bindingContext.featuredExamples} margin={isAndroid ? 10 : 6} itemsLayout={itemsLayout} itemTemplate={itemTemplate} />
             </GridLayout>
         </ScrollView>
     </GridLayout>;
