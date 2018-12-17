@@ -190,8 +190,11 @@ module.exports = env => {
                 {
                     test: /\.ts$/,
                     use: {
-                        loader: "awesome-typescript-loader",
-                        options: { configFileName: "tsconfig.tns.json" },
+                        loader: "ts-loader",
+                        options: {
+                            configFile: "tsconfig.tns.json",
+                            allowTsInNodeModules: true,
+                        },
                     }
                 },
             ]
