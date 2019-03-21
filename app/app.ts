@@ -41,7 +41,6 @@ if (application.android) {
 
 if (application.ios) {
     application.on("launch", args => {
-        utils.ios.getter(UIApplication, UIApplication.sharedApplication).statusBarStyle = UIStatusBarStyle.UIStatusBarStyleLightContent;
         setTimeout(() => {
             utils.ios.getter(UIApplication, UIApplication.sharedApplication).keyWindow.backgroundColor = utils.ios.getter(UIColor, UIColor.blackColor);
         }, 1);
