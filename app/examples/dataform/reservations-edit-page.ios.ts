@@ -119,7 +119,7 @@ export function setupEditorGuests(editor) {
     applyLabelOffset(editor, 12);
     applySeparatorOffset(editor, 36);
     applyTintColor(editor, colorAccent);
-    applyValueOffset(editor, -64);
+    applyValueOffset(editor, 60);
 }
 
 export function setupEditorOrigin(editor) {
@@ -145,12 +145,12 @@ export function applyLabelOffset(editor, value) {
 }
 
 export function applyEditorOffset(editor, value) {
-    editor.style.editorOffset = { horizontal: value, vertical: 0 };
+    editor.insets = { left:value, right:value };
 }
 
 export function applyValueOffset(editor, value) {
-    var labelDef = editor.gridLayout.definitionForView(editor.valueLabel);
-    labelDef.contentOffset = { horizontal: value, vertical: 0 };
+    const editorView = editor.editorCore;
+    editorView.labelOffset = value;
 }
 
 export function applyTintColor(editor, value) {
