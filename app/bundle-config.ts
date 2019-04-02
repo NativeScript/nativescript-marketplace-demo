@@ -17,7 +17,7 @@ if ((<any>global).TNS_WEBPACK) {
     global.registerModule("nativescript-ui-listview", () => require("nativescript-ui-listview"))
     global.registerModule("nativescript-ui-dataform", () => require("nativescript-ui-dataform"))
 
-    global.registerModule("nativescript-fresco/nativescript-fresco", () => require("nativescript-fresco/nativescript-fresco"))
+    global.registerModule("nativescript-image", () => require("nativescript-image"))
 }
 
 

@@ -2,7 +2,7 @@
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:lv="nativescript-ui-listview"
         xmlns:examples="examples/example-base-page"
-        xmlns:f="nativescript-fresco/nativescript-fresco"
+        xmlns:img="nativescript-image"
         navigatingTo="pageNavigatingTo">
     <Page.actionBar>
         <ActionBar title="Item layouts" automationText="ActionBar">
@@ -32,8 +32,8 @@
             <GridLayout rows="*, auto">
                 <android>
                     <!-- To use built in async: <Image src="{{ photo ? 'res://' + photo : 'res://'}}" loadMode="async" stretch="aspectFill" /> -->
-                    <f:FrescoDrawee
-                            imageUri="{{ photo ? 'res://' + photo : null }}"
+                    <img:Img
+                            src="{{ photo ? 'res://' + photo : null }}"
                             height="{{ $parents['RadListView'].isLinearActive, $parents['RadListView'].isLinearActive ? '156' : '106' }}" />
                 </android>
                 <ios>
