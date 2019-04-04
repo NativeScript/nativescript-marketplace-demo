@@ -1,5 +1,6 @@
 import "./bundle-config";
 import * as application from "application";
+import * as imageModule from 'nativescript-image';
 // import * as frame from "ui/frame";
 // import * as exampleBase from "./examples/example-base-page";
 // import * as prof from "./common/profiling";
@@ -25,7 +26,7 @@ initFirebase();
 if (application.android) {
     application.on("launch", args => {
         console.log("onLaunch");
-        com.facebook.drawee.backends.pipeline.Fresco.initialize(application.android.context);
+        imageModule.initialize();
         application.android.on("activityStarted", ({activity}) => {
             console.log("onStarted");
             var window = activity.getWindow();
