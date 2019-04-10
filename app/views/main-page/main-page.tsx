@@ -21,7 +21,6 @@ import { ScrollView } from "tns-core-modules/ui/scroll-view";
 import { Repeater } from "tns-core-modules/ui/repeater";
 import { Button } from "tns-core-modules/ui/button";
 import { load } from "tns-core-modules/ui/builder";
-import { UIBuilder } from "nativescript-tsx";
 
 export function onLoaded(args) {
     prof.stop("main-page");

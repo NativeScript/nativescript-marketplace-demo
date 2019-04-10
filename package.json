@@ -2,10 +2,10 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-android": {
-      "version": "next"
+      "version": "5.4.0-2019-04-08-180559-01"
     },
     "tns-ios": {
-      "version": "next"
+      "version": "5.4.0-2019-04-03-180044-02"
     }
   },
   "dependencies": {
@@ -13,7 +13,6 @@
     "nativescript-image": "~2.1.0",
     "nativescript-iqkeyboardmanager": "~1.3.0",
     "nativescript-plugin-firebase": "~7.4.6",
-    "nativescript-tsx": "0.0.7",
     "nativescript-ui-chart": "~3.11.0",
     "nativescript-ui-dataform": "~3.9.1",
     "nativescript-ui-listview": "~5.0.0",

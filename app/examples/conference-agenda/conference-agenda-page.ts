@@ -46,7 +46,7 @@ export function onBackgroundLoaded(args: EventData) {
 export function changeCellBackground(args: ItemEventData) {
     if (args.ios){
         var cell = <UITableViewCell>args.ios;
-        cell.backgroundColor = utils.ios.getter(UIColor, UIColor.clearColor);
+        cell.backgroundColor = UIColor.clearColor;
     }
 }
 

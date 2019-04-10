@@ -154,7 +154,7 @@ export function openLink(view: any) {
     if (url) {
         if (isIOS) {
             var nsUrl = NSURL.URLWithString(url);
-            var sharedApp = utils.ios.getter(UIApplication, UIApplication.sharedApplication);
+            var sharedApp = UIApplication.sharedApplication;
             if (sharedApp.canOpenURL(nsUrl)) {
                 sharedApp.openURL(nsUrl);
             }

@@ -43,7 +43,7 @@ if (application.android) {
 if (application.ios) {
     application.on("launch", args => {
         setTimeout(() => {
-            utils.ios.getter(UIApplication, UIApplication.sharedApplication).keyWindow.backgroundColor = utils.ios.getter(UIColor, UIColor.blackColor);
+            UIApplication.sharedApplication.keyWindow.backgroundColor = UIColor.blackColor;
         }, 1);
     });
 }
