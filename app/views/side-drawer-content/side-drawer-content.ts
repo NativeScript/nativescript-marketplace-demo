@@ -4,11 +4,10 @@ import * as navigator from "../../common/navigator"
 import * as gestures from "ui/gestures";
 import { groups } from "../../view-models/examples-model"
 import * as firebase from "../../common/firebase";
-import { topmost } from "ui/frame"
 import { grayTouch } from "../../common/effects";
 import * as application from "application";
-import * as applicationSettings from "application-settings";
 import { Observable } from "data/observable";
+import { getRootView } from "tns-core-modules/application"
 
 class SidedrawerViewModel extends Observable {
     public groups = groups;
@@ -24,7 +23,7 @@ export function tileTouch(args: gestures.TouchGestureEventData) {
 }
 
 function sideDrawer(): any {
-    return topmost().currentPage.getViewById("side-drawer");
+    return getRootView();
 }
 
 function closeDrawer() {
@@ -48,16 +47,16 @@ export function navigateToExampleGroup(args) {
     navigator.navigateToExampleGroup(context);
 }
 
-export function showSlideout(args) {
+export function showSlideout() {
     toggleDrawerState();
 }
 
-export function tapHome(args) {
+export function tapHome() {
     closeDrawer();
     navigator.navigateToHome();
 }
 
-export function tapAbout(args) {
+export function tapAbout() {
     closeDrawer();
     if (application.android) {
         setTimeout(() => navigator.navigateToAbout(), 600);

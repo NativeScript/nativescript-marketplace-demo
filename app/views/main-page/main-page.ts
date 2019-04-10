@@ -10,16 +10,15 @@ import * as navigator from "../../common/navigator";
 import * as prof from "../../common/profiling";
 import { View } from "tns-core-modules/ui/core/view";
 import { grayTouch } from "../../common/effects";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout";
 import { onAfterIntro } from "../../common/firebase";
 import { isIOS } from "tns-core-modules/platform";
-import { load } from "tns-core-modules/ui/builder";
+import { getRootView } from "tns-core-modules/application"
 
 export function onLoaded(args) {
     prof.stop("main-page");
     let page = (args.object as View).page as Page;
 
-    setTimeout(() => {      
+    setTimeout(() => {
         (page as any).canEnter = true;
     }, 3500);
 }
@@ -32,20 +31,11 @@ export function toggleWrapLayout(e: any) {
     e.object.bindingContext.toggleWrapLayout();
 }
 
-export function createDrawerContent(args) {
-    const radSideDrawer = args.object as RadSideDrawer;
-    const radSideDrawerGrid = radSideDrawer.drawerContent as GridLayout;
-    if (!radSideDrawerGrid["lateContentAdded"]) {
-        const radSideDrawerContent = load({ path: "~/views/side-drawer-content", name: "side-drawer-content", page: radSideDrawer.page });
-        radSideDrawerGrid.addChild(radSideDrawerContent);
-        radSideDrawerGrid["lateContentAdded"] = true;
-    }
-}
-
 export function navigateToExampleGroup(args: gestures.GestureEventData) {
     prof.start("group");
-    let page = (args.object as View).page as Page;
-    (page.getViewById("side-drawer") as RadSideDrawer).closeDrawer();
+
+    getRootSideDrawer().closeDrawer();
+
     var exampleGroup = (args as any).object.bindingContext as examplesVM.ExampleGroup;
     var context = new groupPageVM.GroupPageViewModel(exampleGroup);
     navigator.navigateToExampleGroup(context);
@@ -65,30 +55,28 @@ export function navigateToExample(args: gestures.GestureEventData) {
         return;
     }
     prof.start("example");
-    (page.getViewById("side-drawer") as RadSideDrawer).closeDrawer();
+
+    getRootSideDrawer().closeDrawer();
+
     var example = (args as any).object.bindingContext as examplesVM.Example;
     navigator.navigateToExample(example, examplesVM.featuredExamples);
 }
 
 export function showSlideout(args) {
-    let page = (args.object as View).page as Page;
-    (page.getViewById("side-drawer") as RadSideDrawer).toggleDrawerState();
+    getRootSideDrawer().toggleDrawerState();
 }
 
 export function tapHome(args) {
-    let page = (args.object as View).page as Page;
-    (page.getViewById("side-drawer") as RadSideDrawer).closeDrawer();
+    getRootSideDrawer().closeDrawer();
 }
 
 export function tapAbout(args) {
-    let page = (args.object as View).page as Page;
-    (page.getViewById("side-drawer") as RadSideDrawer).closeDrawer();
+    getRootSideDrawer().closeDrawer();
     navigator.navigateToAbout();
 }
 
 export function tapDrawerLink(args) {
-    let page = (args.object as View).page as Page;
-    (page.getViewById("side-drawer") as RadSideDrawer).closeDrawer();
+    getRootSideDrawer().closeDrawer();
     navigator.openLink(args.object);
 }
 
@@ -120,6 +108,11 @@ export function enter(args) {
     }, 1500);
     showActionBar(page);
 }
+
+function getRootSideDrawer(): RadSideDrawer {
+    return getRootView() as RadSideDrawer;
+}
+
 function startEnterAnimation(page: Page) {
     ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started", "intro-version"]
         .forEach(id => page.getViewById(id).className = id + "-enter");

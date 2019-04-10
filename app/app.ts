@@ -49,5 +49,4 @@ if (application.ios) {
 }
 
 // prof.start("main-page");
-
-application.run("app-root");
+application.run({ moduleName: "app-root" });
