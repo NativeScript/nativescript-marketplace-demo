@@ -35,7 +35,8 @@
         <ActionBar automationText="ActionBar" 
             opacity="0">
             <NavigationButton icon="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" 
-                automationText="SidebarMenu" />
+                automationText="SidebarMenu"
+                tap="showSlideout" />
             <Image id="actionbar-logo" 
                 src="res://logo_main" 
                 stretch="none" 

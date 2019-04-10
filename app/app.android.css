@@ -62,7 +62,7 @@
     margin: 0 16 0 60;
 }
 
-Button{
+Button {
     /* Clearing material design from buttons. */
     border-width: 0.0001;
     border-color: rgba(255, 255, 255, 0);

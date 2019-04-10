@@ -2,14 +2,9 @@ import * as examplesVM from "../view-models/examples-model";
 import * as groupVM from "../view-models/group-page-view-model";
 import * as exampleInfoPageVM from "../view-models/example-info-page-view-model";
 import * as frame from "ui/frame";
-import * as viewModule from "ui/core/view";
-import * as platform from "platform";
-import * as prof from "../common/profiling";
-import * as utils from "utils/utils";
 import { isIOS, isAndroid } from "platform";
 
 function traceNavigateTo(to: string, context?: string): string {
-    var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : ""); // this can be used for analytics
     return to;
 }
 
