@@ -60,9 +60,9 @@
             reorderMode="Drag"
             itemSwipeProgressStarted="{{onStartSwipeCell}}"
             itemSwipeProgressEnded="{{onCellSwiped}}"
+            swipeActions="{{isReorderActive ? false : true}}"
             itemTap="{{ onItemTap }}"
-            itemHold="{{ onItemHold }}"
-            itemSwipe="{{isReorderActive ? false : true}}">
+            itemHold="{{ onItemHold }}">
 
         <lv:RadListView.listViewLayout>
             <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"/>

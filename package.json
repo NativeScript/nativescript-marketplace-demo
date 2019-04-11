@@ -1,4 +1,5 @@
 {
+  "repository": "https://github.com/NativeScript/nativescript-marketplace-demo.git",
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-android": {
@@ -11,19 +12,18 @@
   "dependencies": {
     "highlight.js": "~9.12.0",
     "nativescript-image": "~2.1.0",
-    "nativescript-iqkeyboardmanager": "~1.3.0",
-    "nativescript-plugin-firebase": "~7.4.6",
-    "nativescript-ui-chart": "~3.11.0",
-    "nativescript-ui-dataform": "~3.9.1",
-    "nativescript-ui-listview": "~5.0.0",
-    "nativescript-ui-sidedrawer": "~5.0.1",
+    "nativescript-iqkeyboardmanager": "~1.4.0",
+    "nativescript-plugin-firebase": "~8.2.0",
+    "nativescript-ui-chart": "~4.0.0",
+    "nativescript-ui-dataform": "~4.0.0",
+    "nativescript-ui-listview": "~6.1.0",
+    "nativescript-ui-sidedrawer": "~6.0.0",
     "tns-core-modules": "next"
   },
   "devDependencies": {
     "nativescript-dev-typescript": "next",
     "nativescript-dev-webpack": "next",
-    "tns-platform-declarations": "^5.0.5",
-    "typescript": "~3.1.1"
+    "tns-platform-declarations": "^5.0.0"
   },
   "license": "Apache-2.0",
   "scripts": {
