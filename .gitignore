@@ -26,3 +26,4 @@ times.html
 
 npm-debug.log
 package-lock.json
+webpack.config.js
