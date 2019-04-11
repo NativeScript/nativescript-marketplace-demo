@@ -1,11 +1,11 @@
-import * as pages from "ui/page";
-import * as view from "ui/core/view";
-import * as gestures from "ui/gestures";
+import * as pages from "tns-core-modules/ui/page";
+import * as view from "tns-core-modules/ui/core/view";
+import * as gestures from "tns-core-modules/ui/gestures";
 import * as navigator from "../common/navigator";
 import * as examplesVM from "../view-models/examples-model"
 import * as codePageVM from "../view-models/code-page-view-model"
-import * as dialogs from "ui/dialogs";
-import * as observable from "data/observable";
+import * as dialogs from "tns-core-modules/ui/dialogs";
+import * as observable from "tns-core-modules/data/observable";
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
 export function pageNavigatingTo(args: pages.NavigatedData) {

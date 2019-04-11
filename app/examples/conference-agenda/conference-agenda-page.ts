@@ -1,15 +1,15 @@
-import { EventData, Observable } from "data/observable";
-import { Page } from "ui/page";
-import { View } from "ui/core/view";
-import { Color } from "color";
-import { ListView, ItemEventData } from "ui/list-view";
-import { GestureEventData } from "ui/gestures";
-import { SearchBar } from "ui/search-bar";
-import * as platform from "platform";
+import { EventData, Observable } from "tns-core-modules/data/observable";
+import { Page } from "tns-core-modules/ui/page";
+import { View } from "tns-core-modules/ui/core/view";
+import { Color } from "tns-core-modules/color";
+import { ListView, ItemEventData } from "tns-core-modules/ui/list-view";
+import { GestureEventData } from "tns-core-modules/ui/gestures";
+import { SearchBar } from "tns-core-modules/ui/search-bar";
+import * as platform from "tns-core-modules/platform";
 import * as navigator from "../../common/navigator";
 import * as linearGradient from "../../common/linear-gradient";
 import * as conferenceViewModel from "./conference-view-model";
-import * as utils from "utils/utils";
+import * as utils from "tns-core-modules/utils/utils";
 
 export function pageNavigatingTo(args: EventData) {
     var page = <Page>args.object;

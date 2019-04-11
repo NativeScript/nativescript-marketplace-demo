@@ -1,11 +1,11 @@
 import "./bundle-config";
-import * as application from "application";
+import * as application from "tns-core-modules/application";
 import * as imageModule from 'nativescript-image';
-// import * as frame from "ui/frame";
+// import * as frame from "tns-core-modules/ui/frame";
 // import * as exampleBase from "./examples/example-base-page";
 // import * as prof from "./common/profiling";
 // import * as trace from "trace";
-import * as utils from "utils/utils";
+import * as utils from "tns-core-modules/utils/utils";
 // import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
 

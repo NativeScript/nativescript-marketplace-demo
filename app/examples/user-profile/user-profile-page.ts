@@ -1,11 +1,11 @@
-import { EventData, Observable } from "data/observable";
-import * as observable from "data/observable";
-import { Page } from "ui/page";
-import { View } from "ui/core/view";
-import { EditableTextBase } from "ui/editable-text-base";
-import { Color } from "color";
-import * as platform from "platform";
-import * as application from "application"
+import { EventData, Observable } from "tns-core-modules/data/observable";
+import * as observable from "tns-core-modules/data/observable";
+import { Page } from "tns-core-modules/ui/page";
+import { View } from "tns-core-modules/ui/core/view";
+import { EditableTextBase } from "tns-core-modules/ui/editable-text-base";
+import { Color } from "tns-core-modules/color";
+import * as platform from "tns-core-modules/platform";
+import * as application from "tns-core-modules/application"
 import * as navigator from "../../common/navigator";
 import * as linearGradient from "../../common/linear-gradient";
  

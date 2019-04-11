@@ -1,12 +1,12 @@
 import { ExampleGroup } from "../../view-models/examples-model";
 import { GroupPageViewModel } from "../../view-models/group-page-view-model"
 import * as navigator from "../../common/navigator"
-import * as gestures from "ui/gestures";
+import * as gestures from "tns-core-modules/ui/gestures";
 import { groups } from "../../view-models/examples-model"
 import * as firebase from "../../common/firebase";
 import { grayTouch } from "../../common/effects";
-import * as application from "application";
-import { Observable } from "data/observable";
+import * as application from "tns-core-modules/application";
+import { Observable } from "tns-core-modules/data/observable";
 import { getRootView } from "tns-core-modules/application"
 
 class SidedrawerViewModel extends Observable {

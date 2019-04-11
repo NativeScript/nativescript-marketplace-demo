@@ -1,6 +1,6 @@
-import { Observable } from "data/observable";
-import { ObservableArray } from "data/observable-array";
-import * as appModule from "application";
+import { Observable } from "tns-core-modules/data/observable";
+import { ObservableArray }  from "tns-core-modules/data/observable-array";
+import * as appModule from "tns-core-modules/application";
 
 export class ReservationsViewModel extends Observable {
 

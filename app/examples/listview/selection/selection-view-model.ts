@@ -1,9 +1,9 @@
-import { EventData, Observable } from "data/observable";
-import { ObservableArray } from "data/observable-array";
+import { EventData, Observable } from "tns-core-modules/data/observable";
+import { ObservableArray }  from "tns-core-modules/data/observable-array";
 import { RadListView, ListViewEventData } from "nativescript-ui-listview";
-import { topmost as topmostFrame } from "ui/frame";
-import * as utils from "utils/utils";
-import * as platform from "platform";
+import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
+import * as utils from "tns-core-modules/utils/utils";
+import * as platform from "tns-core-modules/platform";
 
 var DELTA = 0.1;
 

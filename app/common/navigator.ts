@@ -1,8 +1,8 @@
 import * as examplesVM from "../view-models/examples-model";
 import * as groupVM from "../view-models/group-page-view-model";
 import * as exampleInfoPageVM from "../view-models/example-info-page-view-model";
-import * as frame from "ui/frame";
-import { isIOS, isAndroid } from "platform";
+import * as frame from "tns-core-modules/ui/frame";
+import { isIOS, isAndroid } from "tns-core-modules/platform";
 
 function traceNavigateTo(to: string, context?: string): string {
     return to;

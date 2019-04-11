@@ -1,6 +1,6 @@
 /// <reference path="../typings/highlightjs.d.ts" />
-import * as observable from "data/observable";
-import * as fs from "file-system";
+import * as observable from "tns-core-modules/data/observable";
+import * as fs from "tns-core-modules/file-system";
 import * as examplesVM from "./examples-model";
 import * as hljs from "highlight.js/lib/index";
 hljs.configure({

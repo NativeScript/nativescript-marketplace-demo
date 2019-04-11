@@ -1,9 +1,9 @@
 import * as dataFormModule from "nativescript-ui-dataform";
 import * as model from "./reservations-view-model";
 import * as navigator from "../../common/navigator";
-import { ObservableArray } from "data/observable-array";
+import { ObservableArray }  from "tns-core-modules/data/observable-array";
 import { RadListView, ListViewEventData } from "nativescript-ui-listview";
-import { topmost as topmostFrame } from "ui/frame";
+import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
 
 let viewModel;
 

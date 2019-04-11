@@ -1,8 +1,8 @@
 import * as model from "./listview-reorder-model";
 import * as listViewModule from "nativescript-ui-listview";
-import * as viewModule from 'ui/core/view';
-import * as utils from "utils/utils";
-import * as application from "application";
+import * as viewModule from 'tns-core-modules/ui/core/view';
+import * as utils from "tns-core-modules/utils/utils";
+import * as application from "tns-core-modules/application";
 import * as navigator from "../../../common/navigator";
 
 let viewModel = new model.ListViewReorderModel();

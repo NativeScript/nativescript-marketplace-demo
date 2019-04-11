@@ -1,9 +1,9 @@
 
-import * as bindable from "ui/core/bindable";
-import * as observable from "data/observable";
-import * as builder from "ui/builder";
-import * as app from "application";
-import * as utils from "utils/utils";
+import * as bindable from "tns-core-modules/ui/core/bindable";
+import * as observable from "tns-core-modules/data/observable";
+import * as builder from "tns-core-modules/ui/builder";
+import * as app from "tns-core-modules/application";
+import * as utils from "tns-core-modules/utils/utils";
 
 
 export class ChartExamplesDataModel {

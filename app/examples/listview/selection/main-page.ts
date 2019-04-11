@@ -1,11 +1,11 @@
-import { EventData } from "data/observable";
-import { Page, NavigatedData } from "ui/page";
-import { View } from "ui/core/view";
+import { EventData } from "tns-core-modules/data/observable";
+import { Page, NavigatedData } from "tns-core-modules/ui/page";
+import { View } from "tns-core-modules/ui/core/view";
 import { RadListView } from "nativescript-ui-listview";
 import { SelectionViewModel, BlogPostItemData } from "./selection-view-model";
 import * as navigator from "../../../common/navigator";
-import * as platform from "platform";
-import { topmost as topmostFrame } from "ui/frame";
+import * as platform from "tns-core-modules/platform";
+import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
 
 export function listViewLoaded(args: EventData) {
     var listView = <RadListView>args.object;

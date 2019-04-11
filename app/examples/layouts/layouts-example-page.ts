@@ -1,11 +1,11 @@
-import * as observable from "data/observable";
-import * as gridModule from "ui/layouts/grid-layout";
-import * as utils from "utils/utils";
-import {Page} from "ui/page";
-import {Color} from "color";
+import * as observable from "tns-core-modules/data/observable";
+import * as gridModule from "tns-core-modules/ui/layouts/grid-layout";
+import * as utils from "tns-core-modules/utils/utils";
+import { Page } from "tns-core-modules/ui/page";
+import { Color } from "tns-core-modules/color";
 import * as navigator from "../../common/navigator";
-import { View } from "ui/core/view";
-import * as tabViewModule from "ui/tab-view";
+import { View } from "tns-core-modules/ui/core/view";
+import * as tabViewModule from "tns-core-modules/ui/tab-view";
 
 let page: Page;
 

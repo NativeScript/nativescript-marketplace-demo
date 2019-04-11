@@ -1,8 +1,8 @@
 import * as firebase from "../common/firebase";
-import * as utils from "utils/utils";
-import { isIOS } from "platform";
+import * as utils from "tns-core-modules/utils/utils";
+import { isIOS } from "tns-core-modules/platform";
 import * as navigator from "../common/navigator";
-import * as gestures from "ui/gestures";
+import * as gestures from "tns-core-modules/ui/gestures";
 
 export function navigatingTo(args) {
     args.object.bindingContext = firebase.viewModel;

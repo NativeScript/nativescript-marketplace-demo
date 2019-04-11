@@ -1,12 +1,12 @@
-import * as observable from "data/observable";
-import * as gridModule from "ui/layouts/grid-layout";
-import * as utils from "utils/utils";
+import * as observable from "tns-core-modules/data/observable";
+import * as gridModule from "tns-core-modules/ui/layouts/grid-layout";
+import * as utils from "tns-core-modules/utils/utils";
 import * as models from "./view-model";
-import * as frame from "ui/frame";
-import * as pages from "ui/page";
-import * as gestures from "ui/gestures";
+import * as frame from "tns-core-modules/ui/frame";
+import * as pages from "tns-core-modules/ui/page";
+import * as gestures from "tns-core-modules/ui/gestures";
 
-import * as app from "application";
+import * as app from "tns-core-modules/application";
 import * as navigator from "../../common/navigator";
 
 export function rootGridLoaded(args: observable.EventData) {

@@ -1,6 +1,6 @@
 import * as examplesVM from "./examples-model";
-import * as observable from "data/observable";
-import * as paltfrom from "platform";
+import * as observable from "tns-core-modules/data/observable";
+import * as platform from "tns-core-modules/platform";
 
 export class GroupPageViewModel extends observable.Observable {
     public group: examplesVM.ExampleGroup;
@@ -23,7 +23,7 @@ export class GroupPageViewModel extends observable.Observable {
     }
 
     get screenWidth(): number {
-        return paltfrom.screen.mainScreen.widthDIPs;
+        return platform.screen.mainScreen.widthDIPs;
     }
 }
 
