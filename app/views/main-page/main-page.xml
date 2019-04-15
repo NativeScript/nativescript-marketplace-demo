@@ -1,0 +1,167 @@
+<Page class="qsf-page" 
+    navigatingTo="onNavigatingTo" 
+    loaded="onLoaded" 
+    backgroundSpanUnderStatusBar="true" 
+    ios:actionBarHidden="true" 
+    android:actionBarHidden="false" 
+    tap="tapPage">
+
+    <ios>
+        <ActionBar automationText="ActionBar">
+            <ActionBar.actionItems>
+                <ActionItem id="actionbar-menu" 
+                    position="left" 
+                    automationText="SidebarMenu" 
+                    tap="showSlideout">
+                    <ActionItem.actionView>
+                        <Image src="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" 
+                            width="22" 
+                            height="22" 
+                            margin="0, 8, 0, -8" />
+                    </ActionItem.actionView>
+                </ActionItem>
+            </ActionBar.actionItems>
+            <GridLayout>
+                <Image id="actionbar-logo" 
+                    src="res://logo_main" 
+                    stretch="none" 
+                    width="130" 
+                    height="32" 
+                    margin="6 0 0 0" />
+            </GridLayout>
+        </ActionBar>
+    </ios>
+    <android>
+        <ActionBar automationText="ActionBar" 
+            opacity="0">
+            <NavigationButton icon="{{ firebase.hasUnreadNews, firebase.hasUnreadNews ? 'res://ic_menu_main_new' : 'res://ic_menu_main' }}" 
+                automationText="SidebarMenu"
+                tap="showSlideout" />
+            <Image id="actionbar-logo" 
+                src="res://logo_main" 
+                stretch="none" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" />
+        </ActionBar>
+    </android>
+
+    <GridLayout id="content-root">
+        <GridLayout class="page-content" 
+            android:margin="0 0 0 0" 
+            ios:margin="0">
+            <ScrollView id="content" 
+                opacity="0">
+                <GridLayout>
+                    <Repeater items="{{ featuredExamples }}" 
+                        android:margin="10" 
+                        ios:margin="6">
+                        <Repeater.itemsLayout>
+                            <WrapLayout id="examples-wrap-layout" 
+                                horizontalAlignment="left" 
+                                android:itemWidth="{{ (screenWidth - 20) / 2 }}" 
+                                ios:itemWidth="{{ (screenWidth - 13) / 2 }}" 
+                                android:itemHeight="{{ (screenWidth - 20) * 0.5 + 50 }}" 
+                                ios:itemHeight="{{ (screenWidth - 13) * 0.5 + 50 }}" />
+                        </Repeater.itemsLayout>
+                        <Repeater.itemTemplate>
+                            <GridLayout class="example-intro" 
+                                iosOverflowSafeArea="false" 
+                                margin="6" 
+                                rows="* 54" 
+                                backgroundColor="white" 
+                                touch="tileTouch" 
+                                tap="navigateToExample" 
+                                automationText="{{ title }}">
+                                <Image src="{{ image }}" 
+                                    stretch="aspectFill" 
+                                    loadMode="async" />
+                                <Label row="1" 
+                                    textWrap="true" 
+                                    horizontalAlignment="center" 
+                                    verticalAlignment="center" 
+                                    text="{{ title }}" 
+                                    class="example-label" />
+                                <Image src="res://ic_new" 
+                                    visibility="{{ isNew ? 'visible' : 'collapsed' }}" 
+                                    stretch="none" 
+                                    class="example-new" 
+                                    loadMode="async" />
+                            </GridLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </GridLayout>
+            </ScrollView>
+        </GridLayout>
+        <GridLayout id="intro-elements" 
+            tap="enter">
+            <GridLayout id="intro-background" 
+                class="intro-background-intro" 
+                originY="0" />
+
+            <GridLayout id="intro-logo-bg" 
+                class="intro-logo-bg-intro" 
+                iosOverflowSafeArea="false" 
+                backgroundColor="#3C5AFD" 
+                width="93" 
+                height="93" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" 
+                borderRadius="20" />
+            <GridLayout id="intro-logo-n" 
+                class="intro-logo-n-intro" 
+                iosOverflowSafeArea="false" 
+                backgroundImage="res://logo_blue_bg" 
+                width="93" 
+                height="93" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" />
+            <GridLayout id="intro-logo-ns" 
+                class="intro-logo-ns-intro" 
+                iosOverflowSafeArea="false" 
+                backgroundImage="res://logo_text" 
+                width="199" 
+                height="31" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" 
+                margin="160 0 0 0" />
+
+            <Label id="intro-text-one" 
+                class="intro-text-one-intro" 
+                text="Build truly&#xA;native apps with&#xA;JavaScript" 
+                fontSize="37" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" 
+                textWrap="true" 
+                color="white" 
+                textAlignment="center" />
+            <Label id="intro-text-two" 
+                class="intro-text-two-intro" 
+                text="Develop native cross platform&#xA;apps from a single code base" 
+                fontSize="19" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" 
+                textWrap="true" 
+                color="#8DA1AB" 
+                textAlignment="center" />
+
+            <Button id="intro-get-started" 
+                class="intro-get-started-intro" 
+                text="GET STARTED" 
+                backgroundColor="#1DBE67" 
+                color="white" 
+                borderRadius="25" 
+                height="50" 
+                width="234" 
+                fontSize="18" 
+                tap="tapGetStarted" />
+            <Label id="intro-version" 
+                class="intro-version-intro" 
+                text="version 4.0.0" 
+                fontSize="14" 
+                horizontalAlignment="center" 
+                verticalAlignment="center" 
+                color="white" 
+                textAlignment="center" />
+        </GridLayout>
+    </GridLayout>
+</Page>

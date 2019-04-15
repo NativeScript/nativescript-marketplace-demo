@@ -1,9 +1,9 @@
-import * as application from "application";
-import * as utils from "utils/utils";
-import * as dialogs from "ui/dialogs";
-import { isAndroid, isIOS } from "platform";
-import * as settings from "application-settings";
-import { Observable } from "data/observable";
+import * as application from "tns-core-modules/application";
+import * as utils from "tns-core-modules/utils/utils";
+import * as dialogs from "tns-core-modules/ui/dialogs";
+import { isAndroid, isIOS } from "tns-core-modules/platform";
+import * as settings from "tns-core-modules/application-settings";
+import { Observable } from "tns-core-modules/data/observable";
 import * as navigator from "../common/navigator";
 
 const enabled = true;

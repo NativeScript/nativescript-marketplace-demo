@@ -1,11 +1,11 @@
 import "./bundle-config";
-import * as application from "application";
+import * as application from "tns-core-modules/application";
 import * as imageModule from 'nativescript-image';
-// import * as frame from "ui/frame";
+// import * as frame from "tns-core-modules/ui/frame";
 // import * as exampleBase from "./examples/example-base-page";
 // import * as prof from "./common/profiling";
 // import * as trace from "trace";
-import * as utils from "utils/utils";
+import * as utils from "tns-core-modules/utils/utils";
 // import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
 
@@ -43,11 +43,10 @@ if (application.android) {
 if (application.ios) {
     application.on("launch", args => {
         setTimeout(() => {
-            utils.ios.getter(UIApplication, UIApplication.sharedApplication).keyWindow.backgroundColor = utils.ios.getter(UIColor, UIColor.blackColor);
+            UIApplication.sharedApplication.keyWindow.backgroundColor = UIColor.blackColor;
         }, 1);
     });
 }
 
 // prof.start("main-page");
-
-application.run("app-root");
+application.run({ moduleName: "app-root" });

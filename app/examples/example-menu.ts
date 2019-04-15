@@ -1,8 +1,8 @@
-import * as utils from "utils/utils";
-import * as platform from "platform";
+import * as utils from "tns-core-modules/utils/utils";
+import * as platform from "tns-core-modules/platform";
 import * as navigator from "../common/navigator";
 import { loadedGuard } from "../common/effects";
-import { View } from "ui/core/view";
+import { View } from "tns-core-modules/ui/core/view";
 
 var isAndroid: boolean = platform.device.os === platform.platformNames.android;
 

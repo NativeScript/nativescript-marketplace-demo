@@ -1,5 +1,5 @@
-import { View } from "ui/core/view";
-import { Color } from "color";
+import { View } from "tns-core-modules/ui/core/view";
+import { Color } from "tns-core-modules/color";
 
 export enum Orientation {
     TopLeft_BottomRight,

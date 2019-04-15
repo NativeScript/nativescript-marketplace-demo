@@ -1,4 +1,15 @@
-<Frame defaultPage="views/main-page/main-page">
-</Frame>
+<nsDrawer:RadSideDrawer id="side-drawer" 
+    showOverNavigation="true" 
+    drawerSize="260" 
+    drawerOpening="createDrawerContent" 
+    drawerPan="createDrawerContent" 
+    xmlns:nsDrawer="nativescript-ui-sidedrawer">
 
-
+    <nsDrawer:RadSideDrawer.drawerContent>
+        <GridLayout margin.android="74 0 0 0" 
+            margin.ios="0" />
+    </nsDrawer:RadSideDrawer.drawerContent>
+    <nsDrawer:RadSideDrawer.mainContent>
+        <Frame defaultPage="views/main-page/main-page"></Frame>           
+    </nsDrawer:RadSideDrawer.mainContent>
+</nsDrawer:RadSideDrawer>

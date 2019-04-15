@@ -1,4 +1,4 @@
-import * as observable from "data/observable";
+import * as observable from "tns-core-modules/data/observable";
 import * as examplesVM from "./examples-model";
 
 export class ExampleViewModel extends observable.Observable implements examplesVM.Example {

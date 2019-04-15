@@ -1,9 +1,10 @@
-import { EventData, Observable } from "data/observable";
-import { ObservableArray } from "data/observable-array";
-import { RadListView, ListViewEventData } from "nativescript-ui-listview";
-import { topmost as topmostFrame } from "ui/frame";
-import * as utils from "utils/utils";
-import * as platform from "platform";
+import { Observable } from "tns-core-modules/data/observable";
+import { ObservableArray }  from "tns-core-modules/data/observable-array";
+import { RadListView, ListViewEventData, ListViewSelectionBehavior, SwipeActionsEventData } from "nativescript-ui-listview";
+import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
+import { View } from 'tns-core-modules/ui/core/view';
+import * as utils from "tns-core-modules/utils/utils";
+import * as platform from "tns-core-modules/platform";
 
 var DELTA = 0.1;
 
@@ -79,6 +80,7 @@ export class BlogPostItemData extends Observable {
 
 export class SelectionViewModel extends Observable {
     private _owner: RadListView;
+    private _isSwipeEnded: boolean;
         
     constructor(owner: RadListView) {
         super();
@@ -205,7 +207,7 @@ export class SelectionViewModel extends Observable {
 
     //Event handlers
     onItemTap(args: ListViewEventData) {
-        if (this.isSelectionActive === true || this.isReorderActive === true) {
+        if (this.isSelectionActive === true || this.isReorderActive === true || !this._isSwipeEnded) {
             return;
         }
         this.CurrentItem = (<any>this._owner.items).getItem(args.index);
@@ -217,15 +219,16 @@ export class SelectionViewModel extends Observable {
         });
     }
 
-    onStartSwipeCell(args: ListViewEventData) {
-        var density = utils.layout.getDisplayDensity();
-        var delta = Math.floor(density) !== density ? 1.1 : DELTA;
-
-        args.data.swipeLimits.top = 0;
-        args.data.swipeLimits.left = Math.round(density * 100);
-        args.data.swipeLimits.bottom = 0;
-        args.data.swipeLimits.right = Math.round(density * 100);
-        args.data.swipeLimits.threshold = Math.round(density * 50);
+    onStartSwipeCell(args: SwipeActionsEventData) {
+        this._isSwipeEnded = false;
+        var swipeLimits = args.data.swipeLimits;
+        var swipeView = args['object'];
+        var leftItem = swipeView.getViewById<View>('fav-view');
+        var rightItem = swipeView.getViewById<View>('del-view');
+        swipeLimits.left = leftItem.getMeasuredWidth();
+        swipeLimits.right = rightItem.getMeasuredWidth();
+        swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
+        this._currentItemIndex = args.index;
     }
 
     onCellSwiped(args: ListViewEventData) {
@@ -345,7 +348,7 @@ export class SelectionViewModel extends Observable {
 
     private turnOffSelection() {
         this._owner.deselectAll();
-        this._owner.selectionBehavior = "None";
+        this._owner.selectionBehavior = ListViewSelectionBehavior.None;
         this.isSelectionActive = false;
         this._owner.multipleSelection = false;
     }
@@ -355,7 +358,7 @@ export class SelectionViewModel extends Observable {
         if (initialIndex !== -1) {
             this._owner.selectItemAt(initialIndex);
         }
-        this._owner.selectionBehavior = "Press";
+        this._owner.selectionBehavior = ListViewSelectionBehavior.Press;
         this._owner.multipleSelection = true;
     }
 }

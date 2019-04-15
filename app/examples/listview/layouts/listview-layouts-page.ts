@@ -1,10 +1,10 @@
-import { EventData } from "data/observable";
-import { Page, NavigatedData } from "ui/page";
-import { View } from "ui/core/view";
+import { EventData } from "tns-core-modules/data/observable";
+import { Page, NavigatedData } from "tns-core-modules/ui/page";
+import { View } from "tns-core-modules/ui/core/view";
 import { ListViewLayoutsModel } from "./layouts-view-model";
 import { RadListView, ListViewGridLayout, ListViewLinearLayout } from "nativescript-ui-listview";
 import * as navigator from "../../../common/navigator";
-import * as application from "application";
+import * as application from "tns-core-modules/application";
 
 let GRID_LAYOUT = new ListViewGridLayout();
 GRID_LAYOUT.spanCount = 2;

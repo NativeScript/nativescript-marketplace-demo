@@ -1,4 +1,4 @@
-import * as observable from "data/observable";
+import * as observable from "tns-core-modules/data/observable";
 function formatTime(time: Date) {
     var hour: number = time.getHours();
     var min: string = time.getMinutes() + "";

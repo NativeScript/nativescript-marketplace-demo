@@ -1,6 +1,6 @@
-import { View } from "ui/core/view";
-import { Color } from "color";
-import * as platform from "platform";
+import { View } from "tns-core-modules/ui/core/view";
+import { Color } from "tns-core-modules/color";
+import * as platform from "tns-core-modules/platform";
 import { Orientation } from "./linear-gradient-common";
 
 export * from "./linear-gradient-common";

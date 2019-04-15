@@ -1,4 +1,4 @@
-import { Observable } from 'data/observable';
+import { Observable } from 'tns-core-modules/data/observable';
 
 export class ListViewLayoutsModel extends Observable{
     private _isLinearActive: boolean;

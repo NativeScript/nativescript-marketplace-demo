@@ -2,16 +2,16 @@ import * as pages from "tns-core-modules/ui/page";
 import { Page } from "tns-core-modules/ui/page";
 import * as buttonModule from "tns-core-modules/ui/button";
 import * as imageModule from "tns-core-modules/ui/image";
-import * as imageSourceModule from "image-source";
-import * as utils from "utils/utils";
-import * as gridModule from "ui/layouts/grid-layout";
+import * as imageSourceModule from "tns-core-modules/image-source";
+import * as utils from "tns-core-modules/utils/utils";
+import * as gridModule from "tns-core-modules/ui/layouts/grid-layout";
 import * as navigator from "../common/navigator";
 import * as view from "tns-core-modules/ui/core/view";
-import * as platform from "platform";
+import * as platform from "tns-core-modules/platform";
 import * as prof from "../common/profiling";
 import * as builder from "tns-core-modules/ui/builder";
 import { View } from "tns-core-modules/ui/core/view"
-import {knownFolders} from "file-system";
+import {knownFolders} from "tns-core-modules/file-system";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 var OVERLAY_ELEVATION = 12;

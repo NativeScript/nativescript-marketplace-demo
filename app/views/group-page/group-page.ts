@@ -1,7 +1,7 @@
-import * as view from "ui/core/view"
-import * as pages from "ui/page"
-import * as gestures from "ui/gestures";
-import * as observable from "data/observable";
+import * as view from "tns-core-modules/ui/core/view"
+import * as pages from "tns-core-modules/ui/page"
+import * as gestures from "tns-core-modules/ui/gestures";
+import * as observable from "tns-core-modules/data/observable";
 import * as examplesVM from "../../view-models/examples-model";
 import * as navigator from "../../common/navigator";
 import * as groupVM from "../../view-models/group-page-view-model";

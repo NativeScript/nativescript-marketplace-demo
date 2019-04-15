@@ -1,17 +1,17 @@
-import * as pages from "ui/page";
-import * as view from "ui/core/view";
-import * as label from "ui/label";
-import * as repeater from "ui/repeater";
-import * as gestures from "ui/gestures";
-import * as grid from "ui/layouts/grid-layout";
-import * as observable from "data/observable";
-import * as animations from "ui/animation";
-import * as frame from "ui/frame";
-import * as builder from "ui/builder";
+import * as pages from "tns-core-modules/ui/page";
+import * as view from "tns-core-modules/ui/core/view";
+import * as label from "tns-core-modules/ui/label";
+import * as repeater from "tns-core-modules/ui/repeater";
+import * as gestures from "tns-core-modules/ui/gestures";
+import * as grid from "tns-core-modules/ui/layouts/grid-layout";
+import * as observable from "tns-core-modules/data/observable";
+import * as animations from "tns-core-modules/ui/animation";
+import * as frame from "tns-core-modules/ui/frame";
+import * as builder from "tns-core-modules/ui/builder";
 import * as navigator from "../common/navigator";
 import * as examplesVM from "../view-models/examples-model"
 import * as examplePageVM from "../view-models/example-info-page-view-model"
-import * as platform from "platform"
+import * as platform from "tns-core-modules/platform"
 import * as prof from "../common/profiling";
 
 var exampleContainerID = "examples-container";

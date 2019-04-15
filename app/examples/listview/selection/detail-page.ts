@@ -1,8 +1,8 @@
 import { SelectionViewModel, BlogPostItemData } from "./selection-view-model";
-import { EventData } from "data/observable";
-import { Page, NavigatedData } from "ui/page";
-import { View } from "ui/core/view";
-import { topmost as topmostFrame } from "ui/frame";
+import { EventData } from "tns-core-modules/data/observable";
+import { Page, NavigatedData } from "tns-core-modules/ui/page";
+import { View } from "tns-core-modules/ui/core/view";
+import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
 import * as navigator from "../../../common/navigator";
 
 export function pageNavigatedTo(args: NavigatedData) {
