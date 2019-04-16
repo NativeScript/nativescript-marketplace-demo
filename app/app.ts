@@ -1,4 +1,3 @@
-import "./bundle-config";
 import * as application from "tns-core-modules/application";
 import * as imageModule from 'nativescript-image';
 // import * as frame from "tns-core-modules/ui/frame";
