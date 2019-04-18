@@ -143,7 +143,6 @@
                 textWrap="true" 
                 color="#8DA1AB" 
                 textAlignment="center" />
-
             <Button id="intro-get-started" 
                 class="intro-get-started-intro" 
                 text="GET STARTED" 

@@ -1,4 +1,4 @@
-import { Page, Observable, ViewBase } from "tns-core-modules/ui/page";
+import { Page, ViewBase } from "tns-core-modules/ui/page";
 // import { isAndroid } from "tns-core-modules/platform";
 import * as prof from "../common/profiling";
 import * as builder from "tns-core-modules/ui/builder";
@@ -13,16 +13,16 @@ export class ExamplePage extends Page {
         super();
 
         // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
-        this.on("navigatingTo", args => {
-            if (!this.sideDrawer) {
-                const root = this.content;
-                const originalRootBindingContext = root.bindingContext;
-                const menuPath = "examples/example-menu.xml";
-                const menuFragment = <View>builder.load(menuPath, global.loadModule("examples/example-menu"));
-                this.sideDrawer = <RadSideDrawer>menuFragment.getViewById("example-menu-drawer");
-                this.content = menuFragment;
-                this.sideDrawer.mainContent = root;
-                if (root.bindingContext !== originalRootBindingContext) {
+        this.on("navigatingTo", () => {
+            if (!this.sidedrawer) {
+                var root = this.content;
+                var originalRootBindingContext = root.bindingContext;
+                var menuPath = knownFolders.currentApp().path + "/examples/example-menu.xml";
+                var menufragment = <View>builder.load(menuPath, require("./example-menu"));
+                this.sidedrawer = <RadSideDrawer>menufragment.getViewById("example-menu-drawer");
+                this.content = menufragment;
+                this.sidedrawer.mainContent = root;
+                if (root.bindingContext !== originalRootBindingContext){
                     root.bindingContext = originalRootBindingContext;
                 }
                 this.sideDrawer.drawerContent.bindingContext = this.navigationContext;

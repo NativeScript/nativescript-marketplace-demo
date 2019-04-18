@@ -247,24 +247,24 @@ class UIPickerViewDelegateImplementation extends NSObject implements UIPickerVie
         return this;
     }
 
-    public pickerViewTitleForRowForComponent(pickerView: UIPickerView, row: NSInteger, component: NSInteger): NSString {
+    public pickerViewTitleForRowForComponent(pickerView: UIPickerView, row: number, component: number): string {
         return this._owner.options[row];
     }
 
-    public pickerViewDidSelectRowInComponent(pickerView: UIPickerView, row: NSInteger, component: NSInteger): void {
+    public pickerViewDidSelectRowInComponent(pickerView: UIPickerView, row: number, component: number): void {
         this._owner.selectedIndex = row;
         this._owner.owner.editorValueChanged(this._owner);
     }
 
-    public pickerViewAttributedTitleForRowForComponent(pickerView: UIPickerView, row: NSInteger, component: NSInteger): NSAttributedString {
+    public pickerViewAttributedTitleForRowForComponent(pickerView: UIPickerView, row: number, component: number): NSAttributedString {
         var title = this.pickerViewTitleForRowForComponent(pickerView, row, component);
         var titleString = String(title);
         var keys = NSMutableArray.alloc().init();
         keys.addObject(NSForegroundColorAttributeName);
-        var values = NSMutableArray.alloc().init();
-        values.addObject(UIColor.whiteColor);
-        var attr = NSDictionary.alloc().initWithObjectsForKeys(values, keys);
-        var res = NSAttributedString.alloc().initWithStringAttributes(titleString, attr);
+        // var values = NSMutableArray.alloc().init();
+        // values.addObject(UIColor.whiteColor);
+        // var attr = NSDictionary.alloc().initWithObjectsForKeys(values, keys);
+        var res = NSAttributedString.alloc().initWithStringAttributes(titleString, <any>{ [NSForegroundColorAttributeName]: UIColor.whiteColor});
         return res;
     }
 }

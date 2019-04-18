@@ -13,6 +13,8 @@ import "nativescript-plugin-firebase";
 
 import { init as initFirebase } from "./common/firebase";
 
+require("./module-registrations");
+
 // console.log("App config is: " + JSON.stringify(json));
 // application.on("displayed", () => {
 //   var now = time();
@@ -49,4 +51,4 @@ if (application.ios) {
 }
 
 // prof.start("main-page");
-application.run({ moduleName: "app-root" });
+application.run({ moduleName: "app-root-page" });

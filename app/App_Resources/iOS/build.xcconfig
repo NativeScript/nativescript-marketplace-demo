@@ -8,3 +8,5 @@
 
 // Entitlements
 CODE_SIGN_ENTITLEMENTS = nativescriptmarketplacedemo/Resources/nativescriptmarketplacedemo.entitlements;
+
+DEVELOPMENT_TEAM = R58QAA9NR8
