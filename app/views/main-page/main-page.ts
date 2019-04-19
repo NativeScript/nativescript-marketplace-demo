@@ -22,6 +22,10 @@ export function onLoaded(args) {
     }, 3500);
 }
 
+export function onNavigatedTo(args: EventData) {
+    getRootSideDrawer().gesturesEnabled = true;
+}
+
 export function onNavigatingTo(args: EventData) {
     (args.object as View).bindingContext = mainPageVM.getInstance();
 }
@@ -45,6 +49,7 @@ export function navigateToExample(args: gestures.GestureEventData) {
     }
     prof.start("example");
 
+    getRootSideDrawer().gesturesEnabled = false;
     getRootSideDrawer().closeDrawer();
 
     var example = (args as any).object.bindingContext as examplesVM.Example;

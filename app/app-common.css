@@ -142,14 +142,24 @@ Page, ExamplePage, DrawerPage {
 .chart-example-tytle-style {
     horizontal-align: center;
 }
-.example-menu-stack {
+
+.example-menu-background {
+    margin: 0px;
+    vertical-align: top;
     background-color: white;
-    padding: 8 0;
+}
+
+.example-menu-stack {
+    vertical-align: top;
+    margin: 8 0;
 }
 
 .example-menu-item {
     color: #151F2F;
     height: 44;
+    vertical-align: top;
+    border-width: 1;
+    border-color: white;
 }
 
 .example-menu-item:highlighted {
@@ -603,6 +613,7 @@ Page, ExamplePage, DrawerPage {
 .drawer-external-link,
 .drawer-news-link {
     height: 44;
+    width: 100%;
 }
 
 .drawer-external-link:highlighted,
@@ -611,10 +622,12 @@ Page, ExamplePage, DrawerPage {
 }
 .drawer-external-icon {
     background-image: url("res://ic_outside_link");
-    background-position: 100% 50%;
+    background-position: 80% 50%;
     background-repeat: no-repeat;
     horizontal-align: center;
     padding: 0 36;
+
+    width: 100%;
 }
 .drawer-news-icon {
     background-position: 0% 50%;
@@ -628,4 +641,5 @@ Page, ExamplePage, DrawerPage {
     font-size: 13;
     color: white;
     vertical-align: center;
+    horizontal-align: center;
 }

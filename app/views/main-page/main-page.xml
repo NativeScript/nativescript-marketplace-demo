@@ -1,4 +1,5 @@
 <Page class="qsf-page" 
+    navigatedTo="onNavigatedTo" 
     navigatingTo="onNavigatingTo" 
     loaded="onLoaded" 
     backgroundSpanUnderStatusBar="true" 

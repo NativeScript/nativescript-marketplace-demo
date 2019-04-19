@@ -5,8 +5,8 @@
         loaded="drawerLoaded"
         drawerOpened="drawerOpened"
         drawerClosed="drawerClosed"
-        drawerLocation="Bottom"
-        drawerContentSize="104">
+        ios:drawerContentSize="174"
+        android:drawerContentSize="104">
     <drawer:RadSideDrawer.drawerContent>
         <StackLayout class="example-menu-stack">
             <Button text="Example information" class="example-menu-item" tap="informationTap" />
