@@ -7,7 +7,6 @@ var page;
 
 export function onPageLoaded(args: EventData) {
     page = <Page>args.object;
-    application.getRootView().getViewById("side-drawer").gesturesEnabled = false;
 }
 
 export function goBack() {

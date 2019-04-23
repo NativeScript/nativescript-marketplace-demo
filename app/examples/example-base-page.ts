@@ -2,7 +2,10 @@ import { Page, Color } from "tns-core-modules/ui/page";
 import * as prof from "../common/profiling";
 import * as builder from "tns-core-modules/ui/builder";
 import { View } from "tns-core-modules/ui/core/view"
+import { knownFolders } from "tns-core-modules/file-system";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout";
+import * as drawerModule from "nativescript-ui-sidedrawer";
 
 export class ExamplePage extends Page {
 
@@ -15,16 +18,16 @@ export class ExamplePage extends Page {
         this.on("navigatingTo", () => {
             if (!this.sideDrawer) {
                 var exampleContent = this.content;
-                var menuPath = knownFolders.currentApp().path + "/examples/example-menu.xml";
-                
-                this.sideDrawer = <RadSideDrawer>builder.load(menuPath, require("./example-menu"));
+                this.sideDrawer = <RadSideDrawer>builder.load({
+                    path: knownFolders.currentApp().path + "/examples/example-menu.xml",
+                    name: "MyControl",
+                    exports: require("./example-menu"),
+                    attributes: {
+                        bindingContext: exampleContent.bindingContext
+                    }
+                });
                 this.content = this.sideDrawer;
                 this.sideDrawer.mainContent = exampleContent;
-
-                var originalRootBindingContext = exampleContent.bindingContext;
-                if (exampleContent.bindingContext !== originalRootBindingContext){
-                    exampleContent.bindingContext = originalRootBindingContext;
-                }
                 this.sideDrawer.drawerContent.bindingContext = this.navigationContext;
             }
         });
@@ -39,8 +42,8 @@ export class ExamplePage extends Page {
         this.actionBar.actionItems.getItems().forEach(item => {
             if ((<any>item).id === "exampleMenuButton") {
                 item.on("tap", () => {
-                    // TODO: Toggle instead
                     this.sideDrawer.gesturesEnabled = true;
+                    this.sideDrawer.drawerLocation = drawerModule.SideDrawerLocation.Bottom;
                     this.sideDrawer.showDrawer();
                 });
             }
