@@ -2,32 +2,31 @@
 
 .info-title {
     font-size: 26;
-    margin: 36 0 36 72;
+    margin: 36 0 36 0;
     padding: 0;
-    horizontal-align: left;
+    horizontal-align: center;
 }
 
 .info-text {
     font-size: 15;
-    margin: 0 16 20 72;
+    margin: 0 16 20 16;
     padding: 0;
+    text-align: center;
 }
 
 .info-link-button {
     font-size: 14;
-    padding: 0;
-    margin: 0 0 0 72;
-    horizontal-align: left;
+    margin: 0 0 10 0;
+    horizontal-align: center;
     color: #3C5AFD;
-    text-align: left;
-    border-width: 1;
-    border-color: white;
+    text-align: center;
+    width: auto;
 }
 
 .info-link-button-documentation {
     padding: 0 24 0 0;
     width: 145;
-    text-align: left;
+    text-align: center;
     background-image: url("res://ic_outside_link");
     background-repeat: no-repeat;
     background-position: 100% 50%;
