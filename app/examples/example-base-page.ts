@@ -18,16 +18,16 @@ export class ExamplePage extends Page {
         this.on("navigatingTo", () => {
             if (!this.sideDrawer) {
                 var exampleContent = this.content;
-                this.sideDrawer = <RadSideDrawer>builder.load({
-                    path: knownFolders.currentApp().path + "/examples/example-menu.xml",
-                    name: "MyControl",
-                    exports: require("./example-menu"),
-                    attributes: {
-                        bindingContext: exampleContent.bindingContext
-                    }
-                });
+                var menuPath = knownFolders.currentApp().path + "/examples/example-menu.xml";
+                
+                this.sideDrawer = <RadSideDrawer>builder.load(menuPath, require("./example-menu"));
                 this.content = this.sideDrawer;
                 this.sideDrawer.mainContent = exampleContent;
+
+                var originalRootBindingContext = exampleContent.bindingContext;
+                if (exampleContent.bindingContext !== originalRootBindingContext){
+                    exampleContent.bindingContext = originalRootBindingContext;
+                }
                 this.sideDrawer.drawerContent.bindingContext = this.navigationContext;
             }
         });
