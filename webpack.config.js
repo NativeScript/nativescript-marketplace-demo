@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { NativeScriptWorkerPlugin } = require("nativescript-worker-loader/NativeScriptWorkerPlugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const hashSalt = Date.now().toString();
 
 module.exports = env => {
@@ -45,6 +45,7 @@ module.exports = env => {
         hmr, // --env.hmr,
         unitTesting, // --env.unitTesting
     } = env;
+    const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
 
     const appFullPath = resolve(projectRoot, appPath);
@@ -128,13 +129,14 @@ module.exports = env => {
             },
             minimize: !!uglify,
             minimizer: [
-                new UglifyJsPlugin({
+                new TerserPlugin({
                     parallel: true,
                     cache: true,
-                    sourceMap: !!sourceMap || !!hiddenSourceMap,
-                    uglifyOptions: {
+                    sourceMap: isAnySourceMapEnabled,
+                    terserOptions: {
                         output: {
                             comments: false,
+                            semicolons: !isAnySourceMapEnabled
                         },
                         compress: {
                             // The Android SBG has problems parsing the output
@@ -207,7 +209,7 @@ module.exports = env => {
                             configFile: "tsconfig.tns.json",
                             allowTsInNodeModules: true,
                             compilerOptions: {
-                                sourceMap
+                                sourceMap: isAnySourceMapEnabled
                             }
                         },
                     }

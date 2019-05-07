@@ -16,7 +16,7 @@
     "nativescript-plugin-firebase": "~8.3.0",
     "nativescript-ui-chart": "~4.0.0",
     "nativescript-ui-dataform": "~4.0.0",
-    "nativescript-ui-listview": "~6.1.0",
+    "nativescript-ui-listview": "~6.2.0",
     "nativescript-ui-sidedrawer": "~6.0.0",
     "tns-core-modules": "next"
   },
