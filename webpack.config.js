@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { NativeScriptWorkerPlugin } = require("nativescript-worker-loader/NativeScriptWorkerPlugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const hashSalt = Date.now().toString();
+const hashSalt =  Date.now().toString();
 
 module.exports = env => {
     // Add your custom Activities, Services and other Android app components here.
@@ -41,7 +41,6 @@ module.exports = env => {
         uglify, // --env.uglify
         report, // --env.report
         sourceMap, // --env.sourceMap
-        hiddenSourceMap, // --env.hiddenSourceMap
         hmr, // --env.hmr,
         unitTesting, // --env.unitTesting
     } = env;
@@ -50,14 +49,12 @@ module.exports = env => {
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
 
-    const entryModule = nsWebpack.getEntryModule(appFullPath, platform);
+    const entryModule = nsWebpack.getEntryModule(appFullPath);
     const entryPath = `.${sep}${entryModule}.ts`;
     const entries = { bundle: entryPath };
     if (platform === "ios") {
         entries["tns_modules/tns-core-modules/inspector_modules"] = "inspector_modules.js";
     };
-
-    let sourceMapFilename = nsWebpack.getSourceMapFilename(hiddenSourceMap, __dirname, dist);
 
     const config = {
         mode: uglify ? "production" : "development",
@@ -75,7 +72,6 @@ module.exports = env => {
         output: {
             pathinfo: false,
             path: dist,
-            sourceMapFilename,
             libraryTarget: "commonjs2",
             filename: "[name].js",
             globalObject: "global",
@@ -108,7 +104,7 @@ module.exports = env => {
             "fs": "empty",
             "__dirname": false,
         },
-        devtool: hiddenSourceMap ? "hidden-source-map" : (sourceMap ? "inline-source-map" : "none"),
+        devtool: sourceMap ? "inline-source-map" : "none",
         optimization: {
             runtimeChunk: "single",
             splitChunks: {
@@ -119,7 +115,7 @@ module.exports = env => {
                         test: (module, chunks) => {
                             const moduleName = module.nameForCondition ? module.nameForCondition() : '';
                             return /[\\/]node_modules[\\/]/.test(moduleName) ||
-                                appComponents.some(comp => comp === moduleName);
+                                    appComponents.some(comp => comp === moduleName);
 
                         },
                         enforce: true,
@@ -131,7 +127,6 @@ module.exports = env => {
                 new UglifyJsPlugin({
                     parallel: true,
                     cache: true,
-                    sourceMap: !!sourceMap || !!hiddenSourceMap,
                     uglifyOptions: {
                         output: {
                             comments: false,
@@ -184,17 +179,17 @@ module.exports = env => {
                     use: "nativescript-dev-webpack/markup-hot-loader"
                 },
 
-                { test: /\.(html|xml)$/, use: "nativescript-dev-webpack/xml-namespace-loader" },
+                { test: /\.(html|xml)$/, use: "nativescript-dev-webpack/xml-namespace-loader"},
 
                 {
                     test: /\.css$/,
-                    use: { loader: "css-loader", options: { url: false } }
+                    use: { loader: "css-loader", options: { minimize: false, url: false } }
                 },
 
                 {
                     test: /\.scss$/,
                     use: [
-                        { loader: "css-loader", options: { url: false } },
+                        { loader: "css-loader", options: { minimize: false, url: false } },
                         "sass-loader"
                     ]
                 },
@@ -206,9 +201,6 @@ module.exports = env => {
                         options: {
                             configFile: "tsconfig.tns.json",
                             allowTsInNodeModules: true,
-                            compilerOptions: {
-                                sourceMap
-                            }
                         },
                     }
                 },
@@ -221,7 +213,7 @@ module.exports = env => {
                 "process": undefined,
             }),
             // Remove all files from the out dir.
-            new CleanWebpackPlugin([`${dist}/**/*`]),
+            new CleanWebpackPlugin([ `${dist}/**/*` ]),
             // Copy assets to out dir. Add your own globs as needed.
             new CopyWebpackPlugin([
                 { from: { glob: "examples/**" } },
@@ -236,10 +228,10 @@ module.exports = env => {
                 // configures the WebPack runtime to be generated inside the snapshot
                 // module and no `runtime.js` module exist.
                 (snapshot ? [] : ["./runtime"])
-                    .concat([
-                        "./vendor",
-                        "./bundle",
-                    ])
+                .concat([
+                    "./vendor",
+                    "./bundle",
+              ])
             ),
             // For instructions on how to set up workers with webpack
             // check out https://github.com/nativescript/worker-loader
