@@ -223,8 +223,8 @@ export class SelectionViewModel extends Observable {
         this._isSwipeEnded = false;
         var swipeLimits = args.data.swipeLimits;
         var swipeView = args['object'];
-        var leftItem = swipeView.getViewById<View>('fav-view');
-        var rightItem = swipeView.getViewById<View>('del-view');
+        var leftItem = swipeView.getViewById<View>('swipe-fav');
+        var rightItem = swipeView.getViewById<View>('swipe-del');
         swipeLimits.left = leftItem.getMeasuredWidth();
         swipeLimits.right = rightItem.getMeasuredWidth();
         swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;

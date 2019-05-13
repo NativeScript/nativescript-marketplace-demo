@@ -45,12 +45,12 @@
 				
 				<lv:RadListView.itemSwipeTemplate>
 					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="1" verticalAlignment="stretch" backgroundColor="#151f2f"> 
-						<StackLayout id="complete-view" backgroundColor="#fed03c" verticalAlignment="stretch">
+						<GridLayout id="complete-view" backgroundColor="#fed03c">
 							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</StackLayout>
-						<StackLayout id="delete-view" backgroundColor="#FFE5503A" col="2" verticalAlignment="stretch">
+						</GridLayout>
+						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2">
 							<Image android:src="res://ic_listview_reorder_delete" ios:src="res://listview/reorder/reorder-delete-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</StackLayout>
+						</GridLayout>
 					</GridLayout>
 				</lv:RadListView.itemSwipeTemplate>
 			</lv:RadListView>

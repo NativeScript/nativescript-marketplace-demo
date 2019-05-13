@@ -149,7 +149,7 @@ export var groups: Array<ExampleGroup> = [
     {
         id: "dataform",
         title: "DataForm",
-        isNew: true,
+        isNew: false,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/DataForm/dataform-overview",
         info: "DataForm for NativeScript helps you edit the properties of a business object during runtime and build a mobile form fast and easy. ",
         tint: "#ff6e40",
@@ -165,9 +165,6 @@ export var groups: Array<ExampleGroup> = [
             }
         ]
     }
-    // { title: "Side Drawer", isNew: true, controls: ["side-drawer"], tint: "teal", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." }
-    // { title: "Calendar", isNew: false, controls: ["calendar"], tint: "purple", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
-    // { title: "List View", isNew: false, controls: ["list-view-ui"], tint: "magenta", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
 ];
 
 

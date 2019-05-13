@@ -70,10 +70,10 @@
         
         <lv:RadListView.itemSwipeTemplate>
             <GridLayout columns="100, *, 100" >
-                <GridLayout tap="{{ onTap_SetAsFavourite }}" class="swipe-fav">
+                <GridLayout id="swipe-fav" tap="{{ onTap_SetAsFavourite }}" class="swipe-fav">
                     <Image ios:src="res://listview/selection/ic_add_to_fav" android:src="res://ic_add_to_fav" stretch="none" class="swipedImageStyle" />
                 </GridLayout>
-                <GridLayout col="2" tap="{{ onTap_DeletePost }}" class="swipe-del">
+                <GridLayout id="swipe-del" col="2" tap="{{ onTap_DeletePost }}" class="swipe-del">
                     <Image ios:src="res://listview/selection/ic_delete" android:src="res://ic_delete" stretch="none" class="swipedImageStyle"/>
                 </GridLayout>
             </GridLayout>
