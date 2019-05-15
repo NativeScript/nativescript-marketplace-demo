@@ -55,7 +55,7 @@ export function toggleFavourite(args: GestureEventData) {
     session.toggleFavourite();
 }
 
-var closeTimeout: any = 0;
+var closeTimeout: number = 0;
 export function inputTap(args) {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
