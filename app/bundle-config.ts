@@ -1,6 +1,6 @@
 if ((<any>global).TNS_WEBPACK) {
     // Register tns-core-modules UI framework modules
-    require("bundle-entry-points");
+    require("tns-core-modules/bundle-entry-points");
 
     global.registerModule("examples/chart/view-model", () => require("./examples/chart/view-model"));
     global.registerModule("examples/conference-agenda/conference-view-model", () => require("./examples/conference-agenda/conference-view-model"));
