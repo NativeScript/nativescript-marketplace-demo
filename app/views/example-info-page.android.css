@@ -19,14 +19,14 @@
     margin: 0 0 10 0;
     horizontal-align: center;
     color: #3C5AFD;
-    text-align: center;
     width: auto;
+    background-color: transparent;
+    z-index: 0
 }
 
 .info-link-button-documentation {
-    padding: 0 24 0 0;
-    width: 145;
-    text-align: center;
+    padding: 0 22;
+    width: auto;
     background-image: url("res://ic_outside_link");
     background-repeat: no-repeat;
     background-position: 100% 50%;
