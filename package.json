@@ -3,7 +3,7 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-android": {
-      "version": "5.4.0-2019-05-08-131526-01"
+      "version": "next"
     },
     "tns-ios": {
       "version": "next"
