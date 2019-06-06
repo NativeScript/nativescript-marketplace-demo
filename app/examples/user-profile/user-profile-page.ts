@@ -81,13 +81,12 @@ export function onShowPasswordTapped(args: EventData) {
     viewModel.showPassword = !viewModel.showPassword;
 }
 
-var closeTimeout = 0;
+var closeTimeout;
 export function onTextInputTapped(args: EventData) {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
     closeTimeout = setTimeout(() => {
-        closeTimeout = 0;
     }, 20);
 }
 
@@ -99,7 +98,6 @@ export function onPageTapped(args: EventData) {
             page.getViewById<EditableTextBase>("email").dismissSoftInput();
             page.getViewById<EditableTextBase>("password").dismissSoftInput();
             page.getViewById<EditableTextBase>("bio").dismissSoftInput();
-            closeTimeout = 0;
         }, 20);
     }
 }
