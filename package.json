@@ -13,11 +13,11 @@
     "highlight.js": "~9.12.0",
     "nativescript-image": "~2.1.0",
     "nativescript-iqkeyboardmanager": "~1.4.0",
-    "nativescript-plugin-firebase": "~8.3.0",
-    "nativescript-ui-chart": "~4.0.0",
-    "nativescript-ui-dataform": "~4.0.0",
-    "nativescript-ui-listview": "~6.2.0",
-    "nativescript-ui-sidedrawer": "~6.0.0",
+    "nativescript-plugin-firebase": "8.3.2",
+    "nativescript-ui-chart": "androidx",
+    "nativescript-ui-dataform": "androidx",
+    "nativescript-ui-listview": "androidx",
+    "nativescript-ui-sidedrawer": "androidx",
     "tns-core-modules": "next"
   },
   "devDependencies": {

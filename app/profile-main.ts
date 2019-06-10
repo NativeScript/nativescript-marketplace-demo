@@ -33,7 +33,7 @@ export function createPage() {
 
 //     for (let i = 0; i < 3; i++) {
 //         prof.start("Toolbar.OnMenuItemClickListener");
-//         arr.push(new (<any>android).support.v7.widget.Toolbar.OnMenuItemClickListener({
+//         arr.push(new (<any>android).appcompat.widget.Toolbar.OnMenuItemClickListener({
 //             onMenuItemClick: function(item: android.view.IMenuItem): boolean {
 //                 // do nothing
 //                 return false;

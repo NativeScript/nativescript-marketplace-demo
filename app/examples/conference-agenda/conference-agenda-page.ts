@@ -18,7 +18,7 @@ export function pageNavigatingTo(args: EventData) {
 
 export function doNotShowAndroidKeyboard(args: EventData) {
     let searchBar = <SearchBar>args.object;
-    if (searchBar.android){
+    if (searchBar.android) {
         searchBar.android.clearFocus();
     }
 }
@@ -27,7 +27,7 @@ export function onBackgroundLoaded(args: EventData) {
     let background = <View>args.object;
     let colors = new Array<Color>(new Color("#67749b"), new Color("#5b677b"));
     let orientation = linearGradient.Orientation.Top_Bottom;
-    
+
     switch (platform.device.os) {
         case platform.platformNames.android:
             linearGradient.drawBackground(background, colors, orientation);
@@ -44,7 +44,7 @@ export function onBackgroundLoaded(args: EventData) {
 }
 
 export function changeCellBackground(args: ItemEventData) {
-    if (args.ios){
+    if (args.ios) {
         var cell = <UITableViewCell>args.ios;
         cell.backgroundColor = UIColor.clearColor;
     }
@@ -55,13 +55,12 @@ export function toggleFavourite(args: GestureEventData) {
     session.toggleFavourite();
 }
 
-var closeTimeout: number = 0;
+var closeTimeout;
 export function inputTap(args) {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
     closeTimeout = setTimeout(() => {
-        closeTimeout = 0;
     }, 20);
 }
 
@@ -70,7 +69,6 @@ export function tap(args: EventData) {
     if (!closeTimeout) {
         closeTimeout = setTimeout(() => {
             page.getViewById<SearchBar>("search").dismissSoftInput();
-            closeTimeout = 0;
         }, 20);
     }
 }

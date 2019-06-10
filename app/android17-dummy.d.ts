@@ -101,12 +101,12 @@ declare module android {
             }
         }
     }
+}
 
-    export module support {
-        export module v4 {
-            export module view {
-                export var ViewCompat: any;
-            }
+declare module androidx {
+    export module core {
+        export module view {
+            export var ViewCompat: any;
         }
     }
 }

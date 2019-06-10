@@ -13,7 +13,7 @@ export function rootGridLoaded(args: observable.EventData) {
     var grid = <gridModule.GridLayout>args.object;
 
     if (grid.android) {
-        var compat = <any>android.support.v4.view.ViewCompat;
+        var compat = <any>androidx.core.view.ViewCompat;
         if (compat.setElevation) {
             // Fix for the elevation glitch of the tab-view
             compat.setElevation(grid.android, 4 * utils.layout.getDisplayDensity());

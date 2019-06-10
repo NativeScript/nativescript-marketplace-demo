@@ -41,7 +41,7 @@ export function menuButtonLoaded(args) {
 		.then(animateBackground(0.9, 0.8))
 		.then(animateBackground(1.2, 1))
 		.then(animateBackground(1, 1));
-	
+
 	var menuDots = args.object.getViewById("menu-button-dots");
 	setTimeout(loadedGuard(menuDots, () => menuDots.animate({
 		translate: { x: 0, y: 0 },
@@ -60,14 +60,14 @@ export function menuButtonLoaded(args) {
 
 	var menuButton = args.object.getViewById("menu-button");
 	if (args.object.android) {
-		var compat = <any>android.support.v4.view.ViewCompat;
+		var compat = <any>androidx.core.view.ViewCompat;
 		var baseElevation = OVERLAY_ELEVATION * utils.layout.getDisplayDensity() + 1000;
 		var setElevation = (view, elev) => {
 			compat.setElevation(view.android, elev);
 		}
-		
+
 		setElevation(menuButton, 4 * utils.layout.getDisplayDensity() + 1);
-		
+
 		setElevation(menuBackground, baseElevation);
 		setElevation(menuDots, baseElevation + 1);
 		setElevation(title, baseElevation + 1);
@@ -75,19 +75,19 @@ export function menuButtonLoaded(args) {
 }
 
 export function drawerClosed(args) {
-    var drawer = args.object;
-    drawer.gesturesEnabled = false;
+	var drawer = args.object;
+	drawer.gesturesEnabled = false;
 }
 
 export function drawerLoaded(args) {
 	var drawer = args.object;
-    drawer.gesturesEnabled = false;
+	drawer.gesturesEnabled = false;
 	if (!drawer.autoCloseAssigned) {
 		drawer.autoCloseAssigned = true;
 		drawer.page.on("navigatedFrom", (args) => {
 			drawer.closeDrawer();
 		});
-		
+
 		if (drawer.ios) {
 			drawer.ios.defaultSideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
 			drawer.ios.defaultSideDrawer.style.dimOpacity = 0.3;
