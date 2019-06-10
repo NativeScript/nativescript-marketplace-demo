@@ -3,7 +3,7 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-android": {
-      "version": "androidx"
+      "version": "next"
     },
     "tns-ios": {
       "version": "next"
@@ -18,12 +18,12 @@
     "nativescript-ui-dataform": "androidx",
     "nativescript-ui-listview": "androidx",
     "nativescript-ui-sidedrawer": "androidx",
-    "tns-core-modules": "androidx"
+    "tns-core-modules": "next"
   },
   "devDependencies": {
     "nativescript-dev-typescript": "next",
     "nativescript-dev-webpack": "next",
-    "tns-platform-declarations": "androidx"
+    "tns-platform-declarations": "next"
   },
   "license": "Apache-2.0",
   "scripts": {
