@@ -57,7 +57,7 @@ export function menuButtonLoaded(args) {
 
 	var menuButton = args.object.getViewById("menu-button");
 	if (args.object.android) {
-		var compat = <any>android.support.v4.view.ViewCompat;
+		var compat = (<any>android.support.v4).view.ViewCompat;
 		var baseElevation = OVERLAY_ELEVATION * utils.layout.getDisplayDensity() + 1000;
 		var setElevation = (view, elev) => {
 			compat.setElevation(view.android, elev);
