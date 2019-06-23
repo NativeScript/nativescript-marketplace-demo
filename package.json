@@ -3,17 +3,17 @@
   "nativescript": {
     "id": "org.nativescript.examples",
     "tns-android": {
-      "version": "next"
+      "version": "6.0.0-2019-06-19-230109-04"
     },
     "tns-ios": {
-      "version": "next"
+      "version": "6.0.0-2019-06-19-084246-01"
     }
   },
   "dependencies": {
     "highlight.js": "~9.12.0",
     "nativescript-image": "~2.1.0",
     "nativescript-iqkeyboardmanager": "~1.4.0",
-    "nativescript-plugin-firebase": "8.3.2",
+    "nativescript-plugin-firebase": "9.0.1",
     "nativescript-ui-chart": "androidx",
     "nativescript-ui-dataform": "androidx",
     "nativescript-ui-listview": "androidx",
@@ -21,9 +21,9 @@
     "tns-core-modules": "next"
   },
   "devDependencies": {
-    "nativescript-dev-typescript": "next",
     "nativescript-dev-webpack": "next",
-    "tns-platform-declarations": "next"
+    "tns-platform-declarations": "next",
+    "typescript": "~3.4.0"
   },
   "license": "Apache-2.0",
   "scripts": {
