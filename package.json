@@ -13,7 +13,7 @@
     "highlight.js": "~9.12.0",
     "nativescript-image": "~2.1.0",
     "nativescript-iqkeyboardmanager": "~1.4.0",
-    "nativescript-plugin-firebase": "latest",
+    "nativescript-plugin-firebase": "9.0.1",
     "nativescript-ui-chart": "androidx",
     "nativescript-ui-dataform": "androidx",
     "nativescript-ui-listview": "androidx",
@@ -23,7 +23,8 @@
   "devDependencies": {
     "nativescript-dev-typescript": "next",
     "nativescript-dev-webpack": "next",
-    "tns-platform-declarations": "next"
+    "tns-platform-declarations": "next",
+    "nativescript": "next"
   },
   "license": "Apache-2.0",
   "scripts": {
