@@ -142,21 +142,14 @@ Page, ExamplePage, DrawerPage {
 .chart-example-tytle-style {
     horizontal-align: center;
 }
-
-.example-menu-background {
-    background-color: white;
-}
-
 .example-menu-stack {
-    margin: 8 0;
+    background-color: white;
+    padding: 8 0;
 }
 
 .example-menu-item {
     color: #151F2F;
     height: 44;
-    vertical-align: center;
-    border-width: 1;
-    border-color: white;
 }
 
 .example-menu-item:highlighted {

@@ -1,15 +1,17 @@
 /// <reference path="../typings/highlightjs.d.ts" />
-import * as observable from "tns-core-modules/data/observable";
+import { Observable } from "tns-core-modules/data/observable";
 import * as fs from "tns-core-modules/file-system";
-import * as examplesVM from "./examples-model";
+import { Example, ExampleGroup } from "./examples-model";
 import * as hljs from "highlight.js/lib/index";
+
 hljs.configure({
     tabReplace: "  ",
     useBR: true
 });
 
-var style: string;
-var extensionToLanguage = {
+const style: string = require("./code-highlight.css");
+
+const extensionToLanguage = {
     ".js": "javascript",
     ".ts": "typescript",
     ".css": "css",
@@ -17,26 +19,26 @@ var extensionToLanguage = {
     ".json": "json"
 };
 
-export class CodePageViewModel extends observable.Observable {
+export class CodePageViewModel extends Observable {
     public files: Array<fs.FileSystemEntity>;
-    public group: examplesVM.ExampleGroup;
+    public group: ExampleGroup;
 
-    constructor(example: examplesVM.Example) {
+    constructor(example: Example) {
         super();
 
-        var lastSlashIndex = example.path.lastIndexOf("/");
-        var initialSelectedFile = example.path.substr(lastSlashIndex + 1) + ".xml";
-        var path = example.path.substring(0, lastSlashIndex);
+        const lastSlashIndex = example.path.lastIndexOf("/");
+        const initialSelectedFile = example.path.substr(lastSlashIndex + 1) + ".xml";
+        let path = example.path.substring(0, lastSlashIndex);
         path = fs.path.join(fs.knownFolders.currentApp().path, path.replace("~/", ""));
         console.log("Showing code for " + path);
 
-        var folder = fs.Folder.fromPath(path);
+        const folder = fs.Folder.fromPath(path);
         folder.getEntities().then((entities) => {
             entities = entities.filter((e) => (e instanceof fs.File));
             this.set("files", entities);
             this.selectFile(initialSelectedFile);
         });
-        
+
         this.set("group", example.group);
     }
 
@@ -57,7 +59,7 @@ export class CodePageViewModel extends observable.Observable {
         var lang = extensionToLanguage[codeFile.extension];
 
         codeFile.readText().then((codeString) => {
-            var formattedCode = hljs.highlight("javascript", codeString).value;
+            var formattedCode = hljs.highlight(lang, codeString).value;
             formattedCode = hljs.fixMarkup(formattedCode);
             formattedCode = "<style>" + style + "</style><pre><code>" + formattedCode + "</pre></code>"
 
