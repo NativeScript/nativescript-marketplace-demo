@@ -166,13 +166,14 @@ module.exports = env => {
                                 unitTesting,
                                 appFullPath,
                                 projectRoot,
+                                registerModules: /((page|fragment|root).(xml|css|ts|js)$)|(^\.\/views\/)|(^\.\/examples\/)/ // NB: MODIFIED                              
                             }
                         },
                     ].filter(loader => !!loader)
                 },
 
                 {
-                    test: /-page\.ts$/,
+                    test: /(page|fragment)\.ts$/,
                     use: "nativescript-dev-webpack/script-hot-loader"
                 },
 
@@ -226,8 +227,8 @@ module.exports = env => {
             new CleanWebpackPlugin([`${dist}/**/*`]),
             // Copy assets to out dir. Add your own globs as needed.
             new CopyWebpackPlugin([
-                { from: { glob: "examples/**" } },
-                { from: { glob: "views/**" } },
+                // { from: { glob: "examples/**" } },
+                // { from: { glob: "views/**" } },
                 { from: { glob: "fonts/**" } },
                 { from: { glob: "**/*.jpg" } },
                 { from: { glob: "**/*.png" } },

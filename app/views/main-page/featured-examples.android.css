@@ -1,4 +1,4 @@
-@import { url('~/views/main-page/featured-examples-common.css') };
+@import url('./featured-examples-common.css');
 
 .example-label {
     font-size: 15;

@@ -1,8 +1,7 @@
 @import url('app-common.css');
-
-.drawer-button,
-.drawer-button-external {
+.drawer-button, .drawer-button-external {
     font-size: 14;
+    android-elevation: 0;
 }
 
 .drawer-item {
@@ -10,7 +9,7 @@
     font-size: 14;
 }
 
-.drawer-controls-title{
+.drawer-controls-title {
     margin: 8 16;
     font-size: 14;
 }
@@ -24,10 +23,12 @@
     color: black;
     margin: 3;
 }
+
 .example-title-list {
     horizontal-align: left;
     font-size: 20;
 }
+
 .example-title-wrap {
     horizontal-align: center;
     font-size: 17;
@@ -38,10 +39,12 @@
     vertical-align: top;
     font-weight: bold;
 }
+
 .used-controls-list {
     font-size: 12;
     margin: 3;
 }
+
 .used-controls-wrap {
     font-size: 12;
     margin: 0 16;
@@ -52,8 +55,7 @@
     font-weight: bold;
 }
 
-.show-new-btn,
-.group-show-new-btn {
+.show-new-btn, .group-show-new-btn {
     font-weight: bold;
     font-size: 14;
 }
@@ -66,6 +68,8 @@ Button {
     /* Clearing material design from buttons. */
     border-width: 0.0001;
     border-color: rgba(255, 255, 255, 0);
+    android-elevation: 0;
+
 }
 
 .example-menu-item {
