@@ -2,9 +2,10 @@
         xmlns="http://www.nativescript.org/tns.xsd"
         xmlns:drawer="nativescript-ui-sidedrawer"
         id="example-menu-drawer"
-        drawerLocation="Bottom"
         loaded="drawerLoaded"
+        drawerOpened="drawerOpened"
         drawerClosed="drawerClosed"
+        drawerLocation="Bottom"
         drawerContentSize="104">
     <drawer:RadSideDrawer.drawerContent>
         <StackLayout class="example-menu-stack">

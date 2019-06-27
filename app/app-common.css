@@ -142,12 +142,9 @@ Page, ExamplePage, DrawerPage {
 .chart-example-tytle-style {
     horizontal-align: center;
 }
-
-
 .example-menu-stack {
     background-color: white;
     padding: 8 0;
-    
 }
 
 .example-menu-item {
