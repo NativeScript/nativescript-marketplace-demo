@@ -1,22 +1,17 @@
-import * as pages from "tns-core-modules/ui/page";
-import * as view from "tns-core-modules/ui/core/view";
-import * as gestures from "tns-core-modules/ui/gestures";
-import * as navigator from "../common/navigator";
-import * as examplesVM from "../view-models/examples-model"
-import * as codePageVM from "../view-models/code-page-view-model"
+import { Page, NavigatedData, EventData, View } from "tns-core-modules/ui/page";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import * as observable from "tns-core-modules/data/observable";
+import { CodePageViewModel } from "../view-models/code-page-view-model"
+import * as navigator from "../common/navigator";
 
 // Event handler for Page "navigatedTo" event attached in details-page.xml
-export function pageNavigatingTo(args: pages.NavigatedData) {
+export function pageNavigatingTo(args: NavigatedData) {
     // Get the event sender
-    var page = <pages.Page>args.object;
-    page.bindingContext = new codePageVM.CodePageViewModel(args.context);
+    var page = <Page>args.object;
+    page.bindingContext = new CodePageViewModel(args.context);
 }
 
-export function selectFile(args: observable.EventData) {
-    var vm = <codePageVM.CodePageViewModel>(<view.View>args.object).bindingContext;
-    var options = vm.files.map((file) => file.name);
+export function selectFile(args: EventData) {
+    var vm = <CodePageViewModel>(<View>args.object).bindingContext;
 
     dialogs.action({
         cancelButtonText: "Cancel",
@@ -28,6 +23,6 @@ export function selectFile(args: observable.EventData) {
     });
 }
 
-export function goBack(args: gestures.GestureEventData) {
+export function goBack() {
     navigator.navigateBack();
 }
