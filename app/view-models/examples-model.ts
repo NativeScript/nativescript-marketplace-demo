@@ -112,7 +112,7 @@ export var groups: Array<ExampleGroup> = [
     {
         id: "listview",
         title: "ListView",
-        isNew: true,
+        isNew: false,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/ListView/listview-overview",
         info: "ListView for NativeScript is a powerful UI virtualized list control that provides popular UX scenarios out-of-the-box.",
         tint: "#ff6e40",
@@ -161,7 +161,7 @@ export var groups: Array<ExampleGroup> = [
                 info: "DataForm for NativeScript can be used in various scenarios where a business object has to be edited. This example demonstrates how to edit the information about reservations in a restaurant.",
                 controls: "dataform",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             }
         ]
     }
