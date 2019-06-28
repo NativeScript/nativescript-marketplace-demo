@@ -2,21 +2,18 @@
     xmlns:drawer="nativescript-ui-sidedrawer" 
     id="example-menu-drawer" 
     loaded="drawerLoaded" 
+    drawerOpened="drawerOpened" 
     drawerClosed="drawerClosed" 
-    ios:drawerContentSize="104" 
-    android:drawerContentSize="104">
-
+    drawerLocation="Bottom" 
+    drawerContentSize="104">
     <drawer:RadSideDrawer.drawerContent>
-        <GridLayout class="example-menu-background" 
-            backgroundColor="white">
-            <StackLayout class="example-menu-stack">
-                <Button text="Example information" 
-                    class="example-menu-item" 
-                    tap="informationTap" />
-                <Button text="View code" 
-                    class="example-menu-item" 
-                    tap="codeTap" />
-            </StackLayout>
-        </GridLayout>
+        <StackLayout class="example-menu-stack">
+            <Button text="Example information" 
+                class="example-menu-item" 
+                tap="informationTap" />
+            <Button text="View code" 
+                class="example-menu-item" 
+                tap="codeTap" />
+        </StackLayout>
     </drawer:RadSideDrawer.drawerContent>
 </drawer:RadSideDrawer>

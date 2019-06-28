@@ -1,4 +1,4 @@
-const { relative, resolve, sep } = require("path");
+const { join, relative, resolve, sep } = require("path");
 
 const webpack = require("webpack");
 const nsWebpack = require("nativescript-dev-webpack");

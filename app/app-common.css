@@ -143,20 +143,14 @@ Page, ExamplePage, DrawerPage {
     horizontal-align: center;
 }
 
-.example-menu-background {
-    margin: 0px;
+.example-menu-stack {
     vertical-align: top;
     background-color: white;
 }
 
-.example-menu-stack {
-    vertical-align: top;
-    margin: 8 0;
-}
-
 .example-menu-item {
     color: #151F2F;
-    height: 44;
+    height: 52;
     vertical-align: top;
     border-color: white;
     background-color: transparent;

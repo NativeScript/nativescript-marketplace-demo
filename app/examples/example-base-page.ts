@@ -1,11 +1,9 @@
-import { Page, Color } from "tns-core-modules/ui/page";
+import { Page, Observable, ViewBase } from "tns-core-modules/ui/page";
+// import { isAndroid } from "tns-core-modules/platform";
 import * as prof from "../common/profiling";
 import * as builder from "tns-core-modules/ui/builder";
 import { View } from "tns-core-modules/ui/core/view"
-import { knownFolders } from "tns-core-modules/file-system";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout";
-import * as drawerModule from "nativescript-ui-sidedrawer";
 
 export class ExamplePage extends Page {
 
@@ -15,18 +13,17 @@ export class ExamplePage extends Page {
         super();
 
         // TODO: Hides the back button for iOS, check if this can be set in XML or with cross platform API.
-        this.on("navigatingTo", () => {
+        this.on("navigatingTo", args => {
             if (!this.sideDrawer) {
-                var exampleContent = this.content;
-                var menuPath = knownFolders.currentApp().path + "/examples/example-menu.xml";
-                
-                this.sideDrawer = <RadSideDrawer>builder.load(menuPath, require("./example-menu"));
-                this.content = this.sideDrawer;
-                this.sideDrawer.mainContent = exampleContent;
-
-                var originalRootBindingContext = exampleContent.bindingContext;
-                if (exampleContent.bindingContext !== originalRootBindingContext){
-                    exampleContent.bindingContext = originalRootBindingContext;
+                const root = this.content;
+                const originalRootBindingContext = root.bindingContext;
+                const menuPath = "examples/example-menu.xml";
+                const menuFragment = <View>builder.load(menuPath, global.loadModule("examples/example-menu"));
+                this.sideDrawer = <RadSideDrawer>menuFragment.getViewById("example-menu-drawer");
+                this.content = menuFragment;
+                this.sideDrawer.mainContent = root;
+                if (root.bindingContext !== originalRootBindingContext) {
+                    root.bindingContext = originalRootBindingContext;
                 }
                 this.sideDrawer.drawerContent.bindingContext = this.navigationContext;
             }
@@ -39,13 +36,10 @@ export class ExamplePage extends Page {
         // prof.stopCPUProfile("example");
         prof.stop("example");
 
-        this.actionBar.actionItems.getItems().forEach(item => {
-            if ((<any>item).id === "exampleMenuButton") {
-                item.on("tap", () => {
-                    this.sideDrawer.gesturesEnabled = true;
-                    this.sideDrawer.drawerLocation = drawerModule.SideDrawerLocation.Bottom;
-                    this.sideDrawer.showDrawer();
-                });
+        this.actionBar.actionItems.getItems().forEach((item: ViewBase) => {
+            if (item.id === "exampleMenuButton") {
+                item.off("tap", this.toggleDrawer, this);
+                item.on("tap", this.toggleDrawer, this);
             }
         });
     }

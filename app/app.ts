@@ -8,9 +8,6 @@ import * as imageModule from 'nativescript-image';
 import * as utils from "tns-core-modules/utils/utils";
 // import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
-
-// import * as json from "~/package.json";
-
 import { init as initFirebase } from "./common/firebase";
 
 require("./module-registrations");
