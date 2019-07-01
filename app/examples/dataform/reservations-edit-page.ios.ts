@@ -96,7 +96,6 @@ export function setupEditorTable(editor) {
     hideSeparator(editor);
     hideBackground(editor);
 
-    console.log(`[setupEditorTable] Editor is not null: ${!!editor}`);
     tablePickerDelegate = UIPickerViewDelegateImplementation.initWithOwner(new WeakRef(editor));
     editor.pickerView.delegate = tablePickerDelegate;
 
@@ -107,7 +106,6 @@ export function setupEditorTable(editor) {
 
 export function setupEditorSection(editor) {
     hideBackground(editor);
-    console.log(`[setupEditorSection] Editor is not null: ${!!editor}`);
 
     sectionPickerDelegate = UIPickerViewDelegateImplementation.initWithOwner(new WeakRef(editor));
     editor.pickerView.delegate = sectionPickerDelegate;
@@ -244,7 +242,7 @@ class UIPickerViewDelegateImplementation extends NSObject implements UIPickerVie
     static new(): UIPickerViewDelegateImplementation {
         return <UIPickerViewDelegateImplementation>super.new();
     }
-    
+
     private _owner: WeakRef<TKDataFormPickerViewEditor>;
 
     public static initWithOwner(owner: WeakRef<TKDataFormPickerViewEditor>): UIPickerViewDelegateImplementation {
@@ -268,8 +266,6 @@ class UIPickerViewDelegateImplementation extends NSObject implements UIPickerVie
     }
     
     public pickerViewAttributedTitleForRowForComponent(pickerView: UIPickerView, row: number, component: number): NSAttributedString {
-        console.log(`this._owner: ${this._owner}`);
-        console.log(`this._owner.get: ${this._owner.get}`);
         let owner = this._owner.get();
         if (owner) {
             let titleString = String(this.pickerViewTitleForRowForComponent(pickerView, row, component));
