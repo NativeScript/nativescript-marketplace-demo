@@ -46,6 +46,7 @@ export function onItemSwipeProgressChanged(args: any) {
             utils.layout.makeMeasureSpec(itemView.getMeasuredHeight(), utils.layout.EXACTLY));
         viewModule.View.layoutChild(<viewModule.View>currentView.parent, currentView, 0, 0, dimensions.measuredWidth, dimensions.measuredHeight);
         if (args.data.x > mainView.getMeasuredWidth() / 3) {
+            rightThresholdPassed = false;
             leftThresholdPassed = true;
         }
     } else {
@@ -57,6 +58,7 @@ export function onItemSwipeProgressChanged(args: any) {
             utils.layout.makeMeasureSpec(mainView.getMeasuredHeight(), utils.layout.EXACTLY));
         viewModule.View.layoutChild(<viewModule.View>currentView.parent, currentView, mainView.getMeasuredWidth() - dimensions.measuredWidth, 0, mainView.getMeasuredWidth(), dimensions.measuredHeight);
         if (Math.abs(args.data.x) > mainView.getMeasuredWidth() / 3) {
+            leftThresholdPassed = false;
             rightThresholdPassed = true;
         }
     }

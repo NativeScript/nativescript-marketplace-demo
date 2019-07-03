@@ -30,7 +30,7 @@
                 </ActionBar.actionItems>
                 <ActionBar.titleView>
                     <StackLayout orientation="horizontal">
-                        <Label text="Selection" visibility="{{ (isReorderActive || isSelectionActive) ? 'collapsed' : 'visible'}}" class="title-view-item" />
+                        <Label text="Reorder with toggle" visibility="{{ (isReorderActive || isSelectionActive) ? 'collapsed' : 'visible'}}" class="title-view-item" />
                         <Label text="Reorder" visibility="{{ (isReorderActive && !isSelectionActive) ? 'visible' : 'collapsed'}}" class="title-view-item"/>
                         <Label text="{{'' + selectedItemsCount }}" visibility="{{ isSelectionActive ? 'visible' : 'collapsed'}}" class="title-view-item"/>
                     </StackLayout>
@@ -60,10 +60,10 @@
             reorderMode="Drag"
             itemSwipeProgressStarted="{{onStartSwipeCell}}"
             itemSwipeProgressEnded="{{onCellSwiped}}"
-            swipeActions="{{isReorderActive ? false : true}}"
-            itemTap="{{ onItemTap }}"
-            itemHold="{{ onItemHold }}">
-
+            ios:swipeActions="{{isReorderActive ? false : true}}"
+            android:swipeActions="{{isReorderActive ? false : true}}"
+            itemTap="{{ onItemTap }}">
+        
         <lv:RadListView.listViewLayout>
             <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"/>
         </lv:RadListView.listViewLayout>
@@ -94,11 +94,11 @@
                 </GridLayout>
             </ios>
             <android>
-                <GridLayout columns="auto, *">
+                <GridLayout columns="auto, *" longPress="{{ onLongPressDummyHandler }}" class="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
                     <lv:ReorderHandle col="0" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
                         <Image src="res://ic_reorder" class="reorder-handle"/>
                     </lv:ReorderHandle>
-                    <GridLayout col="1" columns="auto, *" rows="auto,*" class="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}" >
+                    <GridLayout col="1" columns="auto, *" rows="auto,*">
                         <Image row="0" col="0" margin="5" src="res://ic_fav" opacity="{{ IsFavourite ? '1' : '0' }}" />
                         <Label row="0" col="1" text="{{ Title }}" class="titleStyle" textWrap="true"/>
                         <Label row="1" col="1" text="{{ Summary }}" class="contentStyle" textWrap="true"/>

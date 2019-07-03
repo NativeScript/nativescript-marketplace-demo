@@ -235,6 +235,10 @@ export class SelectionViewModel extends Observable {
         this._currentItemIndex = args.index;
     }
 
+    onLongPressDummyHandler(args: any) {
+        // works around an issue in Android and RLV where the app crashes
+    }
+
     onTap_SetAsFavourite(args: any) {
         var tmp = this.lvItems.getItem(this._currentItemIndex);
         tmp.IsFavourite = !tmp.IsFavourite;
@@ -286,16 +290,6 @@ export class SelectionViewModel extends Observable {
     public onItemDeselected(args) {
         this.selectedItemsCount = this._owner.getSelectedItems().length;
         this.lvItems.getItem(args.index).isSelected = false;
-    }
-
-    public onItemHold(args) {
-        if (this.isReorderActive || this.isSelectionActive) {
-            return;
-        }
-        
-        if (platform.device.os === platform.platformNames.android && this.isSelectionActive === false) {
-            this.toggleSelection(args.index);
-        }
     }
 
     public onToggleSelectedFavoriteTap(args) {
