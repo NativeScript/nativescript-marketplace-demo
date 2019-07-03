@@ -235,8 +235,9 @@ export class SelectionViewModel extends Observable {
         this._currentItemIndex = args.index;
     }
 
-    onLongPressDummyHandler(args: any) {
-        // works around an issue in Android and RLV where the app crashes
+    onLongPressDummyHandler() {
+        // DO NOT DELETE: this works around an issue in Android and RLV 
+        // where the app crashes when click/swipe while in edit mode
     }
 
     onTap_SetAsFavourite(args: any) {

@@ -19,51 +19,46 @@
             </iOS>
         </ActionBar>
     </Page.actionBar>
-	<GridLayout rows="auto, *" backgroundColor="#151f2f">
-				
-		<GridLayout rows="*" row="1">
-                    
         <!--ToDo list-->
-			<lv:RadListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" swipeActions="true" itemReorder="true" 
-				ios:reorderMode="HoldAndDrag"
-				android:reorderMode="Drag"
-				itemReorderStarted="{{onItemReorderStarted}}"
-				itemReordered="{{onItemReordered}}"
-				itemSwipeProgressStarted="onItemSwipeProgressStarted"
-				itemSwipeProgressEnded="onItemSwipeProgressEnded"
-				itemSwipeProgressChanged="onItemSwipeProgressChanged">
-				<lv:RadListView.listViewLayout>
-					<lv:ListViewLinearLayout itemAddAnimation="Fade" itemRemoveAnimation="Fade"/>
-				</lv:RadListView.listViewLayout>
-				
-				<lv:RadListView.itemTemplate>
-					<GridLayout columns="auto, *" paddingBottom="1" backgroundColor="#151f2f">
-						<android>
-							<lv:ReorderHandle verticalAlignment="stretch">
-								<GridLayout col="0" borderColor="#08caab" borderWidth="1" verticalAlignment="stretch">
-									<Image src="res://ic_reorder" stretch="aspectFit" margin="12" height="18"/>
-								</GridLayout>
-							</lv:ReorderHandle>
-						</android>
-						<StackLayout col="1" backgroundColor="{{isReordered === false ? '#08caab' : '#026968'}}" padding="12" orientation="horizontal">
-							<Label text="{{ title }}" color="white" ios:class="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
-								android:class="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
-						</StackLayout>
-					</GridLayout>
-				</lv:RadListView.itemTemplate>
-				
-				<lv:RadListView.itemSwipeTemplate>
-					<GridLayout rows="*" columns="auto, *, auto" paddingBottom="1" verticalAlignment="stretch" backgroundColor="#151f2f"> 
-						<GridLayout id="complete-view" backgroundColor="#fed03c">
-							<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</GridLayout>
-						<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2">
-							<Image android:src="res://ic_listview_reorder_delete" ios:src="res://listview/reorder/reorder-delete-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
-						</GridLayout>
-					</GridLayout>
-				</lv:RadListView.itemSwipeTemplate>
-			</lv:RadListView>
+		<!-- <ListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" swipeActions="true" itemReorder="true" ></ListView> -->
+		<lv:RadListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" swipeActions="true" itemReorder="true" 
+			ios:reorderMode="HoldAndDrag"
+			android:reorderMode="Drag"
+			itemReorderStarted="{{onItemReorderStarted}}"
+			itemReordered="{{onItemReordered}}"
+			itemSwipeProgressStarted="onItemSwipeProgressStarted"
+			itemSwipeProgressEnded="onItemSwipeProgressEnded"
+			itemSwipeProgressChanged="onItemSwipeProgressChanged">
 			
-		</GridLayout>
-	</GridLayout>
+			<lv:RadListView.listViewLayout>
+				<lv:ListViewLinearLayout itemAddAnimation="Fade" itemRemoveAnimation="Fade"/>
+			</lv:RadListView.listViewLayout>
+			
+			<lv:RadListView.itemTemplate>
+				<GridLayout columns="auto, *" paddingBottom="1" backgroundColor="#151f2f">
+					<android>
+						<lv:ReorderHandle verticalAlignment="stretch">
+							<GridLayout col="0" borderColor="#08caab" borderWidth="1" verticalAlignment="stretch">
+								<Image src="res://ic_reorder" stretch="aspectFit" margin="12" height="18"/>
+							</GridLayout>
+						</lv:ReorderHandle>
+					</android>
+					<StackLayout col="1" backgroundColor="{{isReordered === false ? '#08caab' : '#026968'}}" padding="12" orientation="horizontal">
+						<Label text="{{ title }}" color="white" ios:class="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
+							android:class="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>
+					</StackLayout>
+				</GridLayout>
+			</lv:RadListView.itemTemplate>
+			
+			<lv:RadListView.itemSwipeTemplate>
+				<GridLayout rows="*" columns="auto, *, auto" paddingBottom="1" verticalAlignment="stretch" backgroundColor="#151f2f"> 
+					<GridLayout id="complete-view" backgroundColor="#fed03c">
+						<Image android:src="res://ic_listview_reorder_complete" ios:src="res://listview/reorder/check-as-done-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
+					</GridLayout>
+					<GridLayout id="delete-view" backgroundColor="#FFE5503A" col="2">
+						<Image android:src="res://ic_listview_reorder_delete" ios:src="res://listview/reorder/reorder-delete-icon" stretch="none" verticalAlignment="center" horizontalAlignment="center"/>
+					</GridLayout>
+				</GridLayout>
+			</lv:RadListView.itemSwipeTemplate>
+		</lv:RadListView>
 </examples:ExamplePage>
