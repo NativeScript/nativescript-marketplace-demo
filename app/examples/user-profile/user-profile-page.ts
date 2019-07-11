@@ -1,4 +1,4 @@
-import { EventData, Observable } from "tns-core-modules/data/observable";
+import { EventData } from "tns-core-modules/data/observable";
 import * as observable from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
 import { View } from "tns-core-modules/ui/core/view";
@@ -8,7 +8,7 @@ import * as platform from "tns-core-modules/platform";
 import * as application from "tns-core-modules/application"
 import * as navigator from "../../common/navigator";
 import * as linearGradient from "../../common/linear-gradient";
- 
+
 declare var android: any;
 
 export function onPageNavigatingTo(args: EventData) {
@@ -22,19 +22,6 @@ export function onPageNavigatingTo(args: EventData) {
         showPassword: false
     });
     page.bindingContext = viewModel;
-}
-
-export function onContentLoaded(args: EventData) {
-    let view = <View>args.object;
-
-    // if (platform.device.os === platform.platformNames.ios) {
-    //     view.ios.backgroundColor = UIColor.whiteColor();
-    //     view.ios.layer.masksToBounds = false;
-    //     view.ios.layer.shadowColor = UIColor.blackColor().CGColor;
-    //     view.ios.layer.shadowOffset = CGSizeMake(5.0, 5.0);
-    //     view.ios.layer.shadowOpacity = 0.5;
-    //     view.ios.layer.bord
-    // }
 }
 
 export function onBackgroundLoaded(args: EventData) {
@@ -55,11 +42,11 @@ export function onBackgroundLoaded(args: EventData) {
     }
 }
 
-export function onProfilePictureTapped(args: EventData) {
+export function onProfilePictureTapped() {
     notify("Change Image Tapped!");
 }
 
-export function onUpdateButtonTapped(args: EventData) {
+export function onUpdateButtonTapped() {
     notify("Update Tapped!");
 }
 
@@ -81,12 +68,13 @@ export function onShowPasswordTapped(args: EventData) {
     viewModel.showPassword = !viewModel.showPassword;
 }
 
-var closeTimeout;
-export function onTextInputTapped(args: EventData) {
+var closeTimeout: any = null;
+export function onTextInputTapped() {
     if (closeTimeout) {
         clearTimeout(closeTimeout);
     }
     closeTimeout = setTimeout(() => {
+        closeTimeout = null;
     }, 20);
 }
 
@@ -98,10 +86,11 @@ export function onPageTapped(args: EventData) {
             page.getViewById<EditableTextBase>("email").dismissSoftInput();
             page.getViewById<EditableTextBase>("password").dismissSoftInput();
             page.getViewById<EditableTextBase>("bio").dismissSoftInput();
+            closeTimeout = null;
         }, 20);
     }
 }
 
-export function goBack(args) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }

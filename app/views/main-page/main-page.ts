@@ -5,7 +5,6 @@ import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
 import * as gestures from "tns-core-modules/ui/gestures";
 import * as examplesVM from "../../view-models/examples-model"
 import * as mainPageVM from "../../view-models/main-page-view-model";
-import * as groupPageVM from "../../view-models/group-page-view-model";
 import * as navigator from "../../common/navigator";
 import * as prof from "../../common/profiling";
 import { View } from "tns-core-modules/ui/core/view";
@@ -23,22 +22,16 @@ export function onLoaded(args) {
     }, 3500);
 }
 
+export function onNavigatedTo(args: EventData) {
+    getRootSideDrawer().gesturesEnabled = true;
+}
+
 export function onNavigatingTo(args: EventData) {
     (args.object as View).bindingContext = mainPageVM.getInstance();
 }
 
 export function toggleWrapLayout(e: any) {
     e.object.bindingContext.toggleWrapLayout();
-}
-
-export function navigateToExampleGroup(args: gestures.GestureEventData) {
-    prof.start("group");
-
-    getRootSideDrawer().closeDrawer();
-
-    var exampleGroup = (args as any).object.bindingContext as examplesVM.ExampleGroup;
-    var context = new groupPageVM.GroupPageViewModel(exampleGroup);
-    navigator.navigateToExampleGroup(context);
 }
 
 export function tileTouch(args: gestures.TouchGestureEventData) {
@@ -56,21 +49,22 @@ export function navigateToExample(args: gestures.GestureEventData) {
     }
     prof.start("example");
 
+    getRootSideDrawer().gesturesEnabled = false;
     getRootSideDrawer().closeDrawer();
 
     var example = (args as any).object.bindingContext as examplesVM.Example;
     navigator.navigateToExample(example, examplesVM.featuredExamples);
 }
 
-export function showSlideout(args) {
+export function showSlideout() {
     getRootSideDrawer().toggleDrawerState();
 }
 
-export function tapHome(args) {
+export function tapHome() {
     getRootSideDrawer().closeDrawer();
 }
 
-export function tapAbout(args) {
+export function tapAbout() {
     getRootSideDrawer().closeDrawer();
     navigator.navigateToAbout();
 }

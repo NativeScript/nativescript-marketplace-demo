@@ -1,4 +1,3 @@
-import "./bundle-config";
 import * as application from "tns-core-modules/application";
 import * as imageModule from 'nativescript-image';
 // import * as frame from "tns-core-modules/ui/frame";
@@ -8,10 +7,9 @@ import * as imageModule from 'nativescript-image';
 import * as utils from "tns-core-modules/utils/utils";
 // import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
-
-// import * as json from "~/package.json";
-
 import { init as initFirebase } from "./common/firebase";
+
+require("./module-registrations");
 
 // console.log("App config is: " + JSON.stringify(json));
 // application.on("displayed", () => {
@@ -49,4 +47,4 @@ if (application.ios) {
 }
 
 // prof.start("main-page");
-application.run({ moduleName: "app-root" });
+application.run({ moduleName: "app-root-page" });

@@ -1,4 +1,5 @@
 <Page class="qsf-page" 
+    navigatedTo="onNavigatedTo" 
     navigatingTo="onNavigatingTo" 
     loaded="onLoaded" 
     backgroundSpanUnderStatusBar="true" 
@@ -65,7 +66,6 @@
                         </Repeater.itemsLayout>
                         <Repeater.itemTemplate>
                             <GridLayout class="example-intro" 
-                                iosOverflowSafeArea="false" 
                                 margin="6" 
                                 rows="* 54" 
                                 backgroundColor="white" 
@@ -100,7 +100,6 @@
 
             <GridLayout id="intro-logo-bg" 
                 class="intro-logo-bg-intro" 
-                iosOverflowSafeArea="false" 
                 backgroundColor="#3C5AFD" 
                 width="93" 
                 height="93" 
@@ -109,7 +108,6 @@
                 borderRadius="20" />
             <GridLayout id="intro-logo-n" 
                 class="intro-logo-n-intro" 
-                iosOverflowSafeArea="false" 
                 backgroundImage="res://logo_blue_bg" 
                 width="93" 
                 height="93" 
@@ -117,7 +115,6 @@
                 verticalAlignment="center" />
             <GridLayout id="intro-logo-ns" 
                 class="intro-logo-ns-intro" 
-                iosOverflowSafeArea="false" 
                 backgroundImage="res://logo_text" 
                 width="199" 
                 height="31" 
@@ -143,7 +140,6 @@
                 textWrap="true" 
                 color="#8DA1AB" 
                 textAlignment="center" />
-
             <Button id="intro-get-started" 
                 class="intro-get-started-intro" 
                 text="GET STARTED" 

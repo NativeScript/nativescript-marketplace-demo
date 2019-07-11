@@ -4,7 +4,7 @@
     "firestore": false,
     "realtimedb": false,
     "remote_config": false,
-    "messaging": true,
+    "messaging": false,
     "crashlytics": false,
     "crash_reporting": false,
     "storage": true,

@@ -1,9 +1,8 @@
-import * as dataFormModule from "nativescript-ui-dataform";
 import * as model from "./reservations-view-model";
 import * as navigator from "../../common/navigator";
-import { ObservableArray }  from "tns-core-modules/data/observable-array";
 import { RadListView, ListViewEventData } from "nativescript-ui-listview";
 import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
+import { getViewById } from "tns-core-modules/ui/core/view";
 
 let viewModel;
 
@@ -14,8 +13,11 @@ export function pageNavigatingTo(args: any) {
     } else {
         viewModel = new model.ReservationsViewModel();
     }
-    page.bindingContext = null;
+
     page.bindingContext = viewModel;
+
+    let listView = getViewById(page, "list-view") as RadListView;
+    listView.refresh();
 }
 
 export function pageNavigatedFrom(args: any) {

@@ -112,12 +112,12 @@ export var groups: Array<ExampleGroup> = [
     {
         id: "listview",
         title: "ListView",
-        isNew: true,
+        isNew: false,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/ListView/listview-overview",
         info: "ListView for NativeScript is a powerful UI virtualized list control that provides popular UX scenarios out-of-the-box.",
         tint: "#ff6e40",
         examples: [
-             {
+            {
                 title: "Item layouts",
                 image: "res://screen_listview_layouts",
                 path: "examples/listview/layouts/listview-layouts-page",
@@ -136,10 +136,12 @@ export var groups: Array<ExampleGroup> = [
                 isNew: false
             },
             {
-                title: "Selection",
+                title: applicationModule.android ? "Reorder with handle" : "Selection",
                 image: "res://screen_listview_selection",
                 path: "examples/listview/selection/main-page",
-                info: "ListView supports two selection modes: single and miltiple. It also exposes convenient API for managing selection. You can programmatically select, deselect and query the currently selected items.",
+                info: applicationModule.android ?
+                    "ListView can be reordered using handles. You can place a ReorderHandle anywhere in the item in order to achieve the desired look" :
+                    "ListView supports two selection modes: single and miltiple. It also exposes convenient API for managing selection. You can programmatically select, deselect and query the currently selected items.",
                 controls: "listview",
                 isFeatured: true,
                 isNew: false
@@ -149,25 +151,22 @@ export var groups: Array<ExampleGroup> = [
     {
         id: "dataform",
         title: "DataForm",
-        isNew: true,
+        isNew: false,
         url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/DataForm/dataform-overview",
         info: "DataForm for NativeScript helps you edit the properties of a business object during runtime and build a mobile form fast and easy. ",
         tint: "#ff6e40",
         examples: [
-             {
+            {
                 title: "Reservations",
                 image: "res://screen_dataform",
                 path: "examples/dataform/reservations-list-page",
                 info: "DataForm for NativeScript can be used in various scenarios where a business object has to be edited. This example demonstrates how to edit the information about reservations in a restaurant.",
                 controls: "dataform",
                 isFeatured: true,
-                isNew: true
+                isNew: false
             }
         ]
     }
-    // { title: "Side Drawer", isNew: true, controls: ["side-drawer"], tint: "teal", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." }
-    // { title: "Calendar", isNew: false, controls: ["calendar"], tint: "purple", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
-    // { title: "List View", isNew: false, controls: ["list-view-ui"], tint: "magenta", url: "http://docs.telerik.com/devtools/nativescript-ui/Controls/SideDrawer/sidedrawer-overview", info: "info..." },
 ];
 
 

@@ -223,8 +223,8 @@ export class SelectionViewModel extends Observable {
         this._isSwipeEnded = false;
         var swipeLimits = args.data.swipeLimits;
         var swipeView = args['object'];
-        var leftItem = swipeView.getViewById<View>('fav-view');
-        var rightItem = swipeView.getViewById<View>('del-view');
+        var leftItem = swipeView.getViewById<View>('swipe-fav');
+        var rightItem = swipeView.getViewById<View>('swipe-del');
         swipeLimits.left = leftItem.getMeasuredWidth();
         swipeLimits.right = rightItem.getMeasuredWidth();
         swipeLimits.threshold = leftItem.getMeasuredWidth() / 2;
@@ -233,6 +233,11 @@ export class SelectionViewModel extends Observable {
 
     onCellSwiped(args: ListViewEventData) {
         this._currentItemIndex = args.index;
+    }
+
+    onLongPressDummyHandler() {
+        // DO NOT DELETE: this works around an issue in Android and RLV 
+        // where the app crashes when click/swipe while in edit mode
     }
 
     onTap_SetAsFavourite(args: any) {
@@ -286,16 +291,6 @@ export class SelectionViewModel extends Observable {
     public onItemDeselected(args) {
         this.selectedItemsCount = this._owner.getSelectedItems().length;
         this.lvItems.getItem(args.index).isSelected = false;
-    }
-
-    public onItemHold(args) {
-        if (this.isReorderActive || this.isSelectionActive) {
-            return;
-        }
-        
-        if (platform.device.os === platform.platformNames.android && this.isSelectionActive === false) {
-            this.toggleSelection(args.index);
-        }
     }
 
     public onToggleSelectedFavoriteTap(args) {

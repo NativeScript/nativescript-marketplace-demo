@@ -1,4 +1,5 @@
 <examples:ExamplePage
+        xmlns:chart="nativescript-ui-chart"
         navigatingTo="pageNavigatingTo"
         navigatingFrom="pageNavigatingFrom"
         xmlns:examples="examples/example-base-page"

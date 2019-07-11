@@ -92,14 +92,6 @@ export function navigateToCode(context: examplesVM.Example) {
     })
 }
 
-export function navigateToGroupInfo(context: examplesVM.ExampleGroup) {
-    frame.topmost().navigate({
-        animated: true,
-        context: context,
-        moduleName: traceNavigateTo("views/group-info-page", context.title),
-    })
-}
-
 export function navigateToHome() {
     var topmost = frame.topmost();
     if (topmost.currentEntry.moduleName !== "views/main-page/main-page") {

@@ -1,5 +1,5 @@
 import { Observable } from "tns-core-modules/data/observable";
-import { ObservableArray }  from "tns-core-modules/data/observable-array";
+import { ObservableArray } from "tns-core-modules/data/observable-array";
 import * as appModule from "tns-core-modules/application";
 
 export class ReservationsViewModel extends Observable {
@@ -147,32 +147,40 @@ function dayText(day: number) {
 }
 
 var timeConverter = function (value) {
-    var valueParts = value.split(":");
-    var hour = valueParts[0];
-    var minute = valueParts[1];
-
-    var hourValue = Number(hour);
-    if (hourValue > 12) {
-        hourValue -= 12;
+    if (value) {
+        var valueParts = value.split(":");
+        var hour = valueParts[0];
+        var minute = valueParts[1];
+    
+        var hourValue = Number(hour);
+        if (hourValue > 12) {
+            hourValue -= 12;
+        }
+        if (hourValue == 0) {
+            hourValue = 12;
+        }
+    
+        return hourValue + ":" + minute;
     }
-    if (hourValue == 0) {
-        hourValue = 12;
-    }
 
-    return hourValue + ":" + minute;
+    return "";
 }
 
 var ampmConverter = function (value) {
-    var valueParts = value.split(":");
-    var hour = valueParts[0];
-    var minute = valueParts[1];
-
-    var hourValue = Number(hour);
-    if (hourValue >= 12) {
-        return "pm";
+    if (value) {
+        var valueParts = value.split(":");
+        var hour = valueParts[0];
+        var minute = valueParts[1];
+    
+        var hourValue = Number(hour);
+        if (hourValue >= 12) {
+            return "pm";
+        }
+    
+        return "am";
     }
 
-    return "am";
+    return "";
 }
 
 export class Reservation {

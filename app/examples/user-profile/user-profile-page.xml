@@ -19,7 +19,7 @@
         </ActionBar>
     </Page.actionBar>
     <GridLayout id="example-background" loaded="onBackgroundLoaded">
-        <GridLayout id="form-content" class="form-content" rows="auto,*,auto" loaded="onContentLoaded">
+        <GridLayout id="form-content" class="form-content" rows="auto,*,auto">
             <StackLayout class="top-border" row="0"/>
             <ScrollView row="1" class="fields-section">
                 <StackLayout>

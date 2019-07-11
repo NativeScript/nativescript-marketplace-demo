@@ -36,7 +36,6 @@ Want to see more samples like this one? Check our [NativeScript samples list](ht
 For more news about NativeScript, please [follow our Twitter account](http://twitter.com/nativescript).
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/marketplace-demo?pixel) 
 
-
 # Performance 
 Start for latest version published on GooglePlay and AppStore.
 

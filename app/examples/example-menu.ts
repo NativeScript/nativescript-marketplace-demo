@@ -1,5 +1,5 @@
 import * as navigator from "../common/navigator";
-import { RadSideDrawer, DrawerStateChangedEventArgs } from "nativescript-ui-sidedrawer";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 export function drawerOpened(args) {
 	const drawer = <RadSideDrawer>args.object;
@@ -21,7 +21,7 @@ export function drawerLoaded(args) {
 		});
 
 		if (drawer.ios) {
-			drawer.ios.defaultSideDrawer.style.shadowMode = TKSideDrawerShadowMode.TKSideDrawerShadowModeSideDrawer;
+			drawer.ios.defaultSideDrawer.style.shadowMode = TKSideDrawerShadowMode.SideDrawer;
 			drawer.ios.defaultSideDrawer.style.dimOpacity = 0.3;
 
 			// Fixing strange behavior when drawer is not respecting drawerContentSize 

@@ -1,12 +1,12 @@
-import { ReservationsViewModel, Reservation } from "./reservations-view-model";
+import { ReservationsViewModel } from "./reservations-view-model";
 import { EventData } from "tns-core-modules/data/observable";
 import { Page, NavigatedData } from "tns-core-modules/ui/page";
 import * as viewModule from "tns-core-modules/ui/core/view";
-import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
 import * as navigator from "../../common/navigator";
 import * as dataFormModule from "nativescript-ui-dataform";
 import { Color } from "tns-core-modules/color";
 import * as platform from "tns-core-modules/platform";
+import * as utils from "tns-core-modules/utils/utils";
 
 var colorAccent: Color = new Color("#BF3136");
 var model: ReservationsViewModel;
@@ -35,6 +35,8 @@ export function saveChanges(args: EventData) {
     if (model.isNew) {
         model.reservations.push(model.currentReservation);
     }
+
+    utils.ad.dismissSoftInput();
 
     navigator.navigateBackWithContext(model);
 }

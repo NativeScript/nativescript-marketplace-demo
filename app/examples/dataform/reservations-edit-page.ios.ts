@@ -11,12 +11,16 @@ import * as platform from "tns-core-modules/platform";
 var colorAccent: Color = new Color("#BF3136");
 var model: ReservationsViewModel;
 var imageWidth: number = 13;
+var tablePickerDelegate: UIPickerViewDelegateImplementation;
+var sectionPickerDelegate: UIPickerViewDelegateImplementation;
 
 // Examples navigation
 export function pageNavigatedTo(args: NavigatedData) {
     var page = <Page>args.object;
     model = <ReservationsViewModel>args.context;
+    // setTimeout(()=>{
     page.bindingContext = model;
+    // }, 1000);
 }
 
 export function saveChanges(args: EventData) {
@@ -27,11 +31,11 @@ export function saveChanges(args: EventData) {
     if (dataForm.hasValidationErrors()) {
         return;
     }
-    
+
     if (model.isNew) {
         model.reservations.push(model.currentReservation);
     }
-    
+
     navigator.navigateBackWithContext(model);
 }
 
@@ -92,8 +96,8 @@ export function setupEditorTable(editor) {
     hideSeparator(editor);
     hideBackground(editor);
 
-    var pickerDelegate = UIPickerViewDelegateImplementation.new().initWithOwner(editor);
-    editor.pickerView.delegate = pickerDelegate;
+    tablePickerDelegate = UIPickerViewDelegateImplementation.initWithOwner(new WeakRef(editor));
+    editor.pickerView.delegate = tablePickerDelegate;
 
     applyAccessoryArrowColor(editor, colorAccent);
     applyEditorOffset(editor, 0);
@@ -103,8 +107,8 @@ export function setupEditorTable(editor) {
 export function setupEditorSection(editor) {
     hideBackground(editor);
 
-    var pickerDelegate = UIPickerViewDelegateImplementation.new().initWithOwner(editor);
-    editor.pickerView.delegate = pickerDelegate;
+    sectionPickerDelegate = UIPickerViewDelegateImplementation.initWithOwner(new WeakRef(editor));
+    editor.pickerView.delegate = sectionPickerDelegate;
 
     applyAccessoryArrowColor(editor, colorAccent);
     applyEditorOffset(editor, 6);
@@ -114,7 +118,7 @@ export function setupEditorSection(editor) {
 }
 
 export function setupEditorGuests(editor) {
-    
+
     applyAccessoryArrowColor(editor, colorAccent);
     applyLabelOffset(editor, 12);
     applySeparatorOffset(editor, 36);
@@ -145,7 +149,7 @@ export function applyLabelOffset(editor, value) {
 }
 
 export function applyEditorOffset(editor, value) {
-    editor.insets = { left:value, right:value };
+    editor.insets = { left: value, right: value };
 }
 
 export function applyValueOffset(editor, value) {
@@ -210,8 +214,7 @@ export function editorNeedsValue(args) {
     args.value = buttonEditorHelper.buttonValue;
 }
 
-export class ButtonEditorHelper extends NSObject 
-{    
+export class ButtonEditorHelper extends NSObject {
     public buttonValue: Boolean;
     public editor: dataFormModule.CustomPropertyEditor;
 
@@ -228,7 +231,7 @@ export class ButtonEditorHelper extends NSObject
     }
 
     public static ObjCExposedMethods = {
-        "handleTap:": { returns: interop.types.void, params: [ UIView.class() ] }
+        "handleTap:": { returns: interop.types.void, params: [UIView.class()] }
     };
 }
 
@@ -240,31 +243,37 @@ class UIPickerViewDelegateImplementation extends NSObject implements UIPickerVie
         return <UIPickerViewDelegateImplementation>super.new();
     }
 
-    private _owner: TKDataFormPickerViewEditor;
+    private _owner: WeakRef<TKDataFormPickerViewEditor>;
 
-    public initWithOwner(owner: TKDataFormPickerViewEditor): UIPickerViewDelegateImplementation {
-        this._owner = owner;
-        return this;
+    public static initWithOwner(owner: WeakRef<TKDataFormPickerViewEditor>): UIPickerViewDelegateImplementation {
+        let delegate = <UIPickerViewDelegateImplementation>UIPickerViewDelegateImplementation.new();
+        delegate._owner = owner;
+
+        return delegate;
     }
 
-    public pickerViewTitleForRowForComponent(pickerView: UIPickerView, row: NSInteger, component: NSInteger): NSString {
-        return this._owner.options[row];
+    public pickerViewTitleForRowForComponent(pickerView: UIPickerView, row: number, component: number): string {
+        let owner = this._owner.get();
+        return owner.options[row];
     }
 
-    public pickerViewDidSelectRowInComponent(pickerView: UIPickerView, row: NSInteger, component: NSInteger): void {
-        this._owner.selectedIndex = row;
-        this._owner.owner.editorValueChanged(this._owner);
+    public pickerViewDidSelectRowInComponent(pickerView: UIPickerView, row: number, component: number): void {
+        let owner = this._owner.get();
+        if (owner) {
+            owner.selectedIndex = row;
+            owner.owner.editorValueChanged(owner);
+        }
     }
+    
+    public pickerViewAttributedTitleForRowForComponent(pickerView: UIPickerView, row: number, component: number): NSAttributedString {
+        let owner = this._owner.get();
+        if (owner) {
+            let titleString = String(this.pickerViewTitleForRowForComponent(pickerView, row, component));
+            let title = NSAttributedString.alloc().initWithStringAttributes(titleString, <any>{ [NSForegroundColorAttributeName]: UIColor.whiteColor });
 
-    public pickerViewAttributedTitleForRowForComponent(pickerView: UIPickerView, row: NSInteger, component: NSInteger): NSAttributedString {
-        var title = this.pickerViewTitleForRowForComponent(pickerView, row, component);
-        var titleString = String(title);
-        var keys = NSMutableArray.alloc().init();
-        keys.addObject(NSForegroundColorAttributeName);
-        var values = NSMutableArray.alloc().init();
-        values.addObject(UIColor.whiteColor);
-        var attr = NSDictionary.alloc().initWithObjectsForKeys(values, keys);
-        var res = NSAttributedString.alloc().initWithStringAttributes(titleString, attr);
-        return res;
+            return title;
+        }
+
+        return NSAttributedString.alloc().initWithStringAttributes(row.toString(), <any>{ [NSForegroundColorAttributeName]: pickerView.tintColor });
     }
 }

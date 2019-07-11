@@ -176,43 +176,7 @@ function firebaseInit() {
     console.log("Firebase init!!!");
 
     firebase.init({
-        persist: true,
-        onMessageReceivedCallback(message) {
-            console.log("Got message!");
-            console.log(JSON.stringify(message));
-
-            let url = (<any>message).url;
-            let id = (<any>message).id;
-            if (url) {
-                if (message.foreground) {
-                    dialogs.confirm({
-                        title: (<any>message).inAppTitle,
-                        message: (<any>message).inAppBody,
-                        okButtonText: isAndroid ? "OPEN" : "Open",
-                        cancelButtonText: isAndroid ? "OK" : "OK"
-                    }).then(result => {
-                        if (result) {
-                            utils.openUrl(url);
-                            if (id) {
-                                markAsRead(id);
-                                viewModel.news.filter(a => a.id === a.id).forEach(a => a.isRead = true);
-                            }
-                            navigator.navigateToWhatIsNew();
-                        }
-                    });
-                } else {
-                    if (lastHandledData != url) {
-                        navigator.navigateToWhatIsNew();
-                        lastHandledData = url;
-                    }
-                }
-            }
-        },
-        onPushTokenReceivedCallback(token) {
-            console.log("Got token");
-            console.log("token: " + token);
-            settings.setBoolean("user-granted-push", true);
-        }
+        persist: true
     }).then(value => {
         firebase.addValueEventListener((result) => {
             if (!result.error) {

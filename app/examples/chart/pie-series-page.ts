@@ -5,7 +5,6 @@ import * as models from "./view-model";
 import * as frame from "tns-core-modules/ui/frame";
 import * as pages from "tns-core-modules/ui/page";
 import * as gestures from "tns-core-modules/ui/gestures";
-import * as app from "tns-core-modules/application";
 import * as navigator from "../../common/navigator";
 
 export function rootGridLoaded(args: observable.EventData) {
