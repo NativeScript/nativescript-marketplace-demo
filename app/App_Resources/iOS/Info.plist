@@ -44,26 +44,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon@2x.png</string>
-		<string>Icon.png</string>
-		<string>Icon-Small@3x.png</string>
-		<string>Icon-Small@2x.png</string>
-		<string>Icon-Small.png</string>
-		<string>Icon-Small-50@2x.png</string>
-		<string>Icon-Small-50.png</string>
-		<string>Icon-Small-40@3x.png</string>
-		<string>Icon-Small-40@2x.png</string>
-		<string>Icon-Small-40.png</string>
-		<string>Icon-76@2x.png</string>
-		<string>Icon-76.png</string>
-		<string>Icon-60@3x.png</string>
-		<string>Icon-60@2x.png</string>
-		<string>Icon-60.png</string>
-		<string>Icon-40@2x.png</string>
-		<string>Icon-40.png</string>
-	</array>
+	<key>CFBundleIcons</key>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This app would like to access your calendar.</string>
 </dict>
