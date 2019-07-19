@@ -10,15 +10,11 @@ const USE_APP_SYNC = false;
 // Set to true only for local testing of app sync updates in production.
 const USE_PRODUCTION_KEYS = false;
 
-const APP_SYNC_IOS_STAGING_KEY = "fiBdxKJa5OZrLmCFxjSaik9GcxzuOKa4VJnve";
-// const APP_SYNC_IOS_STAGING_KEY = "veJR019Gs4X7IR2nB7vvyrAQj83pOKa4VJnve";
-const APP_SYNC_IOS_PRODUCTION_KEY = "F1zi4w73usSZAsAO4vRWDxwKxbDSOKa4VJnve";
-// const APP_SYNC_IOS_PRODUCTION_KEY = "WTN0GQfqucktGkE3SYKH9CpTSjfVOKa4VJnve";
+const APP_SYNC_IOS_STAGING_KEY = "e4VfAHQS1SgFRxdQg2DwQUa94aArOKa4VJnve";
+const APP_SYNC_IOS_PRODUCTION_KEY = "vTD6T8AyxEMYP7mXssZ5TGXvC9nAOKa4VJnve";
 
-const APP_SYNC_ANDROID_STAGING_KEY = "37iwXdwpi0IRBDyiwohaXR8qrtOAOKa4VJnve";
-// const APP_SYNC_ANDROID_STAGING_KEY = "zzPoMNbFRV2kKyK8qDF9pWKxyMUjOKa4VJnve";
-const APP_SYNC_ANDROID_PRODUCTION_KEY = "G9PyTprfngkhgbHeSD2qIBe5PSU3OKa4VJnve";
-// const APP_SYNC_ANDROID_PRODUCTION_KEY = "BSyKUn5tImYHrRjywjy5bc29am8xOKa4VJnve";
+const APP_SYNC_ANDROID_STAGING_KEY = "zzPoMNbFRV2kKyK8qDF9pWKxyMUjOKa4VJnve";
+const APP_SYNC_ANDROID_PRODUCTION_KEY = "BSyKUn5tImYHrRjywjy5bc29am8xOKa4VJnve";
 
 export function init() {
     if (!USE_APP_SYNC) {
