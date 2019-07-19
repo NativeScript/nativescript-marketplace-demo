@@ -8,6 +8,7 @@ import * as utils from "tns-core-modules/utils/utils";
 // import { time, uptime } from "profiling";
 import "nativescript-plugin-firebase";
 import { init as initFirebase } from "./common/firebase";
+import { init as initAppSync } from "./common/app-sync";
 
 require("./module-registrations");
 
@@ -20,6 +21,7 @@ require("./module-registrations");
 
 // The location of this import is important. iOS swizzles the app delegate.
 initFirebase();
+initAppSync();
 
 if (application.android) {
     application.on("launch", args => {
