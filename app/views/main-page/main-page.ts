@@ -108,7 +108,7 @@ function getRootSideDrawer(): RadSideDrawer {
 }
 
 function startEnterAnimation(page: Page) {
-    ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started", "intro-version"]
+    ["intro-background", "intro-logo-bg", "intro-logo-n", "intro-logo-ns", "intro-text-one", "intro-text-two", "intro-get-started"]
         .forEach(id => page.getViewById(id).className = id + "-enter");
 }
 function startExamplesAnimation(page: Page) {

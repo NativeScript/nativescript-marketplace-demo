@@ -20,10 +20,9 @@
         </ActionBar>
     </Page.actionBar>
         <!--ToDo list-->
-		<!-- <ListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" swipeActions="true" itemReorder="true" ></ListView> -->
 		<lv:RadListView backgroundColor="#151f2f" id="todo-list" items="{{ todoItems }}" swipeActions="true" itemReorder="true" 
 			ios:reorderMode="HoldAndDrag"
-			android:reorderMode="Drag"
+			android:reorderMode="HoldAndDrag"
 			itemReorderStarted="{{onItemReorderStarted}}"
 			itemReordered="{{onItemReordered}}"
 			itemSwipeProgressStarted="onItemSwipeProgressStarted"
@@ -36,13 +35,6 @@
 			
 			<lv:RadListView.itemTemplate>
 				<GridLayout columns="auto, *" paddingBottom="1" backgroundColor="#151f2f">
-					<android>
-						<lv:ReorderHandle verticalAlignment="stretch">
-							<GridLayout col="0" borderColor="#08caab" borderWidth="1" verticalAlignment="stretch">
-								<Image src="res://ic_reorder" stretch="aspectFit" margin="12" height="18"/>
-							</GridLayout>
-						</lv:ReorderHandle>
-					</android>
 					<StackLayout col="1" backgroundColor="{{isReordered === false ? '#08caab' : '#026968'}}" padding="12" orientation="horizontal">
 						<Label text="{{ title }}" color="white" ios:class="{{ isDone ? 'doneItemStyle itemIOS' : 'notDoneItemStyle itemIOS' }}"
 							android:class="{{ isDone ? 'doneItemStyle' : 'notDoneItemStyle' }}"/>

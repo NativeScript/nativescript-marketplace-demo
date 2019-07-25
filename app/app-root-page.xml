@@ -91,10 +91,14 @@
                                 class="drawer-external-label" />
                         </GridLayout>
                     </GridLayout>
-
                 </StackLayout>
             </ScrollView>
 
+            <Label class="drawer-button" 
+                verticalAlignment="bottom" 
+                horizontalAlignment="center" 
+                fontSize="12" 
+                text="app version 6.0.2" />
         </GridLayout>
     </nsDrawer:RadSideDrawer.drawerContent>
     <nsDrawer:RadSideDrawer.mainContent>

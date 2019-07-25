@@ -150,14 +150,6 @@
                 width="234" 
                 fontSize="18" 
                 tap="tapGetStarted" />
-            <Label id="intro-version" 
-                class="intro-version-intro" 
-                text="version 6.0.1" 
-                fontSize="14" 
-                horizontalAlignment="center" 
-                verticalAlignment="center" 
-                color="white" 
-                textAlignment="center" />
         </GridLayout>
     </GridLayout>
 </Page>
