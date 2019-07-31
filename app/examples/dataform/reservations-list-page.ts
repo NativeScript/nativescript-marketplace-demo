@@ -26,7 +26,7 @@ export function pageNavigatedFrom(args: any) {
     }
 }
 
-export function goBack(args) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }
 

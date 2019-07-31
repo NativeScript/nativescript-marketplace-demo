@@ -1,4 +1,4 @@
-import { ReservationsViewModel, Reservation } from "./reservations-view-model";
+import { ReservationsViewModel } from "./reservations-view-model";
 import { EventData } from "tns-core-modules/data/observable";
 import { Page, NavigatedData } from "tns-core-modules/ui/page";
 import * as viewModule from "tns-core-modules/ui/core/view";
@@ -24,8 +24,9 @@ export function pageNavigatedTo(args: NavigatedData) {
 }
 
 export function saveChanges(args: EventData) {
-    var page = <Page>(<viewModule.View>args.object).page;
-    var dataForm = <dataFormModule.RadDataForm>viewModule.getViewById(page, "reservationForm");
+    const page = <Page>(<viewModule.View>args.object).page;
+    const dataForm = <dataFormModule.RadDataForm>viewModule.getViewById(page, "reservationForm");
+
     dataForm.commitAll();
 
     if (dataForm.hasValidationErrors()) {

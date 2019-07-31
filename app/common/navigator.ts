@@ -1,74 +1,34 @@
 import * as examplesVM from "../view-models/examples-model";
-import * as groupVM from "../view-models/group-page-view-model";
 import * as exampleInfoPageVM from "../view-models/example-info-page-view-model";
-import * as frame from "tns-core-modules/ui/frame";
+import * as frameModule from "tns-core-modules/ui/frame";
 import { isIOS, isAndroid } from "tns-core-modules/platform";
+import { getRootView } from "tns-core-modules/application"
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 function traceNavigateTo(to: string, context?: string): string {
     return to;
 }
 
-export function navigateToExampleGroup(context: groupVM.GroupPageViewModel) {
-    // prof.start("group");
+function getFrameForNavigation(): frameModule.Frame {
+    return frameModule && frameModule.topmost() || getRootSideDrawer().mainContent as frameModule.Frame
+}
 
-    frame.topmost().navigate({
-        animated: true,
-        context: context,
-        moduleName: traceNavigateTo("views/group-page/group-page"),
-    })
+function getRootSideDrawer(): RadSideDrawer {
+    return getRootView() as RadSideDrawer;
 }
 
 export function navigateToExample(example: examplesVM.Example, siblings: examplesVM.Example[]) {
     // prof.start("example");
     // prof.startCPUProfile("example");
 
-    var navContext: exampleInfoPageVM.ExampleNavigationContext = {
+    const navContext: exampleInfoPageVM.ExampleNavigationContext = {
         shouldNavigateToInfoOnBack: true,
         example: example,
         siblings: siblings
     }
+    const frame = getFrameForNavigation();
 
-    frame.topmost().navigate({
-        animated: true,
-        moduleName: traceNavigateTo(navContext.example.path),
-        context: navContext
-    });
-}
-
-export function navigateToNextExample(current: exampleInfoPageVM.ExampleNavigationContext) {
-    var index = current.siblings.indexOf(current.example);
-    ++index;
-    if (index >= current.siblings.length) {
-        index = 0;
-    }
-
-    var navContext: exampleInfoPageVM.ExampleNavigationContext = {
-        shouldNavigateToInfoOnBack: true,
-        example: current.siblings[index],
-        siblings: current.siblings
-    }
-
-    frame.topmost().navigate({
-        animated: true,
-        moduleName: traceNavigateTo(navContext.example.path),
-        context: navContext
-    });
-}
-
-export function navigateToPrevExample(current: exampleInfoPageVM.ExampleNavigationContext) {
-    var index = current.siblings.indexOf(current.example);
-    --index;
-    if (index < 0) {
-        index = current.siblings.length - 1;
-    }
-
-    var navContext: exampleInfoPageVM.ExampleNavigationContext = {
-        shouldNavigateToInfoOnBack: true,
-        example: current.siblings[index],
-        siblings: current.siblings
-    }
-
-    frame.topmost().navigate({
+    frame.navigate({
         animated: true,
         moduleName: traceNavigateTo(navContext.example.path),
         context: navContext
@@ -76,8 +36,10 @@ export function navigateToPrevExample(current: exampleInfoPageVM.ExampleNavigati
 }
 
 export function navigateToExampleInfo(context: exampleInfoPageVM.ExampleNavigationContext) {
-    var infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
-    frame.topmost().navigate({
+    const infoContext = new exampleInfoPageVM.ExampleInfoPageViewModel(context.example);
+    const frame = getFrameForNavigation();
+
+    frame.navigate({
         animated: true,
         context: infoContext,
         moduleName: traceNavigateTo("views/example-info-page", infoContext.currentExample.path)
@@ -85,7 +47,9 @@ export function navigateToExampleInfo(context: exampleInfoPageVM.ExampleNavigati
 }
 
 export function navigateToCode(context: examplesVM.Example) {
-    frame.topmost().navigate({
+    const frame = getFrameForNavigation();
+
+    frame.navigate({
         animated: true,
         context: context,
         moduleName: traceNavigateTo("views/code-page", context.path),
@@ -93,44 +57,50 @@ export function navigateToCode(context: examplesVM.Example) {
 }
 
 export function navigateToHome() {
-    var topmost = frame.topmost();
-    if (topmost.currentEntry.moduleName !== "views/main-page/main-page") {
-        frame.topmost().navigate(traceNavigateTo("views/main-page/main-page"));
+    const frame = getFrameForNavigation();
+
+    if (frame.currentEntry.moduleName !== "views/main-page/main-page") {
+        frame.navigate(traceNavigateTo("views/main-page/main-page"));
     }
 }
 
 export function navigateToAbout() {
-    var topmost = frame.topmost();
-    if (topmost.currentEntry.moduleName !== "views/about/about-page") {
-        frame.topmost().navigate(traceNavigateTo("views/about/about-page"));
+    const frame = getFrameForNavigation();
+    
+    if (frame.currentEntry.moduleName !== "views/about/about-page") {
+        frame.navigate(traceNavigateTo("views/about/about-page"));
     }
 }
 
 export function navigateToWhatIsNew() {
-    var topmost = frame.topmost();
-    if (topmost.currentEntry.moduleName !== "views/what-is-new-page") {
-        frame.topmost().navigate(traceNavigateTo("views/what-is-new-page"));
+    const frame = getFrameForNavigation();
+    if (frame.currentEntry.moduleName !== "views/what-is-new-page") {
+        frame.navigate(traceNavigateTo("views/what-is-new-page"));
     }
 }
 
 export function navigateBack() {
+    const frame = getFrameForNavigation();
+
     frame.goBack();
 }
 
 export function navigateBackWithContext(context: any) {
-    var topmostFrame = frame.topmost();
-    var backstackEntry = topmostFrame.backStack[topmostFrame.backStack.length - 1];
+    const frame = getFrameForNavigation();
+
+    var backstackEntry = frame.backStack[frame.backStack.length - 1];
     backstackEntry.entry.context = context;
-    topmostFrame.goBack(backstackEntry);
+    frame.goBack(backstackEntry);
 }
 
 export function navigateBackFromExample() {
-    var topmostFrame = frame.topmost();
-    var stack = topmostFrame.backStack;
+    const frame = getFrameForNavigation();
+
+    var stack = frame.backStack;
     for (var top = stack.length - 1; top >= 0; --top) {
         var backStackEntry = stack[top];
         if (!/^examples\//.test(backStackEntry.entry.moduleName)) {
-            topmostFrame.goBack(backStackEntry);
+            frame.goBack(backStackEntry);
             break;
         }
     }
@@ -148,7 +118,7 @@ export function openLink(view: any) {
         }
         else if (isAndroid) {
             var intent = new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url));
-            var activity = frame.topmost().android.activity;
+            var activity = frameModule.topmost().android.activity;
             activity.startActivity(android.content.Intent.createChooser(intent, "share"));
         }
     }

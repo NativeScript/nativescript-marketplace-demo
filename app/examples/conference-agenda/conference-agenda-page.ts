@@ -73,6 +73,6 @@ export function tap(args: EventData) {
     }
 }
 
-export function goBack(args: EventData) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }

@@ -75,6 +75,6 @@ export function onItemSwipeProgressEnded(args: listViewModule.ListViewEventData)
     rightThresholdPassed = false;
 }
 
-export function goBack(args) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }

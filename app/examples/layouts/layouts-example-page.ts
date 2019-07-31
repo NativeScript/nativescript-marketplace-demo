@@ -30,7 +30,7 @@ export function pageNavigatingTo(args: observable.EventData) {
     selectedIndexChanged(null);
 }
 
-export function goBack(args) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }
 
