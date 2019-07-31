@@ -41,7 +41,7 @@ export function saveChanges(args: EventData) {
     navigator.navigateBackWithContext(model);
 }
 
-export function goBack(args: EventData) {
+export function goBack() {
     navigator.navigateBack();
 }
 

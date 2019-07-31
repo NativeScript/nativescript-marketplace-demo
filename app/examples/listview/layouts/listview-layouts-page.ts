@@ -31,6 +31,6 @@ export function onChangeLayoutTap(args: EventData) {
     viewModel.isLinearActive = !viewModel.isLinearActive;
 }
 
-export function goBack(args: EventData) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }

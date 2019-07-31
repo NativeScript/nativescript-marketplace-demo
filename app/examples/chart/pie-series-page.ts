@@ -44,6 +44,6 @@ export function repeaterItemTap(args: gestures.GestureEventData) {
     loadItem(page, item);
 }
 
-export function goBack(args) {
+export function goBack() {
     navigator.navigateBackFromExample();
 }

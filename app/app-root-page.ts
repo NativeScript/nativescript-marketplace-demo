@@ -1,5 +1,3 @@
-import { ExampleGroup } from "./view-models/examples-model";
-import { GroupPageViewModel } from "./view-models/group-page-view-model"
 import * as navigator from "./common/navigator"
 import * as gestures from "tns-core-modules/ui/gestures";
 import { groups } from "./view-models/examples-model"
@@ -40,13 +38,6 @@ function toggleDrawerState() {
     }
 }
 
-export function navigateToExampleGroup(args) {
-    closeDrawer();
-    var exampleGroup = <ExampleGroup>(<any>args).object.bindingContext;
-    var context = new GroupPageViewModel(exampleGroup);
-    navigator.navigateToExampleGroup(context);
-}
-
 export function showSlideout() {
     toggleDrawerState();
 }
@@ -61,7 +52,7 @@ export function tapAbout() {
     if (application.android) {
         setTimeout(() => navigator.navigateToAbout(), 600);
     } else {
-        navigator.navigateToAbout()
+        navigator.navigateToAbout();
     }
 }
 
