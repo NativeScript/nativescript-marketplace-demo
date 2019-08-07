@@ -30,7 +30,7 @@ export class ChartExamplesDataModel {
     }
 
     public clearCache() {
-        for (var i = 0; i<this._views.length; i++) {
+        for (var i = 0; i < this._views.length; i++) {
             delete this._views[i];
         }
         this._views = {};
@@ -66,7 +66,18 @@ export class ChartExamplesDataModel {
             }
         }
 
-        viewHolder.addChild(exampleView);
+        // The following reset of binding context fixes a glitch in iOS with series animations 
+        // which occurs due to chart loading data before being properly measured
+        if (app.ios) {
+            let context = viewHolder.bindingContext;
+            viewHolder.bindingContext = null;
+            viewHolder.addChild(exampleView);
+            setTimeout(() => {
+                viewHolder.bindingContext = context;
+            }, 100);
+        } else {
+            viewHolder.addChild(exampleView);
+        }
     }
 
     get categoricalSource() {
@@ -153,7 +164,7 @@ export class ChartExamplesDataModel {
         ];
     }
 
-   get pieSource2() {
+    get pieSource2() {
         if (this._pieSource2) {
             return this._pieSource2;
         }
