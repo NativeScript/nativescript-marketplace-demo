@@ -59,10 +59,10 @@
                         <Repeater.itemsLayout>
                             <WrapLayout id="examples-wrap-layout" 
                                 horizontalAlignment="left" 
-                                android:itemWidth="{{ (screenWidth - 20) / 2 }}" 
+                                android:itemWidth="{{ (screenWidth - 21) / 2 }}" 
                                 ios:itemWidth="{{ (screenWidth - 13) / 2 }}" 
-                                android:itemHeight="{{ (screenWidth - 20) * 0.5 + 50 }}" 
-                                ios:itemHeight="{{ (screenWidth - 13) * 0.5 + 50 }}" />
+                                android:itemHeight="{{ (screenWidth - 21) / 2 + 50 }}" 
+                                ios:itemHeight="{{ (screenWidth - 13) / 2 + 50 }}" />
                         </Repeater.itemsLayout>
                         <Repeater.itemTemplate>
                             <GridLayout class="example-intro" 
