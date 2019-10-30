@@ -4,6 +4,7 @@
 
 .conf-segmented-bar {
     color: white;
+    background-color: #67749b;
     margin: 12 11 12 11;
 }
 
@@ -27,9 +28,22 @@ ListView {
 }
 
 @keyframes session-favorite-selected {
-    from { transform: scale(1, 1) rotate(-120); opacity: 0; animation-timing-function: linear; }
-    50% { transform: scale(2, 2) rotate(-60); opacity: 0.3; animation-timint-function: ease-in; }
-    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
+    from {
+        transform: scale(1, 1) rotate(-120);
+        opacity: 0;
+        animation-timing-function: linear;
+    }
+
+    50% {
+        transform: scale(2, 2) rotate(-60);
+        opacity: 0.3;
+        animation-timint-function: ease-in;
+    }
+
+    to {
+        transform: scale(1, 1) rotate(0);
+        opacity: 1;
+    }
 }
 
 .session-favorite-selected {
@@ -41,9 +55,22 @@ ListView {
 }
 
 @keyframes session-favorite-unselected {
-    from { transform: scale(1, 1) rotate(120); opacity: 0; animation-timing-function: linear; }
-    60% { transform: scale(2, 2) rotate(60); opacity: 0.3; animation-timint-function: ease-in; }
-    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
+    from {
+        transform: scale(1, 1) rotate(120);
+        opacity: 0;
+        animation-timing-function: linear;
+    }
+
+    60% {
+        transform: scale(2, 2) rotate(60);
+        opacity: 0.3;
+        animation-timint-function: ease-in;
+    }
+
+    to {
+        transform: scale(1, 1) rotate(0);
+        opacity: 1;
+    }
 }
 
 .session-favorite-unselected {
@@ -56,20 +83,20 @@ ListView {
 
 .session-time {
     /*font-weight: 500;*/
-	font-size: 11;
+    font-size: 11;
     color: #4ac1fa;
 }
 
 .session-room {
     /*font-weight: 500;*/
-	font-size: 11;
-	color: white;
+    font-size: 11;
+    color: white;
     text-transform: uppercase;
     margin-left: 4;
 }
 
 .session-title {
     /*font-weight: 300;*/
-	font-size: 19;
-	color: #c3c3c3;
+    font-size: 19;
+    color: #c3c3c3;
 }

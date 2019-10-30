@@ -81,14 +81,13 @@
 
         <lv:RadListView.itemTemplate>
             <ios>
-                <GridLayout columns="auto, *, auto" class="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
-                    <Image col="0" src="{{ isSelected ? 'res://listview/selection/ic_checked' : 'res://listview/selection/ic_unchecked'}}" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" class="check-box" />
-                    <GridLayout col="1" columns="auto, *" rows="auto,*">
-                        <Image row="0" col="0" src="res://listview/selection/ic_fav" opacity="{{ IsFavourite ? '1' : '0' }}"/>
+                <GridLayout columns="*, auto" class="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
+                    <GridLayout col="0" columns="auto, *" rows="auto,*">
+                        <Image row="0" col="0" margin="5" src="res://listview/selection/ic_fav" opacity="{{ IsFavourite ? '1' : '0' }}"/>
                         <Label row="0" col="1" text="{{ Title }}" class="titleStyle" textWrap="true"/>
                         <Label row="1" col="1" text="{{ Summary }}" ios.numberOfLines="3" class="contentStyle" textWrap="true"/>
                     </GridLayout>
-                    <lv:ReorderHandle col="2" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                    <lv:ReorderHandle col="1" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
                         <Image src="res://listview/selection/ic_reorder" class="reorder-handle" />
                     </lv:ReorderHandle>
                 </GridLayout>
