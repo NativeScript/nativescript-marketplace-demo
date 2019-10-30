@@ -2,7 +2,7 @@
 
 .example-title {
     color: white;
-    font-size: 20;     
+    font-size: 20;
 }
 
 .modeSelectedButtonStyle {
@@ -13,7 +13,7 @@
     padding: 10;
 }
 
-.modeButtonStyle{
+.modeButtonStyle {
     color: white;
     font-size: 15;
     horizontal-align: center;
@@ -40,13 +40,9 @@
 .blue-button {
     horizontal-align: center;
     vertical-align: center;
-    margin: 12 0;    
-} 
+    margin: 12 0;
+}
 
 .reorder-handle {
     margin: 16;
-}
-
-.check-box {
-    margin: 8; 
 }

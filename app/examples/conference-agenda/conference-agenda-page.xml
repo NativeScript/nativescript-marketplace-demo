@@ -21,7 +21,7 @@
     <GridLayout rows="auto, *" columns="*" class="main-content" id="main-content">
         <!-- Segmented Bar -->
         <SegmentedBar row="0" selectedIndex="{{ selectedDay }}"
-                ios:selectedBackgroundColor="white"
+                ios:selectedBackgroundColor="#4ac1fa"
                 android:selectedBackgroundColor="#FAC950" 
                 class="conf-segmented-bar">
             <SegmentedBar.items>
