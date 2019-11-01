@@ -83,6 +83,7 @@ export function setupEditorDate(editor) {
     applyAccessoryArrowColor(editor, colorAccent);
     applyEditorOffset(editor, imageWidth);
     applySeparatorOffset(editor, 36);
+    applyLabelOffset(editor, 12);
 }
 
 export function setupEditorTime(editor) {
@@ -90,6 +91,7 @@ export function setupEditorTime(editor) {
 
     applyAccessoryArrowColor(editor, colorAccent);
     applyEditorOffset(editor, imageWidth);
+    applyLabelOffset(editor, 12);
     applySeparatorOffset(editor, 36);
 }
 

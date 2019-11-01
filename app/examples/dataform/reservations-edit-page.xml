@@ -1,8 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
         loaded="pageLoaded"
         xmlns:df="nativescript-ui-dataform"
-        navigatedTo="pageNavigatedTo"
-        color="black">
+        navigatedTo="pageNavigatedTo">
      <Page.actionBar >
         <ActionBar title="{{ isNew ? 'New reservation' : 'Edit reservation' }}" automationText="ActionBar">
             <NavigationButton icon="res://ic_close1" tap="goBack" automationText="GoBack" />
@@ -23,13 +22,6 @@
                         </df:PropertyGroup.titleStyle>
                         <df:PropertyGroup.properties>
                             <df:EntityProperty name="name" displayName="" android:index="0" hintText="Name" imageResource="res://ic_dataform_guest">
-                                <df:EntityProperty.editor>
-                                    <df:PropertyEditor type="Text">
-                                        <df:PropertyEditor.propertyEditorStyle>
-                                            <df:PropertyEditorStyle labelTextColor="black"/>
-                                        </df:PropertyEditor.propertyEditorStyle>
-                                    </df:PropertyEditor>
-                                </df:EntityProperty.editor>
                                 <df:EntityProperty.validators>
                                     <df:NonEmptyValidator errorMessage="Please fill in guest name" /> 
                                 </df:EntityProperty.validators> 
@@ -90,7 +82,7 @@
                                 <df:EntityProperty.editor>
                                     <df:PropertyEditor type="Picker">
                                         <df:PropertyEditor.propertyEditorStyle>
-                                            <df:PropertyEditorStyle labelTextColor="black" />
+                                            <df:PropertyEditorStyle labelTextColor="#FFFFFF" />
                                         </df:PropertyEditor.propertyEditorStyle>
                                     </df:PropertyEditor>
                                 </df:EntityProperty.editor>
