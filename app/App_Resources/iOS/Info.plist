@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>CFBundleDisplayName</key>
-	<string>Examples NativeScript</string>
-	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIdentifier</key>
-	<string>org.nativescript.examples</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>Examples NativeScript</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>6.0.4</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>6.0.4</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UIRequiresFullScreen</key>
-	<true/>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>CFBundleIcons</key>
-	<dict/>
-	<key>CFBundleIcons~ipad</key>
-	<dict/>
-	<key>NSCalendarsUsageDescription</key>
-	<string>This app would like to access your calendar.</string>
-</dict>
+	<dict>
+		<key>CFBundleDevelopmentRegion</key>
+		<string>en</string>
+		<key>UILaunchStoryboardName</key>
+		<string>LaunchScreen</string>
+		<key>CFBundleDisplayName</key>
+		<string>Examples NativeScript</string>
+		<key>CFBundleExecutable</key>
+		<string>${EXECUTABLE_NAME}</string>
+		<key>CFBundleIdentifier</key>
+		<string>org.nativescript.examples</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>Examples NativeScript</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>6.0.4</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleVersion</key>
+		<string>6.0.4</string>
+		<key>LSRequiresIPhoneOS</key>
+		<true/>
+		<key>UIRequiredDeviceCapabilities</key>
+		<array>
+			<string>armv7</string>
+		</array>
+		<key>UIRequiresFullScreen</key>
+		<true/>
+		<key>UISupportedInterfaceOrientations</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		</array>
+		<key>UISupportedInterfaceOrientations~ipad</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		</array>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<false/>
+		<key>CFBundleIcons</key>
+		<dict/>
+		<key>CFBundleIcons~ipad</key>
+		<dict/>
+		<key>NSCalendarsUsageDescription</key>
+		<string>This app would like to access your calendar.</string>
+		<key>UIUserInterfaceStyle</key>
+		<string>Light</string>
+	</dict>
 </plist>

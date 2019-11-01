@@ -1,7 +1,8 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd"
         loaded="pageLoaded"
         xmlns:df="nativescript-ui-dataform"
-        navigatedTo="pageNavigatedTo">
+        navigatedTo="pageNavigatedTo"
+        color="black">
      <Page.actionBar >
         <ActionBar title="{{ isNew ? 'New reservation' : 'Edit reservation' }}" automationText="ActionBar">
             <NavigationButton icon="res://ic_close1" tap="goBack" automationText="GoBack" />
@@ -22,13 +23,20 @@
                         </df:PropertyGroup.titleStyle>
                         <df:PropertyGroup.properties>
                             <df:EntityProperty name="name" displayName="" android:index="0" hintText="Name" imageResource="res://ic_dataform_guest">
+                                <df:EntityProperty.editor>
+                                    <df:PropertyEditor type="Text">
+                                        <df:PropertyEditor.propertyEditorStyle>
+                                            <df:PropertyEditorStyle labelTextColor="black"/>
+                                        </df:PropertyEditor.propertyEditorStyle>
+                                    </df:PropertyEditor>
+                                </df:EntityProperty.editor>
                                 <df:EntityProperty.validators>
                                     <df:NonEmptyValidator errorMessage="Please fill in guest name" /> 
                                 </df:EntityProperty.validators> 
                             </df:EntityProperty>
                             <df:EntityProperty name="phone" displayName="" android:index="1" hintText="Phone" imageResource="res://ic_dataform_phone">
                                 <df:EntityProperty.editor>
-                                    <df:PropertyEditor type="Phone" />
+                                    <df:PropertyEditor type="Phone"  />
                                 </df:EntityProperty.editor>
                                 <df:EntityProperty.validators>
                                     <df:PhoneValidator errorMessage="Please fill in a valid number" /> 
@@ -82,7 +90,7 @@
                                 <df:EntityProperty.editor>
                                     <df:PropertyEditor type="Picker">
                                         <df:PropertyEditor.propertyEditorStyle>
-                                            <df:PropertyEditorStyle labelTextColor="#FFFFFF" />
+                                            <df:PropertyEditorStyle labelTextColor="black" />
                                         </df:PropertyEditor.propertyEditorStyle>
                                     </df:PropertyEditor>
                                 </df:EntityProperty.editor>
