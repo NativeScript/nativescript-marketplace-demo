@@ -28,7 +28,7 @@
                             </df:EntityProperty>
                             <df:EntityProperty name="phone" displayName="" android:index="1" hintText="Phone" imageResource="res://ic_dataform_phone">
                                 <df:EntityProperty.editor>
-                                    <df:PropertyEditor type="Phone" />
+                                    <df:PropertyEditor type="Phone"  />
                                 </df:EntityProperty.editor>
                                 <df:EntityProperty.validators>
                                     <df:PhoneValidator errorMessage="Please fill in a valid number" /> 
