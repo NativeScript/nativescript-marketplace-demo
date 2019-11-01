@@ -1,5 +1,5 @@
 import { Observable } from "tns-core-modules/data/observable";
-import { ObservableArray }  from "tns-core-modules/data/observable-array";
+import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { RadListView, ListViewEventData, ListViewSelectionBehavior, SwipeActionsEventData } from "nativescript-ui-listview";
 import { topmost as topmostFrame } from "tns-core-modules/ui/frame";
 import { View } from 'tns-core-modules/ui/core/view';
@@ -81,7 +81,7 @@ export class BlogPostItemData extends Observable {
 export class SelectionViewModel extends Observable {
     private _owner: RadListView;
     private _isSwipeEnded: boolean;
-        
+
     constructor(owner: RadListView) {
         super();
         this._owner = owner;
@@ -280,7 +280,11 @@ export class SelectionViewModel extends Observable {
             this.updateCurrentState();
         }
     }
-    
+
+    public onItemReordered(args: ListViewEventData) {
+        this.lvItems.forEach(item => { item.isSelected = false });
+    }
+
     public onItemSelected(args) {
         if (this.isSelectionActive === true) {
             this.selectedItemsCount = this._owner.getSelectedItems().length;
