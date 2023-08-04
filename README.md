@@ -1,4 +1,14 @@
-# See the NativeScript framework in Action!
+# Archived ⚠️
+
+This repository has been archived. It is outdated, and will no longer receive updates.
+
+---
+
+<details>
+
+<summary>Old README</summary>
+  
+## See the NativeScript framework in Action!
 This is an app created by the NativeScript team to show the NativeScript framework in action. Run the app on your phone to explore the UX and performance that are delivered using cross platform JavaScript code.
 
 *The app is currently in Beta state, so there maybe some rough edges during execution, please report them to us if you hit one.*
@@ -44,3 +54,5 @@ Android APK: ~27.8 MB
 
 ## First start
 Android (Nexus 5x): ~1.4s
+
+</details>
